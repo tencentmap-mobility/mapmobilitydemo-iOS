@@ -138,7 +138,7 @@
 @property (nonatomic, assign) NSTimeInterval syncTimeInterval;
 
 /**
- * @brief  SDK版本号(1.0.1).
+ * @brief  SDK版本号(1.0.3).
  */
 @property (nonatomic, strong, readonly) NSString *sdkVersion;
 

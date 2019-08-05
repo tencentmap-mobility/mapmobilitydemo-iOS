@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+NS_ASSUME_NONNULL_BEGIN
 /**
  * @brief  位置信息.
  */
@@ -17,7 +18,7 @@
 /**
  * @brief  未吸附到路线上的定位信息. 不可为空.
  */
-@property (nonatomic, strong, nonnull)  CLLocation *location;
+@property (nonatomic, strong)  CLLocation *location;
 
 /**
  * @brief  吸附到路线上的经纬度信息. 若未成功吸附到路线上为kCLLocationCoordinate2DInvalid.
@@ -34,4 +35,11 @@
  */
 @property (nonatomic, assign) NSInteger matchedIndex;
 
+/**
+ * @brief  定位所在的城市代码。例如北京:
+ */
+@property (nonatomic, copy, nullable) NSString *cityCode;
+
 @end
+
+NS_ASSUME_NONNULL_END

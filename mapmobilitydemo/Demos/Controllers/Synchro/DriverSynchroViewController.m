@@ -7,12 +7,12 @@
 //
 
 #import "DriverSynchroViewController.h"
-
+#import <TencentLBS/TencentLBS.h>
 #import "RouteLocation.h"
 #import "TrafficPolyline.h"
 #import "Constants.h"
-
 #import <TNKNavigationKit/TNKNavigationKit.h>
+#import "AppDelegate.h"
 
 typedef NS_ENUM(NSInteger, NaviStatus)
 {
@@ -28,7 +28,9 @@ TNKCarNaviUIDelegate,
 TNKCarNaviViewDelegate,
 TNKCarNaviViewDataSource,
 QMapViewDelegate,
-UIGestureRecognizerDelegate>
+UIGestureRecognizerDelegate,
+TencentLBSLocationManagerDelegate
+>
 
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureGecognizer;
 
@@ -56,6 +58,9 @@ UIGestureRecognizerDelegate>
 
 @property (nonatomic, assign) NSTimeInterval lastLocationTimestamp;
 
+@property (nonatomic, strong) TencentLBSLocationManager *locationManager;
+
+@property (nonatomic, copy) NSString *cityCode;
 @end
 
 @implementation DriverSynchroViewController
@@ -138,6 +143,98 @@ UIGestureRecognizerDelegate>
     [self.view addGestureRecognizer:self.longPressGestureGecognizer];
 }
 
+#pragma mark - lbs location
+
+- (void)configLocationManager
+{
+    self.locationManager = [[TencentLBSLocationManager alloc] init];
+    
+    [self.locationManager setDelegate:self];
+    
+    [self.locationManager setApiKey:kSynchroKey];
+    
+    [self.locationManager setPausesLocationUpdatesAutomatically:NO];
+    
+    // 需要后台定位的话，可以设置此属性为YES。
+    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
+    
+    // 如果需要POI信息的话，根据所需要的级别来设定，定位结果将会根据设定的POI级别来返回，如：
+    [self.locationManager setRequestLevel:TencentLBSRequestLevelAdminName];
+    
+    // 申请的定位权限，得和在info.list申请的权限对应才有效
+    CLAuthorizationStatus authorizationStatus = [CLLocationManager authorizationStatus];
+    if (authorizationStatus == kCLAuthorizationStatusNotDetermined) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+}
+
+// 连续定位
+- (void)startSerialLocation {
+    //开始定位
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)stopSerialLocation {
+    //停止定位
+    [self.locationManager stopUpdatingLocation];
+}
+
+- (void)tencentLBSLocationManager:(TencentLBSLocationManager *)manager
+                 didFailWithError:(NSError *)error {
+    CLAuthorizationStatus authorizationStatus = [CLLocationManager authorizationStatus];
+    if (authorizationStatus == kCLAuthorizationStatusDenied ||
+        authorizationStatus == kCLAuthorizationStatusRestricted) {
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+                                                                       message:@"定位权限未开启，是否开启？"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"是"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                    if( [[UIApplication sharedApplication]canOpenURL:
+                                                         [NSURL URLWithString:UIApplicationOpenSettingsURLString]] ) {
+                                                        [[UIApplication sharedApplication] openURL:
+                                                         [NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                                                    }
+                                                }]];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"否"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                }]];
+        
+        
+    }
+}
+
+
+- (void)tencentLBSLocationManager:(TencentLBSLocationManager *)manager
+                didUpdateLocation:(TencentLBSLocation *)location {
+    //定位结果
+    NSLog(@"location:%@", location.location);
+    
+    self.cityCode = location.code;
+    
+    if(self.naviStatus != NaviStatusStarted)
+    {
+        NSTimeInterval timestamp = [location.location.timestamp timeIntervalSince1970];
+        
+        if(timestamp == self.lastLocationTimestamp)
+        {
+            return;
+        }
+        
+        TLSLocation *location = [[TLSLocation alloc] init];
+        location.location = location.location;
+        location.cityCode = self.cityCode;
+        
+        [self.synchro updateLocation:location];
+        
+        self.lastLocationTimestamp = timestamp;
+    }
+}
+
+
 #pragma mark - Navi Delegate
 
 // 同步路线统一在这里进行.
@@ -169,7 +266,8 @@ UIGestureRecognizerDelegate>
         uploadLocation.matchedCourse     = location.matchedCourse;
         uploadLocation.matchedIndex      = location.matchedIndex;
         uploadLocation.extraInfo         = @"test";
-        
+        // 需要传坐标所在城市的编码
+        uploadLocation.cityCode = self.cityCode;
         //NSLog(@"location %@ matched course %f index %ld",uploadLocation,location.matchedCourse,(long)location.matchedIndex);
         
         [self.synchro updateLocation:uploadLocation];
@@ -231,28 +329,6 @@ UIGestureRecognizerDelegate>
     }
     
     return nil;
-}
-
-- (void)mapView:(QMapView *)mapView didUpdateUserLocation:(QUserLocation *)userLocation fromHeading:(BOOL)fromHeading
-{
-    if(self.naviStatus != NaviStatusStarted)
-    {
-        NSTimeInterval timestamp = [userLocation.location.timestamp timeIntervalSince1970];
-        
-        if(timestamp == self.lastLocationTimestamp)
-        {
-            return;
-        }
-        
-        //NSLog(@"<%f,%f> %f %d",userLocation.location.coordinate.latitude, userLocation.location.coordinate.longitude,timestamp, fromHeading);
-        
-        TLSLocation *location = [[TLSLocation alloc] init];
-        location.location = userLocation.location;
-        
-        [self.synchro updateLocation:location];
-        
-        self.lastLocationTimestamp = timestamp;
-    }
 }
 
 #pragma mark - Synchro Delegate
@@ -489,7 +565,7 @@ UIGestureRecognizerDelegate>
         {
             self.startNavi.enabled = YES;
             self.stopNavi.enabled = NO;
-
+            
             break;
         }
             
@@ -515,7 +591,7 @@ UIGestureRecognizerDelegate>
     }
     
     [self enterIntoStatus:NaviStatusNone];
-
+    
     CGPoint location  = [gesture locationInView:self.naviView.naviMapView];
     CLLocationCoordinate2D coordinate = [self.naviView.naviMapView convertPoint:location toCoordinateFromView:self.naviView.naviMapView];
     
@@ -568,6 +644,10 @@ UIGestureRecognizerDelegate>
 
 #pragma mark - Life Circle
 
+- (void)dealloc {
+    [self stopSerialLocation];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -583,6 +663,10 @@ UIGestureRecognizerDelegate>
     [self setupNaviView];
     
     [self setupGestures];
+    
+    // 定位SDK
+    [self configLocationManager];
+    [self startSerialLocation];
 }
 
 - (void)viewWillAppear:(BOOL)animated

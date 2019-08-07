@@ -13,6 +13,12 @@
 #import "Constants.h"
 #import <TNKNavigationKit/TNKNavigationKit.h>
 #import "AppDelegate.h"
+#import "NavigationBottomBoard.h"
+#import "NavigationSpeedInfo.h"
+#import "NavigationStatusBar.h"
+#import "MathTool.h"
+
+#define kTrafficStatusBarHeight 10
 
 typedef NS_ENUM(NSInteger, NaviStatus)
 {
@@ -61,6 +67,11 @@ TencentLBSLocationManagerDelegate
 @property (nonatomic, strong) TencentLBSLocationManager *locationManager;
 
 @property (nonatomic, copy) NSString *cityCode;
+
+@property (nonatomic, strong) NavigationBottomBoard *bottomBoard;
+@property (nonatomic, strong) NavigationSpeedInfo *speedInfo;
+@property (nonatomic, strong) NavigationStatusBar *statusBar;
+
 @end
 
 @implementation DriverSynchroViewController
@@ -132,6 +143,46 @@ TencentLBSLocationManagerDelegate
                           flexble, self.stopNavi,
                           flexble, self.synchroFetchSwitch,
                           flexble];
+}
+
+- (void)setupBottomBar {
+    
+    CGFloat width = self.view.frame.size.width;
+    CGFloat height = self.view.frame.size.height - 130;
+  
+    CGFloat bottomBoardHeight = 46;
+    CGFloat margin = 5;
+    
+    self.bottomBoard = [[NavigationBottomBoard alloc] initWithFrame:CGRectMake(margin, height - bottomBoardHeight - kHomeIndicatorHeight - kTrafficStatusBarHeight, width - 2 * margin, bottomBoardHeight)];
+    self.bottomBoard.nightMode = self.naviView.dayNightStatus;
+    [self.view addSubview:self.bottomBoard];
+    
+    CGFloat speedInfoHeight = 46;
+    CGFloat speedInfoWidth = width/3 * 2;
+    
+    self.speedInfo = [[NavigationSpeedInfo alloc] initWithFrame:CGRectMake(width/6, CGRectGetMinY(self.bottomBoard.frame) - margin - speedInfoHeight, speedInfoWidth, speedInfoHeight)];
+    [self.view addSubview:self.speedInfo];
+    
+    CGRect trafficBarFrame;
+    if(KISIphoneX)
+    {
+        trafficBarFrame = CGRectMake(margin, CGRectGetMaxY(self.bottomBoard.frame), width - 2 * margin, kTrafficStatusBarHeight);
+    }
+    else
+    {
+        trafficBarFrame = CGRectMake(0, CGRectGetMaxY(self.bottomBoard.frame), width, kTrafficStatusBarHeight);
+    }
+    self.statusBar = [[NavigationStatusBar alloc] initWithFrame:trafficBarFrame];
+    self.statusBar.orientation = NavigationStatusBarDisplayOrientationLeftToRight;
+    
+    [self.view addSubview:self.statusBar];
+}
+
+- (void)setDashboardHidden:(BOOL)hidden {
+    
+    self.statusBar.hidden = hidden;
+    self.speedInfo.hidden = hidden;
+    self.bottomBoard.hidden = hidden;
 }
 
 - (void)setupGestures
@@ -234,6 +285,23 @@ TencentLBSLocationManagerDelegate
     }
 }
 
+- (void)updateBottomBoardInfo:(TNKCarNavigationData *)data
+{
+    [self.bottomBoard updateInfoLabelWithTotalDistanceLeft:data.totalDistanceLeftString distanceUnit:data.totalDistanceLeftUnit totalTimeLeft:[NSString stringWithFormat:@"%d",data.totalTimeLeft]];
+}
+
+- (void)updateSpeedInfo:(TNKCarNavigationData *)data
+{
+    [self.speedInfo updateCurrentSpeed:data.currentSpeed
+                            limitSpeed:data.limitSpeed
+                       currentRoadName:data.currentRoadName];
+}
+
+- (void)updateStatusBarInfo:(TNKCarNavigationData *)data
+{
+    [self.statusBar updateRemainingDistance:data.totalDistanceLeft];
+}
+
 
 #pragma mark - Navi Delegate
 
@@ -247,12 +315,22 @@ TencentLBSLocationManagerDelegate
     self.order.routeID = self.currentRoute.routeID;
     
     [self.synchro updateRoute:route];
+    
+    [self.statusBar updateStatusBar:status];
+}
+
+- (void)carNaviView:(TNKCarNaviView *)carNaviView didChangeDayNightStatus:(TNKCarNaviDayNightStatus)status {
+    self.bottomBoard.nightMode = status;
 }
 
 - (void)carNavigationManager:(TNKCarNaviManager *)manager updateNavigationData:(TNKCarNavigationData *)data
 {
     self.order.leftDistance = data.totalDistanceLeft;
     self.order.leftTime = data.totalTimeLeft;
+    
+    [self updateBottomBoardInfo:data];
+    [self updateSpeedInfo:data];
+    [self updateStatusBarInfo:data];
 }
 
 - (void)carNavigationManager:(TNKCarNaviManager *)manager didUpdateLocation:(TNKLocation *)location
@@ -614,6 +692,8 @@ TencentLBSLocationManagerDelegate
     [self.naviManager startSimulateWithIndex:0 locationEntry:nil];
     
     [self enterIntoStatus:NaviStatusStarted];
+    
+    [self setDashboardHidden:NO];
 }
 
 - (void)handleStopNavi:(UIBarButtonItem *)sender
@@ -624,6 +704,8 @@ TencentLBSLocationManagerDelegate
     [self.naviManager stop];
     
     [self enterIntoStatus:NaviStatusStoped];
+    
+    [self setDashboardHidden:YES];
 }
 
 - (void)handleFetchAction:(UIBarButtonItem *)sender
@@ -663,6 +745,9 @@ TencentLBSLocationManagerDelegate
     [self setupNaviView];
     
     [self setupGestures];
+    
+    [self setupBottomBar];
+    [self setDashboardHidden:YES];
     
     // 定位SDK
     [self configLocationManager];

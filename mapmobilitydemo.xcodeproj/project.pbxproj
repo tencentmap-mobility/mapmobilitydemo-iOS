@@ -35,6 +35,41 @@
 		E1B3D20022F53AE400E753CB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1FF22F53AE400E753CB /* libc++.tbd */; };
 		E1B3D20A22F82A7A00E753CB /* TencentLBS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D20922F82A7A00E753CB /* TencentLBS.framework */; };
 		E1B3D20C22F82A8600E753CB /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D20B22F82A8600E753CB /* libz.1.2.5.tbd */; };
+		E1BFD87922FAFA5900DF8C68 /* NavigationBottomBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD86C22FAFA5900DF8C68 /* NavigationBottomBoard.m */; };
+		E1BFD87A22FAFA5900DF8C68 /* NavigationStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD86F22FAFA5900DF8C68 /* NavigationStatusBar.m */; };
+		E1BFD87B22FAFA5900DF8C68 /* CurrentRoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD87122FAFA5900DF8C68 /* CurrentRoadView.m */; };
+		E1BFD87C22FAFA5900DF8C68 /* LimitSpeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD87422FAFA5900DF8C68 /* LimitSpeedView.m */; };
+		E1BFD87D22FAFA5900DF8C68 /* CurrentSpeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD87622FAFA5900DF8C68 /* CurrentSpeedView.m */; };
+		E1BFD87E22FAFA5900DF8C68 /* NavigationSpeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD87722FAFA5900DF8C68 /* NavigationSpeedInfo.m */; };
+		E1BFD89B22FAFAA300DF8C68 /* UIColor+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD88122FAFAA300DF8C68 /* UIColor+ChameleonPrivate.m */; };
+		E1BFD89C22FAFAA300DF8C68 /* ChameleonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD88222FAFAA300DF8C68 /* ChameleonConstants.m */; };
+		E1BFD89D22FAFAA300DF8C68 /* UIColor+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD88622FAFAA300DF8C68 /* UIColor+Chameleon.m */; };
+		E1BFD89E22FAFAA300DF8C68 /* UIButton+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD88822FAFAA300DF8C68 /* UIButton+Chameleon.m */; };
+		E1BFD89F22FAFAA300DF8C68 /* UIView+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD88D22FAFAA300DF8C68 /* UIView+ChameleonPrivate.m */; };
+		E1BFD8A022FAFAA300DF8C68 /* Chameleon_.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD88E22FAFAA300DF8C68 /* Chameleon_.m */; };
+		E1BFD8A122FAFAA300DF8C68 /* NSArray+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD89122FAFAA300DF8C68 /* NSArray+Chameleon.m */; };
+		E1BFD8A222FAFAA300DF8C68 /* UINavigationController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD89322FAFAA300DF8C68 /* UINavigationController+Chameleon.m */; };
+		E1BFD8A322FAFAA300DF8C68 /* UILabel+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD89422FAFAA300DF8C68 /* UILabel+Chameleon.m */; };
+		E1BFD8A422FAFAA300DF8C68 /* UIViewController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD89522FAFAA300DF8C68 /* UIViewController+Chameleon.m */; };
+		E1BFD8A522FAFAA300DF8C68 /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD89622FAFAA300DF8C68 /* UIAppearance+Swift.m */; };
+		E1BFD8A622FAFAA300DF8C68 /* UIImage+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD89722FAFAA300DF8C68 /* UIImage+ChameleonPrivate.m */; };
+		E1BFD8AC22FAFC2D00DF8C68 /* ReplaceUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD8A822FAFC2D00DF8C68 /* ReplaceUnicode.m */; };
+		E1BFD8AD22FAFC2D00DF8C68 /* MathTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD8A922FAFC2D00DF8C68 /* MathTool.m */; };
+		E1BFD8BE22FB006000DF8C68 /* navi_bg_speed.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8AF22FB005F00DF8C68 /* navi_bg_speed.png */; };
+		E1BFD8BF22FB006000DF8C68 /* navi_bg_speed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8B022FB005F00DF8C68 /* navi_bg_speed@2x.png */; };
+		E1BFD8C022FB006000DF8C68 /* navi_bg_speedlimit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8B122FB005F00DF8C68 /* navi_bg_speedlimit@3x.png */; };
+		E1BFD8C122FB006000DF8C68 /* navi_bg_speedlimit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8B222FB005F00DF8C68 /* navi_bg_speedlimit@2x.png */; };
+		E1BFD8C222FB006000DF8C68 /* map_traffic_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8B322FB005F00DF8C68 /* map_traffic_normal.png */; };
+		E1BFD8C322FB006000DF8C68 /* navi_bg_speed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8B422FB005F00DF8C68 /* navi_bg_speed@3x.png */; };
+		E1BFD8C422FB006000DF8C68 /* btn_mainRoad_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8B522FB005F00DF8C68 /* btn_mainRoad_normal.png */; };
+		E1BFD8C522FB006000DF8C68 /* btn_servingRoad_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8B622FB005F00DF8C68 /* btn_servingRoad_normal.png */; };
+		E1BFD8C622FB006000DF8C68 /* btn_downstairs_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8B722FB005F00DF8C68 /* btn_downstairs_normal.png */; };
+		E1BFD8C722FB006000DF8C68 /* map_traffic_active_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8B822FB005F00DF8C68 /* map_traffic_active_normal.png */; };
+		E1BFD8C822FB006000DF8C68 /* common_btn_locate_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8B922FB005F00DF8C68 /* common_btn_locate_normal.png */; };
+		E1BFD8C922FB006000DF8C68 /* btn_oppositeDirection_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8BA22FB005F00DF8C68 /* btn_oppositeDirection_normal.png */; };
+		E1BFD8CA22FB006000DF8C68 /* btn_elevated_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8BB22FB005F00DF8C68 /* btn_elevated_normal.png */; };
+		E1BFD8CB22FB006000DF8C68 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8BC22FB005F00DF8C68 /* location.png */; };
+		E1BFD8CC22FB006000DF8C68 /* navi_bg_speedlimit.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8BD22FB005F00DF8C68 /* navi_bg_speedlimit.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +112,64 @@
 		E1B3D1FF22F53AE400E753CB /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E1B3D20922F82A7A00E753CB /* TencentLBS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentLBS.framework; sourceTree = "<group>"; };
 		E1B3D20B22F82A8600E753CB /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		E1BFD86B22FAFA5900DF8C68 /* NavigationBottomBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBottomBoard.h; sourceTree = "<group>"; };
+		E1BFD86C22FAFA5900DF8C68 /* NavigationBottomBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBottomBoard.m; sourceTree = "<group>"; };
+		E1BFD86E22FAFA5900DF8C68 /* NavigationStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationStatusBar.h; sourceTree = "<group>"; };
+		E1BFD86F22FAFA5900DF8C68 /* NavigationStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationStatusBar.m; sourceTree = "<group>"; };
+		E1BFD87122FAFA5900DF8C68 /* CurrentRoadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentRoadView.m; sourceTree = "<group>"; };
+		E1BFD87222FAFA5900DF8C68 /* CurrentSpeedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentSpeedView.h; sourceTree = "<group>"; };
+		E1BFD87322FAFA5900DF8C68 /* NavigationSpeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationSpeedInfo.h; sourceTree = "<group>"; };
+		E1BFD87422FAFA5900DF8C68 /* LimitSpeedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitSpeedView.m; sourceTree = "<group>"; };
+		E1BFD87522FAFA5900DF8C68 /* CurrentRoadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentRoadView.h; sourceTree = "<group>"; };
+		E1BFD87622FAFA5900DF8C68 /* CurrentSpeedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentSpeedView.m; sourceTree = "<group>"; };
+		E1BFD87722FAFA5900DF8C68 /* NavigationSpeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationSpeedInfo.m; sourceTree = "<group>"; };
+		E1BFD87822FAFA5900DF8C68 /* LimitSpeedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitSpeedView.h; sourceTree = "<group>"; };
+		E1BFD88022FAFAA300DF8C68 /* ChameleonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonMacros.h; sourceTree = "<group>"; };
+		E1BFD88122FAFAA300DF8C68 /* UIColor+ChameleonPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ChameleonPrivate.m"; sourceTree = "<group>"; };
+		E1BFD88222FAFAA300DF8C68 /* ChameleonConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChameleonConstants.m; sourceTree = "<group>"; };
+		E1BFD88322FAFAA300DF8C68 /* UILabel+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Chameleon.h"; sourceTree = "<group>"; };
+		E1BFD88422FAFAA300DF8C68 /* UINavigationController+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Chameleon.h"; sourceTree = "<group>"; };
+		E1BFD88522FAFAA300DF8C68 /* Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chameleon.h; sourceTree = "<group>"; };
+		E1BFD88622FAFAA300DF8C68 /* UIColor+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Chameleon.m"; sourceTree = "<group>"; };
+		E1BFD88722FAFAA300DF8C68 /* NSArray+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Chameleon.h"; sourceTree = "<group>"; };
+		E1BFD88822FAFAA300DF8C68 /* UIButton+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Chameleon.m"; sourceTree = "<group>"; };
+		E1BFD88922FAFAA300DF8C68 /* UIImage+ChameleonPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ChameleonPrivate.h"; sourceTree = "<group>"; };
+		E1BFD88A22FAFAA300DF8C68 /* UIAppearance+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAppearance+Swift.h"; sourceTree = "<group>"; };
+		E1BFD88B22FAFAA300DF8C68 /* UIViewController+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Chameleon.h"; sourceTree = "<group>"; };
+		E1BFD88C22FAFAA300DF8C68 /* ChameleonEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonEnums.h; sourceTree = "<group>"; };
+		E1BFD88D22FAFAA300DF8C68 /* UIView+ChameleonPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ChameleonPrivate.m"; sourceTree = "<group>"; };
+		E1BFD88E22FAFAA300DF8C68 /* Chameleon_.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chameleon_.m; sourceTree = "<group>"; };
+		E1BFD88F22FAFAA300DF8C68 /* ChameleonConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonConstants.h; sourceTree = "<group>"; };
+		E1BFD89022FAFAA300DF8C68 /* UIColor+ChameleonPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ChameleonPrivate.h"; sourceTree = "<group>"; };
+		E1BFD89122FAFAA300DF8C68 /* NSArray+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Chameleon.m"; sourceTree = "<group>"; };
+		E1BFD89222FAFAA300DF8C68 /* UIColor+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Chameleon.h"; sourceTree = "<group>"; };
+		E1BFD89322FAFAA300DF8C68 /* UINavigationController+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Chameleon.m"; sourceTree = "<group>"; };
+		E1BFD89422FAFAA300DF8C68 /* UILabel+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Chameleon.m"; sourceTree = "<group>"; };
+		E1BFD89522FAFAA300DF8C68 /* UIViewController+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Chameleon.m"; sourceTree = "<group>"; };
+		E1BFD89622FAFAA300DF8C68 /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
+		E1BFD89722FAFAA300DF8C68 /* UIImage+ChameleonPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ChameleonPrivate.m"; sourceTree = "<group>"; };
+		E1BFD89822FAFAA300DF8C68 /* UIButton+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Chameleon.h"; sourceTree = "<group>"; };
+		E1BFD89922FAFAA300DF8C68 /* Chameleon_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chameleon_.h; sourceTree = "<group>"; };
+		E1BFD89A22FAFAA300DF8C68 /* UIView+ChameleonPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ChameleonPrivate.h"; sourceTree = "<group>"; };
+		E1BFD8A822FAFC2D00DF8C68 /* ReplaceUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplaceUnicode.m; sourceTree = "<group>"; };
+		E1BFD8A922FAFC2D00DF8C68 /* MathTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathTool.m; sourceTree = "<group>"; };
+		E1BFD8AA22FAFC2D00DF8C68 /* ReplaceUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplaceUnicode.h; sourceTree = "<group>"; };
+		E1BFD8AB22FAFC2D00DF8C68 /* MathTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathTool.h; sourceTree = "<group>"; };
+		E1BFD8AF22FB005F00DF8C68 /* navi_bg_speed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navi_bg_speed.png; sourceTree = "<group>"; };
+		E1BFD8B022FB005F00DF8C68 /* navi_bg_speed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_bg_speed@2x.png"; sourceTree = "<group>"; };
+		E1BFD8B122FB005F00DF8C68 /* navi_bg_speedlimit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_bg_speedlimit@3x.png"; sourceTree = "<group>"; };
+		E1BFD8B222FB005F00DF8C68 /* navi_bg_speedlimit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_bg_speedlimit@2x.png"; sourceTree = "<group>"; };
+		E1BFD8B322FB005F00DF8C68 /* map_traffic_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_traffic_normal.png; sourceTree = "<group>"; };
+		E1BFD8B422FB005F00DF8C68 /* navi_bg_speed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_bg_speed@3x.png"; sourceTree = "<group>"; };
+		E1BFD8B522FB005F00DF8C68 /* btn_mainRoad_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_mainRoad_normal.png; sourceTree = "<group>"; };
+		E1BFD8B622FB005F00DF8C68 /* btn_servingRoad_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_servingRoad_normal.png; sourceTree = "<group>"; };
+		E1BFD8B722FB005F00DF8C68 /* btn_downstairs_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_downstairs_normal.png; sourceTree = "<group>"; };
+		E1BFD8B822FB005F00DF8C68 /* map_traffic_active_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_traffic_active_normal.png; sourceTree = "<group>"; };
+		E1BFD8B922FB005F00DF8C68 /* common_btn_locate_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_btn_locate_normal.png; sourceTree = "<group>"; };
+		E1BFD8BA22FB005F00DF8C68 /* btn_oppositeDirection_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_oppositeDirection_normal.png; sourceTree = "<group>"; };
+		E1BFD8BB22FB005F00DF8C68 /* btn_elevated_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_elevated_normal.png; sourceTree = "<group>"; };
+		E1BFD8BC22FB005F00DF8C68 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		E1BFD8BD22FB005F00DF8C68 /* navi_bg_speedlimit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navi_bg_speedlimit.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +234,8 @@
 		E1435D8222F5344800C2B4D0 /* Demos */ = {
 			isa = PBXGroup;
 			children = (
+				E1BFD8AE22FB005F00DF8C68 /* DemoRes */,
+				E1BFD8A722FAFC2D00DF8C68 /* Tools */,
 				E1435D8422F5344800C2B4D0 /* CommonData */,
 				E1435D8922F5344800C2B4D0 /* EntryViewController.h */,
 				E1435D8B22F5344800C2B4D0 /* EntryViewController.m */,
@@ -175,6 +270,9 @@
 		E1435D8F22F5344800C2B4D0 /* Synchro */ = {
 			isa = PBXGroup;
 			children = (
+				E1BFD86A22FAFA5900DF8C68 /* BottomBoard */,
+				E1BFD87022FAFA5900DF8C68 /* SpeedInfo */,
+				E1BFD86D22FAFA5900DF8C68 /* StatusBar */,
 				E1435D9322F5344800C2B4D0 /* DriverSynchroViewController.h */,
 				E1435D9022F5344800C2B4D0 /* DriverSynchroViewController.m */,
 				E1435D9122F5344800C2B4D0 /* PassengerSynchroViewController.m */,
@@ -186,6 +284,7 @@
 		E1435D9C22F534C200C2B4D0 /* Dependency */ = {
 			isa = PBXGroup;
 			children = (
+				E1BFD87F22FAFAA300DF8C68 /* Color */,
 				E1B3D20922F82A7A00E753CB /* TencentLBS.framework */,
 				E1B3D1FD22F53A9500E753CB /* WebP.framework */,
 				E1B3D1EC22F535EC00E753CB /* TencentNavigationKit.bundle */,
@@ -212,6 +311,106 @@
 				E1B3D1EF22F539CE00E753CB /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1BFD86A22FAFA5900DF8C68 /* BottomBoard */ = {
+			isa = PBXGroup;
+			children = (
+				E1BFD86B22FAFA5900DF8C68 /* NavigationBottomBoard.h */,
+				E1BFD86C22FAFA5900DF8C68 /* NavigationBottomBoard.m */,
+			);
+			path = BottomBoard;
+			sourceTree = "<group>";
+		};
+		E1BFD86D22FAFA5900DF8C68 /* StatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				E1BFD86E22FAFA5900DF8C68 /* NavigationStatusBar.h */,
+				E1BFD86F22FAFA5900DF8C68 /* NavigationStatusBar.m */,
+			);
+			path = StatusBar;
+			sourceTree = "<group>";
+		};
+		E1BFD87022FAFA5900DF8C68 /* SpeedInfo */ = {
+			isa = PBXGroup;
+			children = (
+				E1BFD87122FAFA5900DF8C68 /* CurrentRoadView.m */,
+				E1BFD87222FAFA5900DF8C68 /* CurrentSpeedView.h */,
+				E1BFD87322FAFA5900DF8C68 /* NavigationSpeedInfo.h */,
+				E1BFD87422FAFA5900DF8C68 /* LimitSpeedView.m */,
+				E1BFD87522FAFA5900DF8C68 /* CurrentRoadView.h */,
+				E1BFD87622FAFA5900DF8C68 /* CurrentSpeedView.m */,
+				E1BFD87722FAFA5900DF8C68 /* NavigationSpeedInfo.m */,
+				E1BFD87822FAFA5900DF8C68 /* LimitSpeedView.h */,
+			);
+			path = SpeedInfo;
+			sourceTree = "<group>";
+		};
+		E1BFD87F22FAFAA300DF8C68 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				E1BFD88022FAFAA300DF8C68 /* ChameleonMacros.h */,
+				E1BFD88122FAFAA300DF8C68 /* UIColor+ChameleonPrivate.m */,
+				E1BFD88222FAFAA300DF8C68 /* ChameleonConstants.m */,
+				E1BFD88322FAFAA300DF8C68 /* UILabel+Chameleon.h */,
+				E1BFD88422FAFAA300DF8C68 /* UINavigationController+Chameleon.h */,
+				E1BFD88522FAFAA300DF8C68 /* Chameleon.h */,
+				E1BFD88622FAFAA300DF8C68 /* UIColor+Chameleon.m */,
+				E1BFD88722FAFAA300DF8C68 /* NSArray+Chameleon.h */,
+				E1BFD88822FAFAA300DF8C68 /* UIButton+Chameleon.m */,
+				E1BFD88922FAFAA300DF8C68 /* UIImage+ChameleonPrivate.h */,
+				E1BFD88A22FAFAA300DF8C68 /* UIAppearance+Swift.h */,
+				E1BFD88B22FAFAA300DF8C68 /* UIViewController+Chameleon.h */,
+				E1BFD88C22FAFAA300DF8C68 /* ChameleonEnums.h */,
+				E1BFD88D22FAFAA300DF8C68 /* UIView+ChameleonPrivate.m */,
+				E1BFD88E22FAFAA300DF8C68 /* Chameleon_.m */,
+				E1BFD88F22FAFAA300DF8C68 /* ChameleonConstants.h */,
+				E1BFD89022FAFAA300DF8C68 /* UIColor+ChameleonPrivate.h */,
+				E1BFD89122FAFAA300DF8C68 /* NSArray+Chameleon.m */,
+				E1BFD89222FAFAA300DF8C68 /* UIColor+Chameleon.h */,
+				E1BFD89322FAFAA300DF8C68 /* UINavigationController+Chameleon.m */,
+				E1BFD89422FAFAA300DF8C68 /* UILabel+Chameleon.m */,
+				E1BFD89522FAFAA300DF8C68 /* UIViewController+Chameleon.m */,
+				E1BFD89622FAFAA300DF8C68 /* UIAppearance+Swift.m */,
+				E1BFD89722FAFAA300DF8C68 /* UIImage+ChameleonPrivate.m */,
+				E1BFD89822FAFAA300DF8C68 /* UIButton+Chameleon.h */,
+				E1BFD89922FAFAA300DF8C68 /* Chameleon_.h */,
+				E1BFD89A22FAFAA300DF8C68 /* UIView+ChameleonPrivate.h */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		E1BFD8A722FAFC2D00DF8C68 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				E1BFD8A822FAFC2D00DF8C68 /* ReplaceUnicode.m */,
+				E1BFD8A922FAFC2D00DF8C68 /* MathTool.m */,
+				E1BFD8AA22FAFC2D00DF8C68 /* ReplaceUnicode.h */,
+				E1BFD8AB22FAFC2D00DF8C68 /* MathTool.h */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		E1BFD8AE22FB005F00DF8C68 /* DemoRes */ = {
+			isa = PBXGroup;
+			children = (
+				E1BFD8AF22FB005F00DF8C68 /* navi_bg_speed.png */,
+				E1BFD8B022FB005F00DF8C68 /* navi_bg_speed@2x.png */,
+				E1BFD8B122FB005F00DF8C68 /* navi_bg_speedlimit@3x.png */,
+				E1BFD8B222FB005F00DF8C68 /* navi_bg_speedlimit@2x.png */,
+				E1BFD8B322FB005F00DF8C68 /* map_traffic_normal.png */,
+				E1BFD8B422FB005F00DF8C68 /* navi_bg_speed@3x.png */,
+				E1BFD8B522FB005F00DF8C68 /* btn_mainRoad_normal.png */,
+				E1BFD8B622FB005F00DF8C68 /* btn_servingRoad_normal.png */,
+				E1BFD8B722FB005F00DF8C68 /* btn_downstairs_normal.png */,
+				E1BFD8B822FB005F00DF8C68 /* map_traffic_active_normal.png */,
+				E1BFD8B922FB005F00DF8C68 /* common_btn_locate_normal.png */,
+				E1BFD8BA22FB005F00DF8C68 /* btn_oppositeDirection_normal.png */,
+				E1BFD8BB22FB005F00DF8C68 /* btn_elevated_normal.png */,
+				E1BFD8BC22FB005F00DF8C68 /* location.png */,
+				E1BFD8BD22FB005F00DF8C68 /* navi_bg_speedlimit.png */,
+			);
+			path = DemoRes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,10 +475,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1BFD8BE22FB006000DF8C68 /* navi_bg_speed.png in Resources */,
+				E1BFD8BF22FB006000DF8C68 /* navi_bg_speed@2x.png in Resources */,
+				E1BFD8C222FB006000DF8C68 /* map_traffic_normal.png in Resources */,
+				E1BFD8C722FB006000DF8C68 /* map_traffic_active_normal.png in Resources */,
+				E1BFD8CB22FB006000DF8C68 /* location.png in Resources */,
+				E1BFD8CA22FB006000DF8C68 /* btn_elevated_normal.png in Resources */,
+				E1BFD8C922FB006000DF8C68 /* btn_oppositeDirection_normal.png in Resources */,
+				E1BFD8C622FB006000DF8C68 /* btn_downstairs_normal.png in Resources */,
+				E1BFD8C422FB006000DF8C68 /* btn_mainRoad_normal.png in Resources */,
 				E1B3D1ED22F535EC00E753CB /* TencentNavigationKit.bundle in Resources */,
+				E1BFD8CC22FB006000DF8C68 /* navi_bg_speedlimit.png in Resources */,
+				E1BFD8C322FB006000DF8C68 /* navi_bg_speed@3x.png in Resources */,
+				E1BFD8C822FB006000DF8C68 /* common_btn_locate_normal.png in Resources */,
+				E1BFD8C122FB006000DF8C68 /* navi_bg_speedlimit@2x.png in Resources */,
 				E1435D7922F524EF00C2B4D0 /* LaunchScreen.storyboard in Resources */,
+				E1BFD8C522FB006000DF8C68 /* btn_servingRoad_normal.png in Resources */,
 				E1B3D1EB22F535E300E753CB /* QMapKit.bundle in Resources */,
 				E1435D7622F524EF00C2B4D0 /* Assets.xcassets in Resources */,
+				E1BFD8C022FB006000DF8C68 /* navi_bg_speedlimit@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,15 +504,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1BFD87B22FAFA5900DF8C68 /* CurrentRoadView.m in Sources */,
+				E1BFD89E22FAFAA300DF8C68 /* UIButton+Chameleon.m in Sources */,
 				E1435D9B22F5344800C2B4D0 /* PassengerSynchroViewController.m in Sources */,
 				E1435D9822F5344800C2B4D0 /* EntryData.m in Sources */,
 				E1435D9A22F5344800C2B4D0 /* DriverSynchroViewController.m in Sources */,
+				E1BFD8A222FAFAA300DF8C68 /* UINavigationController+Chameleon.m in Sources */,
+				E1BFD89B22FAFAA300DF8C68 /* UIColor+ChameleonPrivate.m in Sources */,
 				E1435D7C22F524EF00C2B4D0 /* main.m in Sources */,
+				E1BFD8A122FAFAA300DF8C68 /* NSArray+Chameleon.m in Sources */,
+				E1BFD8A522FAFAA300DF8C68 /* UIAppearance+Swift.m in Sources */,
+				E1BFD89F22FAFAA300DF8C68 /* UIView+ChameleonPrivate.m in Sources */,
+				E1BFD8AD22FAFC2D00DF8C68 /* MathTool.m in Sources */,
+				E1BFD8A622FAFAA300DF8C68 /* UIImage+ChameleonPrivate.m in Sources */,
+				E1BFD87E22FAFA5900DF8C68 /* NavigationSpeedInfo.m in Sources */,
+				E1BFD8A322FAFAA300DF8C68 /* UILabel+Chameleon.m in Sources */,
 				E1435D9522F5344800C2B4D0 /* TrafficPolyline.m in Sources */,
+				E1BFD87D22FAFA5900DF8C68 /* CurrentSpeedView.m in Sources */,
+				E1BFD87922FAFA5900DF8C68 /* NavigationBottomBoard.m in Sources */,
+				E1BFD8A422FAFAA300DF8C68 /* UIViewController+Chameleon.m in Sources */,
+				E1BFD8AC22FAFC2D00DF8C68 /* ReplaceUnicode.m in Sources */,
+				E1BFD89C22FAFAA300DF8C68 /* ChameleonConstants.m in Sources */,
 				E1435D9722F5344800C2B4D0 /* EntryViewController.m in Sources */,
+				E1BFD89D22FAFAA300DF8C68 /* UIColor+Chameleon.m in Sources */,
+				E1BFD8A022FAFAA300DF8C68 /* Chameleon_.m in Sources */,
 				E1435D9922F5344800C2B4D0 /* BaseSynchroViewController.m in Sources */,
+				E1BFD87C22FAFA5900DF8C68 /* LimitSpeedView.m in Sources */,
 				E1435D9622F5344800C2B4D0 /* RouteLocation.m in Sources */,
 				E1435D6E22F524ED00C2B4D0 /* AppDelegate.m in Sources */,
+				E1BFD87A22FAFA5900DF8C68 /* NavigationStatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

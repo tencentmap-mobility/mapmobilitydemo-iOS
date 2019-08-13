@@ -155,6 +155,6 @@
 
 ## 常见问题
 
-1. 下载该demo时，出现QMapKit framework not found
+1. 下载该demo时，出现Undefined symbol: _OBJC_CLASS_$_
 
 解法：QMapKit的静态库需要手动下载或者用git lfs进行下载

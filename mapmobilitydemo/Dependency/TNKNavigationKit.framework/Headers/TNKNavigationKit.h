@@ -33,3 +33,4 @@
 #import "TNKLocation.h"
 
 #import "QMapView+TNKRouteSearchExtension.h"
+#import "TNKMathTool.h"

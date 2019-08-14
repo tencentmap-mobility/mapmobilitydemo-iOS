@@ -12,7 +12,7 @@
 #import <TNKNavigationKit/TNKNaviServices.h>
 #import <QMapKit/QMapServices.h>
 #import "Constants.h"
-
+#import <TencentMapMobilitySDK/TencentMapMobilitySDK.h>
 @interface AppDelegate ()
 
 @end
@@ -25,7 +25,7 @@
     
     [QMapServices sharedServices].APIKey = kMapKey;
     [TNKNaviServices sharedServices].APIKey = kMapKey;
-    
+    [TMMServices sharedServices].apiKey = kMobilityKey;
     EntryViewController *entry = [[EntryViewController alloc] init];
     
     UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:entry];

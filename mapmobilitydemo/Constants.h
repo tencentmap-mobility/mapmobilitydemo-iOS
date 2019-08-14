@@ -6,8 +6,9 @@
 //  Copyright © 2019年 tencent. All rights reserved.
 //
 
-#define kMapKey @"" // 需要填写
-#define kSynchroKey @""  // 需要填写司乘同显Key
+#define kMapKey @"" // 需要填写地图的key
+#define kSynchroKey @""  // 需要填写司乘同显的Key
+#define kMobilityKey @"" // 需要填写webServiceKey
 
 #define kSynchroOrderID            @"xc_10001"
 

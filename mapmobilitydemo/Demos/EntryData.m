@@ -21,7 +21,7 @@
 + (instancetype)constructDefaultEntryData
 {
     EntryData *entry = [[EntryData alloc] init];
-    entry.title = @"Synchro Demo";
+    entry.title = @"Mobility Demo";
     
     NSMutableArray<Section *> *sectionArray = [NSMutableArray array];
     entry.sections = sectionArray;
@@ -44,6 +44,22 @@
             cell = [[Cell alloc] init];
             cell.title = @"乘客端";
             cell.controllerClassName = @"PassengerSynchroViewController";
+            [cellArray addObject:cell];
+        }
+    }
+    
+    {
+        Section *section = [[Section alloc] init];
+        section.title = @"移动出行";
+        NSMutableArray<Cell *> *cellArray = [NSMutableArray array];
+        section.cells = cellArray;
+        
+        [sectionArray addObject:section];
+        
+        {
+            Cell *cell = [[Cell alloc] init];
+            cell.title = @"周边车辆展示";
+            cell.controllerClassName = @"NearbyCarsViewController";
             [cellArray addObject:cell];
         }
     }

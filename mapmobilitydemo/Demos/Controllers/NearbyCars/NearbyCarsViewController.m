@@ -10,39 +10,47 @@
 #import <TencentLBS/TencentLBS.h>
 #import <TencentMapMobilitySDK/TencentMapMobilitySDK.h>
 #import <UIKit/UIKit.h>
+#import "Constants.h"
 
 @interface NearbyCarsViewController ()<QMapViewDelegate, TencentLBSLocationManagerDelegate>
 
+// 地图视图
 @property (nonatomic, strong) QMapView *mapView;
+// 定位manager
 @property (nonatomic, strong) TencentLBSLocationManager *locationManager;
-
-@property (nonatomic, strong) NSString *cityCode;
-
+// 切换车型
 @property (nonatomic, strong) UISegmentedControl *segmentControl;
-
-@property UISegmentedControl* segment;
+// 是否已经获得首次定位信息，判断是否需要调整地图中心点
+@property (nonatomic, assign) BOOL hasGotLocation;
 
 @end
 
 @implementation NearbyCarsViewController
 
 #pragma mark - life cycle
+
+- (void)dealloc {
+    
+    // 关闭定位
+    [self.locationManager stopUpdatingLocation];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    // 创建地图
     [self setupMapView];
-    [self setupNearbyCar];
+    // 开启定位服务
     [self setupLocationManager];
-    [self startSingleLocation];
+    [self startSerialLocation];
+    
+    // 选择车型控件
     [self setupSelecteVehicleTypesBar];
-
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [self.segment removeAllSegments];
+    
+    // 设置周边车辆配置
+    [self setupNearbyCar];
 }
 
 #pragma mark - setup
@@ -63,7 +71,7 @@
     self.locationManager = [[TencentLBSLocationManager alloc] init];
     [self.locationManager setDelegate:self];
     [self.locationManager setAllowsBackgroundLocationUpdates:YES];
-    [self.locationManager setApiKey:@""];
+    [self.locationManager setApiKey:kMapKey];
 
     [self.locationManager setPausesLocationUpdatesAutomatically:NO];
 
@@ -85,15 +93,17 @@
     self.mapView.nearbyCarsEnabled = YES;
 
     TMMNearbyCarConfig *nearbyCarConfig = [[TMMNearbyCarConfig alloc] init];
+    //mock为1，是模拟数据；0为真实数据，真实数据一定需要设置citycode
     nearbyCarConfig.mock = 1;
     
     nearbyCarConfig.carIconDictionary = @{@(1) : [UIImage imageNamed:@"taxi"], @(2) : [UIImage imageNamed:@"cleanEnergyCar"], @(3) : [UIImage imageNamed:@"comfortCar"], @(4):[UIImage imageNamed:@"luxuryCar"], @(5):[UIImage imageNamed:@"businessCar"], @(6):[UIImage imageNamed:@"economyCar"]};
 
+    // 设置大头针的相对位置(0.5, 0.5)为地图中心点
     CGPoint pinPosition = CGPointMake(0.5, 0.5);
     self.mapView.tmm_pinPosition = pinPosition;
-    self.mapView.nearbyCarConfig = nearbyCarConfig;
-
     [self.mapView setCenterOffset:pinPosition];
+    
+    self.mapView.nearbyCarConfig = nearbyCarConfig;
 }
 
 - (void)setupSelecteVehicleTypesBar
@@ -107,19 +117,6 @@
 }
 
 #pragma mark - LBSLocationDelegate
-
-// 单次定位
-- (void)startSingleLocation
-{
-    [self.locationManager requestLocationWithCompletionBlock:
-     ^(TencentLBSLocation *location, NSError *error) {
-         NSLog(@"%@, %@, %@", location.location, location.name, location.address);
-         dispatch_async(dispatch_get_main_queue(), ^{
-             [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(self.mapView.userLocation.location.coordinate.latitude, self.mapView.userLocation.location.coordinate.longitude)];
-
-         });
-     }];
-}
 
 // 连续定位
 - (void)startSerialLocation {
@@ -135,8 +132,8 @@
 - (void)tencentLBSLocationManager:(TencentLBSLocationManager *)manager
                 didUpdateLocation:(TencentLBSLocation *)location {
 
-    self.cityCode = location.code;
-    self.mapView.tmm_cityCode = self.cityCode;
+    // 获得citycode传入SDK，必须
+    self.mapView.tmm_cityCode = location.code;
 }
 
 #pragma mark - 周边车辆展示
@@ -169,10 +166,21 @@
             self.mapView.nearbyCarConfig.vehicleTypes = @"";
             break;
     }
-    
+    //移除
     [self.mapView removeAllNearbyCars];
+    //添加
     [self.mapView getNearbyCars];
 }
 
-
+- (void)mapView:(QMapView *)mapView didUpdateUserLocation:(QUserLocation *)userLocation fromHeading:(BOOL)fromHeading {
+    
+    // 进入该页面是，将地图中心点移至用户所在位置
+    if (!self.hasGotLocation &&
+        CLLocationCoordinate2DIsValid(userLocation.location.coordinate) &&
+        (userLocation.location.coordinate.latitude != 0 || userLocation.location.coordinate.longitude != 0)) {
+        
+        [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(self.mapView.userLocation.location.coordinate.latitude, self.mapView.userLocation.location.coordinate.longitude)];
+        self.hasGotLocation = YES;
+    }
+}
 @end

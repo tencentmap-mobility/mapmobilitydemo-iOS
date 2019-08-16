@@ -216,8 +216,8 @@
 		03E748152303FF96000D9045 /* NearbyCars */ = {
 			isa = PBXGroup;
 			children = (
-				03E748162303FF96000D9045 /* NearbyCarsViewController.m */,
 				03E748172303FF96000D9045 /* NearbyCarsViewController.h */,
+				03E748162303FF96000D9045 /* NearbyCarsViewController.m */,
 			);
 			path = NearbyCars;
 			sourceTree = "<group>";
@@ -685,7 +685,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J57QEZ3JMV;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -710,7 +710,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J57QEZ3JMV;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -22,6 +22,8 @@
 @property (nonatomic, strong) UISegmentedControl *segmentControl;
 // 是否已经获得首次定位信息，判断是否需要调整地图中心点
 @property (nonatomic, assign) BOOL hasGotLocation;
+//地图中心的引导点
+@property (nonatomic, strong) UIImageView *centerPoint;
 
 @end
 
@@ -51,6 +53,13 @@
     
     // 设置周边车辆配置
     [self setupNearbyCar];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    //地图中心引导点
+    [self setupDirectPoint];
 }
 
 #pragma mark - setup
@@ -114,6 +123,43 @@
     self.segmentControl.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.segmentControl];
     [self.segmentControl addTarget:self action:@selector(selectVehicleTypes:) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)setupDirectPoint
+{
+    CGFloat width = 24;
+    CGFloat height = 40;
+    
+    _centerPoint = [[UIImageView alloc] initWithFrame:CGRectMake(self.mapView.frame.size.width/2 - width/2, self.mapView.frame.size.height/2 - height, width, height)];
+    [self.mapView addSubview:_centerPoint];
+    _centerPoint.image = [UIImage imageNamed:@"marker_green"];
+}
+
+#pragma mark - QMapView
+
+-(void)mapView:(QMapView *)mapView regionDidChangeAnimated:(BOOL)animated gesture:(BOOL)bGesture
+{
+    if(bGesture)
+    {
+        CGFloat width = 24;
+        CGFloat height = 40;
+        CGFloat x = self.mapView.frame.size.width/2 - width/2;
+        CGFloat y = self.mapView.frame.size.height/2 - height;
+        
+        __weak typeof(self) weakSelf = self;
+        
+        __block CGRect startFrame = CGRectMake(x, y - 10, width, height);
+        __block CGRect endFrame = CGRectMake(x, y, width, height);
+        
+        [UIView animateWithDuration:0.5 delay:0.3 options:0 animations:^{
+            weakSelf.centerPoint.frame = startFrame;
+        } completion:^(BOOL finished) {
+            if (finished)
+            {
+                 weakSelf.centerPoint.frame = endFrame;
+            }
+        }];
+    }
 }
 
 #pragma mark - LBSLocationDelegate

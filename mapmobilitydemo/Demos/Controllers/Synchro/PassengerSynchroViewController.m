@@ -14,6 +14,8 @@
 
 #import <QMapKit/QMapkit.h>
 #import <QMapSDKUtils/QMUMapUtils.h>
+#import <MapKit/MKGeometry.h>
+#import <TencentMapMobilitySDK/TMMMathTool.h>
 
 typedef NS_ENUM(NSInteger, SynchroStatus)
 {
@@ -45,7 +47,13 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
 
 @property (nonatomic, strong) QPointAnnotation *driverPoint;
 
+@property (nonatomic, strong) QPointAnnotation *driverLocation;
+
 @property (nonatomic, strong) QTexturePolylineView *trafficOverlayView;
+
+@property (nonatomic, strong) NSArray<TLSLocation *> *tlsLocations;
+
+@property (nonatomic, assign) CLLocationCoordinate2D currentCoordinate;
 
 @end
 
@@ -209,6 +217,73 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
     return nil;
 }
 
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+
+    self.currentCoordinate = [[change objectForKey:@"new"] MKCoordinateValue];
+    
+    if ([object isKindOfClass:[QPointAnnotation class]] && [keyPath isEqualToString:NSStringFromSelector(@selector(coordinate))])
+    {
+        self.driverLocation = (QPointAnnotation *)object;
+
+        int eraseIndex = [self updatePointIndex:self.tlsLocations fromDriverLocation:self.currentCoordinate];
+        
+        // 根据获得的pointIndex擦除路线
+        [self.trafficOverlayView eraseFromStartToCurrentPoint:self.driverLocation.coordinate searchFrom:eraseIndex toColor:YES];
+        
+    }
+ 
+}
+
+- (int)updatePointIndex:(NSArray<TLSLocation *> *)tlsLocations fromDriverLocation:(CLLocationCoordinate2D) driverLocation
+{
+    double leastDistance = 100.0;
+    
+    int marker = 0;
+    
+    for (int i = 0; i < tlsLocations.count; i++)
+    {
+        double tempDistance =  [TMMMathTool distanceBetweenCoordinate:tlsLocations[i].matchedCoordinate  coordinate:driverLocation];
+        
+        if ( tempDistance <  leastDistance)
+        {
+            leastDistance = tempDistance;
+            
+            marker = i;
+        }
+        else
+        {
+            break;
+        }
+
+    }
+    
+    return [tlsLocations objectAtIndex:marker].matchedIndex;
+    
+}
+
+- (void)addObserverOnDriverLocation:(QPointAnnotation *)driverPoint
+{
+    
+    [driverPoint addObserver:self
+                      forKeyPath:NSStringFromSelector(@selector(coordinate))
+                     options:NSKeyValueObservingOptionNew
+                     context:NULL];
+}
+
+- (void)removeObserverOnDriverLocation
+{
+    
+    QPointAnnotation *driverPoint = self.driverPoint;
+    
+    if (driverPoint != nil)
+    {
+        [driverPoint removeObserver:self forKeyPath:NSStringFromSelector(@selector(coordinate))];
+    }
+}
+
 #pragma mark - actions
 
 - (void)updateLocation:(NSArray<TLSLocation *> *)locations
@@ -217,6 +292,8 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
     {
         return;
     }
+    
+    self.tlsLocations = locations;
     
     if(self.driverPoint == nil)
     {
@@ -244,7 +321,11 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
     }
 
     [QMUAnnotationAnimator translateWithAnnotationView:[self.mapView viewForAnnotation:self.driverPoint] locations:locationData duration:4.95 rotateEnabled:YES];
+    
+    [self addObserverOnDriverLocation:self.driverPoint];
+    
 }
+
 
 - (CLLocationCoordinate2D)driverCoordinate:(TLSLocation *)location
 {
@@ -455,6 +536,8 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
     }
 }
 
+#pragma mark - life cycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -481,7 +564,7 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
 
 - (void)dealloc
 {
-
+    [self removeObserverOnDriverLocation];
 }
 
 - (void)didReceiveMemoryWarning

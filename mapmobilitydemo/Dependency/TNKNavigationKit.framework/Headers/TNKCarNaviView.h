@@ -20,20 +20,20 @@ typedef enum _TNKCarNaviUIMode
     TNKCarNaviUIMode2DMapTowardsNorth = 2,    ///< 2D 地图朝北
     TNKCarNaviUIModeOverview          = 3,    ///< 全览模式
     TNKCarNaviUIModeRemainingOverview = 4     ///< 剩余全览模式
-} TNKCarNaviUIMode;
+} TNKCarNaviUIMode;                         ///< 导航地图的导航模式
 
 typedef enum _TNKCarNaviDayNightMode
 {
     TNKCarNaviDayNightModeAuto        = 0,    ///< 自动切换
     TNKCarNaviDayNightModeAlwaysDay   = 1,    ///< 始终白天
     TNKCarNaviDayNightModeAlwaysNight = 2     ///< 始终黑夜
-} TNKCarNaviDayNightMode;
+} TNKCarNaviDayNightMode;                   ///< 导航地图的日夜间模式
 
 typedef enum _TNKCarNaviDayNightStatus
 {
     TNKCarNaviDayNightStatusDay       = 0,    ///< 白天
     TNKCarNaviDayNightStatusNight     = 1,    ///< 黑夜
-} TNKCarNaviDayNightStatus;
+} TNKCarNaviDayNightStatus;                 ///< 导航地图所处的日夜间状态
 
 
 @class TNKCarNaviView;

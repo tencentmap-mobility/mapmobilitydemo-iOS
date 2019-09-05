@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "TNKRouteTrafficData.h"
+#import "TNKCarRouteSearchTypes.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@class TNKCarRouteSearchRouteLine, TNKSegmentItem;
 
 /**
  * @brief 路线路况状态类
@@ -15,12 +20,17 @@
 @interface TNKRouteTrafficStatus : NSObject
 
 /**
- * @brief 剩余距离
+ * @brief 当前路线ID
+ */
+@property (nonatomic, copy) NSString *routeID;
+
+/**
+ * @brief 剩余距离，单位：米
  */
 @property (nonatomic, assign) NSUInteger remainingDistance;
 
 /**
- * @brief 总距离
+ * @brief 总距离，单位：米
  */
 @property (nonatomic, assign) NSUInteger totalDistance;
 
@@ -29,4 +39,11 @@
  */
 @property (nonatomic, strong) NSArray <TNKRouteTrafficData *> *trafficDataArray;
 
+/**
+ * @brief 道路信息的坐标点串
+ */
+@property (nonatomic, strong) NSArray<TNKCoordinatePoint *> *coordinatePoints;
+
 @end
+
+NS_ASSUME_NONNULL_END

@@ -16,11 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  根据路线调整地图的显示范围。使线路居中显示
 
- @param routePlan 路线数据
+ @param coordinates 路线点串数据
  @param edgeInsets 根据样式设置边缘
  @param animated 是否做过渡动画。
  */
-- (void)fitsWithRoutePlan:(TNKCarRouteSearchRoutePlan *)routePlan edgeInsets:(UIEdgeInsets)edgeInsets animated:(BOOL)animated;
+- (void)fitsWithCoordinates:(NSArray<TNKCoordinatePoint *> *)coordinates edgeInsets:(UIEdgeInsets)edgeInsets animated:(BOOL)animated;
 
 @end
 

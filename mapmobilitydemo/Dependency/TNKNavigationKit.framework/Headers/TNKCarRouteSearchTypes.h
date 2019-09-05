@@ -7,6 +7,7 @@
 //
 
 #import "TNKSearchTypes.h"
+#import "TNKRouteTrafficData.h"
 
 /**
  * @brief 路线规划的错误
@@ -66,6 +67,8 @@ typedef enum _TNKCarRouteSearchResultStatus
 } TNKCarRouteSearchResultStatus;  ///< 驾车路线规划提供的方案状态
 
 
+
+NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - TNKCarRouteSearchOption
 
@@ -159,8 +162,7 @@ typedef enum _TNKExtraRankStrategy
 /**
  * @brief 驾车路线规划的配置项,不可为空
  */
-@property (nonatomic, strong, nonnull) TNKCarRouteSearchOption *searchOption;
-
+@property (nonatomic, strong) TNKCarRouteSearchOption *searchOption;
 @end
 
 #pragma mark - TNKCarRouteSearchResult
@@ -190,7 +192,7 @@ typedef enum _TNKExtraRankStrategy
 /**
  * @brief 路线结果集合
  */
-@property (readonly, nonatomic, strong, nonnull) NSArray<TNKCarRouteSearchRoutePlan *> *routes;
+@property (readonly, nonatomic, strong) NSArray<TNKCarRouteSearchRoutePlan *> *routes;
 
 @end
 
@@ -207,7 +209,7 @@ typedef enum _TNKExtraRankStrategy
 /**
  * @brief 路线ID
  */
-@property (readonly, nonatomic, copy, nonnull) NSString *routeID;
+@property (readonly, nonatomic, copy) NSString *routeID;
 
 /**
  * @brief 总距离
@@ -234,7 +236,6 @@ typedef enum _TNKExtraRankStrategy
  */
 @property (nonatomic) int fee;
 
-
 /**
  * @brief 道路封路状态信息. 暂不支持按位组合操作
  */
@@ -243,7 +244,7 @@ typedef enum _TNKExtraRankStrategy
 /**
  * @brief 驾车路线规划的路线数据
  */
-@property (readonly, nonatomic, strong, nonnull) TNKCarRouteSearchRouteLine *line;
+@property (readonly, nonatomic, strong) TNKCarRouteSearchRouteLine *line;
 
 @end
 
@@ -257,27 +258,32 @@ typedef enum _TNKExtraRankStrategy
 /**
  * @brief 路线规划的起点
  */
-@property (nonatomic, strong, nonnull) TNKSearchNaviPoi   *startPoint;
+@property (nonatomic, strong) TNKSearchNaviPoi   *startPoint;
 
 /**
  * @brief 路线规划的终点
  */
-@property (nonatomic, strong, nonnull) TNKSearchNaviPoi   *destinationPoint;
+@property (nonatomic, strong) TNKSearchNaviPoi   *destinationPoint;
 
 /**
  * @brief 途经点
  */
-@property (nonatomic, strong, nullable) NSArray<TNKSearchNaviPoi *>   *wayPoints;
+@property (nonatomic, strong, nullable) NSArray<TNKSearchNaviPoi *> *wayPoints;
 
 /**
  * @brief 道路信息的坐标点串
  */
-@property (readonly, nonatomic, strong, nonnull) NSArray<TNKCoordinatePoint *> *coordinatePoints;
+@property (readonly, nonatomic, strong) NSArray<TNKCoordinatePoint *> *coordinatePoints;
 
 /**
  * @brief 可配置每一子段显示样式的集合
  */
-@property (readonly, nonatomic, strong, nonnull) NSArray<TNKCarRouteSearchRouteSegmentStyle *> *segmentStyles;
+@property (readonly, nonatomic, strong) NSArray<TNKCarRouteSearchRouteSegmentStyle *> *segmentStyles DEPRECATED_MSG_ATTRIBUTE("use trafficDataArray");
+
+/**
+ * @brief 路线规划时的路况状态数据.
+ */
+@property (nonatomic, strong) NSArray <TNKRouteTrafficData *> *initialTrafficDataArray;
 
 @end
 
@@ -305,4 +311,5 @@ typedef enum _TNKExtraRankStrategy
 
 @end
 
+NS_ASSUME_NONNULL_END
 

@@ -29,6 +29,7 @@ typedef NS_ENUM(NSInteger, TNKRouteTrafficDataStatus)
     TNKRouteTrafficDataStatusJam = 4,
 };
 
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * @brief 路线路况数据.
@@ -55,6 +56,14 @@ typedef NS_ENUM(NSInteger, TNKRouteTrafficDataStatus)
 */
 @property (nonatomic, assign) TNKRouteTrafficDataStatus color;
 
+@property (nonatomic) NSInteger speed;
+
 // 获取导航SDK默认路况颜色
 UIColor *TNKRouteTrafficStatusColor(TNKRouteTrafficDataStatus trafficDataStatus);
+
+// 获取导航SDK伴随路线默认路况颜色
+UIColor *TNKAccompanyRouteTrafficStatusColor(TNKRouteTrafficDataStatus trafficDataStatus);
+
 @end
+
+NS_ASSUME_NONNULL_END

@@ -11,6 +11,7 @@
 
 @interface TNKMathTool : NSObject
 
+// 计算两点直接的距离
 + (double)distanceBetweenCoordinate:(CLLocationCoordinate2D)coordinate1
                          coordinate:(CLLocationCoordinate2D)coordinate2;
 

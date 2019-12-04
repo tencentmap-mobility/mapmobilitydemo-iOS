@@ -10,6 +10,7 @@
 #import <TencentLBS/TencentLBS.h>
 #import <TencentMapMobilitySDK/TencentMapMobilitySDK.h>
 #import <TencentMapMobilityBoardingPlacesSDK/TencentMapMobilityBoardingPlacesSDK.h>
+#import <UIKit/UIKit.h>
 
 @interface BoardingPlacesViewController () <QMapViewDelegate, TencentLBSLocationManagerDelegate, TMMNearbyBoardingPlacesManagerDelegate,
 UIPickerViewDelegate, UIPickerViewDataSource>
@@ -27,6 +28,8 @@ UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic, strong) UIPickerView *subFencePickView;
 @property (nonatomic, strong) TMMFenceModel *myFenceModel;
+
+@property (nonatomic, strong) UIButton *doneBtn;
 @end
 
 
@@ -205,6 +208,21 @@ UIPickerViewDelegate, UIPickerViewDataSource>
         self.subFencePickView.backgroundColor = [UIColor whiteColor];
         self.subFencePickView.showsSelectionIndicator = YES;
         
+        CGFloat width = self.view.frame.size.width;
+
+        
+        self.doneBtn = [[UIButton alloc] init];
+        self.doneBtn.frame = CGRectMake(width / 2 - 25, 10, 50, 50);
+        [self.doneBtn setTitle:@"完成" forState:UIControlStateNormal];
+        self.doneBtn.titleLabel.font = [UIFont systemFontOfSize:14.0];
+        [self.doneBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.doneBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        
+        [self.doneBtn addTarget:self action:@selector(dismissPickerView:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        [self.subFencePickView addSubview:self.doneBtn];
+        
         [self.view addSubview:self.subFencePickView];
         self.subFencePickView.delegate = self;
         self.subFencePickView.dataSource = self;
@@ -247,6 +265,13 @@ UIPickerViewDelegate, UIPickerViewDataSource>
 //
 //    [self presentViewController:self.subTrafficHubAlertController animated:YES completion:nil];
 
+}
+
+- (void)dismissPickerView:(UIButton *)sender
+{
+    self.myFenceModel = nil;
+    [self.subFencePickView removeFromSuperview];
+    self.subFencePickView = nil;
 }
 
 - (void)TMMNearbyBoardingPlaceManagerDidMoveOutOfFence:(TMMNearbyBoardingPlacesManager *)manager {

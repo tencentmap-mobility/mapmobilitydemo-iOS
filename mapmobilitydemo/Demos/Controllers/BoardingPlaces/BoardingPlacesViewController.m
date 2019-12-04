@@ -10,7 +10,7 @@
 #import <TencentLBS/TencentLBS.h>
 #import <TencentMapMobilitySDK/TencentMapMobilitySDK.h>
 #import <TencentMapMobilityBoardingPlacesSDK/TencentMapMobilityBoardingPlacesSDK.h>
-#import <UIKit/UIKit.h>
+#import "Constants.h"
 
 @interface BoardingPlacesViewController () <QMapViewDelegate, TencentLBSLocationManagerDelegate, TMMNearbyBoardingPlacesManagerDelegate,
 UIPickerViewDelegate, UIPickerViewDataSource>
@@ -29,7 +29,6 @@ UIPickerViewDelegate, UIPickerViewDataSource>
 @property (nonatomic, strong) UIPickerView *subFencePickView;
 @property (nonatomic, strong) TMMFenceModel *myFenceModel;
 
-@property (nonatomic, strong) UIButton *doneBtn;
 @end
 
 
@@ -85,7 +84,7 @@ UIPickerViewDelegate, UIPickerViewDataSource>
     self.locationManager = [[TencentLBSLocationManager alloc] init];
     [self.locationManager setDelegate:self];
     [self.locationManager setAllowsBackgroundLocationUpdates:YES];
-    [self.locationManager setApiKey:@"5K4BZ-LGWK4-ILXUL-DSL73-W24Z5-MQB3S"];
+    [self.locationManager setApiKey:kMapKey];
     
     [self.locationManager setPausesLocationUpdatesAutomatically:NO];
     
@@ -174,6 +173,7 @@ UIPickerViewDelegate, UIPickerViewDataSource>
 
 - (void)mapView:(QMapView *)mapView regionDidChangeAnimated:(BOOL)animated gesture:(BOOL)bGesture {
     [self.mapView.tmm_centerPinView setCalloutAttribtedText:[[NSAttributedString alloc] initWithString:@"在这里上车" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:12]}]];
+    
 }
 
 
@@ -181,7 +181,15 @@ UIPickerViewDelegate, UIPickerViewDataSource>
     
     if (bGesture) {
         [self.mapView.tmm_centerPinView setCalloutAttribtedText:[[NSAttributedString alloc] initWithString:@"拖到路边或小绿点，接驾更快" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:12]}]];
+        
     }
+}
+
+- (void)mapView:(QMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    self.myFenceModel = nil;
+    [self.subFencePickView removeFromSuperview];
+    self.subFencePickView = nil;
 }
 
 #pragma mark - TMMNearbyBoardingPlacesManagerDelegate
@@ -207,22 +215,7 @@ UIPickerViewDelegate, UIPickerViewDataSource>
         self.subFencePickView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - pickViewHeight, self.view.bounds.size.width, pickViewHeight)];
         self.subFencePickView.backgroundColor = [UIColor whiteColor];
         self.subFencePickView.showsSelectionIndicator = YES;
-        
-        CGFloat width = self.view.frame.size.width;
-
-        
-        self.doneBtn = [[UIButton alloc] init];
-        self.doneBtn.frame = CGRectMake(width / 2 - 25, 10, 50, 50);
-        [self.doneBtn setTitle:@"完成" forState:UIControlStateNormal];
-        self.doneBtn.titleLabel.font = [UIFont systemFontOfSize:14.0];
-        [self.doneBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [self.doneBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-        
-        [self.doneBtn addTarget:self action:@selector(dismissPickerView:) forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        [self.subFencePickView addSubview:self.doneBtn];
-        
+ 
         [self.view addSubview:self.subFencePickView];
         self.subFencePickView.delegate = self;
         self.subFencePickView.dataSource = self;
@@ -267,15 +260,9 @@ UIPickerViewDelegate, UIPickerViewDataSource>
 
 }
 
-- (void)dismissPickerView:(UIButton *)sender
-{
-    self.myFenceModel = nil;
-    [self.subFencePickView removeFromSuperview];
-    self.subFencePickView = nil;
-}
-
 - (void)TMMNearbyBoardingPlaceManagerDidMoveOutOfFence:(TMMNearbyBoardingPlacesManager *)manager {
     NSLog(@"TMMNearbyBoardingPlaceManagerDidMoveOutOfFence");
+    
     self.myFenceModel = nil;
     [self.subFencePickView removeFromSuperview];
     self.subFencePickView = nil;
@@ -335,5 +322,9 @@ UIPickerViewDelegate, UIPickerViewDataSource>
                                                                          NSFontAttributeName : [UIFont systemFontOfSize:16]
                                                                          }];
 }
+
+
+
+
 
 @end

@@ -17,7 +17,6 @@ UIPickerViewDelegate, UIPickerViewDataSource>
 @property (nonatomic, strong) QMapView *mapView;
 @property (nonatomic, strong) TencentLBSLocationManager *locationManager;
 
-@property UISegmentedControl* segment;
 // 是否已经获得首次定位信息，判断是否需要调整地图中心点
 @property (nonatomic, assign) BOOL hasGotLocation;
 
@@ -40,10 +39,6 @@ UIPickerViewDelegate, UIPickerViewDataSource>
     [self.mapView removeFromSuperview];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
 
 - (void)viewDidLoad
 {
@@ -67,10 +62,15 @@ UIPickerViewDelegate, UIPickerViewDataSource>
 
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.segment removeAllSegments];
 }
 
 

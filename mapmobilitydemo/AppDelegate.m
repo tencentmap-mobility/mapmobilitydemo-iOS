@@ -26,6 +26,8 @@
     [QMapServices sharedServices].APIKey = kMapKey;
     [TNKNaviServices sharedServices].APIKey = kMapKey;
     [TMMServices sharedServices].apiKey = kMobilityKey;
+    // 如果配置了secretKey需要设置secretKey
+    [TMMServices sharedServices].secretKey = kMobilitySecretKey;
     EntryViewController *entry = [[EntryViewController alloc] init];
     
     UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:entry];

@@ -33,6 +33,12 @@
 		E1AC742923975146006645CE /* TencentMapMobilityNearbyCarsSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC742623975145006645CE /* TencentMapMobilityNearbyCarsSDK.bundle */; };
 		E1AC742A23975146006645CE /* TencentMapMobilitySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC742723975146006645CE /* TencentMapMobilitySDK.bundle */; };
 		E1AC742B23975146006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC742823975146006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle */; };
+		E1AC743223975908006645CE /* TripPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC743123975908006645CE /* TripPanelView.m */; };
+		E1AC743423976881006645CE /* MobilitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC743323976881006645CE /* MobilitySearchViewController.m */; };
+		E1AC7437239768B1006645CE /* SearchKeywordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7436239768B1006645CE /* SearchKeywordViewController.m */; };
+		E1AC743A23976955006645CE /* SearchKeywordHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC743923976955006645CE /* SearchKeywordHeaderView.m */; };
+		E1AC743D239791C4006645CE /* SearchKeywordPOICell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC743C239791C4006645CE /* SearchKeywordPOICell.m */; };
+		E1AC744223979344006645CE /* SearchKeywordPOIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC744123979344006645CE /* SearchKeywordPOIModel.m */; };
 		E1B3D1E622F535D000E753CB /* TLSLocusSynchro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1E222F535D000E753CB /* TLSLocusSynchro.framework */; };
 		E1B3D1E722F535D000E753CB /* QMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1E322F535D000E753CB /* QMapKit.framework */; };
 		E1B3D1E822F535D000E753CB /* QMapSDKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1E422F535D000E753CB /* QMapSDKUtils.framework */; };
@@ -127,6 +133,18 @@
 		E1AC742623975145006645CE /* TencentMapMobilityNearbyCarsSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilityNearbyCarsSDK.bundle; path = TencentMapMobilityNearbyCarsSDK.framework/TencentMapMobilityNearbyCarsSDK.bundle; sourceTree = "<group>"; };
 		E1AC742723975146006645CE /* TencentMapMobilitySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilitySDK.bundle; path = TencentMapMobilitySDK.framework/TencentMapMobilitySDK.bundle; sourceTree = "<group>"; };
 		E1AC742823975146006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilityBoardingPlacesSDK.bundle; path = TencentMapMobilityBoardingPlacesSDK.framework/TencentMapMobilityBoardingPlacesSDK.bundle; sourceTree = "<group>"; };
+		E1AC742D2397562A006645CE /* MobilitySearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobilitySearchViewController.h; sourceTree = "<group>"; };
+		E1AC743023975908006645CE /* TripPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripPanelView.h; sourceTree = "<group>"; };
+		E1AC743123975908006645CE /* TripPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripPanelView.m; sourceTree = "<group>"; };
+		E1AC743323976881006645CE /* MobilitySearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilitySearchViewController.m; sourceTree = "<group>"; };
+		E1AC7435239768B1006645CE /* SearchKeywordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchKeywordViewController.h; sourceTree = "<group>"; };
+		E1AC7436239768B1006645CE /* SearchKeywordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchKeywordViewController.m; sourceTree = "<group>"; };
+		E1AC743823976955006645CE /* SearchKeywordHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchKeywordHeaderView.h; sourceTree = "<group>"; };
+		E1AC743923976955006645CE /* SearchKeywordHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchKeywordHeaderView.m; sourceTree = "<group>"; };
+		E1AC743B239791C4006645CE /* SearchKeywordPOICell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchKeywordPOICell.h; sourceTree = "<group>"; };
+		E1AC743C239791C4006645CE /* SearchKeywordPOICell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchKeywordPOICell.m; sourceTree = "<group>"; };
+		E1AC743E239791D9006645CE /* SearchKeywordPOIModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchKeywordPOIModel.h; sourceTree = "<group>"; };
+		E1AC744123979344006645CE /* SearchKeywordPOIModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchKeywordPOIModel.m; sourceTree = "<group>"; };
 		E1B3D1E222F535D000E753CB /* TLSLocusSynchro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TLSLocusSynchro.framework; sourceTree = "<group>"; };
 		E1B3D1E322F535D000E753CB /* QMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapKit.framework; sourceTree = "<group>"; };
 		E1B3D1E422F535D000E753CB /* QMapSDKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapSDKUtils.framework; sourceTree = "<group>"; };
@@ -234,9 +252,10 @@
 		03E748142303FF96000D9045 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				03E748182303FF96000D9045 /* Synchro */,
 				03E6FAE823968277007CE9F7 /* BoardingPlaces */,
 				03E748152303FF96000D9045 /* NearbyCars */,
-				03E748182303FF96000D9045 /* Synchro */,
+				E1AC742C23975606006645CE /* Search */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -379,6 +398,25 @@
 				E1B3D1E522F535D000E753CB /* TNKNavigationKit.framework */,
 			);
 			path = Dependency;
+			sourceTree = "<group>";
+		};
+		E1AC742C23975606006645CE /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E1AC742D2397562A006645CE /* MobilitySearchViewController.h */,
+				E1AC743323976881006645CE /* MobilitySearchViewController.m */,
+				E1AC743023975908006645CE /* TripPanelView.h */,
+				E1AC743123975908006645CE /* TripPanelView.m */,
+				E1AC7435239768B1006645CE /* SearchKeywordViewController.h */,
+				E1AC7436239768B1006645CE /* SearchKeywordViewController.m */,
+				E1AC743823976955006645CE /* SearchKeywordHeaderView.h */,
+				E1AC743923976955006645CE /* SearchKeywordHeaderView.m */,
+				E1AC743B239791C4006645CE /* SearchKeywordPOICell.h */,
+				E1AC743C239791C4006645CE /* SearchKeywordPOICell.m */,
+				E1AC743E239791D9006645CE /* SearchKeywordPOIModel.h */,
+				E1AC744123979344006645CE /* SearchKeywordPOIModel.m */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		E1B3D1EE22F539CE00E753CB /* Frameworks */ = {
@@ -558,6 +596,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1AC743D239791C4006645CE /* SearchKeywordPOICell.m in Sources */,
+				E1AC743A23976955006645CE /* SearchKeywordHeaderView.m in Sources */,
 				03E748312303FF96000D9045 /* PassengerSynchroViewController.m in Sources */,
 				03E7482E2303FF96000D9045 /* NearbyCarsViewController.m in Sources */,
 				E1BFD89E22FAFAA300DF8C68 /* UIButton+Chameleon.m in Sources */,
@@ -570,15 +610,19 @@
 				E1435D7C22F524EF00C2B4D0 /* main.m in Sources */,
 				E1BFD8A122FAFAA300DF8C68 /* NSArray+Chameleon.m in Sources */,
 				E1BFD8A522FAFAA300DF8C68 /* UIAppearance+Swift.m in Sources */,
+				E1AC7437239768B1006645CE /* SearchKeywordViewController.m in Sources */,
 				E1BFD89F22FAFAA300DF8C68 /* UIView+ChameleonPrivate.m in Sources */,
 				E1BFD8AD22FAFC2D00DF8C68 /* MathTool.m in Sources */,
 				E1BFD8A622FAFAA300DF8C68 /* UIImage+ChameleonPrivate.m in Sources */,
+				E1AC744223979344006645CE /* SearchKeywordPOIModel.m in Sources */,
 				03E748302303FF96000D9045 /* BaseSynchroViewController.m in Sources */,
 				E1BFD8A322FAFAA300DF8C68 /* UILabel+Chameleon.m in Sources */,
 				E1435D9522F5344800C2B4D0 /* TrafficPolyline.m in Sources */,
 				03E748362303FF96000D9045 /* CurrentSpeedView.m in Sources */,
+				E1AC743423976881006645CE /* MobilitySearchViewController.m in Sources */,
 				E1BFD8A422FAFAA300DF8C68 /* UIViewController+Chameleon.m in Sources */,
 				03E748352303FF96000D9045 /* LimitSpeedView.m in Sources */,
+				E1AC743223975908006645CE /* TripPanelView.m in Sources */,
 				E1BFD8AC22FAFC2D00DF8C68 /* ReplaceUnicode.m in Sources */,
 				03E748332303FF96000D9045 /* NavigationBottomBoard.m in Sources */,
 				E1BFD89C22FAFAA300DF8C68 /* ChameleonConstants.m in Sources */,

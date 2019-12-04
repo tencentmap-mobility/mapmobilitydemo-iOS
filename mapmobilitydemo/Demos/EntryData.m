@@ -68,6 +68,12 @@
             cell.controllerClassName = @"BoardingPlacesViewController";
             [cellArray addObject:cell];
         }
+        {
+            Cell *cell = [[Cell alloc] init];
+            cell.title = @"出行检索";
+            cell.controllerClassName = @"MobilitySearchViewController";
+            [cellArray addObject:cell];
+        }
     }
     
     return entry;

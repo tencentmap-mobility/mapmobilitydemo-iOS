@@ -16,9 +16,8 @@ TMMSearchReGeocodeRequest *request = [[TMMSearchReGeocodeRequest alloc] init];
 request.locationCoordinate = CLLocationCoordinate2DMake(40.040414993, 116.273511063);
 
 // 发起逆地址解析请求
-[TMMSearchManager queryReGeocodeWithRequest:request
-						completion:^(TMMSearchReGeocodeResponse * _Nullable response,
- 												        NSError * _Nullable error) {
+[TMMSearchManager queryReGeocodeWithRequest:request 
+completion:^(TMMSearchReGeocodeResponse *response, NSError *error) {
 
  }];
 ```
@@ -39,8 +38,7 @@ request.locationCoordinate = CLLocationCoordinate2DMake(40.040414993, 116.273511
 
 // 发起检索请求
 [TMMSearchManager querySuggestionWithRequest:request
-				    completion:^(TMMSearchSuggestionResponse * _Nullable response,
- 												     NSError * _Nullable error) {
+completion:^(TMMSearchSuggestionResponse *response, NSError *error) {
 
  }];
 ```

@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QMapView+TMMobility.h"
-#import "TMMServices.h"
-#import "TMMMathTool.h"
+
+#import <TencentMapMobilitySDK/QMapView+TMMobility.h>
+#import <TencentMapMobilitySDK/TMMServices.h>
+#import <TencentMapMobilitySDK/TMMMathTool.h>
+#import <TencentMapMobilitySDK/TMMDCenterPinView.h>

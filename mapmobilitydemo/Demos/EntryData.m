@@ -62,6 +62,12 @@
             cell.controllerClassName = @"NearbyCarsViewController";
             [cellArray addObject:cell];
         }
+        {
+            Cell *cell = [[Cell alloc] init];
+            cell.title = @"推荐上车点展示";
+            cell.controllerClassName = @"BoardingPlacesViewController";
+            [cellArray addObject:cell];
+        }
     }
     
     return entry;

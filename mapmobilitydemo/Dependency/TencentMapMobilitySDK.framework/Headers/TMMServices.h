@@ -30,6 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy) NSString *apiKey;
 
+/**
+ * @brief 用户使用签名校验的方式时需填入的Secret key
+ */
+@property (nonatomic, copy, nullable) NSString *secretKey;
+
 - (instancetype)init UNAVAILABLE_ATTRIBUTE;
 
 @end

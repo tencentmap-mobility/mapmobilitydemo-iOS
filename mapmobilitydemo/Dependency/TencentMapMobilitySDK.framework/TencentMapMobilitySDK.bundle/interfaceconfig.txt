@@ -1,0 +1,66 @@
+{
+"status": 0,
+"message": "successful",
+"result": [
+{
+"func_name": "suggestion",
+"func_path": "/ws/place/v1/suggestion",
+"default_args": [
+{
+"arg_name": "get_subpois",
+"arg_type": "long",
+"arg_value": "1"
+},
+{
+"arg_name": "page_index",
+"arg_type": "long",
+"arg_value": "1"
+},
+{
+"arg_name": "page_size",
+"arg_type": "long",
+"arg_value": "15"
+},
+{
+"arg_name": "region_fix",
+"arg_type": "long",
+"arg_value": "1"
+}
+],
+"set_args": [
+{
+"sdk_arg_name": "policy",
+"arg_name": "policy",
+"arg_type": "long",
+"value_map": [
+{
+"sdk_value": "1",
+"arg_value": "10"
+},
+{
+"sdk_value": "2",
+"arg_value": "11"
+}
+]
+}
+]
+},
+{
+"func_name": "rgeoc",
+"func_path": "/ws/geocoder/v1",
+"default_args": [
+{
+"arg_name": "get_poi",
+"arg_type": "long",
+"arg_value": "1"
+},
+{
+"arg_name": "poi_options",
+"arg_type": "string",
+"arg_value": "address_format=short;radius=500;policy=3;page_index=1;page_size=10"
+}
+],
+"set_args": []
+}
+]
+}

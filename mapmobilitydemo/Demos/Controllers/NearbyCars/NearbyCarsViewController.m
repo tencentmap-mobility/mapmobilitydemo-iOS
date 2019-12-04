@@ -9,6 +9,8 @@
 #import "NearbyCarsViewController.h"
 #import <TencentLBS/TencentLBS.h>
 #import <TencentMapMobilitySDK/TencentMapMobilitySDK.h>
+#import <TencentMapMobilityNearbyCarsSDK/TMMNearbyCars.h>
+#import <TencentMapMobilitySearchSDK/TMMSearch.h>
 #import <UIKit/UIKit.h>
 #import "Constants.h"
 
@@ -24,6 +26,8 @@
 @property (nonatomic, assign) BOOL hasGotLocation;
 //地图中心的引导点
 @property (nonatomic, strong) UIImageView *centerPoint;
+
+@property (nonatomic, strong) TMMNearbyCarsManager *nearbyCarsManager;
 
 @end
 
@@ -99,20 +103,19 @@
 
 - (void)setupNearbyCar
 {
-    self.mapView.nearbyCarsEnabled = YES;
-
     TMMNearbyCarConfig *nearbyCarConfig = [[TMMNearbyCarConfig alloc] init];
-    //mock为1，是模拟数据；0为真实数据，真实数据一定需要设置citycode
     nearbyCarConfig.mock = 1;
-    
     nearbyCarConfig.carIconDictionary = @{@(1) : [UIImage imageNamed:@"taxi"], @(2) : [UIImage imageNamed:@"cleanEnergyCar"], @(3) : [UIImage imageNamed:@"comfortCar"], @(4):[UIImage imageNamed:@"luxuryCar"], @(5):[UIImage imageNamed:@"businessCar"], @(6):[UIImage imageNamed:@"economyCar"]};
+    nearbyCarConfig.requestRepeatedly = YES;
+    
+    self.nearbyCarsManager = [[TMMNearbyCarsManager alloc] initWithMapView:self.mapView delagate:nil];
+    self.nearbyCarsManager.nearbyCarConfig = nearbyCarConfig;
 
     // 设置大头针的相对位置(0.5, 0.5)为地图中心点
     CGPoint pinPosition = CGPointMake(0.5, 0.5);
     self.mapView.tmm_pinPosition = pinPosition;
     [self.mapView setCenterOffset:pinPosition];
     
-    self.mapView.nearbyCarConfig = nearbyCarConfig;
 }
 
 - (void)setupSelecteVehicleTypesBar
@@ -160,6 +163,16 @@
             }
         }];
     }
+    
+    // 逆地址解析
+    TMMSearchReGeocodeRequest *reGeocodeRequest = [[TMMSearchReGeocodeRequest alloc] init];
+    reGeocodeRequest.locationCoordinate = mapView.userLocation.location.coordinate;
+    
+    [TMMSearchManager queryReGeocodeWithRequest:reGeocodeRequest completion:^(TMMSearchReGeocodeResponse * _Nullable response, NSError * _Nullable error) {
+        
+    }];
+    
+    [self.mapView.tmm_centerPinView setCalloutAttribtedText:[[NSAttributedString alloc] initWithString:@"在这里上车" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:13]}]];
 }
 
 #pragma mark - LBSLocationDelegate
@@ -188,34 +201,34 @@
 {
     switch (control.selectedSegmentIndex) {
         case 0:
-            self.mapView.nearbyCarConfig.vehicleTypes = @"";
+            self.nearbyCarsManager.nearbyCarConfig.vehicleTypes = @"";
             break;
         case 1:
-            self.mapView.nearbyCarConfig.vehicleTypes = @"1";
+            self.nearbyCarsManager.nearbyCarConfig.vehicleTypes = @"1";
             break;
         case 2:
-            self.mapView.nearbyCarConfig.vehicleTypes = @"2";
+            self.nearbyCarsManager.nearbyCarConfig.vehicleTypes = @"2";
             break;
         case 3:
-            self.mapView.nearbyCarConfig.vehicleTypes = @"3";
+            self.nearbyCarsManager.nearbyCarConfig.vehicleTypes = @"3";
             break;
         case 4:
-            self.mapView.nearbyCarConfig.vehicleTypes = @"4";
+            self.nearbyCarsManager.nearbyCarConfig.vehicleTypes = @"4";
             break;
         case 5:
-            self.mapView.nearbyCarConfig.vehicleTypes = @"5";
+            self.nearbyCarsManager.nearbyCarConfig.vehicleTypes = @"5";
             break;
         case 6:
-            self.mapView.nearbyCarConfig.vehicleTypes = @"6";
+            self.nearbyCarsManager.nearbyCarConfig.vehicleTypes = @"6";
             break;
         default:
-            self.mapView.nearbyCarConfig.vehicleTypes = @"";
+            self.nearbyCarsManager.nearbyCarConfig.vehicleTypes = @"";
             break;
     }
     //移除
-    [self.mapView removeAllNearbyCars];
+    [self.nearbyCarsManager removeAllNearbyCars];
     //添加
-    [self.mapView getNearbyCars];
+    [self.nearbyCarsManager getNearbyCars];
 }
 
 - (void)mapView:(QMapView *)mapView didUpdateUserLocation:(QUserLocation *)userLocation fromHeading:(BOOL)fromHeading {
@@ -228,5 +241,10 @@
         [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(self.mapView.userLocation.location.coordinate.latitude, self.mapView.userLocation.location.coordinate.longitude)];
         self.hasGotLocation = YES;
     }
+}
+
+- (void)mapView:(QMapView *)mapView regionWillChangeAnimated:(BOOL)animated gesture:(BOOL)bGesture {
+    
+    [self.mapView.tmm_centerPinView setCalloutAttribtedText:[[NSAttributedString alloc] initWithString:@"拖到路边或小绿点，接驾更快" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:12]}]];
 }
 @end

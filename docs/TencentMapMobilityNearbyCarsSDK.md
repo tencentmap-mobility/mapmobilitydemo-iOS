@@ -73,8 +73,10 @@
 
 ```objc
 
-@property (nonatomic, strong) QMapView *mapView;
+1. 创建manager
+@property (nonatomic, strong) TMMNearbyCarsManager *nearbyCarsManager;
 
+2. 配置周边车辆
 - (void) setupNearbyCars
 {
     TMMNearbyCarConfig *nearbyCarConfig = [[TMMNearbyCarConfig alloc] init];

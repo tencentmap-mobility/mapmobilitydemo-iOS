@@ -30,6 +30,9 @@
 		E1435D9622F5344800C2B4D0 /* RouteLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1435D8722F5344800C2B4D0 /* RouteLocation.m */; };
 		E1435D9722F5344800C2B4D0 /* EntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1435D8B22F5344800C2B4D0 /* EntryViewController.m */; };
 		E1435D9822F5344800C2B4D0 /* EntryData.m in Sources */ = {isa = PBXBuildFile; fileRef = E1435D8C22F5344800C2B4D0 /* EntryData.m */; };
+		E1AC742923975146006645CE /* TencentMapMobilityNearbyCarsSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC742623975145006645CE /* TencentMapMobilityNearbyCarsSDK.bundle */; };
+		E1AC742A23975146006645CE /* TencentMapMobilitySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC742723975146006645CE /* TencentMapMobilitySDK.bundle */; };
+		E1AC742B23975146006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC742823975146006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle */; };
 		E1B3D1E622F535D000E753CB /* TLSLocusSynchro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1E222F535D000E753CB /* TLSLocusSynchro.framework */; };
 		E1B3D1E722F535D000E753CB /* QMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1E322F535D000E753CB /* QMapKit.framework */; };
 		E1B3D1E822F535D000E753CB /* QMapSDKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1E422F535D000E753CB /* QMapSDKUtils.framework */; };
@@ -121,6 +124,9 @@
 		E1435D8A22F5344800C2B4D0 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		E1435D8B22F5344800C2B4D0 /* EntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryViewController.m; sourceTree = "<group>"; };
 		E1435D8C22F5344800C2B4D0 /* EntryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryData.m; sourceTree = "<group>"; };
+		E1AC742623975145006645CE /* TencentMapMobilityNearbyCarsSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilityNearbyCarsSDK.bundle; path = TencentMapMobilityNearbyCarsSDK.framework/TencentMapMobilityNearbyCarsSDK.bundle; sourceTree = "<group>"; };
+		E1AC742723975146006645CE /* TencentMapMobilitySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilitySDK.bundle; path = TencentMapMobilitySDK.framework/TencentMapMobilitySDK.bundle; sourceTree = "<group>"; };
+		E1AC742823975146006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilityBoardingPlacesSDK.bundle; path = TencentMapMobilityBoardingPlacesSDK.framework/TencentMapMobilityBoardingPlacesSDK.bundle; sourceTree = "<group>"; };
 		E1B3D1E222F535D000E753CB /* TLSLocusSynchro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TLSLocusSynchro.framework; sourceTree = "<group>"; };
 		E1B3D1E322F535D000E753CB /* QMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapKit.framework; sourceTree = "<group>"; };
 		E1B3D1E422F535D000E753CB /* QMapSDKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapSDKUtils.framework; sourceTree = "<group>"; };
@@ -355,6 +361,9 @@
 		E1435D9C22F534C200C2B4D0 /* Dependency */ = {
 			isa = PBXGroup;
 			children = (
+				E1AC742823975146006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle */,
+				E1AC742623975145006645CE /* TencentMapMobilityNearbyCarsSDK.bundle */,
+				E1AC742723975146006645CE /* TencentMapMobilitySDK.bundle */,
 				03E6FAF3239685B1007CE9F7 /* TencentMapMobilitySDK.framework */,
 				03E6FAF123968583007CE9F7 /* TencentMapMobilitySearchSDK.framework */,
 				03E6FAEF2396856F007CE9F7 /* TencentMapMobilityNearbyCarsSDK.framework */,
@@ -523,14 +532,17 @@
 				E1BFD8C722FB006000DF8C68 /* map_traffic_active_normal.png in Resources */,
 				E1BFD8CB22FB006000DF8C68 /* location.png in Resources */,
 				E1BFD8CA22FB006000DF8C68 /* btn_elevated_normal.png in Resources */,
+				E1AC742A23975146006645CE /* TencentMapMobilitySDK.bundle in Resources */,
 				E1BFD8C922FB006000DF8C68 /* btn_oppositeDirection_normal.png in Resources */,
 				E1BFD8C622FB006000DF8C68 /* btn_downstairs_normal.png in Resources */,
 				E1BFD8C422FB006000DF8C68 /* btn_mainRoad_normal.png in Resources */,
+				E1AC742B23975146006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle in Resources */,
 				E1B3D1ED22F535EC00E753CB /* TencentNavigationKit.bundle in Resources */,
 				E1BFD8CC22FB006000DF8C68 /* navi_bg_speedlimit.png in Resources */,
 				E1BFD8C322FB006000DF8C68 /* navi_bg_speed@3x.png in Resources */,
 				E1BFD8C822FB006000DF8C68 /* common_btn_locate_normal.png in Resources */,
 				E1BFD8C122FB006000DF8C68 /* navi_bg_speedlimit@2x.png in Resources */,
+				E1AC742923975146006645CE /* TencentMapMobilityNearbyCarsSDK.bundle in Resources */,
 				E1435D7922F524EF00C2B4D0 /* LaunchScreen.storyboard in Resources */,
 				E1BFD8C522FB006000DF8C68 /* btn_servingRoad_normal.png in Resources */,
 				E1B3D1EB22F535E300E753CB /* QMapKit.bundle in Resources */,

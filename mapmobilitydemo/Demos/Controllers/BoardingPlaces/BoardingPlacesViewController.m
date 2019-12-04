@@ -23,9 +23,9 @@ UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic, strong) TMMNearbyBoardingPlacesManager *bpManager;
 
-@property (nonatomic, strong) UIAlertController *subTrafficHubAlertController;
-
+// 围栏选择器
 @property (nonatomic, strong) UIPickerView *subFencePickView;
+// 命中围栏时的围栏数据
 @property (nonatomic, strong) TMMFenceModel *myFenceModel;
 
 @end
@@ -36,9 +36,9 @@ UIPickerViewDelegate, UIPickerViewDataSource>
 #pragma mark - life cycle
 
 - (void)dealloc {
+    
+    // 关闭定位
     [self stopSerialLocation];
-    self.mapView = nil;
-    [self.mapView removeFromSuperview];
 }
 
 
@@ -47,36 +47,41 @@ UIPickerViewDelegate, UIPickerViewDataSource>
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.mapView = [[QMapView alloc] initWithFrame:self.view.bounds];
-    self.mapView.autoresizingMask  = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.mapView.rotateEnabled = NO;
-    self.mapView.delegate = self;
-    [self.view addSubview:self.mapView];
-    self.mapView.tmm_centerPinViewHidden = NO;
-    [self.mapView.tmm_centerPinView setCalloutAttribtedText:[[NSAttributedString alloc] initWithString:@"在这里上车" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:12]}]];
-    
-    self.mapView.showsUserLocation = YES;
-    
-    [self setupNearbyBoardingPlaces];
+    // 创建地图
+    [self setupMapView];
+    // 开启定位服务
     [self setupLocationManager];
     [self startSerialLocation];
-    [self queryNearbyBoardingPlaces];
+    
+    // 配置推荐上车点
+    [self setupNearbyBoardingPlaces];
 
+    // 纯数据接口
+    //[self queryNearbyBoardingPlaces];
 }
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
 
 #pragma mark - setup
+
+- (void)setupMapView
+{
+    self.mapView = [[QMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView.autoresizingMask  = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.mapView.delegate = self;
+    self.mapView.showsUserLocation = YES;
+    self.mapView.rotateEnabled = NO;
+    self.mapView.zoomLevel = 15;
+    self.mapView.overlookingEnabled = NO;
+    
+    // 显示中心点
+    self.mapView.tmm_centerPinViewHidden = NO;
+    [self.mapView.tmm_centerPinView setCalloutAttribtedText:[[NSAttributedString alloc] initWithString:@"在这里上车" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:13]}]];
+    
+    // 设置大头针的相对位置(0.5, 0.5)为地图中心点
+    CGPoint pinPosition = CGPointMake(0.5, 0.5);
+    self.mapView.tmm_pinPosition = pinPosition;
+    
+    [self.view addSubview:self.mapView];
+}
 
 - (void)setupLocationManager
 {
@@ -113,29 +118,20 @@ UIPickerViewDelegate, UIPickerViewDataSource>
 
 }
 
+// 纯数据接口
 - (void)queryNearbyBoardingPlaces
 {
     
     TMMNearbyBoardingPlacesRequest *request = [[TMMNearbyBoardingPlacesRequest alloc] init];
     request.locationCoordinate = CLLocationCoordinate2DMake(39.9825495,116.3632176);
-//    request.limit = 3;
 
-    
-//    [self.mapView queryNearbyBoardingPlacesWith:request callback:^(TMMNearbyBoardingPlacesResponse * _Nonnull response, NSError * _Nonnull error) {
-//
-//    }];
+    [TMMNearbyBoardingPlacesManager queryNearbyBoardingPlacesWith:request callback:^(TMMNearbyBoardingPlacesResponse * _Nullable response, NSError * _Nullable error) {
+
+    }];
     
 }
 
 #pragma mark - LBSLocationDelegate
-
-// 单次定位
-- (void)startSingleLocation {
-    [self.locationManager requestLocationWithCompletionBlock:
-     ^(TencentLBSLocation *location, NSError *error) {
-         NSLog(@"%@, %@, %@", location.location, location.name, location.address);
-     }];
-}
 
 // 连续定位
 - (void)startSerialLocation {
@@ -172,6 +168,7 @@ UIPickerViewDelegate, UIPickerViewDataSource>
 }
 
 - (void)mapView:(QMapView *)mapView regionDidChangeAnimated:(BOOL)animated gesture:(BOOL)bGesture {
+    
     [self.mapView.tmm_centerPinView setCalloutAttribtedText:[[NSAttributedString alloc] initWithString:@"在这里上车" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:12]}]];
     
 }
@@ -226,38 +223,6 @@ UIPickerViewDelegate, UIPickerViewDataSource>
     }
     
     [self.subFencePickView selectRow:fenceModel.selectedSubFenceIndex inComponent:0 animated:NO];
-//    if (self.subTrafficHubAlertController) {
-//        return;
-//    }
-//
-//    self.subTrafficHubAlertController = [UIAlertController alertControllerWithTitle:@"选择二级围栏" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-//
-//    __weak typeof(self) weakself = self;
-//    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-//        weakself.subTrafficHubAlertController = nil;
-//    }];
-//
-//    for (NSUInteger i = 0; i < fenceModel.subFenceModels.count; i++) {
-//
-//        TMMSubFenceModel *subFenceModel = fenceModel.subFenceModels[i];
-//
-//        UIAlertActionStyle actionStyle = i == fenceModel.selectedSubFenceIndex ? UIAlertActionStyleDestructive : UIAlertActionStyleDefault;
-//
-//        UIAlertAction *action = [UIAlertAction actionWithTitle:subFenceModel.title style:actionStyle handler:^(UIAlertAction * _Nonnull action) {
-//            // 选中的二级围栏
-//            NSLog(@"选中的二级围栏是：%@", subFenceModel.title);
-//            weakself.subTrafficHubAlertController = nil;
-//            [weakself.bpManager chooseSubFence:subFenceModel];
-//        }];
-//
-//        [self.subTrafficHubAlertController addAction:action];
-//
-//    }
-//
-//    [self.subTrafficHubAlertController addAction:cancelAction];
-//
-//    [self presentViewController:self.subTrafficHubAlertController animated:YES completion:nil];
-
 }
 
 - (void)TMMNearbyBoardingPlaceManagerDidMoveOutOfFence:(TMMNearbyBoardingPlacesManager *)manager {

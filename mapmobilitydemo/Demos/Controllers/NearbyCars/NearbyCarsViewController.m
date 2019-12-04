@@ -36,7 +36,7 @@
 - (void)dealloc {
     
     // 关闭定位
-    [self.locationManager stopUpdatingLocation];
+    [self stopSerialLocation];
 }
 
 - (void)viewDidLoad
@@ -58,11 +58,6 @@
     
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
 #pragma mark - setup
 - (void)setupMapView
 {
@@ -73,7 +68,14 @@
     self.mapView.rotateEnabled = NO;
     self.mapView.zoomLevel = 15;
     self.mapView.overlookingEnabled = NO;
+    
+    // 显示中心点
     self.mapView.tmm_centerPinViewHidden = NO;
+    [self.mapView.tmm_centerPinView setCalloutAttribtedText:[[NSAttributedString alloc] initWithString:@"在这里上车" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:13]}]];
+    
+    // 设置大头针的相对位置(0.5, 0.5)为地图中心点
+    CGPoint pinPosition = CGPointMake(0.5, 0.5);
+    self.mapView.tmm_pinPosition = pinPosition;
     
     [self.view addSubview:self.mapView];
 }
@@ -100,6 +102,7 @@
     }
 }
 
+// 设置周边车辆配置
 - (void)setupNearbyCar
 {
     TMMNearbyCarConfig *nearbyCarConfig = [[TMMNearbyCarConfig alloc] init];
@@ -109,14 +112,9 @@
     
     self.nearbyCarsManager = [[TMMNearbyCarsManager alloc] initWithMapView:self.mapView delagate:nil];
     self.nearbyCarsManager.nearbyCarConfig = nearbyCarConfig;
-
-    // 设置大头针的相对位置(0.5, 0.5)为地图中心点
-    CGPoint pinPosition = CGPointMake(0.5, 0.5);
-    self.mapView.tmm_pinPosition = pinPosition;
-    [self.mapView setCenterOffset:pinPosition];
-    
 }
 
+// 选择车型控件
 - (void)setupSelecteVehicleTypesBar
 {
     NSArray *arr = [[NSArray alloc] initWithObjects:@"全部车型", @"出租车", @"新能源",@"舒适型",@"豪华型", nil];
@@ -125,13 +123,6 @@
     self.segmentControl.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.segmentControl];
     [self.segmentControl addTarget:self action:@selector(selectVehicleTypes:) forControlEvents:UIControlEventValueChanged];
-}
-
-#pragma mark - QMapView
-
--(void)mapView:(QMapView *)mapView regionDidChangeAnimated:(BOOL)animated gesture:(BOOL)bGesture
-{
-    [self.mapView.tmm_centerPinView setCalloutAttribtedText:[[NSAttributedString alloc] initWithString:@"在这里上车" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:13]}]];
 }
 
 #pragma mark - LBSLocationDelegate
@@ -190,6 +181,8 @@
     [self.nearbyCarsManager getNearbyCars];
 }
 
+#pragma mark - QMapViewDelegate
+
 - (void)mapView:(QMapView *)mapView didUpdateUserLocation:(QUserLocation *)userLocation fromHeading:(BOOL)fromHeading {
     
     // 进入该页面是，将地图中心点移至用户所在位置
@@ -206,4 +199,11 @@
     
     [self.mapView.tmm_centerPinView setCalloutAttribtedText:[[NSAttributedString alloc] initWithString:@"拖到路边或小绿点，接驾更快" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:12]}]];
 }
+
+
+-(void)mapView:(QMapView *)mapView regionDidChangeAnimated:(BOOL)animated gesture:(BOOL)bGesture
+{
+    [self.mapView.tmm_centerPinView setCalloutAttribtedText:[[NSAttributedString alloc] initWithString:@"在这里上车" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:13]}]];
+}
+
 @end

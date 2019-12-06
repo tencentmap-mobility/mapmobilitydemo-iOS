@@ -808,24 +808,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"c++\"",
-					"-l\"sqlite3.0\"",
-					"-framework",
-					"\"CoreLocation\"",
-					"-framework",
-					"\"CoreText\"",
-					"-framework",
-					"\"QMapKit\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"TencentMapMobilitySDK\"",
-					"-framework",
-					"\"UIKit\"",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.mapmobilitydemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -850,24 +833,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"c++\"",
-					"-l\"sqlite3.0\"",
-					"-framework",
-					"\"CoreLocation\"",
-					"-framework",
-					"\"CoreText\"",
-					"-framework",
-					"\"QMapKit\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"TencentMapMobilitySDK\"",
-					"-framework",
-					"\"UIKit\"",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.mapmobilitydemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

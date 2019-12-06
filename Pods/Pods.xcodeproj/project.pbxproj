@@ -1,0 +1,742 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		0B720C03BCD23F50EE343DAE025F1561 /* TencentMapMobilitySDK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 49979A08AB7403916883C9CD1DEBFFB5 /* Build configuration list for PBXAggregateTarget "TencentMapMobilitySDK" */;
+			buildPhases = (
+			);
+			dependencies = (
+				15E18CB6D61C2BD8E93FEED50CD87E83 /* PBXTargetDependency */,
+			);
+			name = TencentMapMobilitySDK;
+		};
+		8EB9B77EBCE9B2E7717F9F9221FD40AB /* TencentMap-SDK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 924F8FE3B24F16EA91A266E91E544FCA /* Build configuration list for PBXAggregateTarget "TencentMap-SDK" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = "TencentMap-SDK";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		0E2D83CD54FA9D78570D32EFF031483B /* Pods-mapmobilitydemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4BFFD598716EDDA2FDA36CF03B2091A /* Pods-mapmobilitydemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B41E15B64ED8D68B867550A3BDC0DA69 /* Pods-mapmobilitydemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4504E49EAF610E8D77B7DDBD00C6503A /* Pods-mapmobilitydemo-dummy.m */; };
+		FBA1918A4FD162B8256DCEA076C698A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		19F32DAF2EF413490E9AAE468CD8FBB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B720C03BCD23F50EE343DAE025F1561;
+			remoteInfo = TencentMapMobilitySDK;
+		};
+		88443805423913EE734A7B1016AE9362 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8EB9B77EBCE9B2E7717F9F9221FD40AB;
+			remoteInfo = "TencentMap-SDK";
+		};
+		9F663DD9DFCC5036883EC0E51003E4EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8EB9B77EBCE9B2E7717F9F9221FD40AB;
+			remoteInfo = "TencentMap-SDK";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		033BA4498998846B861B3625BC8E8ED8 /* QHeatTileOverlay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QHeatTileOverlay.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QHeatTileOverlay.h; sourceTree = "<group>"; };
+		06E771F8D40B1B60B66D818B1E029935 /* QShape.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QShape.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QShape.h; sourceTree = "<group>"; };
+		101B324520123471840F26CC3236E39B /* QTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QTypes.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QTypes.h; sourceTree = "<group>"; };
+		1256EC5C61034A4FFEB8A8F85D68B075 /* Pods-mapmobilitydemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-mapmobilitydemo.release.xcconfig"; sourceTree = "<group>"; };
+		146C8F711A8EF632D01E62713C0C10EB /* TencentMapMobilitySDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TencentMapMobilitySDK.xcconfig; sourceTree = "<group>"; };
+		15B55F93C955B9F90035058F06EABC92 /* TencentMapMobilitySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapMobilitySDK.framework; sourceTree = "<group>"; };
+		1917B422C04E668DA410EFB6E5886D8A /* QIndoorInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QIndoorInfo.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QIndoorInfo.h; sourceTree = "<group>"; };
+		1B2E604115CB970D81F82998CDF9E333 /* Pods-mapmobilitydemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-mapmobilitydemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1F38A4077B1EBA7773E6EE6283885884 /* QMapView+Config.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "QMapView+Config.h"; path = "TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QMapView+Config.h"; sourceTree = "<group>"; };
+		216FA16FC718B9F97D2BA8EF789D44FC /* QTexturePolylineView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QTexturePolylineView.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QTexturePolylineView.h; sourceTree = "<group>"; };
+		22B6E90C732793DA50A51ABCCEC2C287 /* QMSSearchResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMSSearchResult.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QMSSearchResult.h; sourceTree = "<group>"; };
+		294629879A873F55E81D3A1A175665A9 /* QOverlayPathView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QOverlayPathView.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QOverlayPathView.h; sourceTree = "<group>"; };
+		2F389AF35459D34BB2FD4F0FAA7E387A /* QUserLocation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QUserLocation.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QUserLocation.h; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		33DBF2E2D907C0CAD1DDFE1412ED17C6 /* TMMDCenterPinView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMMDCenterPinView.h; path = TencentMapMobilitySDK.framework/Headers/TMMDCenterPinView.h; sourceTree = "<group>"; };
+		352E5B6DD4F1741FE4DCF2F9DE3D6E1E /* QMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QMapKit.framework; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework; sourceTree = "<group>"; };
+		3D5C6545D3ED598AE3245ABB48218CCB /* TencentMapMobilitySDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TencentMapMobilitySDK.h; path = TencentMapMobilitySDK.framework/Headers/TencentMapMobilitySDK.h; sourceTree = "<group>"; };
+		3D90FEF53642BC468A7D5077A236A822 /* QOverlayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QOverlayView.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QOverlayView.h; sourceTree = "<group>"; };
+		3DF76A26BF194F2640AF6CCFBA1AFA61 /* QPolygonView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QPolygonView.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QPolygonView.h; sourceTree = "<group>"; };
+		3FE8ECEBB2A66D9968E5AB2E3775127D /* QHeatTileNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QHeatTileNode.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QHeatTileNode.h; sourceTree = "<group>"; };
+		4504E49EAF610E8D77B7DDBD00C6503A /* Pods-mapmobilitydemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-mapmobilitydemo-dummy.m"; sourceTree = "<group>"; };
+		4754AA9D6593C4C959EA292C9F499016 /* QGeometry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QGeometry.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QGeometry.h; sourceTree = "<group>"; };
+		482BF4CBCBD2AA45D5B0438C72AE81D9 /* QMapView+TMMobility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "QMapView+TMMobility.h"; path = "TencentMapMobilitySDK.framework/Headers/QMapView+TMMobility.h"; sourceTree = "<group>"; };
+		4D59CF823CB8FDF3BE0B1EA9F72225B0 /* TencentMapMobilitySDK.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilitySDK.bundle; path = TencentMapMobilitySDK.framework/TencentMapMobilitySDK.bundle; sourceTree = "<group>"; };
+		4DF59B634837E3DF329D24F3187A33C7 /* QMSSearcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMSSearcher.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QMSSearcher.h; sourceTree = "<group>"; };
+		508C2AE98E1DD889EB9A3B8995F062BC /* QTileOverlayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QTileOverlayView.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QTileOverlayView.h; sourceTree = "<group>"; };
+		5151657EC17F7B3261A581D319CF85F4 /* QIndoorLevel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QIndoorLevel.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QIndoorLevel.h; sourceTree = "<group>"; };
+		54CF68B320CA2ECBB3F28147E5806641 /* QMapKit.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = QMapKit.bundle; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/QMapKit.bundle; sourceTree = "<group>"; };
+		54F282E8BC815BA73870CE934FA12099 /* QAnnotationView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QAnnotationView.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QAnnotationView.h; sourceTree = "<group>"; };
+		5924DCEAEBCDF2C712E299FFD3D714A9 /* Pods_mapmobilitydemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_mapmobilitydemo.framework; path = "Pods-mapmobilitydemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		624452790951DF5616F5DF03D3761D04 /* QMSSearchServices.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMSSearchServices.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QMSSearchServices.h; sourceTree = "<group>"; };
+		66DB12ACDAF2FD0A1727C061DB45C780 /* QMapServices.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMapServices.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QMapServices.h; sourceTree = "<group>"; };
+		696050210C8F1C795536E7EE60E2548B /* QMSSearchOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMSSearchOption.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QMSSearchOption.h; sourceTree = "<group>"; };
+		6BEFC948EEE35476589D67B3B538ADB7 /* QMapView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMapView.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QMapView.h; sourceTree = "<group>"; };
+		6C75995545B59B3F00536CECA4BDA2A7 /* QMSSearchKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMSSearchKit.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QMSSearchKit.h; sourceTree = "<group>"; };
+		6FD8568CD059D7E09FF695AB42A0777A /* QCircleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QCircleView.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QCircleView.h; sourceTree = "<group>"; };
+		75B5EF727F24893C37FA2BCC2B19E52F /* QMapKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMapKit.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QMapKit.h; sourceTree = "<group>"; };
+		77B076BE569930054344A79DBB001725 /* QPolylineView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QPolylineView.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QPolylineView.h; sourceTree = "<group>"; };
+		780DCF82565D563DF226DCD77BEEC578 /* QMultiPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMultiPoint.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QMultiPoint.h; sourceTree = "<group>"; };
+		7A3CF893891464FCB26496DF4FF9D5FF /* QPolyline.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QPolyline.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QPolyline.h; sourceTree = "<group>"; };
+		807DC3858E3E65E4A3C9F61D1E1FDF0E /* TMMServices.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMMServices.h; path = TencentMapMobilitySDK.framework/Headers/TMMServices.h; sourceTree = "<group>"; };
+		8826DB531A9859DE278E42C59AAE6209 /* QPolygon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QPolygon.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QPolygon.h; sourceTree = "<group>"; };
+		8E61013EFA1BAF52C734F800C25F1D31 /* Pods-mapmobilitydemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-mapmobilitydemo.debug.xcconfig"; sourceTree = "<group>"; };
+		927FF2970753AC468F03A088C2534808 /* QHeatTileOverlayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QHeatTileOverlayView.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QHeatTileOverlayView.h; sourceTree = "<group>"; };
+		980BAC976BB036FA25D36D388F3FCC07 /* TencentMap-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "TencentMap-SDK.xcconfig"; sourceTree = "<group>"; };
+		996F65AADCEDBA7920CB56D741E0EEAA /* QIndoorBuilding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QIndoorBuilding.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QIndoorBuilding.h; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E0AFBC6C7851332AC5F078E9CBA6B59 /* TMMMathTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMMMathTool.h; path = TencentMapMobilitySDK.framework/Headers/TMMMathTool.h; sourceTree = "<group>"; };
+		A3F36969F29ACED370D22272A005D57B /* QAnnotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QAnnotation.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QAnnotation.h; sourceTree = "<group>"; };
+		A4805A44D9A2B8AF9F718E36747F3EBB /* QBasicMapViewLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QBasicMapViewLayer.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QBasicMapViewLayer.h; sourceTree = "<group>"; };
+		BB5131FACE77708D4885C5043CF7A0B4 /* Pods-mapmobilitydemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-mapmobilitydemo-resources.sh"; sourceTree = "<group>"; };
+		C5981FE644362093C8F97866DAE4A08B /* QCircle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QCircle.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QCircle.h; sourceTree = "<group>"; };
+		C7D5F3B9E7F51DC53BED8B2E9AB9BE21 /* Pods-mapmobilitydemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-mapmobilitydemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		CA2726A6398B4C6D6A0C1249A6B6B6F0 /* QPinAnnotationView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QPinAnnotationView.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QPinAnnotationView.h; sourceTree = "<group>"; };
+		CF7108D3B1F4DEDFBDA1CAD00F63A183 /* QMapView+Accessibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "QMapView+Accessibility.h"; path = "TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QMapView+Accessibility.h"; sourceTree = "<group>"; };
+		D3B8C562AF30474EE5E03E7EF2BA05E6 /* QPointAnnotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QPointAnnotation.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QPointAnnotation.h; sourceTree = "<group>"; };
+		D8CEC1B9ED4987A07000D966AA96E584 /* QHeatTileNodeProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QHeatTileNodeProtocol.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QHeatTileNodeProtocol.h; sourceTree = "<group>"; };
+		D9E2E611838ED11AAE7473D818F29F2B /* QAnnotationViewLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QAnnotationViewLayer.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QAnnotationViewLayer.h; sourceTree = "<group>"; };
+		DCB452183D9BFC4454695739A7B4D30F /* QUserLocationPresentation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QUserLocationPresentation.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QUserLocationPresentation.h; sourceTree = "<group>"; };
+		E4BFFD598716EDDA2FDA36CF03B2091A /* Pods-mapmobilitydemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-mapmobilitydemo-umbrella.h"; sourceTree = "<group>"; };
+		ED5EEBB7FA7B38CC8DF17E1FB5D64C9F /* QMapView+Indoor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "QMapView+Indoor.h"; path = "TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QMapView+Indoor.h"; sourceTree = "<group>"; };
+		F5797A0B0B8DEF43BDD03DFF08641CE6 /* QOverlay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QOverlay.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QOverlay.h; sourceTree = "<group>"; };
+		F6B363ED3767B3FFBDD0AD48E575341F /* Pods-mapmobilitydemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-mapmobilitydemo.modulemap"; sourceTree = "<group>"; };
+		F8862926BE727CF569E3BF36FB682377 /* Pods-mapmobilitydemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-mapmobilitydemo-Info.plist"; sourceTree = "<group>"; };
+		FF5D4C5261127FA36A368C5B0F97034B /* QTileOverlay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QTileOverlay.h; path = TencentMapSDK_iOS_3D_v4.2.6.2/sdk/QMapKit.framework/Headers/QTileOverlay.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04100EDF94CB1ED2FC6A37553653A7AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBA1918A4FD162B8256DCEA076C698A1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22CCBB0ACE90606B131DF6E791AFD189 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5924DCEAEBCDF2C712E299FFD3D714A9 /* Pods_mapmobilitydemo.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A72EA495AF0DCD1F18A1B6CC0182CC4 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				632C129A8D0B0E2F0D03DFA940B4FD4B /* Pods-mapmobilitydemo */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		5601C5AFC776A9EBBD70B30B2C539C53 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67D382B8901443B20565219CA9590B6B /* TencentMap-SDK */,
+				B1E082E96EF654258B481F98349AF5BE /* TencentMapMobilitySDK */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		632C129A8D0B0E2F0D03DFA940B4FD4B /* Pods-mapmobilitydemo */ = {
+			isa = PBXGroup;
+			children = (
+				F6B363ED3767B3FFBDD0AD48E575341F /* Pods-mapmobilitydemo.modulemap */,
+				1B2E604115CB970D81F82998CDF9E333 /* Pods-mapmobilitydemo-acknowledgements.markdown */,
+				C7D5F3B9E7F51DC53BED8B2E9AB9BE21 /* Pods-mapmobilitydemo-acknowledgements.plist */,
+				4504E49EAF610E8D77B7DDBD00C6503A /* Pods-mapmobilitydemo-dummy.m */,
+				F8862926BE727CF569E3BF36FB682377 /* Pods-mapmobilitydemo-Info.plist */,
+				BB5131FACE77708D4885C5043CF7A0B4 /* Pods-mapmobilitydemo-resources.sh */,
+				E4BFFD598716EDDA2FDA36CF03B2091A /* Pods-mapmobilitydemo-umbrella.h */,
+				8E61013EFA1BAF52C734F800C25F1D31 /* Pods-mapmobilitydemo.debug.xcconfig */,
+				1256EC5C61034A4FFEB8A8F85D68B075 /* Pods-mapmobilitydemo.release.xcconfig */,
+			);
+			name = "Pods-mapmobilitydemo";
+			path = "Target Support Files/Pods-mapmobilitydemo";
+			sourceTree = "<group>";
+		};
+		67D382B8901443B20565219CA9590B6B /* TencentMap-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				A3F36969F29ACED370D22272A005D57B /* QAnnotation.h */,
+				54F282E8BC815BA73870CE934FA12099 /* QAnnotationView.h */,
+				D9E2E611838ED11AAE7473D818F29F2B /* QAnnotationViewLayer.h */,
+				A4805A44D9A2B8AF9F718E36747F3EBB /* QBasicMapViewLayer.h */,
+				C5981FE644362093C8F97866DAE4A08B /* QCircle.h */,
+				6FD8568CD059D7E09FF695AB42A0777A /* QCircleView.h */,
+				4754AA9D6593C4C959EA292C9F499016 /* QGeometry.h */,
+				3FE8ECEBB2A66D9968E5AB2E3775127D /* QHeatTileNode.h */,
+				D8CEC1B9ED4987A07000D966AA96E584 /* QHeatTileNodeProtocol.h */,
+				033BA4498998846B861B3625BC8E8ED8 /* QHeatTileOverlay.h */,
+				927FF2970753AC468F03A088C2534808 /* QHeatTileOverlayView.h */,
+				996F65AADCEDBA7920CB56D741E0EEAA /* QIndoorBuilding.h */,
+				1917B422C04E668DA410EFB6E5886D8A /* QIndoorInfo.h */,
+				5151657EC17F7B3261A581D319CF85F4 /* QIndoorLevel.h */,
+				75B5EF727F24893C37FA2BCC2B19E52F /* QMapKit.h */,
+				66DB12ACDAF2FD0A1727C061DB45C780 /* QMapServices.h */,
+				6BEFC948EEE35476589D67B3B538ADB7 /* QMapView.h */,
+				CF7108D3B1F4DEDFBDA1CAD00F63A183 /* QMapView+Accessibility.h */,
+				1F38A4077B1EBA7773E6EE6283885884 /* QMapView+Config.h */,
+				ED5EEBB7FA7B38CC8DF17E1FB5D64C9F /* QMapView+Indoor.h */,
+				4DF59B634837E3DF329D24F3187A33C7 /* QMSSearcher.h */,
+				6C75995545B59B3F00536CECA4BDA2A7 /* QMSSearchKit.h */,
+				696050210C8F1C795536E7EE60E2548B /* QMSSearchOption.h */,
+				22B6E90C732793DA50A51ABCCEC2C287 /* QMSSearchResult.h */,
+				624452790951DF5616F5DF03D3761D04 /* QMSSearchServices.h */,
+				780DCF82565D563DF226DCD77BEEC578 /* QMultiPoint.h */,
+				F5797A0B0B8DEF43BDD03DFF08641CE6 /* QOverlay.h */,
+				294629879A873F55E81D3A1A175665A9 /* QOverlayPathView.h */,
+				3D90FEF53642BC468A7D5077A236A822 /* QOverlayView.h */,
+				CA2726A6398B4C6D6A0C1249A6B6B6F0 /* QPinAnnotationView.h */,
+				D3B8C562AF30474EE5E03E7EF2BA05E6 /* QPointAnnotation.h */,
+				8826DB531A9859DE278E42C59AAE6209 /* QPolygon.h */,
+				3DF76A26BF194F2640AF6CCFBA1AFA61 /* QPolygonView.h */,
+				7A3CF893891464FCB26496DF4FF9D5FF /* QPolyline.h */,
+				77B076BE569930054344A79DBB001725 /* QPolylineView.h */,
+				06E771F8D40B1B60B66D818B1E029935 /* QShape.h */,
+				216FA16FC718B9F97D2BA8EF789D44FC /* QTexturePolylineView.h */,
+				FF5D4C5261127FA36A368C5B0F97034B /* QTileOverlay.h */,
+				508C2AE98E1DD889EB9A3B8995F062BC /* QTileOverlayView.h */,
+				101B324520123471840F26CC3236E39B /* QTypes.h */,
+				2F389AF35459D34BB2FD4F0FAA7E387A /* QUserLocation.h */,
+				DCB452183D9BFC4454695739A7B4D30F /* QUserLocationPresentation.h */,
+				9434128FA12C91E0A5B9D1A4BCB9CF57 /* Frameworks */,
+				99ED6BF52AFA4389EF8E30F5C21B1E6B /* Resources */,
+				DAF56BD75C0CE30754DB94B5DBBB202B /* Support Files */,
+			);
+			name = "TencentMap-SDK";
+			path = "TencentMap-SDK";
+			sourceTree = "<group>";
+		};
+		7D1E656F59377660D019A779DD348371 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4D59CF823CB8FDF3BE0B1EA9F72225B0 /* TencentMapMobilitySDK.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9434128FA12C91E0A5B9D1A4BCB9CF57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				352E5B6DD4F1741FE4DCF2F9DE3D6E1E /* QMapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		99ED6BF52AFA4389EF8E30F5C21B1E6B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				54CF68B320CA2ECBB3F28147E5806641 /* QMapKit.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A418FB281FE396B02E85BD4398E8FCF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15B55F93C955B9F90035058F06EABC92 /* TencentMapMobilitySDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B1E082E96EF654258B481F98349AF5BE /* TencentMapMobilitySDK */ = {
+			isa = PBXGroup;
+			children = (
+				482BF4CBCBD2AA45D5B0438C72AE81D9 /* QMapView+TMMobility.h */,
+				3D5C6545D3ED598AE3245ABB48218CCB /* TencentMapMobilitySDK.h */,
+				33DBF2E2D907C0CAD1DDFE1412ED17C6 /* TMMDCenterPinView.h */,
+				9E0AFBC6C7851332AC5F078E9CBA6B59 /* TMMMathTool.h */,
+				807DC3858E3E65E4A3C9F61D1E1FDF0E /* TMMServices.h */,
+				A418FB281FE396B02E85BD4398E8FCF3 /* Frameworks */,
+				7D1E656F59377660D019A779DD348371 /* Resources */,
+				BE951FEC8014C11F200D892553CBB625 /* Support Files */,
+			);
+			name = TencentMapMobilitySDK;
+			path = TencentMapMobilitySDK;
+			sourceTree = "<group>";
+		};
+		BE951FEC8014C11F200D892553CBB625 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				146C8F711A8EF632D01E62713C0C10EB /* TencentMapMobilitySDK.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/TencentMapMobilitySDK";
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				5601C5AFC776A9EBBD70B30B2C539C53 /* Pods */,
+				22CCBB0ACE90606B131DF6E791AFD189 /* Products */,
+				3A72EA495AF0DCD1F18A1B6CC0182CC4 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DAF56BD75C0CE30754DB94B5DBBB202B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				980BAC976BB036FA25D36D388F3FCC07 /* TencentMap-SDK.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/TencentMap-SDK";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C8825E57114AEA033B7E6F0D4CB9D9F5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E2D83CD54FA9D78570D32EFF031483B /* Pods-mapmobilitydemo-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2EFF43B8FB8F55FF6BE2DAE8AF368213 /* Pods-mapmobilitydemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFA56DBCF239545D197098CE0F680D8E /* Build configuration list for PBXNativeTarget "Pods-mapmobilitydemo" */;
+			buildPhases = (
+				C8825E57114AEA033B7E6F0D4CB9D9F5 /* Headers */,
+				F9681B8A93CE0275911AFC77A68CA4EF /* Sources */,
+				04100EDF94CB1ED2FC6A37553653A7AA /* Frameworks */,
+				2F496A8FCBA13267BBC57E87DF59F3A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7F327791A7751ED4046EBF98CE0B0327 /* PBXTargetDependency */,
+				221F9C628CE1CCB159D4E20F1A826BFB /* PBXTargetDependency */,
+			);
+			name = "Pods-mapmobilitydemo";
+			productName = "Pods-mapmobilitydemo";
+			productReference = 5924DCEAEBCDF2C712E299FFD3D714A9 /* Pods_mapmobilitydemo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 22CCBB0ACE90606B131DF6E791AFD189 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2EFF43B8FB8F55FF6BE2DAE8AF368213 /* Pods-mapmobilitydemo */,
+				8EB9B77EBCE9B2E7717F9F9221FD40AB /* TencentMap-SDK */,
+				0B720C03BCD23F50EE343DAE025F1561 /* TencentMapMobilitySDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F496A8FCBA13267BBC57E87DF59F3A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F9681B8A93CE0275911AFC77A68CA4EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B41E15B64ED8D68B867550A3BDC0DA69 /* Pods-mapmobilitydemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		15E18CB6D61C2BD8E93FEED50CD87E83 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "TencentMap-SDK";
+			target = 8EB9B77EBCE9B2E7717F9F9221FD40AB /* TencentMap-SDK */;
+			targetProxy = 9F663DD9DFCC5036883EC0E51003E4EF /* PBXContainerItemProxy */;
+		};
+		221F9C628CE1CCB159D4E20F1A826BFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TencentMapMobilitySDK;
+			target = 0B720C03BCD23F50EE343DAE025F1561 /* TencentMapMobilitySDK */;
+			targetProxy = 19F32DAF2EF413490E9AAE468CD8FBB2 /* PBXContainerItemProxy */;
+		};
+		7F327791A7751ED4046EBF98CE0B0327 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "TencentMap-SDK";
+			target = 8EB9B77EBCE9B2E7717F9F9221FD40AB /* TencentMap-SDK */;
+			targetProxy = 88443805423913EE734A7B1016AE9362 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		34106447CAF324613FA985CA563FE304 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 146C8F711A8EF632D01E62713C0C10EB /* TencentMapMobilitySDK.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9D7F3D2FA7C611A368901DC311C965FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E61013EFA1BAF52C734F800C25F1D31 /* Pods-mapmobilitydemo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-mapmobilitydemo/Pods-mapmobilitydemo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-mapmobilitydemo/Pods-mapmobilitydemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B0087CB4594321EF41619F3181FE120E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		B2C25B1FDE40F591037449ED43CEF12E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 146C8F711A8EF632D01E62713C0C10EB /* TencentMapMobilitySDK.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		DE9BA5BB311DB397CA4C12B8C44BD734 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 980BAC976BB036FA25D36D388F3FCC07 /* TencentMap-SDK.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E77A595FC2C12CE85C9BC9ED8B30DB6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 980BAC976BB036FA25D36D388F3FCC07 /* TencentMap-SDK.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F77A10B2E94BFE17DCB51F1B79634046 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1256EC5C61034A4FFEB8A8F85D68B075 /* Pods-mapmobilitydemo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-mapmobilitydemo/Pods-mapmobilitydemo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-mapmobilitydemo/Pods-mapmobilitydemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */,
+				B0087CB4594321EF41619F3181FE120E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49979A08AB7403916883C9CD1DEBFFB5 /* Build configuration list for PBXAggregateTarget "TencentMapMobilitySDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34106447CAF324613FA985CA563FE304 /* Debug */,
+				B2C25B1FDE40F591037449ED43CEF12E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		924F8FE3B24F16EA91A266E91E544FCA /* Build configuration list for PBXAggregateTarget "TencentMap-SDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E77A595FC2C12CE85C9BC9ED8B30DB6A /* Debug */,
+				DE9BA5BB311DB397CA4C12B8C44BD734 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFA56DBCF239545D197098CE0F680D8E /* Build configuration list for PBXNativeTarget "Pods-mapmobilitydemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D7F3D2FA7C611A368901DC311C965FA /* Debug */,
+				F77A10B2E94BFE17DCB51F1B79634046 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

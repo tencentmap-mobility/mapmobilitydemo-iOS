@@ -11,7 +11,7 @@
 #define kMobilityKey @"" // 需要填写webServiceKey
 #define kMobilitySecretKey @"" // 需要填写webServiceSecretKey
 
-#define kSynchroOrderID            @"xc_10001"
+#define kSynchroOrderID            @""
 
-#define kSynchroDriverAccountID    @"OD_xc_10001_10001"
-#define kSynchroPassengerAccountID @"OU_xc_10001_1"
+#define kSynchroDriverAccountID    @""
+#define kSynchroPassengerAccountID @""

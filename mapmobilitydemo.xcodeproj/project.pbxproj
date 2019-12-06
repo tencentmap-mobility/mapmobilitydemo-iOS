@@ -3,15 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		03E6FAEB239682DA007CE9F7 /* BoardingPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E6FAEA239682DA007CE9F7 /* BoardingPlacesViewController.m */; };
-		03E6FAEE23968511007CE9F7 /* TencentMapMobilityBoardingPlacesSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E6FAED23968511007CE9F7 /* TencentMapMobilityBoardingPlacesSDK.framework */; };
-		03E6FAF02396856F007CE9F7 /* TencentMapMobilityNearbyCarsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E6FAEF2396856F007CE9F7 /* TencentMapMobilityNearbyCarsSDK.framework */; };
-		03E6FAF223968583007CE9F7 /* TencentMapMobilitySearchSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E6FAF123968583007CE9F7 /* TencentMapMobilitySearchSDK.framework */; };
-		03E6FAF4239685B1007CE9F7 /* TencentMapMobilitySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E6FAF3239685B1007CE9F7 /* TencentMapMobilitySDK.framework */; };
 		03E7482E2303FF96000D9045 /* NearbyCarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E748162303FF96000D9045 /* NearbyCarsViewController.m */; };
 		03E7482F2303FF96000D9045 /* DriverSynchroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E748192303FF96000D9045 /* DriverSynchroViewController.m */; };
 		03E748302303FF96000D9045 /* BaseSynchroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E7481A2303FF96000D9045 /* BaseSynchroViewController.m */; };
@@ -22,6 +18,7 @@
 		03E748352303FF96000D9045 /* LimitSpeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E748262303FF96000D9045 /* LimitSpeedView.m */; };
 		03E748362303FF96000D9045 /* CurrentSpeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E748282303FF96000D9045 /* CurrentSpeedView.m */; };
 		03E748372303FF96000D9045 /* NavigationSpeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E748292303FF96000D9045 /* NavigationSpeedInfo.m */; };
+		435AA01AE14947E59D80E8DB /* Pods_mapmobilitydemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6426C55D170FC9DB4426375C /* Pods_mapmobilitydemo.framework */; };
 		E1435D6E22F524ED00C2B4D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1435D6D22F524ED00C2B4D0 /* AppDelegate.m */; };
 		E1435D7622F524EF00C2B4D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1435D7522F524EF00C2B4D0 /* Assets.xcassets */; };
 		E1435D7922F524EF00C2B4D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1435D7722F524EF00C2B4D0 /* LaunchScreen.storyboard */; };
@@ -30,44 +27,40 @@
 		E1435D9622F5344800C2B4D0 /* RouteLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1435D8722F5344800C2B4D0 /* RouteLocation.m */; };
 		E1435D9722F5344800C2B4D0 /* EntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1435D8B22F5344800C2B4D0 /* EntryViewController.m */; };
 		E1435D9822F5344800C2B4D0 /* EntryData.m in Sources */ = {isa = PBXBuildFile; fileRef = E1435D8C22F5344800C2B4D0 /* EntryData.m */; };
-		E1AC742923975146006645CE /* TencentMapMobilityNearbyCarsSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC742623975145006645CE /* TencentMapMobilityNearbyCarsSDK.bundle */; };
-		E1AC742A23975146006645CE /* TencentMapMobilitySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC742723975146006645CE /* TencentMapMobilitySDK.bundle */; };
-		E1AC742B23975146006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC742823975146006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle */; };
 		E1AC743223975908006645CE /* TripPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC743123975908006645CE /* TripPanelView.m */; };
 		E1AC743423976881006645CE /* MobilitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC743323976881006645CE /* MobilitySearchViewController.m */; };
 		E1AC7437239768B1006645CE /* SearchKeywordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7436239768B1006645CE /* SearchKeywordViewController.m */; };
 		E1AC743A23976955006645CE /* SearchKeywordHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC743923976955006645CE /* SearchKeywordHeaderView.m */; };
 		E1AC743D239791C4006645CE /* SearchKeywordPOICell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC743C239791C4006645CE /* SearchKeywordPOICell.m */; };
 		E1AC744223979344006645CE /* SearchKeywordPOIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC744123979344006645CE /* SearchKeywordPOIModel.m */; };
-		E1B3D1E622F535D000E753CB /* TLSLocusSynchro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1E222F535D000E753CB /* TLSLocusSynchro.framework */; };
-		E1B3D1E722F535D000E753CB /* QMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1E322F535D000E753CB /* QMapKit.framework */; };
-		E1B3D1E822F535D000E753CB /* QMapSDKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1E422F535D000E753CB /* QMapSDKUtils.framework */; };
-		E1B3D1E922F535D000E753CB /* TNKNavigationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1E522F535D000E753CB /* TNKNavigationKit.framework */; };
-		E1B3D1EB22F535E300E753CB /* QMapKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1B3D1EA22F535E300E753CB /* QMapKit.bundle */; };
-		E1B3D1ED22F535EC00E753CB /* TencentNavigationKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1B3D1EC22F535EC00E753CB /* TencentNavigationKit.bundle */; };
-		E1B3D1F022F539CE00E753CB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1EF22F539CE00E753CB /* libsqlite3.tbd */; };
-		E1B3D1F222F539D600E753CB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1F122F539D500E753CB /* libz.tbd */; };
+		E1AC7498239A071A006645CE /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7490239A071A006645CE /* WebP.framework */; };
+		E1AC7499239A071A006645CE /* TNKNavigationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7491239A071A006645CE /* TNKNavigationKit.framework */; };
+		E1AC749A239A071A006645CE /* TencentMapMobilityNearbyCarsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7492239A071A006645CE /* TencentMapMobilityNearbyCarsSDK.framework */; };
+		E1AC749B239A071A006645CE /* TencentMapMobilityBoardingPlacesSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7493239A071A006645CE /* TencentMapMobilityBoardingPlacesSDK.framework */; };
+		E1AC749C239A071A006645CE /* QMapSDKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7494239A071A006645CE /* QMapSDKUtils.framework */; };
+		E1AC749D239A071A006645CE /* TLSLocusSynchro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7495239A071A006645CE /* TLSLocusSynchro.framework */; };
+		E1AC749E239A071A006645CE /* TencentMapMobilitySearchSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7496239A071A006645CE /* TencentMapMobilitySearchSDK.framework */; };
+		E1AC749F239A071A006645CE /* TencentLBS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7497239A071A006645CE /* TencentLBS.framework */; };
+		E1AC74BC239A0727006645CE /* UIColor+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC74A2239A0727006645CE /* UIColor+ChameleonPrivate.m */; };
+		E1AC74BD239A0727006645CE /* ChameleonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC74A3239A0727006645CE /* ChameleonConstants.m */; };
+		E1AC74BE239A0727006645CE /* UIColor+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC74A7239A0727006645CE /* UIColor+Chameleon.m */; };
+		E1AC74BF239A0727006645CE /* UIButton+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC74A9239A0727006645CE /* UIButton+Chameleon.m */; };
+		E1AC74C0239A0727006645CE /* UIView+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC74AE239A0727006645CE /* UIView+ChameleonPrivate.m */; };
+		E1AC74C1239A0727006645CE /* Chameleon_.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC74AF239A0727006645CE /* Chameleon_.m */; };
+		E1AC74C2239A0727006645CE /* NSArray+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC74B2239A0727006645CE /* NSArray+Chameleon.m */; };
+		E1AC74C3239A0727006645CE /* UINavigationController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC74B4239A0727006645CE /* UINavigationController+Chameleon.m */; };
+		E1AC74C4239A0727006645CE /* UILabel+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC74B5239A0727006645CE /* UILabel+Chameleon.m */; };
+		E1AC74C5239A0727006645CE /* UIViewController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC74B6239A0727006645CE /* UIViewController+Chameleon.m */; };
+		E1AC74C6239A0727006645CE /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC74B7239A0727006645CE /* UIAppearance+Swift.m */; };
+		E1AC74C7239A0727006645CE /* UIImage+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC74B8239A0727006645CE /* UIImage+ChameleonPrivate.m */; };
+		E1AC74CD239A0A93006645CE /* TencentMapMobilityNearbyCarsSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC74CA239A0A92006645CE /* TencentMapMobilityNearbyCarsSDK.bundle */; };
+		E1AC74CE239A0A93006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC74CB239A0A92006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle */; };
+		E1AC74CF239A0A93006645CE /* TencentNavigationKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC74CC239A0A93006645CE /* TencentNavigationKit.bundle */; };
 		E1B3D1F422F539DD00E753CB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1F322F539DD00E753CB /* SystemConfiguration.framework */; };
 		E1B3D1F622F539E500E753CB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1F522F539E500E753CB /* QuartzCore.framework */; };
 		E1B3D1F822F539EB00E753CB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1F722F539EB00E753CB /* CoreLocation.framework */; };
 		E1B3D1FA22F539F300E753CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1F922F539F300E753CB /* Foundation.framework */; };
 		E1B3D1FC22F539F900E753CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1FB22F539F900E753CB /* CoreGraphics.framework */; };
-		E1B3D1FE22F53A9500E753CB /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1FD22F53A9500E753CB /* WebP.framework */; };
-		E1B3D20022F53AE400E753CB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1FF22F53AE400E753CB /* libc++.tbd */; };
-		E1B3D20A22F82A7A00E753CB /* TencentLBS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D20922F82A7A00E753CB /* TencentLBS.framework */; };
-		E1B3D20C22F82A8600E753CB /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D20B22F82A8600E753CB /* libz.1.2.5.tbd */; };
-		E1BFD89B22FAFAA300DF8C68 /* UIColor+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD88122FAFAA300DF8C68 /* UIColor+ChameleonPrivate.m */; };
-		E1BFD89C22FAFAA300DF8C68 /* ChameleonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD88222FAFAA300DF8C68 /* ChameleonConstants.m */; };
-		E1BFD89D22FAFAA300DF8C68 /* UIColor+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD88622FAFAA300DF8C68 /* UIColor+Chameleon.m */; };
-		E1BFD89E22FAFAA300DF8C68 /* UIButton+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD88822FAFAA300DF8C68 /* UIButton+Chameleon.m */; };
-		E1BFD89F22FAFAA300DF8C68 /* UIView+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD88D22FAFAA300DF8C68 /* UIView+ChameleonPrivate.m */; };
-		E1BFD8A022FAFAA300DF8C68 /* Chameleon_.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD88E22FAFAA300DF8C68 /* Chameleon_.m */; };
-		E1BFD8A122FAFAA300DF8C68 /* NSArray+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD89122FAFAA300DF8C68 /* NSArray+Chameleon.m */; };
-		E1BFD8A222FAFAA300DF8C68 /* UINavigationController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD89322FAFAA300DF8C68 /* UINavigationController+Chameleon.m */; };
-		E1BFD8A322FAFAA300DF8C68 /* UILabel+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD89422FAFAA300DF8C68 /* UILabel+Chameleon.m */; };
-		E1BFD8A422FAFAA300DF8C68 /* UIViewController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD89522FAFAA300DF8C68 /* UIViewController+Chameleon.m */; };
-		E1BFD8A522FAFAA300DF8C68 /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD89622FAFAA300DF8C68 /* UIAppearance+Swift.m */; };
-		E1BFD8A622FAFAA300DF8C68 /* UIImage+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD89722FAFAA300DF8C68 /* UIImage+ChameleonPrivate.m */; };
 		E1BFD8AC22FAFC2D00DF8C68 /* ReplaceUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD8A822FAFC2D00DF8C68 /* ReplaceUnicode.m */; };
 		E1BFD8AD22FAFC2D00DF8C68 /* MathTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFD8A922FAFC2D00DF8C68 /* MathTool.m */; };
 		E1BFD8BE22FB006000DF8C68 /* navi_bg_speed.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8AF22FB005F00DF8C68 /* navi_bg_speed.png */; };
@@ -90,10 +83,6 @@
 /* Begin PBXFileReference section */
 		03E6FAE9239682DA007CE9F7 /* BoardingPlacesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardingPlacesViewController.h; sourceTree = "<group>"; };
 		03E6FAEA239682DA007CE9F7 /* BoardingPlacesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoardingPlacesViewController.m; sourceTree = "<group>"; };
-		03E6FAED23968511007CE9F7 /* TencentMapMobilityBoardingPlacesSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapMobilityBoardingPlacesSDK.framework; sourceTree = "<group>"; };
-		03E6FAEF2396856F007CE9F7 /* TencentMapMobilityNearbyCarsSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapMobilityNearbyCarsSDK.framework; sourceTree = "<group>"; };
-		03E6FAF123968583007CE9F7 /* TencentMapMobilitySearchSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapMobilitySearchSDK.framework; sourceTree = "<group>"; };
-		03E6FAF3239685B1007CE9F7 /* TencentMapMobilitySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapMobilitySDK.framework; sourceTree = "<group>"; };
 		03E748162303FF96000D9045 /* NearbyCarsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyCarsViewController.m; sourceTree = "<group>"; };
 		03E748172303FF96000D9045 /* NearbyCarsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyCarsViewController.h; sourceTree = "<group>"; };
 		03E748192303FF96000D9045 /* DriverSynchroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverSynchroViewController.m; sourceTree = "<group>"; };
@@ -114,6 +103,9 @@
 		03E7482B2303FF96000D9045 /* PassengerSynchroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassengerSynchroViewController.h; sourceTree = "<group>"; };
 		03E7482C2303FF96000D9045 /* BaseSynchroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSynchroViewController.h; sourceTree = "<group>"; };
 		03E7482D2303FF96000D9045 /* DriverSynchroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverSynchroViewController.h; sourceTree = "<group>"; };
+		16B6A3AA696DBDF55A11B6B3 /* Pods-mapmobilitydemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapmobilitydemo.release.xcconfig"; path = "Target Support Files/Pods-mapmobilitydemo/Pods-mapmobilitydemo.release.xcconfig"; sourceTree = "<group>"; };
+		4E05F3047C269B76908D85B7 /* Pods-mapmobilitydemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapmobilitydemo.debug.xcconfig"; path = "Target Support Files/Pods-mapmobilitydemo/Pods-mapmobilitydemo.debug.xcconfig"; sourceTree = "<group>"; };
+		6426C55D170FC9DB4426375C /* Pods_mapmobilitydemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mapmobilitydemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1435D6922F524ED00C2B4D0 /* mapmobilitydemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mapmobilitydemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1435D6C22F524ED00C2B4D0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E1435D6D22F524ED00C2B4D0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -130,9 +122,6 @@
 		E1435D8A22F5344800C2B4D0 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		E1435D8B22F5344800C2B4D0 /* EntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryViewController.m; sourceTree = "<group>"; };
 		E1435D8C22F5344800C2B4D0 /* EntryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryData.m; sourceTree = "<group>"; };
-		E1AC742623975145006645CE /* TencentMapMobilityNearbyCarsSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilityNearbyCarsSDK.bundle; path = TencentMapMobilityNearbyCarsSDK.framework/TencentMapMobilityNearbyCarsSDK.bundle; sourceTree = "<group>"; };
-		E1AC742723975146006645CE /* TencentMapMobilitySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilitySDK.bundle; path = TencentMapMobilitySDK.framework/TencentMapMobilitySDK.bundle; sourceTree = "<group>"; };
-		E1AC742823975146006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilityBoardingPlacesSDK.bundle; path = TencentMapMobilityBoardingPlacesSDK.framework/TencentMapMobilityBoardingPlacesSDK.bundle; sourceTree = "<group>"; };
 		E1AC742D2397562A006645CE /* MobilitySearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobilitySearchViewController.h; sourceTree = "<group>"; };
 		E1AC743023975908006645CE /* TripPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripPanelView.h; sourceTree = "<group>"; };
 		E1AC743123975908006645CE /* TripPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripPanelView.m; sourceTree = "<group>"; };
@@ -145,50 +134,49 @@
 		E1AC743C239791C4006645CE /* SearchKeywordPOICell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchKeywordPOICell.m; sourceTree = "<group>"; };
 		E1AC743E239791D9006645CE /* SearchKeywordPOIModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchKeywordPOIModel.h; sourceTree = "<group>"; };
 		E1AC744123979344006645CE /* SearchKeywordPOIModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchKeywordPOIModel.m; sourceTree = "<group>"; };
-		E1B3D1E222F535D000E753CB /* TLSLocusSynchro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TLSLocusSynchro.framework; sourceTree = "<group>"; };
-		E1B3D1E322F535D000E753CB /* QMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapKit.framework; sourceTree = "<group>"; };
-		E1B3D1E422F535D000E753CB /* QMapSDKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapSDKUtils.framework; sourceTree = "<group>"; };
-		E1B3D1E522F535D000E753CB /* TNKNavigationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TNKNavigationKit.framework; sourceTree = "<group>"; };
-		E1B3D1EA22F535E300E753CB /* QMapKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = QMapKit.bundle; path = QMapKit.framework/QMapKit.bundle; sourceTree = "<group>"; };
-		E1B3D1EC22F535EC00E753CB /* TencentNavigationKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentNavigationKit.bundle; path = TNKNavigationKit.framework/TencentNavigationKit.bundle; sourceTree = "<group>"; };
-		E1B3D1EF22F539CE00E753CB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		E1B3D1F122F539D500E753CB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E1AC7490239A071A006645CE /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
+		E1AC7491239A071A006645CE /* TNKNavigationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TNKNavigationKit.framework; sourceTree = "<group>"; };
+		E1AC7492239A071A006645CE /* TencentMapMobilityNearbyCarsSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapMobilityNearbyCarsSDK.framework; sourceTree = "<group>"; };
+		E1AC7493239A071A006645CE /* TencentMapMobilityBoardingPlacesSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapMobilityBoardingPlacesSDK.framework; sourceTree = "<group>"; };
+		E1AC7494239A071A006645CE /* QMapSDKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapSDKUtils.framework; sourceTree = "<group>"; };
+		E1AC7495239A071A006645CE /* TLSLocusSynchro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TLSLocusSynchro.framework; sourceTree = "<group>"; };
+		E1AC7496239A071A006645CE /* TencentMapMobilitySearchSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapMobilitySearchSDK.framework; sourceTree = "<group>"; };
+		E1AC7497239A071A006645CE /* TencentLBS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentLBS.framework; sourceTree = "<group>"; };
+		E1AC74A1239A0727006645CE /* ChameleonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonMacros.h; sourceTree = "<group>"; };
+		E1AC74A2239A0727006645CE /* UIColor+ChameleonPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ChameleonPrivate.m"; sourceTree = "<group>"; };
+		E1AC74A3239A0727006645CE /* ChameleonConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChameleonConstants.m; sourceTree = "<group>"; };
+		E1AC74A4239A0727006645CE /* UILabel+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Chameleon.h"; sourceTree = "<group>"; };
+		E1AC74A5239A0727006645CE /* UINavigationController+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Chameleon.h"; sourceTree = "<group>"; };
+		E1AC74A6239A0727006645CE /* Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chameleon.h; sourceTree = "<group>"; };
+		E1AC74A7239A0727006645CE /* UIColor+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Chameleon.m"; sourceTree = "<group>"; };
+		E1AC74A8239A0727006645CE /* NSArray+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Chameleon.h"; sourceTree = "<group>"; };
+		E1AC74A9239A0727006645CE /* UIButton+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Chameleon.m"; sourceTree = "<group>"; };
+		E1AC74AA239A0727006645CE /* UIImage+ChameleonPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ChameleonPrivate.h"; sourceTree = "<group>"; };
+		E1AC74AB239A0727006645CE /* UIAppearance+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAppearance+Swift.h"; sourceTree = "<group>"; };
+		E1AC74AC239A0727006645CE /* UIViewController+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Chameleon.h"; sourceTree = "<group>"; };
+		E1AC74AD239A0727006645CE /* ChameleonEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonEnums.h; sourceTree = "<group>"; };
+		E1AC74AE239A0727006645CE /* UIView+ChameleonPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ChameleonPrivate.m"; sourceTree = "<group>"; };
+		E1AC74AF239A0727006645CE /* Chameleon_.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chameleon_.m; sourceTree = "<group>"; };
+		E1AC74B0239A0727006645CE /* ChameleonConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonConstants.h; sourceTree = "<group>"; };
+		E1AC74B1239A0727006645CE /* UIColor+ChameleonPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ChameleonPrivate.h"; sourceTree = "<group>"; };
+		E1AC74B2239A0727006645CE /* NSArray+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Chameleon.m"; sourceTree = "<group>"; };
+		E1AC74B3239A0727006645CE /* UIColor+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Chameleon.h"; sourceTree = "<group>"; };
+		E1AC74B4239A0727006645CE /* UINavigationController+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Chameleon.m"; sourceTree = "<group>"; };
+		E1AC74B5239A0727006645CE /* UILabel+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Chameleon.m"; sourceTree = "<group>"; };
+		E1AC74B6239A0727006645CE /* UIViewController+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Chameleon.m"; sourceTree = "<group>"; };
+		E1AC74B7239A0727006645CE /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
+		E1AC74B8239A0727006645CE /* UIImage+ChameleonPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ChameleonPrivate.m"; sourceTree = "<group>"; };
+		E1AC74B9239A0727006645CE /* UIButton+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Chameleon.h"; sourceTree = "<group>"; };
+		E1AC74BA239A0727006645CE /* Chameleon_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chameleon_.h; sourceTree = "<group>"; };
+		E1AC74BB239A0727006645CE /* UIView+ChameleonPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ChameleonPrivate.h"; sourceTree = "<group>"; };
+		E1AC74CA239A0A92006645CE /* TencentMapMobilityNearbyCarsSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilityNearbyCarsSDK.bundle; path = TencentMapMobilityNearbyCarsSDK.framework/TencentMapMobilityNearbyCarsSDK.bundle; sourceTree = "<group>"; };
+		E1AC74CB239A0A92006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilityBoardingPlacesSDK.bundle; path = TencentMapMobilityBoardingPlacesSDK.framework/TencentMapMobilityBoardingPlacesSDK.bundle; sourceTree = "<group>"; };
+		E1AC74CC239A0A93006645CE /* TencentNavigationKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentNavigationKit.bundle; path = TNKNavigationKit.framework/TencentNavigationKit.bundle; sourceTree = "<group>"; };
 		E1B3D1F322F539DD00E753CB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E1B3D1F522F539E500E753CB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E1B3D1F722F539EB00E753CB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E1B3D1F922F539F300E753CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E1B3D1FB22F539F900E753CB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		E1B3D1FD22F53A9500E753CB /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
-		E1B3D1FF22F53AE400E753CB /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		E1B3D20922F82A7A00E753CB /* TencentLBS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentLBS.framework; sourceTree = "<group>"; };
-		E1B3D20B22F82A8600E753CB /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
-		E1BFD88022FAFAA300DF8C68 /* ChameleonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonMacros.h; sourceTree = "<group>"; };
-		E1BFD88122FAFAA300DF8C68 /* UIColor+ChameleonPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ChameleonPrivate.m"; sourceTree = "<group>"; };
-		E1BFD88222FAFAA300DF8C68 /* ChameleonConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChameleonConstants.m; sourceTree = "<group>"; };
-		E1BFD88322FAFAA300DF8C68 /* UILabel+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Chameleon.h"; sourceTree = "<group>"; };
-		E1BFD88422FAFAA300DF8C68 /* UINavigationController+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Chameleon.h"; sourceTree = "<group>"; };
-		E1BFD88522FAFAA300DF8C68 /* Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chameleon.h; sourceTree = "<group>"; };
-		E1BFD88622FAFAA300DF8C68 /* UIColor+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Chameleon.m"; sourceTree = "<group>"; };
-		E1BFD88722FAFAA300DF8C68 /* NSArray+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Chameleon.h"; sourceTree = "<group>"; };
-		E1BFD88822FAFAA300DF8C68 /* UIButton+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Chameleon.m"; sourceTree = "<group>"; };
-		E1BFD88922FAFAA300DF8C68 /* UIImage+ChameleonPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ChameleonPrivate.h"; sourceTree = "<group>"; };
-		E1BFD88A22FAFAA300DF8C68 /* UIAppearance+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAppearance+Swift.h"; sourceTree = "<group>"; };
-		E1BFD88B22FAFAA300DF8C68 /* UIViewController+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Chameleon.h"; sourceTree = "<group>"; };
-		E1BFD88C22FAFAA300DF8C68 /* ChameleonEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonEnums.h; sourceTree = "<group>"; };
-		E1BFD88D22FAFAA300DF8C68 /* UIView+ChameleonPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ChameleonPrivate.m"; sourceTree = "<group>"; };
-		E1BFD88E22FAFAA300DF8C68 /* Chameleon_.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chameleon_.m; sourceTree = "<group>"; };
-		E1BFD88F22FAFAA300DF8C68 /* ChameleonConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonConstants.h; sourceTree = "<group>"; };
-		E1BFD89022FAFAA300DF8C68 /* UIColor+ChameleonPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ChameleonPrivate.h"; sourceTree = "<group>"; };
-		E1BFD89122FAFAA300DF8C68 /* NSArray+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Chameleon.m"; sourceTree = "<group>"; };
-		E1BFD89222FAFAA300DF8C68 /* UIColor+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Chameleon.h"; sourceTree = "<group>"; };
-		E1BFD89322FAFAA300DF8C68 /* UINavigationController+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Chameleon.m"; sourceTree = "<group>"; };
-		E1BFD89422FAFAA300DF8C68 /* UILabel+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Chameleon.m"; sourceTree = "<group>"; };
-		E1BFD89522FAFAA300DF8C68 /* UIViewController+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Chameleon.m"; sourceTree = "<group>"; };
-		E1BFD89622FAFAA300DF8C68 /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
-		E1BFD89722FAFAA300DF8C68 /* UIImage+ChameleonPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ChameleonPrivate.m"; sourceTree = "<group>"; };
-		E1BFD89822FAFAA300DF8C68 /* UIButton+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Chameleon.h"; sourceTree = "<group>"; };
-		E1BFD89922FAFAA300DF8C68 /* Chameleon_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chameleon_.h; sourceTree = "<group>"; };
-		E1BFD89A22FAFAA300DF8C68 /* UIView+ChameleonPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ChameleonPrivate.h"; sourceTree = "<group>"; };
 		E1BFD8A822FAFC2D00DF8C68 /* ReplaceUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplaceUnicode.m; sourceTree = "<group>"; };
 		E1BFD8A922FAFC2D00DF8C68 /* MathTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathTool.m; sourceTree = "<group>"; };
 		E1BFD8AA22FAFC2D00DF8C68 /* ReplaceUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplaceUnicode.h; sourceTree = "<group>"; };
@@ -215,25 +203,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1B3D20C22F82A8600E753CB /* libz.1.2.5.tbd in Frameworks */,
-				03E6FAEE23968511007CE9F7 /* TencentMapMobilityBoardingPlacesSDK.framework in Frameworks */,
-				E1B3D20022F53AE400E753CB /* libc++.tbd in Frameworks */,
-				E1B3D1FE22F53A9500E753CB /* WebP.framework in Frameworks */,
 				E1B3D1FC22F539F900E753CB /* CoreGraphics.framework in Frameworks */,
 				E1B3D1FA22F539F300E753CB /* Foundation.framework in Frameworks */,
-				03E6FAF223968583007CE9F7 /* TencentMapMobilitySearchSDK.framework in Frameworks */,
-				E1B3D20A22F82A7A00E753CB /* TencentLBS.framework in Frameworks */,
+				E1AC749D239A071A006645CE /* TLSLocusSynchro.framework in Frameworks */,
+				E1AC749A239A071A006645CE /* TencentMapMobilityNearbyCarsSDK.framework in Frameworks */,
 				E1B3D1F822F539EB00E753CB /* CoreLocation.framework in Frameworks */,
+				E1AC749C239A071A006645CE /* QMapSDKUtils.framework in Frameworks */,
+				E1AC749F239A071A006645CE /* TencentLBS.framework in Frameworks */,
 				E1B3D1F622F539E500E753CB /* QuartzCore.framework in Frameworks */,
 				E1B3D1F422F539DD00E753CB /* SystemConfiguration.framework in Frameworks */,
-				03E6FAF02396856F007CE9F7 /* TencentMapMobilityNearbyCarsSDK.framework in Frameworks */,
-				03E6FAF4239685B1007CE9F7 /* TencentMapMobilitySDK.framework in Frameworks */,
-				E1B3D1F222F539D600E753CB /* libz.tbd in Frameworks */,
-				E1B3D1F022F539CE00E753CB /* libsqlite3.tbd in Frameworks */,
-				E1B3D1E822F535D000E753CB /* QMapSDKUtils.framework in Frameworks */,
-				E1B3D1E722F535D000E753CB /* QMapKit.framework in Frameworks */,
-				E1B3D1E622F535D000E753CB /* TLSLocusSynchro.framework in Frameworks */,
-				E1B3D1E922F535D000E753CB /* TNKNavigationKit.framework in Frameworks */,
+				E1AC7498239A071A006645CE /* WebP.framework in Frameworks */,
+				E1AC749E239A071A006645CE /* TencentMapMobilitySearchSDK.framework in Frameworks */,
+				E1AC749B239A071A006645CE /* TencentMapMobilityBoardingPlacesSDK.framework in Frameworks */,
+				435AA01AE14947E59D80E8DB /* Pods_mapmobilitydemo.framework in Frameworks */,
+				E1AC7499239A071A006645CE /* TNKNavigationKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,12 +301,22 @@
 			path = SpeedInfo;
 			sourceTree = "<group>";
 		};
+		55BFCF7A7183F65AB68F4F23 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E05F3047C269B76908D85B7 /* Pods-mapmobilitydemo.debug.xcconfig */,
+				16B6A3AA696DBDF55A11B6B3 /* Pods-mapmobilitydemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E1435D6022F524ED00C2B4D0 = {
 			isa = PBXGroup;
 			children = (
 				E1435D6B22F524ED00C2B4D0 /* mapmobilitydemo */,
 				E1435D6A22F524ED00C2B4D0 /* Products */,
 				E1B3D1EE22F539CE00E753CB /* Frameworks */,
+				55BFCF7A7183F65AB68F4F23 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -380,22 +373,18 @@
 		E1435D9C22F534C200C2B4D0 /* Dependency */ = {
 			isa = PBXGroup;
 			children = (
-				E1AC742823975146006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle */,
-				E1AC742623975145006645CE /* TencentMapMobilityNearbyCarsSDK.bundle */,
-				E1AC742723975146006645CE /* TencentMapMobilitySDK.bundle */,
-				03E6FAF3239685B1007CE9F7 /* TencentMapMobilitySDK.framework */,
-				03E6FAF123968583007CE9F7 /* TencentMapMobilitySearchSDK.framework */,
-				03E6FAEF2396856F007CE9F7 /* TencentMapMobilityNearbyCarsSDK.framework */,
-				03E6FAED23968511007CE9F7 /* TencentMapMobilityBoardingPlacesSDK.framework */,
-				E1BFD87F22FAFAA300DF8C68 /* Color */,
-				E1B3D20922F82A7A00E753CB /* TencentLBS.framework */,
-				E1B3D1FD22F53A9500E753CB /* WebP.framework */,
-				E1B3D1EC22F535EC00E753CB /* TencentNavigationKit.bundle */,
-				E1B3D1EA22F535E300E753CB /* QMapKit.bundle */,
-				E1B3D1E322F535D000E753CB /* QMapKit.framework */,
-				E1B3D1E422F535D000E753CB /* QMapSDKUtils.framework */,
-				E1B3D1E222F535D000E753CB /* TLSLocusSynchro.framework */,
-				E1B3D1E522F535D000E753CB /* TNKNavigationKit.framework */,
+				E1AC74CB239A0A92006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle */,
+				E1AC74CA239A0A92006645CE /* TencentMapMobilityNearbyCarsSDK.bundle */,
+				E1AC74CC239A0A93006645CE /* TencentNavigationKit.bundle */,
+				E1AC74A0239A0727006645CE /* Color */,
+				E1AC7494239A071A006645CE /* QMapSDKUtils.framework */,
+				E1AC7497239A071A006645CE /* TencentLBS.framework */,
+				E1AC7493239A071A006645CE /* TencentMapMobilityBoardingPlacesSDK.framework */,
+				E1AC7492239A071A006645CE /* TencentMapMobilityNearbyCarsSDK.framework */,
+				E1AC7496239A071A006645CE /* TencentMapMobilitySearchSDK.framework */,
+				E1AC7495239A071A006645CE /* TLSLocusSynchro.framework */,
+				E1AC7491239A071A006645CE /* TNKNavigationKit.framework */,
+				E1AC7490239A071A006645CE /* WebP.framework */,
 			);
 			path = Dependency;
 			sourceTree = "<group>";
@@ -419,54 +408,51 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		E1AC74A0239A0727006645CE /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				E1AC74A1239A0727006645CE /* ChameleonMacros.h */,
+				E1AC74A2239A0727006645CE /* UIColor+ChameleonPrivate.m */,
+				E1AC74A3239A0727006645CE /* ChameleonConstants.m */,
+				E1AC74A4239A0727006645CE /* UILabel+Chameleon.h */,
+				E1AC74A5239A0727006645CE /* UINavigationController+Chameleon.h */,
+				E1AC74A6239A0727006645CE /* Chameleon.h */,
+				E1AC74A7239A0727006645CE /* UIColor+Chameleon.m */,
+				E1AC74A8239A0727006645CE /* NSArray+Chameleon.h */,
+				E1AC74A9239A0727006645CE /* UIButton+Chameleon.m */,
+				E1AC74AA239A0727006645CE /* UIImage+ChameleonPrivate.h */,
+				E1AC74AB239A0727006645CE /* UIAppearance+Swift.h */,
+				E1AC74AC239A0727006645CE /* UIViewController+Chameleon.h */,
+				E1AC74AD239A0727006645CE /* ChameleonEnums.h */,
+				E1AC74AE239A0727006645CE /* UIView+ChameleonPrivate.m */,
+				E1AC74AF239A0727006645CE /* Chameleon_.m */,
+				E1AC74B0239A0727006645CE /* ChameleonConstants.h */,
+				E1AC74B1239A0727006645CE /* UIColor+ChameleonPrivate.h */,
+				E1AC74B2239A0727006645CE /* NSArray+Chameleon.m */,
+				E1AC74B3239A0727006645CE /* UIColor+Chameleon.h */,
+				E1AC74B4239A0727006645CE /* UINavigationController+Chameleon.m */,
+				E1AC74B5239A0727006645CE /* UILabel+Chameleon.m */,
+				E1AC74B6239A0727006645CE /* UIViewController+Chameleon.m */,
+				E1AC74B7239A0727006645CE /* UIAppearance+Swift.m */,
+				E1AC74B8239A0727006645CE /* UIImage+ChameleonPrivate.m */,
+				E1AC74B9239A0727006645CE /* UIButton+Chameleon.h */,
+				E1AC74BA239A0727006645CE /* Chameleon_.h */,
+				E1AC74BB239A0727006645CE /* UIView+ChameleonPrivate.h */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
 		E1B3D1EE22F539CE00E753CB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E1B3D20B22F82A8600E753CB /* libz.1.2.5.tbd */,
-				E1B3D1FF22F53AE400E753CB /* libc++.tbd */,
 				E1B3D1FB22F539F900E753CB /* CoreGraphics.framework */,
 				E1B3D1F922F539F300E753CB /* Foundation.framework */,
 				E1B3D1F722F539EB00E753CB /* CoreLocation.framework */,
 				E1B3D1F522F539E500E753CB /* QuartzCore.framework */,
 				E1B3D1F322F539DD00E753CB /* SystemConfiguration.framework */,
-				E1B3D1F122F539D500E753CB /* libz.tbd */,
-				E1B3D1EF22F539CE00E753CB /* libsqlite3.tbd */,
+				6426C55D170FC9DB4426375C /* Pods_mapmobilitydemo.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E1BFD87F22FAFAA300DF8C68 /* Color */ = {
-			isa = PBXGroup;
-			children = (
-				E1BFD88022FAFAA300DF8C68 /* ChameleonMacros.h */,
-				E1BFD88122FAFAA300DF8C68 /* UIColor+ChameleonPrivate.m */,
-				E1BFD88222FAFAA300DF8C68 /* ChameleonConstants.m */,
-				E1BFD88322FAFAA300DF8C68 /* UILabel+Chameleon.h */,
-				E1BFD88422FAFAA300DF8C68 /* UINavigationController+Chameleon.h */,
-				E1BFD88522FAFAA300DF8C68 /* Chameleon.h */,
-				E1BFD88622FAFAA300DF8C68 /* UIColor+Chameleon.m */,
-				E1BFD88722FAFAA300DF8C68 /* NSArray+Chameleon.h */,
-				E1BFD88822FAFAA300DF8C68 /* UIButton+Chameleon.m */,
-				E1BFD88922FAFAA300DF8C68 /* UIImage+ChameleonPrivate.h */,
-				E1BFD88A22FAFAA300DF8C68 /* UIAppearance+Swift.h */,
-				E1BFD88B22FAFAA300DF8C68 /* UIViewController+Chameleon.h */,
-				E1BFD88C22FAFAA300DF8C68 /* ChameleonEnums.h */,
-				E1BFD88D22FAFAA300DF8C68 /* UIView+ChameleonPrivate.m */,
-				E1BFD88E22FAFAA300DF8C68 /* Chameleon_.m */,
-				E1BFD88F22FAFAA300DF8C68 /* ChameleonConstants.h */,
-				E1BFD89022FAFAA300DF8C68 /* UIColor+ChameleonPrivate.h */,
-				E1BFD89122FAFAA300DF8C68 /* NSArray+Chameleon.m */,
-				E1BFD89222FAFAA300DF8C68 /* UIColor+Chameleon.h */,
-				E1BFD89322FAFAA300DF8C68 /* UINavigationController+Chameleon.m */,
-				E1BFD89422FAFAA300DF8C68 /* UILabel+Chameleon.m */,
-				E1BFD89522FAFAA300DF8C68 /* UIViewController+Chameleon.m */,
-				E1BFD89622FAFAA300DF8C68 /* UIAppearance+Swift.m */,
-				E1BFD89722FAFAA300DF8C68 /* UIImage+ChameleonPrivate.m */,
-				E1BFD89822FAFAA300DF8C68 /* UIButton+Chameleon.h */,
-				E1BFD89922FAFAA300DF8C68 /* Chameleon_.h */,
-				E1BFD89A22FAFAA300DF8C68 /* UIView+ChameleonPrivate.h */,
-			);
-			path = Color;
 			sourceTree = "<group>";
 		};
 		E1BFD8A722FAFC2D00DF8C68 /* Tools */ = {
@@ -509,9 +495,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1435D7F22F524EF00C2B4D0 /* Build configuration list for PBXNativeTarget "mapmobilitydemo" */;
 			buildPhases = (
+				2A423A64405F4EBA524DCB65 /* [CP] Check Pods Manifest.lock */,
 				E1435D6522F524ED00C2B4D0 /* Sources */,
 				E1435D6622F524ED00C2B4D0 /* Frameworks */,
 				E1435D6722F524ED00C2B4D0 /* Resources */,
+				C4FBA52459107911EF7B8268 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -565,31 +553,71 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1BFD8BE22FB006000DF8C68 /* navi_bg_speed.png in Resources */,
+				E1AC74CE239A0A93006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle in Resources */,
 				E1BFD8BF22FB006000DF8C68 /* navi_bg_speed@2x.png in Resources */,
 				E1BFD8C222FB006000DF8C68 /* map_traffic_normal.png in Resources */,
 				E1BFD8C722FB006000DF8C68 /* map_traffic_active_normal.png in Resources */,
+				E1AC74CD239A0A93006645CE /* TencentMapMobilityNearbyCarsSDK.bundle in Resources */,
 				E1BFD8CB22FB006000DF8C68 /* location.png in Resources */,
 				E1BFD8CA22FB006000DF8C68 /* btn_elevated_normal.png in Resources */,
-				E1AC742A23975146006645CE /* TencentMapMobilitySDK.bundle in Resources */,
 				E1BFD8C922FB006000DF8C68 /* btn_oppositeDirection_normal.png in Resources */,
 				E1BFD8C622FB006000DF8C68 /* btn_downstairs_normal.png in Resources */,
 				E1BFD8C422FB006000DF8C68 /* btn_mainRoad_normal.png in Resources */,
-				E1AC742B23975146006645CE /* TencentMapMobilityBoardingPlacesSDK.bundle in Resources */,
-				E1B3D1ED22F535EC00E753CB /* TencentNavigationKit.bundle in Resources */,
 				E1BFD8CC22FB006000DF8C68 /* navi_bg_speedlimit.png in Resources */,
+				E1AC74CF239A0A93006645CE /* TencentNavigationKit.bundle in Resources */,
 				E1BFD8C322FB006000DF8C68 /* navi_bg_speed@3x.png in Resources */,
 				E1BFD8C822FB006000DF8C68 /* common_btn_locate_normal.png in Resources */,
 				E1BFD8C122FB006000DF8C68 /* navi_bg_speedlimit@2x.png in Resources */,
-				E1AC742923975146006645CE /* TencentMapMobilityNearbyCarsSDK.bundle in Resources */,
 				E1435D7922F524EF00C2B4D0 /* LaunchScreen.storyboard in Resources */,
 				E1BFD8C522FB006000DF8C68 /* btn_servingRoad_normal.png in Resources */,
-				E1B3D1EB22F535E300E753CB /* QMapKit.bundle in Resources */,
 				E1435D7622F524EF00C2B4D0 /* Assets.xcassets in Resources */,
 				E1BFD8C022FB006000DF8C68 /* navi_bg_speedlimit@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A423A64405F4EBA524DCB65 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mapmobilitydemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4FBA52459107911EF7B8268 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mapmobilitydemo/Pods-mapmobilitydemo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mapmobilitydemo/Pods-mapmobilitydemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mapmobilitydemo/Pods-mapmobilitydemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E1435D6522F524ED00C2B4D0 /* Sources */ = {
@@ -600,36 +628,36 @@
 				E1AC743A23976955006645CE /* SearchKeywordHeaderView.m in Sources */,
 				03E748312303FF96000D9045 /* PassengerSynchroViewController.m in Sources */,
 				03E7482E2303FF96000D9045 /* NearbyCarsViewController.m in Sources */,
-				E1BFD89E22FAFAA300DF8C68 /* UIButton+Chameleon.m in Sources */,
 				E1435D9822F5344800C2B4D0 /* EntryData.m in Sources */,
-				E1BFD8A222FAFAA300DF8C68 /* UINavigationController+Chameleon.m in Sources */,
+				E1AC74C7239A0727006645CE /* UIImage+ChameleonPrivate.m in Sources */,
+				E1AC74C2239A0727006645CE /* NSArray+Chameleon.m in Sources */,
 				03E748372303FF96000D9045 /* NavigationSpeedInfo.m in Sources */,
-				E1BFD89B22FAFAA300DF8C68 /* UIColor+ChameleonPrivate.m in Sources */,
 				03E7482F2303FF96000D9045 /* DriverSynchroViewController.m in Sources */,
 				03E748322303FF96000D9045 /* NavigationStatusBar.m in Sources */,
 				E1435D7C22F524EF00C2B4D0 /* main.m in Sources */,
-				E1BFD8A122FAFAA300DF8C68 /* NSArray+Chameleon.m in Sources */,
-				E1BFD8A522FAFAA300DF8C68 /* UIAppearance+Swift.m in Sources */,
 				E1AC7437239768B1006645CE /* SearchKeywordViewController.m in Sources */,
-				E1BFD89F22FAFAA300DF8C68 /* UIView+ChameleonPrivate.m in Sources */,
 				E1BFD8AD22FAFC2D00DF8C68 /* MathTool.m in Sources */,
-				E1BFD8A622FAFAA300DF8C68 /* UIImage+ChameleonPrivate.m in Sources */,
+				E1AC74C3239A0727006645CE /* UINavigationController+Chameleon.m in Sources */,
 				E1AC744223979344006645CE /* SearchKeywordPOIModel.m in Sources */,
+				E1AC74BD239A0727006645CE /* ChameleonConstants.m in Sources */,
 				03E748302303FF96000D9045 /* BaseSynchroViewController.m in Sources */,
-				E1BFD8A322FAFAA300DF8C68 /* UILabel+Chameleon.m in Sources */,
 				E1435D9522F5344800C2B4D0 /* TrafficPolyline.m in Sources */,
+				E1AC74C6239A0727006645CE /* UIAppearance+Swift.m in Sources */,
 				03E748362303FF96000D9045 /* CurrentSpeedView.m in Sources */,
 				E1AC743423976881006645CE /* MobilitySearchViewController.m in Sources */,
-				E1BFD8A422FAFAA300DF8C68 /* UIViewController+Chameleon.m in Sources */,
+				E1AC74C0239A0727006645CE /* UIView+ChameleonPrivate.m in Sources */,
+				E1AC74C5239A0727006645CE /* UIViewController+Chameleon.m in Sources */,
+				E1AC74BC239A0727006645CE /* UIColor+ChameleonPrivate.m in Sources */,
+				E1AC74C1239A0727006645CE /* Chameleon_.m in Sources */,
 				03E748352303FF96000D9045 /* LimitSpeedView.m in Sources */,
 				E1AC743223975908006645CE /* TripPanelView.m in Sources */,
 				E1BFD8AC22FAFC2D00DF8C68 /* ReplaceUnicode.m in Sources */,
+				E1AC74C4239A0727006645CE /* UILabel+Chameleon.m in Sources */,
+				E1AC74BF239A0727006645CE /* UIButton+Chameleon.m in Sources */,
 				03E748332303FF96000D9045 /* NavigationBottomBoard.m in Sources */,
-				E1BFD89C22FAFAA300DF8C68 /* ChameleonConstants.m in Sources */,
+				E1AC74BE239A0727006645CE /* UIColor+Chameleon.m in Sources */,
 				03E6FAEB239682DA007CE9F7 /* BoardingPlacesViewController.m in Sources */,
 				E1435D9722F5344800C2B4D0 /* EntryViewController.m in Sources */,
-				E1BFD89D22FAFAA300DF8C68 /* UIColor+Chameleon.m in Sources */,
-				E1BFD8A022FAFAA300DF8C68 /* Chameleon_.m in Sources */,
 				03E748342303FF96000D9045 /* CurrentRoadView.m in Sources */,
 				E1435D9622F5344800C2B4D0 /* RouteLocation.m in Sources */,
 				E1435D6E22F524ED00C2B4D0 /* AppDelegate.m in Sources */,
@@ -764,6 +792,7 @@
 		};
 		E1435D8022F524EF00C2B4D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E05F3047C269B76908D85B7 /* Pods-mapmobilitydemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -772,7 +801,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/mapmobilitydemo/Dependency",
-					"$(PROJECT_DIR)/mapmobilitydemo/Dependency/Color",
 				);
 				INFOPLIST_FILE = mapmobilitydemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -780,7 +808,24 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3.0\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"QMapKit\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"TencentMapMobilitySDK\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.mapmobilitydemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -789,6 +834,7 @@
 		};
 		E1435D8122F524EF00C2B4D0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16B6A3AA696DBDF55A11B6B3 /* Pods-mapmobilitydemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -797,7 +843,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/mapmobilitydemo/Dependency",
-					"$(PROJECT_DIR)/mapmobilitydemo/Dependency/Color",
 				);
 				INFOPLIST_FILE = mapmobilitydemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -805,7 +850,24 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3.0\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"QMapKit\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"TencentMapMobilitySDK\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.mapmobilitydemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

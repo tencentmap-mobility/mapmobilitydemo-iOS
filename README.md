@@ -10,10 +10,11 @@
 详细信息和使用方式可以在官网https://lbs.qq.com上获得。
 
 ### 出行SDK基础库 TencentMapMobilitySDK.framwork
-出行的多个SDK均依赖与该基础库，使用方法在SDK文档列表中。
+出行的多个SDK均依赖于该基础库，使用方法在SDK文档列表中。
  
 
 ## SDK文档列表
 1. [出行周边车辆SDK](docs/TencentMapMobilityNearbyCarsSDK.md)
 2. [出行推荐上车点SDK](docs/TencentMapMobilityBoardingPlacesSDK.md)
 3. [出行检索SDK](docs/TencentMapMobilitySearchSDK.md)
+4. [出行SDK基础库](docs/MobilitySDK.md)

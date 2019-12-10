@@ -1,20 +1,29 @@
 PODS:
   - TencentMap-SDK (4.2.6.2)
+  - TencentMapMobilityNearbyCarsSDK (0.9.0):
+    - TencentMapMobilitySDK (~> 0.9.1)
   - TencentMapMobilitySDK (0.9.1):
     - TencentMap-SDK (~> 4.2.6.2)
+  - TencentMapMobilitySearchSDK (0.9.0):
+    - TencentMapMobilitySDK (~> 0.9.1)
 
 DEPENDENCIES:
-  - TencentMapMobilitySDK (= 0.9.1)
+  - TencentMapMobilityNearbyCarsSDK
+  - TencentMapMobilitySearchSDK
 
 SPEC REPOS:
   trunk:
     - TencentMap-SDK
+    - TencentMapMobilityNearbyCarsSDK
     - TencentMapMobilitySDK
+    - TencentMapMobilitySearchSDK
 
 SPEC CHECKSUMS:
   TencentMap-SDK: 973bd64f65a46283838740a746ad2d48c1c45c5b
+  TencentMapMobilityNearbyCarsSDK: 60f8f0b251375238373164979db712224067355b
   TencentMapMobilitySDK: 18f0f66fa1a22c9eab0a5ded2552e0643d307fa4
+  TencentMapMobilitySearchSDK: a6341cb09363bcab9111d8bb09a48bbd61caed43
 
-PODFILE CHECKSUM: 5179be1b6329d16d222324ad021f4d1e168fbc56
+PODFILE CHECKSUM: 987ebd0545c324d2d5771718e39b90fee4a42b46
 
 COCOAPODS: 1.8.4

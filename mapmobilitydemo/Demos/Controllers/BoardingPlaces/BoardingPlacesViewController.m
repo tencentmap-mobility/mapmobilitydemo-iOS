@@ -9,7 +9,7 @@
 #import "BoardingPlacesViewController.h"
 #import <TencentLBS/TencentLBS.h>
 #import <TencentMapMobilitySDK/TencentMapMobilitySDK.h>
-#import <TencentMapMobilityBoardingPlacesSDK/TencentMapMobilityBoardingPlacesSDK.h>
+#import <TencentMapMobilityBoardingPlacesSDK/TMMBoardingPlaces.h>
 #import "Constants.h"
 
 @interface BoardingPlacesViewController () <QMapViewDelegate, TencentLBSLocationManagerDelegate, TMMNearbyBoardingPlacesManagerDelegate,
@@ -75,6 +75,7 @@ UIPickerViewDelegate, UIPickerViewDataSource>
     // 显示中心点
     self.mapView.tmm_centerPinViewHidden = NO;
     [self.mapView.tmm_centerPinView setCalloutAttribtedText:[[NSAttributedString alloc] initWithString:@"在这里上车" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:13]}]];
+    self.mapView.tmm_centerPinView.calloutViewHidden = NO;
     
     // 设置大头针的相对位置(0.5, 0.5)为地图中心点
     CGPoint pinPosition = CGPointMake(0.5, 0.5);

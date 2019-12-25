@@ -3,7 +3,7 @@
 target 'mapmobilitydemo' do
   use_frameworks!
   
-  pod 'TencentMapMobilitySearchSDK'
+  pod 'TencentMapMobilityBoardingPlacesSDK'
   pod 'TencentMapMobilityNearbyCarsSDK'
 end
 

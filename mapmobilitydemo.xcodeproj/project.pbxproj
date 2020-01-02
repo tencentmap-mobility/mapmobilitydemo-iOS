@@ -36,7 +36,6 @@
 		E1AC7498239A071A006645CE /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7490239A071A006645CE /* WebP.framework */; };
 		E1AC7499239A071A006645CE /* TNKNavigationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7491239A071A006645CE /* TNKNavigationKit.framework */; };
 		E1AC749C239A071A006645CE /* QMapSDKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7494239A071A006645CE /* QMapSDKUtils.framework */; };
-		E1AC749D239A071A006645CE /* TLSLocusSynchro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7495239A071A006645CE /* TLSLocusSynchro.framework */; };
 		E1AC749F239A071A006645CE /* TencentLBS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7497239A071A006645CE /* TencentLBS.framework */; };
 		E1AC74BC239A0727006645CE /* UIColor+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC74A2239A0727006645CE /* UIColor+ChameleonPrivate.m */; };
 		E1AC74BD239A0727006645CE /* ChameleonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC74A3239A0727006645CE /* ChameleonConstants.m */; };
@@ -132,7 +131,6 @@
 		E1AC7490239A071A006645CE /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
 		E1AC7491239A071A006645CE /* TNKNavigationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TNKNavigationKit.framework; sourceTree = "<group>"; };
 		E1AC7494239A071A006645CE /* QMapSDKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapSDKUtils.framework; sourceTree = "<group>"; };
-		E1AC7495239A071A006645CE /* TLSLocusSynchro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TLSLocusSynchro.framework; sourceTree = "<group>"; };
 		E1AC7497239A071A006645CE /* TencentLBS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentLBS.framework; sourceTree = "<group>"; };
 		E1AC74A1239A0727006645CE /* ChameleonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonMacros.h; sourceTree = "<group>"; };
 		E1AC74A2239A0727006645CE /* UIColor+ChameleonPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ChameleonPrivate.m"; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 			files = (
 				E1B3D1FC22F539F900E753CB /* CoreGraphics.framework in Frameworks */,
 				E1B3D1FA22F539F300E753CB /* Foundation.framework in Frameworks */,
-				E1AC749D239A071A006645CE /* TLSLocusSynchro.framework in Frameworks */,
 				E1B3D1F822F539EB00E753CB /* CoreLocation.framework in Frameworks */,
 				E1AC749C239A071A006645CE /* QMapSDKUtils.framework in Frameworks */,
 				E1AC749F239A071A006645CE /* TencentLBS.framework in Frameworks */,
@@ -364,7 +361,6 @@
 				E1AC74A0239A0727006645CE /* Color */,
 				E1AC7494239A071A006645CE /* QMapSDKUtils.framework */,
 				E1AC7497239A071A006645CE /* TencentLBS.framework */,
-				E1AC7495239A071A006645CE /* TLSLocusSynchro.framework */,
 				E1AC7491239A071A006645CE /* TNKNavigationKit.framework */,
 				E1AC7490239A071A006645CE /* WebP.framework */,
 			);

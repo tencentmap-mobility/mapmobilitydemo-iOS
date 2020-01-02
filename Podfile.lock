@@ -9,11 +9,13 @@ PODS:
     - TencentMap-SDK
   - TencentMapMobilitySearchSDK (1.0.0):
     - TencentMapMobilitySDK (~> 1.0.0)
+  - TLSLocusSynchro (1.0.6)
 
 DEPENDENCIES:
   - TencentMap-SDK
   - TencentMapMobilityBoardingPlacesSDK
   - TencentMapMobilityNearbyCarsSDK
+  - TLSLocusSynchro
 
 SPEC REPOS:
   trunk:
@@ -22,6 +24,7 @@ SPEC REPOS:
     - TencentMapMobilityNearbyCarsSDK
     - TencentMapMobilitySDK
     - TencentMapMobilitySearchSDK
+    - TLSLocusSynchro
 
 SPEC CHECKSUMS:
   TencentMap-SDK: 381fe6c4afec0755d66dd3b4574a7b7cc47993e4
@@ -29,7 +32,8 @@ SPEC CHECKSUMS:
   TencentMapMobilityNearbyCarsSDK: fafbf594eca43ce9437a83d395a2a5d175338f33
   TencentMapMobilitySDK: e108d53efadfca1defa5ced72ea04f2d1e02512e
   TencentMapMobilitySearchSDK: a0bbc087bee49d863b3a84617cc71ea2c3944926
+  TLSLocusSynchro: 2d05bfd4ddf97c79c0c5b13ee4b3277111392bf7
 
-PODFILE CHECKSUM: 2b9e9f3b11e2ef386dbe544d8a95f83bdde340be
+PODFILE CHECKSUM: 5edf9c91dd60e9cdf64601d161a0023fc90caa7f
 
 COCOAPODS: 1.8.4

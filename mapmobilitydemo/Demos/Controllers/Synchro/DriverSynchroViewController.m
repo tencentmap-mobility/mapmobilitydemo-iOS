@@ -100,7 +100,7 @@ TencentLBSLocationManagerDelegate
 {
     self.order = [[TLSDriverOrder alloc] init];
     self.order.orderID = kSynchroOrderID;
-    self.order.orderStatus = 3;
+    self.order.orderStatus = TLSSynchroOrderStatusCharging;
     self.order.status = TLSSynchroDriverStatusServing;
 }
 

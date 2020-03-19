@@ -9,13 +9,14 @@
 #import "PassengerSynchroViewController.h"
 
 #import "TrafficPolyline.h"
-#import "RouteLocation.h"
 #import "Constants.h"
 
 #import <QMapKit/QMapkit.h>
 #import <QMapSDKUtils/QMUMapUtils.h>
 #import <MapKit/MKGeometry.h>
 #import <TencentMapMobilitySDK/TMMMathTool.h>
+#import <TencentMapLocusSynchroPassengerSDK/TencentMapLocusSynchroPassengerSDK.h>
+#import "RouteLocation.h"
 
 typedef NS_ENUM(NSInteger, SynchroStatus)
 {
@@ -25,11 +26,10 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
 };
 
 @interface PassengerSynchroViewController ()
-<QMapViewDelegate>
+<QMapViewDelegate,
+TLSPassengerManagerDelegate>
 
 @property (nonatomic, assign) SynchroStatus synchroStatus;
-
-@property (nonatomic, strong) TLSPassengerOrder *order;
 
 @property (nonatomic, strong) QMapView *mapView;
 
@@ -51,13 +51,50 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
 
 @property (nonatomic, strong) QTexturePolylineView *trafficOverlayView;
 
-@property (nonatomic, strong) NSArray<TLSLocation *> *tlsLocations;
+@property (nonatomic, strong) NSArray<TLSDDriverPosition *> *tlsLocations;
 
 @property (nonatomic, assign) CLLocationCoordinate2D currentCoordinate;
+
+@property (nonatomic, strong) TLSPassengerManager *passengerManager;
 
 @end
 
 @implementation PassengerSynchroViewController
+
+#pragma mark - life cycle
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self setupToolbar];
+    
+    [self setupMap];
+    
+    [self setupInfoLabel];
+        
+    [self setupSynchro];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setToolbarHidden:NO animated:animated];
+    
+    [self enterIntoStatus:SynchroStatusNone];
+}
+
+- (void)dealloc
+{
+    [self.passengerManager stop];
+    [self removeObserverOnDriverLocation];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
 
 #pragma mark -  setup
 
@@ -72,13 +109,6 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
     self.mapView.overlookingEnabled = NO;
     
     [self.view addSubview:self.mapView];
-}
-
-- (void)setupOrder
-{
-    self.order = [[TLSPassengerOrder alloc] init];
-    self.order.orderID = kSynchroOrderID;
-    self.order.orderStatus = 3;
 }
 
 - (void)setupInfoLabel
@@ -96,18 +126,18 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
 
 - (void)setupSynchro
 {
-    TLSPassengerConfigPreference *config = [[TLSPassengerConfigPreference alloc] init];
+    TLSPConfig *config = [[TLSPConfig alloc] init];
     
     config.key = kSynchroKey;
-    config.accountID = kSynchroPassengerAccountID;
+    config.passengerID = kSynchroPassengerAccountID;
 
-    self.synchro = [[TLSLocusSynchro alloc] initWithConfigPreference:config];
-    
-    self.synchro.syncEnabled = NO;
-    self.synchro.delegate = self;
-    self.synchro.dataSource = self;
-    
-    [self.synchro start];
+    self.passengerManager = [[TLSPassengerManager alloc] initWithConfig:config];
+    self.passengerManager.uploadPassengerPositionsEnabled = NO;
+    self.passengerManager.delegate = self;
+    self.passengerManager.orderID = kSynchroOrderID;
+    self.passengerManager.pOrderID = kSynchroOrderID;
+    self.passengerManager.orderStatus = TLSBOrderStatusTrip;
+    self.passengerManager.orderType = TLSBOrderTypeNormal;
 }
 
 - (void)setupToolbar
@@ -122,57 +152,37 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
                           flexble];
 }
 
-#pragma mark - synchro delegate
+#pragma mark - TLSPassengerManagerDelegate
 
-- (TLSOrder *)orderForLocusSynchro:(TLSLocusSynchro *)synchro
-{
-    return self.order;
-}
-
-- (void)locusSynchro:(TLSLocusSynchro *)synchro didUpdateSyncData:(TLSSyncData *)data
-{
+- (void)tlsPassengerManager:(TLSPassengerManager *)passengerManager didFetchedData:(TLSPFetchedData *)fetchedData {
+    
     // 更新路线需重新绘制.
-    if([self.currentRouteID isEqualToString:data.route.routeID] == NO)
+    if([self.currentRouteID isEqualToString:fetchedData.route.routeID] == NO)
     {
         // 重新绘制路线.
-        [self updateRoute:data.route];
+        [self updateRoute:fetchedData.route];
     }
     // 相同路线更新路况.
     else
     {
-        if(data.route.routeTraffic != nil)
+        if(fetchedData.route.trafficItems.count > 0)
         {
-            [self updateRouteTraffic:data.route.routeTraffic];
+            [self updateRouteTraffic:fetchedData.route.trafficItems];
         }
     }
-    
+
     // 更新位置.
-    [self updateLocation:data.locations];
+    [self updateLocation:fetchedData.positions];
 
     // 更新信息.
-    [self updateInfoLabel:data.order];
+    //[self updateInfoLabel:data.order];
 }
+
 
 #pragma mark - map delegate
 
 - (void)mapView:(QMapView *)mapView didUpdateUserLocation:(QUserLocation *)userLocation fromHeading:(BOOL)fromHeading
 {
-    if(self.synchroStatus != SynchroStatusStarted)
-    {
-        NSTimeInterval timestamp = [userLocation.location.timestamp timeIntervalSince1970];
-        
-        if(timestamp == self.lastLocationTimestamp)
-        {
-            return;
-        }
-
-        TLSLocation *location = [[TLSLocation alloc] init];
-        location.location = userLocation.location;
-        
-        [self.synchro updateLocation:location];
-        
-        self.lastLocationTimestamp = timestamp;
-    }
 }
 
 - (QOverlayView *)mapView:(QMapView *)mapView viewForOverlay:(id<QOverlay>)overlay
@@ -237,7 +247,7 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
  
 }
 
-- (int)updatePointIndex:(NSArray<TLSLocation *> *)tlsLocations fromDriverLocation:(CLLocationCoordinate2D) driverLocation
+- (int)updatePointIndex:(NSArray<TLSDDriverPosition *> *)tlsLocations fromDriverLocation:(CLLocationCoordinate2D) driverLocation
 {
     double leastDistance = 100.0;
     
@@ -286,7 +296,7 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
 
 #pragma mark - actions
 
-- (void)updateLocation:(NSArray<TLSLocation *> *)locations
+- (void)updateLocation:(NSArray<TLSDDriverPosition *> *)locations
 {
     if(locations == nil || locations.count == 0)
     {
@@ -327,7 +337,7 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
 }
 
 
-- (CLLocationCoordinate2D)driverCoordinate:(TLSLocation *)location
+- (CLLocationCoordinate2D)driverCoordinate:(TLSDDriverPosition *)location
 {
     if(location == nil)
     {
@@ -344,7 +354,7 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
     }
 }
 
-- (CLLocationDirection)driverDirection:(TLSLocation *)location
+- (CLLocationDirection)driverDirection:(TLSDDriverPosition *)location
 {
     if(location == nil)
     {
@@ -361,7 +371,7 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
     }
 }
 
-- (void)updateRoute:(TLSRoute *)route
+- (void)updateRoute:(TLSBRoute *)route
 {
     if(self.route != nil)
     {
@@ -377,7 +387,7 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
     self.trafficOverlayView.segmentStyle = [self.route.arrLine copy];
 }
 
-- (void)updateRouteTraffic:(NSArray<TLSRouteTrafficItem *> *)data
+- (void)updateRouteTraffic:(NSArray<TLSBRouteTrafficItem *> *)data
 {
     [self.route.arrLine setArray:[self getSegmentStylesWithItems:data]];
     
@@ -386,14 +396,14 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
     }
 }
 
-- (NSArray<QSegmentStyle *> *)getSegmentStylesWithItems:(NSArray<TLSRouteTrafficItem *> *)items
+- (NSArray<QSegmentStyle *> *)getSegmentStylesWithItems:(NSArray<TLSBRouteTrafficItem *> *)items
 {
     if(items == nil || items.count == 0) return nil;
     
     NSMutableArray *routeStyles = [NSMutableArray new];
     for(int i = 0;i < items.count; ++i)
     {
-        TLSRouteTrafficItem *item = items[i];
+        TLSBRouteTrafficItem *item = items[i];
         
         QSegmentStyle *routeStyle  = [[QSegmentStyle alloc] init];
         
@@ -426,17 +436,17 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
     }
 }
 
-- (TrafficPolyline *)polylineForRoute:(TLSRoute *)route
+- (TrafficPolyline *)polylineForRoute:(TLSBRoute *)route
 {
-    CLLocationCoordinate2D polylineCoords[route.routePoints.count];
+    CLLocationCoordinate2D polylineCoords[route.points.count];
     
-    for(int i=0;i<route.routePoints.count;++i)
+    for(int i=0;i<route.points.count;++i)
     {
-        polylineCoords[i].latitude  = route.routePoints[i].coordinate.latitude;
-        polylineCoords[i].longitude = route.routePoints[i].coordinate.longitude;
+        polylineCoords[i].latitude  = route.points[i].coordinate.latitude;
+        polylineCoords[i].longitude = route.points[i].coordinate.longitude;
     }
 
-    NSArray *routeTraffic = [self getSegmentStylesWithItems:route.routeTraffic];
+    NSArray *routeTraffic = [self getSegmentStylesWithItems:route.trafficItems];
     
     if (routeTraffic.count == 0) {
         NSMutableArray* routeLineArray = [NSMutableArray array];
@@ -444,7 +454,7 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
         QSegmentStyle *style = [[QSegmentStyle alloc] init];
         
         style.startIndex = 0;
-        style.endIndex   = (int)(route.routePoints.count - 1);
+        style.endIndex   = (int)(route.points.count - 1);
         style.colorImageIndex = 4;
         
         [routeLineArray addObject:style];
@@ -453,20 +463,9 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
     }
     
     
-    TrafficPolyline *routeOverlay = [[TrafficPolyline alloc] initWithCoordinates:polylineCoords count:route.routePoints.count arrLine:routeTraffic];
+    TrafficPolyline *routeOverlay = [[TrafficPolyline alloc] initWithCoordinates:polylineCoords count:route.points.count arrLine:routeTraffic];
     
     return routeOverlay;
-}
-
-- (void)updateInfoLabel:(TLSSyncOrder *)order
-{
-    self.infoLabel.text = [NSString stringWithFormat:
-                           @"已行驶%lu 米 %lu 分钟\n"
-                           "剩余%lu 米 %lu 分钟",
-                           (unsigned long)order.distance,
-                           (unsigned long)order.time,
-                           (unsigned long)order.leftDistance,
-                           (unsigned long)order.leftTime];
 }
 
 - (void)clearInfoLabel
@@ -477,18 +476,17 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
 - (void)handleStartFetch:(UIBarButtonItem *)sender
 {
     [self enterIntoStatus:SynchroStatusStarted];
-    
-    self.synchro.syncEnabled = YES;
-    self.synchro.syncTimeInterval = 5;
-    
+
     [self clearInfoLabel];
+    
+    [self.passengerManager start];
 }
 
 - (void)handleStopFetch:(UIBarButtonItem *)sender
 {
     [self enterIntoStatus:SynchroStatusStoped];
     
-    self.synchro.syncEnabled = NO;
+    [self.passengerManager stop];
 }
 
 - (void)enterIntoStatus:(SynchroStatus)status
@@ -536,40 +534,6 @@ typedef NS_ENUM(NSInteger, SynchroStatus)
     }
 }
 
-#pragma mark - life cycle
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    [self setupToolbar];
-    
-    [self setupMap];
-    
-    [self setupInfoLabel];
-    
-    [self setupOrder];
-    
-    [self setupSynchro];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [self.navigationController setToolbarHidden:NO animated:animated];
-    
-    [self enterIntoStatus:SynchroStatusNone];
-}
-
-- (void)dealloc
-{
-    [self removeObserverOnDriverLocation];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
 
 @end

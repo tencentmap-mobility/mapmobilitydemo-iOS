@@ -6,6 +6,5 @@ target 'mapmobilitydemo' do
   pod 'TencentMap-SDK'
   pod 'TencentMapMobilityBoardingPlacesSDK'
   pod 'TencentMapMobilityNearbyCarsSDK'
-  pod 'TLSLocusSynchro'
 end
 

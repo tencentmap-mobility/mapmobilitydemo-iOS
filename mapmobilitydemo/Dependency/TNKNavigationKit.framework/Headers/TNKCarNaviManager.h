@@ -193,7 +193,8 @@ NS_ASSUME_NONNULL_BEGIN
  * @param trafficStatus 路况信息
  */
 - (void)carNavigationManager:(TNKCarNaviManager *)manager
-    didChangeRoute:(TNKCarRouteSearchRoutePlan *)routePlan routeTrafficStatus:(TNKRouteTrafficStatus *)trafficStatus;
+              didChangeRoute:(TNKCarRouteSearchRoutePlan *)routePlan
+          routeTrafficStatus:(TNKRouteTrafficStatus *)trafficStatus;
 
 @end
 
@@ -208,13 +209,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  导航事件变化采用广播形式,可同时注册多个对象接收事件变化.
  * @param naviDelegate 接收导航事件变化的对象
  */
-- (void)registerNaviDelegate:(nullable id <TNKCarNaviDelegate>)naviDelegate;
+- (void)registerNaviDelegate:(id <TNKCarNaviDelegate>)naviDelegate;
 
 /**
  * @brief  注销对象接收导航事件变化.
  * @param naviDelegate naviDelegate
  */
-- (void)unregisterNaviDelegate:(nullable id <TNKCarNaviDelegate>)naviDelegate;
+- (void)unregisterNaviDelegate:(id <TNKCarNaviDelegate>)naviDelegate;
 
 /**
  * @brief  注销所有对象接收导航事件变化.
@@ -229,13 +230,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  导航UI数据更新采用广播形式,可同时注册多个对象接收数据更新.
  * @param UIDelegate 接收导航UI数据更新的对象
  */
-- (void)registerUIDelegate:(nullable id <TNKCarNaviUIDelegate>)UIDelegate;
+- (void)registerUIDelegate:(id <TNKCarNaviUIDelegate>)UIDelegate;
 
 /**
  * @brief  注销对象接收导航UI数据更新.
  * @param UIDelegate naviDelegate
  */
-- (void)unregisterUIDelegate:(nullable id <TNKCarNaviUIDelegate>)UIDelegate;
+- (void)unregisterUIDelegate:(id <TNKCarNaviUIDelegate>)UIDelegate;
 
 /**
  * @brief  注销所有对象接收导航UI数据更新.
@@ -246,6 +247,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @brief  导航开始前最后的位置信息. 设置该字段可提升真实导航开始时的定位速度及准确性, 需在发起导航前设置. 定位经纬度需为GCJ02类型.
  */
 @property (nonatomic, strong, nullable) CLLocation *lastLocationBeforeNavigation;
+
+/**
+ *  @brief  模拟导航车速，单位km/h，设置范围[20,108]，默认72;
+ *  注意：开启导航之前设置有效
+ */
+@property (nonatomic, assign) int simulationSpeed;
 
 /**
  *  @brief  启动导航. 需要在驾车导航路线规划成功后进行.
@@ -298,7 +305,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  @brief  是否开启导航过程中的伴随路线. 默认关闭.
- *  必须在导航之前设置的。导航过程中设备不生效。
+ *  必须在导航之前设置的，导航过程中设置不生效。
  */
 @property (nonatomic, assign, getter=isMultiRoutesEnabled) BOOL multiRoutesEnabled;
 
@@ -319,6 +326,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  */
 - (void)changeNavigationRoute:(TNKCarNaviManagerRecaculateType)type;
+
+/**
+ * @brief  调用反馈功能。只能在导航过程中调用此方法
+ */
+- (void)feedback;
+
+/**
+ *  @brief  是否开启反馈功能中的录音反馈
+ */
+@property (nonatomic, assign, getter=isAudioFeedbackEnabled) BOOL audioFeedbackEnabled;
 
 @end
 

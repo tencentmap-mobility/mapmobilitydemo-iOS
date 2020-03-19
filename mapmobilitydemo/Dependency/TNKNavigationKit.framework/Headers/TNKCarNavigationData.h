@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TNKSearchTypes.h"
 #import <UIKit/UIKit.h>
 
 /**
@@ -58,12 +59,21 @@
  */
 @property (nonatomic, strong) NSString *totalDistanceLeftUnit;
 
+
 #pragma mark Time
 
 /**
  * @brief 剩余时间 单位:分钟
  */
 @property (nonatomic) int totalTimeLeft;
+
+
+#pragma mark WayPoint
+
+/**
+ * @brief 剩余途径点信息
+ */
+@property (nonatomic, strong) NSArray<TNKNaviToWayPointInfo *> *wayPointsInfo;
 
 #pragma mark Speed
 

@@ -58,12 +58,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NSInteger speed;
 
+@property (nonatomic, assign) int time;
+
 // 获取导航SDK默认路况颜色
 UIColor *TNKRouteTrafficStatusColor(TNKRouteTrafficDataStatus trafficDataStatus);
+
+// 获取导航SDK默认路况描边颜色
+UIColor *TNKRouteTrafficStatusBorderColor(TNKRouteTrafficDataStatus trafficDataStatus);
 
 // 获取导航SDK伴随路线默认路况颜色
 UIColor *TNKAccompanyRouteTrafficStatusColor(TNKRouteTrafficDataStatus trafficDataStatus);
 
+// 获取导航SDK伴随路线默认路况描边颜色
+UIColor *TNKAccompanyRouteTrafficStatusBorderColor(TNKRouteTrafficDataStatus trafficDataStatus);
 @end
 
 NS_ASSUME_NONNULL_END

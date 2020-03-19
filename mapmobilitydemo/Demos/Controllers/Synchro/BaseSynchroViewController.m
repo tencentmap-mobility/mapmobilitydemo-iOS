@@ -26,9 +26,4 @@
     
 }
 
-- (TLSOrder *)orderForLocusSynchro:(TLSLocusSynchro *)synchro
-{
-    return nil;
-}
-
 @end

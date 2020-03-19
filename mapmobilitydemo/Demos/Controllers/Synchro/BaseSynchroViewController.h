@@ -7,12 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <TLSLocusSynchro/TLSSynchro.h>
 
 @interface BaseSynchroViewController : UIViewController
-<TLSLocusSynchroDelegate,
-TLSLocusSynchroDataSource>
 
-@property (nonatomic, strong, nullable) TLSLocusSynchro *synchro;
 
 @end

@@ -11,7 +11,7 @@
 /**
  *  @brief 位置坐标
  */
-@interface TNKCoordinatePoint : NSObject
+@interface TNKCoordinatePoint : NSObject<NSCopying>
 
 /**
  * @brief 经纬度坐标

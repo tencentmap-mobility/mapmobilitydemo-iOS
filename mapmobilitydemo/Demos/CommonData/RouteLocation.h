@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <TLSLocusSynchro/TLSSynchro.h>
 #import <QMapSDKUtils/QMUMapUtils.h>
 
-@interface RouteLocation : NSObject <TLSRoutePoint, QMULocation>
+@interface RouteLocation : NSObject <QMULocation>
 
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 

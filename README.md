@@ -18,4 +18,4 @@
 2. [出行推荐上车点SDK](docs/TencentMapMobilityBoardingPlacesSDK.md)
 3. [出行检索SDK](docs/TencentMapMobilitySearchSDK.md)
 4. [出行SDK基础库](docs/MobilitySDK.md)
-5. [司乘同显SDK]（docs/TencentMapLocusSyncSDK.md）
+5. [司乘同显SDK](docs/TencentMapLocusSyncSDK.md)

@@ -10,7 +10,7 @@
 
 @implementation TrafficPolyline
 
-- (id)initWithCoordinates:(CLLocationCoordinate2D *)coordinateArray count:(NSUInteger)count arrLine:(NSArray<QSegmentStyle *> *)arrLine
+- (id)initWithCoordinates:(CLLocationCoordinate2D *)coordinateArray count:(NSUInteger)count arrLine:(NSArray<QSegmentColor *> *)arrLine
 {
     if (count == 0 || arrLine.count == 0) {
         return nil;

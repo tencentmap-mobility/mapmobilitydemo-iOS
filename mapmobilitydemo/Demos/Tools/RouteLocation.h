@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+//#import <TencentMapLocusSynchroSDK/TencentMapLocusSynchroSDK.h>
 #import <QMapSDKUtils/QMUMapUtils.h>
 
 @interface RouteLocation : NSObject <QMULocation>
@@ -14,3 +15,4 @@
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 
 @end
+

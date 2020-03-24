@@ -1,4 +1,20 @@
 PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - SVProgressHUD (2.2.5)
   - TencentMap-SDK (4.3.0)
   - TencentMapMobilityBoardingPlacesSDK (1.0.0):
     - TencentMapMobilitySDK (~> 1.0.0)
@@ -11,12 +27,16 @@ PODS:
     - TencentMapMobilitySDK (~> 1.0.0)
 
 DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - SVProgressHUD
   - TencentMap-SDK
   - TencentMapMobilityBoardingPlacesSDK
   - TencentMapMobilityNearbyCarsSDK
 
 SPEC REPOS:
   trunk:
+    - AFNetworking
+    - SVProgressHUD
     - TencentMap-SDK
     - TencentMapMobilityBoardingPlacesSDK
     - TencentMapMobilityNearbyCarsSDK
@@ -24,12 +44,14 @@ SPEC REPOS:
     - TencentMapMobilitySearchSDK
 
 SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TencentMap-SDK: b5f3e0f908132cc037a71f845d8b9090fa47b40d
   TencentMapMobilityBoardingPlacesSDK: fb4c60ef70d19a836894388e18046bf6aebd0098
   TencentMapMobilityNearbyCarsSDK: fafbf594eca43ce9437a83d395a2a5d175338f33
   TencentMapMobilitySDK: e108d53efadfca1defa5ced72ea04f2d1e02512e
   TencentMapMobilitySearchSDK: a0bbc087bee49d863b3a84617cc71ea2c3944926
 
-PODFILE CHECKSUM: 2b9e9f3b11e2ef386dbe544d8a95f83bdde340be
+PODFILE CHECKSUM: 32871df3bd66033cc2bd27a198dd6973eef12596
 
 COCOAPODS: 1.9.1

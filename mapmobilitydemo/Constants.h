@@ -11,7 +11,27 @@
 #define kMobilityKey @"" // 需要填写webServiceKey
 #define kMobilitySecretKey @"" // 需要填写webServiceSecretKey
 
-#define kSynchroOrderID            @""
+#define kSynchroDriverOrderID           @""
+#define kSynchroPassenger1OrderID       @""
+#define kSynchroPassenger2OrderID       @""
 
-#define kSynchroDriverAccountID    @""
-#define kSynchroPassengerAccountID @""
+#define kSynchroDriverID                @""
+#define kSynchroPassenger1ID            @""
+#define kSynchroPassenger2ID            @""
+
+#define kSynchroDriverStart             CLLocationCoordinate2DMake(39.938962,116.375685)
+#define kSynchroDriverEnd               CLLocationCoordinate2DMake(39.911975,116.351395)
+
+#define kSynchroPassenger1Start         CLLocationCoordinate2DMake(39.940080, 116.355257)
+#define kSynchroPassenger1End           CLLocationCoordinate2DMake(39.923890, 116.344700)
+
+#define kSynchroPassenger2Start         CLLocationCoordinate2DMake(39.932446, 116.363153)
+#define kSynchroPassenger2End           CLLocationCoordinate2DMake(39.923297, 116.360407)
+
+#define kLocationFormat(coord) [NSString stringWithFormat:@"%.6f,%.6f", coord.longitude, coord.latitude];
+
+
+// 快车订单
+#define kSynchroKCOrderID            @""
+#define kSynchroKCDriverAccountID    @""
+#define kSynchroKCPassengerAccountID @""

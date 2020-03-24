@@ -11,9 +11,9 @@
 
 @interface TrafficPolyline : QPolyline
 
-- (id)initWithCoordinates:(CLLocationCoordinate2D *)coords count:(NSUInteger)count arrLine:(NSArray<QSegmentStyle*> *)arrLine;
+- (id)initWithCoordinates:(CLLocationCoordinate2D *)coords count:(NSUInteger)count arrLine:(NSArray<QSegmentColor*> *)arrLine;
 
 /** @brief 每一条路线的所有分段信息**/
-@property(nonatomic, strong) NSMutableArray<QSegmentStyle *>* arrLine;
+@property(nonatomic, strong) NSMutableArray<QSegmentColor *>* arrLine;
 
 @end

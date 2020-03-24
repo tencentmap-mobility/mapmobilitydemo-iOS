@@ -28,7 +28,7 @@
     
     {
         Section *section = [[Section alloc] init];
-        section.title = @"司乘同显";
+        section.title = @"司乘同显-顺风车";
         NSMutableArray<Cell *> *cellArray = [NSMutableArray array];
         section.cells = cellArray;
         
@@ -38,16 +38,35 @@
         {
             Cell *cell = [[Cell alloc] init];
             cell.title = @"司机端";
-            cell.controllerClassName = @"DriverSynchroViewController";
+            cell.controllerClassName = @"SFCDriverSynchroViewController";
             [cellArray addObject:cell];
             
             cell = [[Cell alloc] init];
             cell.title = @"乘客端";
-            cell.controllerClassName = @"PassengerSynchroViewController";
+            cell.controllerClassName = @"SFCPassengerSynchroViewController";
+            [cellArray addObject:cell];
+        }
+        
+        section = [[Section alloc] init];
+        section.title = @"司乘同显-快车";
+        cellArray = [NSMutableArray array];
+        section.cells = cellArray;
+        
+        [sectionArray addObject:section];
+        
+        // 基础导航
+        {
+            Cell *cell = [[Cell alloc] init];
+            cell.title = @"司机端";
+            cell.controllerClassName = @"KCDriverSynchroViewController";
+            [cellArray addObject:cell];
+            
+            cell = [[Cell alloc] init];
+            cell.title = @"乘客端";
+            cell.controllerClassName = @"KCPassengerSynchroViewController";
             [cellArray addObject:cell];
         }
     }
-    
     {
         Section *section = [[Section alloc] init];
         section.title = @"移动出行";

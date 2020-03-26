@@ -6,6 +6,8 @@
 
 ## 依赖项
 
+### 拉取代码之后，请将腾讯导航SDK放至mapmobilitydemo/Dependency/TNKNavigationSDK目录下，否则会编译错误！
+
 ### 腾讯地图SDK QMapKit.framework
 详细信息和使用方式可以在官网https://lbs.qq.com上获得。
 

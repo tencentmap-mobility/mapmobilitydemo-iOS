@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取最优送驾顺序
 /// @param startPoint 起点坐标
 /// @param endPoint 终点坐标
-/// @param originalWayPoints 途经点坐标
+/// @param originalWayPoints 途经点坐标,个数不能超过10个！
 /// @param completion 最优顺序回调
 - (NSURLSessionTask *)requestBestSortedWayPointsWithStartPoint:(CLLocationCoordinate2D)startPoint
                                                       endPoint:(CLLocationCoordinate2D)endPoint

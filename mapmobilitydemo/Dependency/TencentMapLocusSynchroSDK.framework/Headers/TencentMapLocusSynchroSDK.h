@@ -7,8 +7,5 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TLSBCommonObj.h"
-@interface TencentMapLocusSynchroSDK : NSObject
-
-
-@end
+#import <TencentMapLocusSynchroSDK/TLSBCommonObj.h>
+#import <TencentMapLocusSynchroSDK/TencentMapLocusSynchroSDKVersion.h>

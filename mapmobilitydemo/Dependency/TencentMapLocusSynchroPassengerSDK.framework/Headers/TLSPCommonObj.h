@@ -13,6 +13,9 @@
 
 @interface TLSPFetchedData : NSObject
 
+// 是否已经到达
+@property (nonatomic, assign) BOOL hasArrived;
+
 // 拉取的订单信息
 @property (nonatomic, strong) TLSBOrder *order;
 

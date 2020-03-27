@@ -26,8 +26,6 @@
 
 @property (nonatomic, strong) TencentLBSLocationManager *locationManager;
 @property (nonatomic, assign) NSTimeInterval lastLocationTimestamp;
-// 正在导航中
-@property (nonatomic, assign) BOOL isNavigating;
 
 @end
 
@@ -119,7 +117,6 @@
         
         [strongself.driverManager uploadRouteWithIndex:0];
         // 开始导航
-        strongself.isNavigating = YES;
         [strongself.carNaviManager startSimulateWithIndex:0 locationEntry:nil];
     }];
 }
@@ -203,14 +200,7 @@
     }
     self.lastLocationTimestamp = [location.location.timestamp timeIntervalSince1970];
     self.driverManager.cityCode = location.code;
-    
-    if (!self.isNavigating) {
-        // 听单中上报定位点
-        TLSDDriverPosition *myPosition = [[TLSDDriverPosition alloc] init];
-        myPosition.location = location.location;
-        myPosition.cityCode = location.code;
-        [self.driverManager uploadPosition:myPosition];
-    }
+
 }
 
 

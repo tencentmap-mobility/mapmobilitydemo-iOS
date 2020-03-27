@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import <TencentMapLocusSynchroSDK/TLSBCommonObj.h>
 #import <UIKit/UIKit.h>
+#import <TencentMapLocusSynchroSDK/TLSBCommonObj.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

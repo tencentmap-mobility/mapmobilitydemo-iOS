@@ -30,6 +30,8 @@
     [TMMServices sharedServices].secretKey = kMobilitySecretKey;
     EntryViewController *entry = [[EntryViewController alloc] init];
     
+    NSString *idfv = [UIDevice currentDevice].identifierForVendor.UUIDString;
+    NSLog(@"idfv=%@",idfv);
     UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:entry];
     self.window.rootViewController = navigationController;
     

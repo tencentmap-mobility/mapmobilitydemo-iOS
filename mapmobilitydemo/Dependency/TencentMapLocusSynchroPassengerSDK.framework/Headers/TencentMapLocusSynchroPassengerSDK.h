@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TLSPassengerManager.h"
-#import "TLSPCommonObj.h"
-@interface TencentMapLocusSynchroPassengerSDK : NSObject
-
-@end
+#import <TencentMapLocusSynchroPassengerSDK/TLSPassengerManager.h>
+#import <TencentMapLocusSynchroPassengerSDK/TLSPCommonObj.h>
+#import <TencentMapLocusSynchroPassengerSDK/TencentMapLocusSynchroPassengerSDKVersion.h>

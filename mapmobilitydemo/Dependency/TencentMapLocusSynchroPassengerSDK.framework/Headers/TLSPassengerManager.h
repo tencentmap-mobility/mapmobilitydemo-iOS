@@ -42,6 +42,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 订单状态。如果是顺风车订单，开始服务时请切换至TLSDOrderStatusTrip状态
 @property (nonatomic, assign) TLSBOrderStatus orderStatus;
 
+// 同步司机数据的时间间隔. 默认时间间隔为5秒.
+@property (nonatomic, assign) NSTimeInterval syncTimeInterval;
+
 // 司乘同显服务是否开启
 @property (nonatomic, readonly) BOOL isRunning;
 

@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+#ifndef TLSBCommonObj_h
+#define TLSBCommonObj_h
+
 NS_ASSUME_NONNULL_BEGIN
 
 // 订单类型
@@ -167,6 +170,11 @@ typedef NS_ENUM(NSInteger, TLSDDriverStatus) {
 //订单状态
 @property (nonatomic, assign) TLSBOrderStatus orderStatus;
 
+// 订单总时间，单位：分支。乘客端拉取数据中返回
+@property (nonatomic, readonly) int totalTime;
+// 订单总里程，单位：米。乘客端拉取数据中返回
+@property (nonatomic, readonly) int totalDistance;
+
 // 数据是否有效
 - (BOOL)isValid;
 
@@ -181,3 +189,6 @@ typedef NS_ENUM(NSInteger, TLSDDriverStatus) {
 
 
 NS_ASSUME_NONNULL_END
+
+
+#endif /* TLSBCommonObj_h */

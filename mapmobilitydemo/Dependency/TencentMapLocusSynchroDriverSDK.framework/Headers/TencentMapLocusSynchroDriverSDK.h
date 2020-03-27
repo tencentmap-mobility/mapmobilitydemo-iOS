@@ -7,10 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TLSDriverManager.h"
-#import "TLSDCommonObj.h"
-#import "TLSDriverManager+Navigation.h"
-
-@interface TencentMapLocusSynchroDriverSDK : NSObject
-
-@end
+#import <TencentMapLocusSynchroDriverSDK/TLSDriverManager.h>
+#import <TencentMapLocusSynchroDriverSDK/TLSDCommonObj.h>
+#import <TencentMapLocusSynchroDriverSDK/TLSDriverManager+Navigation.h>
+#import <TencentMapLocusSynchroDriverSDK/TencentMapLocusSynchroDriverSDKVersion.h>

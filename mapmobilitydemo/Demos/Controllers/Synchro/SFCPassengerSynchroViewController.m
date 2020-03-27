@@ -164,7 +164,7 @@ UIColor *SFCRouteTrafficStatusColor(long trafficDataStatus) {
     self.passengerManager.orderID = kSynchroDriverOrderID;
     self.passengerManager.pOrderID = kSynchroPassenger1OrderID;
     self.passengerManager.orderType = TLSBOrderTypeHitchRide;
-    self.passengerManager.orderStatus = TLSBOrderStatusTrip;
+    self.passengerManager.orderStatus = TLSBOrderStatusPickup;
 }
 
 - (void)setupToolbar

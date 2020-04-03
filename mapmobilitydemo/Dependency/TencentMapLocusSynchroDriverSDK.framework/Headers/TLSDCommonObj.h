@@ -50,20 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-// 顺风车业务使用。路线规划之前需要对途经点进行排序，TLSDWayPointRequest为请求排序时的途经点参数
-@interface TLSDSortRequestWayPoint : NSObject
-
-// 乘客订单号，必填
-@property (nonatomic, copy) NSString *pOrderID;
-
-// 订单起点
-@property (nonatomic, assign) CLLocationCoordinate2D startPoint;
-
-// 订单终点
-@property (nonatomic, assign) CLLocationCoordinate2D endPoint;
-
-@end
-
 
 @interface TLSDFetchedData : NSObject
 

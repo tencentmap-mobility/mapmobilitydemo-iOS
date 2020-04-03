@@ -152,6 +152,7 @@
 				E1B3D1FC22F539F900E753CB /* CoreGraphics.framework in Frameworks */,
 				E1EE0C47242352D500561622 /* TencentMapLocusSynchroPassengerSDK.framework in Frameworks */,
 				E1EE0C46242352D500561622 /* TencentMapLocusSynchroDriverSDK.framework in Frameworks */,
+				E1EE0C48242352D500561622 /* TencentMapLocusSynchroSDK.framework in Frameworks */,
 				E1B3D1FA22F539F300E753CB /* Foundation.framework in Frameworks */,
 				E1EED4B9242C6036002A22E5 /* TNKNavigationKit.framework in Frameworks */,
 				E1B3D1F822F539EB00E753CB /* CoreLocation.framework in Frameworks */,
@@ -161,7 +162,6 @@
 				E1B3D1F422F539DD00E753CB /* SystemConfiguration.framework in Frameworks */,
 				E1AC7498239A071A006645CE /* WebP.framework in Frameworks */,
 				435AA01AE14947E59D80E8DB /* Pods_mapmobilitydemo.framework in Frameworks */,
-				E1EE0C48242352D500561622 /* TencentMapLocusSynchroSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

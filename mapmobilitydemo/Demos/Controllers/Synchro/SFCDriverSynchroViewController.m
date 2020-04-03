@@ -80,32 +80,38 @@
     endPOI.coordinate = kSynchroDriverEnd;
     
     // 订单信息
-    TLSDSortRequestWayPoint *order1WayPoint = [[TLSDSortRequestWayPoint alloc] init];
-    order1WayPoint.pOrderID = kSynchroPassenger1OrderID;
-    order1WayPoint.startPoint = kSynchroPassenger1Start;
-    order1WayPoint.endPoint = kSynchroPassenger1End;
-
-    TLSDSortRequestWayPoint *order2WayPoint = [[TLSDSortRequestWayPoint alloc] init];
-    order2WayPoint.pOrderID = kSynchroPassenger2OrderID;
-    order2WayPoint.startPoint = kSynchroPassenger2Start;
-    order2WayPoint.endPoint = kSynchroPassenger2End;
-  
-    NSString *orderIDKey = @"orderID";
-    NSString *wayPointTypeKey = @"wayPointType";
-    NSString *imageKey = @"image";
+    // 订单1
+    TLSDWayPointInfo *order1WayPointIn = [[TLSDWayPointInfo alloc] init];
+    order1WayPointIn.wayPointType = TLSBWayPointTypeGetIn;
+    order1WayPointIn.pOrderID = kSynchroPassenger1OrderID;
+    order1WayPointIn.position = kSynchroPassenger1Start;
+    order1WayPointIn.image = [UIImage imageNamed:@"waypoint1-1"];
     
-    NSArray *waypointConfigs = @[@{orderIDKey : kSynchroPassenger1OrderID, wayPointTypeKey : @(1), imageKey : [UIImage imageNamed:@"waypoint1-1"]},
-                                 @{orderIDKey : kSynchroPassenger1OrderID, wayPointTypeKey : @(2), imageKey : [UIImage imageNamed:@"waypoint1-2"]},
-                                 @{orderIDKey : kSynchroPassenger2OrderID, wayPointTypeKey : @(1), imageKey : [UIImage imageNamed:@"waypoint2-1"]},
-                                 @{orderIDKey : kSynchroPassenger2OrderID, wayPointTypeKey : @(2), imageKey : [UIImage imageNamed:@"waypoint2-2"]},
-    ];
+    TLSDWayPointInfo *order1WayPointOff = [[TLSDWayPointInfo alloc] init];
+    order1WayPointOff.wayPointType = TLSBWayPointTypeGetOff;
+    order1WayPointOff.pOrderID = kSynchroPassenger1OrderID;
+    order1WayPointOff.position = kSynchroPassenger1End;
+    order1WayPointOff.image = [UIImage imageNamed:@"waypoint1-2"];
+    
+    // 订单2
+    TLSDWayPointInfo *order2WayPointIn = [[TLSDWayPointInfo alloc] init];
+    order2WayPointIn.wayPointType = TLSBWayPointTypeGetIn;
+    order2WayPointIn.pOrderID = kSynchroPassenger2OrderID;
+    order2WayPointIn.position = kSynchroPassenger2Start;
+    order2WayPointIn.image = [UIImage imageNamed:@"waypoint2-1"];
+
+    TLSDWayPointInfo *order2WayPointOff = [[TLSDWayPointInfo alloc] init];
+    order2WayPointOff.wayPointType = TLSBWayPointTypeGetOff;
+    order2WayPointOff.pOrderID = kSynchroPassenger2OrderID;
+    order2WayPointOff.position = kSynchroPassenger2End;
+    order2WayPointOff.image = [UIImage imageNamed:@"waypoint2-2"];
     
     __weak typeof(self) weakself = self;
 
     [SVProgressHUD showWithStatus:@"请求接送驾最优顺序"];
     
     // 最优送驾顺序匹配
-    [self.driverManager requestBestSortedWayPointsWithStartPoint:startPOI.coordinate endPoint:endPOI.coordinate wayPoints:@[order1WayPoint, order2WayPoint] completion:^(NSArray<TLSDWayPointInfo *> * _Nullable sortedWayPoints, NSError * _Nullable error) {
+    [self.driverManager requestBestSortedWayPointsWithStartPoint:startPOI.coordinate endPoint:endPOI.coordinate wayPoints:@[order1WayPointIn, order1WayPointOff, order2WayPointIn, order2WayPointOff] completion:^(NSArray<TLSDWayPointInfo *> * _Nullable sortedWayPoints, NSError * _Nullable error) {
        
         __strong SFCDriverSynchroViewController *strongself = weakself;
         if (!strongself) {
@@ -119,14 +125,6 @@
             return;
         }
 
-        for (TLSDWayPointInfo *wayPointInfo in sortedWayPoints) {
-            NSDictionary *wayPointConfig = [waypointConfigs filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(orderID == %@) AND (wayPointType == %@)", wayPointInfo.pOrderID, @(wayPointInfo.wayPointType)]].firstObject;
-            if (wayPointConfig) {
-                // 找到途经点的图片
-                UIImage *image = wayPointConfig[imageKey];
-                wayPointInfo.image = image;
-            }
-        }
         [strongself searchRouteAndStartNaviWithStart:startPOI end:endPOI wayPoints:sortedWayPoints];
     }];
 

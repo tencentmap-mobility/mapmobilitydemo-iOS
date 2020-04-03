@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param completion 最优顺序回调
 - (NSURLSessionTask *)requestBestSortedWayPointsWithStartPoint:(CLLocationCoordinate2D)startPoint
                                                       endPoint:(CLLocationCoordinate2D)endPoint
-                                                     wayPoints:(NSArray<TLSDSortRequestWayPoint *> *)originalWayPoints
+                                                     wayPoints:(NSArray<TLSDWayPointInfo *> *)originalWayPoints
                                                     completion:(void(^)(NSArray<TLSDWayPointInfo *> * _Nullable sortedWayPoints, NSError * _Nullable error))completion;
 
 @end

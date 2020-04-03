@@ -11,7 +11,7 @@
 #ifndef TencentMapLocusSynchroDriverSDKVersion_h
 #define TencentMapLocusSynchroDriverSDKVersion_h
 
-#define TencentMapLocusSynchroDriverSDKVersionNumber    010000
+#define TencentMapLocusSynchroDriverSDKVersionNumber    020001
 
 // SDK版本
 FOUNDATION_EXTERN NSString * const TencentMapLocusSynchroDriverSDKVersion;

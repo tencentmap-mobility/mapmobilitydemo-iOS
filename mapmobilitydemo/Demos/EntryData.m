@@ -89,7 +89,7 @@
         }
         {
             Cell *cell = [[Cell alloc] init];
-            cell.title = @"出行检索";
+            cell.title = @"出行检索-sug、逆地址解析";
             cell.controllerClassName = @"MobilitySearchViewController";
             [cellArray addObject:cell];
         }

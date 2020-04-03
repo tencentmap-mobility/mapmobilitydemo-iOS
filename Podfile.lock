@@ -1,39 +1,20 @@
 PODS:
   - SVProgressHUD (2.2.5)
   - TencentMap-SDK (4.3.0)
-  - TencentMapMobilityBoardingPlacesSDK (1.0.0):
-    - TencentMapMobilitySDK (~> 1.0.0)
-    - TencentMapMobilitySearchSDK (~> 1.0.0)
-  - TencentMapMobilityNearbyCarsSDK (1.0.0):
-    - TencentMapMobilitySDK (~> 1.0.0)
-  - TencentMapMobilitySDK (1.0.0):
-    - TencentMap-SDK
-  - TencentMapMobilitySearchSDK (1.0.0):
-    - TencentMapMobilitySDK (~> 1.0.0)
 
 DEPENDENCIES:
   - SVProgressHUD
   - TencentMap-SDK
-  - TencentMapMobilityBoardingPlacesSDK
-  - TencentMapMobilityNearbyCarsSDK
 
 SPEC REPOS:
   trunk:
     - SVProgressHUD
     - TencentMap-SDK
-    - TencentMapMobilityBoardingPlacesSDK
-    - TencentMapMobilityNearbyCarsSDK
-    - TencentMapMobilitySDK
-    - TencentMapMobilitySearchSDK
 
 SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TencentMap-SDK: b5f3e0f908132cc037a71f845d8b9090fa47b40d
-  TencentMapMobilityBoardingPlacesSDK: fb4c60ef70d19a836894388e18046bf6aebd0098
-  TencentMapMobilityNearbyCarsSDK: fafbf594eca43ce9437a83d395a2a5d175338f33
-  TencentMapMobilitySDK: e108d53efadfca1defa5ced72ea04f2d1e02512e
-  TencentMapMobilitySearchSDK: a0bbc087bee49d863b3a84617cc71ea2c3944926
 
-PODFILE CHECKSUM: 7033082951f42c7f5b304d76e56588d6ead0b99c
+PODFILE CHECKSUM: 5e1a6ec5d573429d839c768c12318ab2b57eceb5
 
 COCOAPODS: 1.9.1

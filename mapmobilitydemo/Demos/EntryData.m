@@ -93,6 +93,13 @@
             cell.controllerClassName = @"MobilitySearchViewController";
             [cellArray addObject:cell];
         }
+        {
+            Cell *cell = [[Cell alloc] init];
+            cell.title = @"出行检索-路线规划";
+            cell.controllerClassName = @"RoutePlanningViewController";
+            [cellArray addObject:cell];
+        }
+        
     }
     
     return entry;

@@ -34,6 +34,7 @@
 		E159AFA9243725740052407A /* TencentMapMobilityBoardingPlacesSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E159AFA6243725740052407A /* TencentMapMobilityBoardingPlacesSDK.bundle */; };
 		E159AFAA243725740052407A /* TencentMapMobilityNearbyCarsSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E159AFA7243725740052407A /* TencentMapMobilityNearbyCarsSDK.bundle */; };
 		E159AFAB243725740052407A /* TencentMapMobilitySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E159AFA8243725740052407A /* TencentMapMobilitySDK.bundle */; };
+		E159AFAF24373E240052407A /* RoutePlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E159AFAE24373E240052407A /* RoutePlanningViewController.m */; };
 		E1AC743223975908006645CE /* TripPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC743123975908006645CE /* TripPanelView.m */; };
 		E1AC743423976881006645CE /* MobilitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC743323976881006645CE /* MobilitySearchViewController.m */; };
 		E1AC7437239768B1006645CE /* SearchKeywordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7436239768B1006645CE /* SearchKeywordViewController.m */; };
@@ -115,6 +116,8 @@
 		E159AFA6243725740052407A /* TencentMapMobilityBoardingPlacesSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilityBoardingPlacesSDK.bundle; path = TencentMapMobilityBoardingPlacesSDK.framework/TencentMapMobilityBoardingPlacesSDK.bundle; sourceTree = "<group>"; };
 		E159AFA7243725740052407A /* TencentMapMobilityNearbyCarsSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilityNearbyCarsSDK.bundle; path = TencentMapMobilityNearbyCarsSDK.framework/TencentMapMobilityNearbyCarsSDK.bundle; sourceTree = "<group>"; };
 		E159AFA8243725740052407A /* TencentMapMobilitySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilitySDK.bundle; path = TencentMapMobilitySDK.framework/TencentMapMobilitySDK.bundle; sourceTree = "<group>"; };
+		E159AFAD24373E240052407A /* RoutePlanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutePlanningViewController.h; sourceTree = "<group>"; };
+		E159AFAE24373E240052407A /* RoutePlanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutePlanningViewController.m; sourceTree = "<group>"; };
 		E1AC742D2397562A006645CE /* MobilitySearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobilitySearchViewController.h; sourceTree = "<group>"; };
 		E1AC743023975908006645CE /* TripPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripPanelView.h; sourceTree = "<group>"; };
 		E1AC743123975908006645CE /* TripPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripPanelView.m; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 		E159AFAC243726B80052407A /* SearchNaviRoute */ = {
 			isa = PBXGroup;
 			children = (
+				E159AFAD24373E240052407A /* RoutePlanningViewController.h */,
+				E159AFAE24373E240052407A /* RoutePlanningViewController.m */,
 			);
 			path = SearchNaviRoute;
 			sourceTree = "<group>";
@@ -577,6 +582,7 @@
 				E1AC743223975908006645CE /* TripPanelView.m in Sources */,
 				E1BFD8AC22FAFC2D00DF8C68 /* ReplaceUnicode.m in Sources */,
 				03DF98E7242A218300A7752C /* BaseSynchroViewController.m in Sources */,
+				E159AFAF24373E240052407A /* RoutePlanningViewController.m in Sources */,
 				03DF98E1242A1EE600A7752C /* KCDriverSynchroViewController.m in Sources */,
 				03DF98DD242A1E4300A7752C /* TrafficPolyline.m in Sources */,
 				03E6FAEB239682DA007CE9F7 /* BoardingPlacesViewController.m in Sources */,

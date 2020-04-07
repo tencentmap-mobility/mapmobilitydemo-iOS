@@ -111,7 +111,7 @@ UIPickerViewDelegate, UIPickerViewDataSource>
 {
     
     TMMNearbyBoardingPlacesConfig *config = [[TMMNearbyBoardingPlacesConfig alloc] init];
-
+    // zoomlevel在15以下不显示小车了，地图展示区域太大不展示小车
     config.minMapZoomLevel = 15;
     
     self.bpManager = [[TMMNearbyBoardingPlacesManager alloc] initWithMapView:self.mapView delagate:self];

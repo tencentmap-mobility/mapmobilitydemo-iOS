@@ -107,8 +107,11 @@
 - (void)setupNearbyCar
 {
     TMMNearbyCarConfig *nearbyCarConfig = [[TMMNearbyCarConfig alloc] init];
+    // 1.模拟数据；2.真是数据
     nearbyCarConfig.mock = 1;
+    // 配置不同车型不同的图片资源
     nearbyCarConfig.carIconDictionary = @{@(1) : [UIImage imageNamed:@"taxi"], @(2) : [UIImage imageNamed:@"cleanEnergyCar"], @(3) : [UIImage imageNamed:@"comfortCar"], @(4):[UIImage imageNamed:@"luxuryCar"], @(5):[UIImage imageNamed:@"businessCar"], @(6):[UIImage imageNamed:@"economyCar"]};
+    // 轮询请求周边车辆数据
     nearbyCarConfig.requestRepeatedly = YES;
     
     self.nearbyCarsManager = [[TMMNearbyCarsManager alloc] initWithMapView:self.mapView delagate:nil];

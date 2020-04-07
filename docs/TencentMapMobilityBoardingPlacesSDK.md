@@ -75,19 +75,43 @@
 1. 创建manager
 	@property (nonatomic, strong) TMMNearbyBoardingPlacesManager *bpManager;
 
-2. 配置推荐上车点所需要信息
+2. 设置地图
+- (void)setupMapView
+{
+    self.mapView = [[QMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView.autoresizingMask  = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.mapView.delegate = self;
+    self.mapView.showsUserLocation = YES;
+    self.mapView.rotateEnabled = NO;
+    self.mapView.zoomLevel = 15;
+    self.mapView.overlookingEnabled = NO;
+    
+    // 显示中心点
+    self.mapView.tmm_centerPinViewHidden = NO;
+    [self.mapView.tmm_centerPinView setCalloutAttribtedText:[[NSAttributedString alloc] initWithString:@"在这里上车" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:13]}]];
+    self.mapView.tmm_centerPinView.calloutViewHidden = NO;
+    
+    // 设置大头针的相对位置(0.5, 0.5)为地图中心点
+    CGPoint pinPosition = CGPointMake(0.5, 0.5);
+    self.mapView.tmm_pinPosition = pinPosition;
+    
+    [self.view addSubview:self.mapView];
+}
+
+3. 配置推荐上车点所需要信息
 - (void)setupNearbyBoardingPlaces
 {
     
     TMMNearbyBoardingPlacesConfig *config = [[TMMNearbyBoardingPlacesConfig alloc] init];
-    config.minMapZoomLevel = 16;
+    // zoomlevel在15以下不显示小车了，地图展示区域太大不展示小车
+    config.minMapZoomLevel = 15;
     
     self.bpManager = [[TMMNearbyBoardingPlacesManager alloc] initWithMapView:self.mapView delagate:self];
     self.bpManager.nearbyBoardingPlacesConfig = config;
 
 }
 
-3. 实现TMMNearbyBoardingPlacesManagerDelegate
+4. 实现TMMNearbyBoardingPlacesManagerDelegate
 
 	/**
 	 @brief 大头针吸附到上车点的回调
@@ -195,15 +219,9 @@
 // 定位更新回调
 - (void)tencentLBSLocationManager:(TencentLBSLocationManager *)manager
                 didUpdateLocation:(TencentLBSLocation *)location {
-    
-    //定位结果
-    NSLog(@"location:%@", location.location);
-    NSLog(@"city code: %@", location.code);
-    
-    self.cityCode = location.code;
-    
-    // 当mock = 0时，需同时设置cityCode
-    self.mapView.tmm_cityCode = self.cityCode;
+   
+    // 必填
+    self.mapView.tmm_cityCode = location.code;
 }
 
 

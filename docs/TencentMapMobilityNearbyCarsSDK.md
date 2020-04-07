@@ -76,21 +76,42 @@
 1. 创建manager
 @property (nonatomic, strong) TMMNearbyCarsManager *nearbyCarsManager;
 
-2. 配置周边车辆
+2. 初始化地图
+- (void)setupMapView
+{
+    self.mapView = [[QMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView.autoresizingMask  = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.mapView.delegate = self;
+    self.mapView.showsUserLocation = YES;
+    self.mapView.rotateEnabled = NO;
+    self.mapView.zoomLevel = 15;
+    self.mapView.overlookingEnabled = NO;
+    
+    // 显示中心点
+    self.mapView.tmm_centerPinViewHidden = NO;
+    [self.mapView.tmm_centerPinView setCalloutAttribtedText:[[NSAttributedString alloc] initWithString:@"在这里上车" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:13]}]];
+    self.mapView.tmm_centerPinView.calloutViewHidden = NO;
+
+    // 设置大头针的相对位置(0.5, 0.5)为地图中心点
+    CGPoint pinPosition = CGPointMake(0.5, 0.5);
+    self.mapView.tmm_pinPosition = pinPosition;
+    
+    [self.view addSubview:self.mapView];
+}
+
+3. 配置周边车辆
 - (void) setupNearbyCars
 {
-    TMMNearbyCarConfig *nearbyCarConfig = [[TMMNearbyCarConfig alloc] init];
+   TMMNearbyCarConfig *nearbyCarConfig = [[TMMNearbyCarConfig alloc] init];
+    // 1.模拟数据；2.真是数据
     nearbyCarConfig.mock = 1;
+    // 配置不同车型不同的图片资源
     nearbyCarConfig.carIconDictionary = @{@(1) : [UIImage imageNamed:@"taxi"], @(2) : [UIImage imageNamed:@"cleanEnergyCar"], @(3) : [UIImage imageNamed:@"comfortCar"], @(4):[UIImage imageNamed:@"luxuryCar"], @(5):[UIImage imageNamed:@"businessCar"], @(6):[UIImage imageNamed:@"economyCar"]};
+    // 轮询请求周边车辆数据
     nearbyCarConfig.requestRepeatedly = YES;
     
     self.nearbyCarsManager = [[TMMNearbyCarsManager alloc] initWithMapView:self.mapView delagate:nil];
     self.nearbyCarsManager.nearbyCarConfig = nearbyCarConfig;
-	
-	// 中心点大头针位置配置，默认为（0.5，0.5）
-	CGPoint pinPosition = CGPointMake(0.5, 0.3);
-	self.mapView.tmm_pinPosition = pinPosition;
-	self.mapView.nearbyCarConfig = nearbyCarConfig;
 }
 ```
 
@@ -145,14 +166,8 @@
 - (void)tencentLBSLocationManager:(TencentLBSLocationManager *)manager
                 didUpdateLocation:(TencentLBSLocation *)location {
     
-    //定位结果
-    NSLog(@"location:%@", location.location);
-    NSLog(@"city code: %@", location.code);
-    
-    self.cityCode = location.code;
-    
-    // 当mock = 0时，需同时设置cityCode
-    self.mapView.tmm_cityCode = self.cityCode;
+    // 获得citycode传入SDK，必须
+    self.mapView.tmm_cityCode = location.code;
 }
 
 

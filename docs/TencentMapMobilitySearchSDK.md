@@ -4,8 +4,6 @@
 
 出行检索SDK提供逆地址解析和关键词检索服务，并针对出行场景进行了优化。
 
-## 接入方法
-
 ## 使用方法
 
 ### 逆地址解析
@@ -41,4 +39,36 @@ request.locationCoordinate = CLLocationCoordinate2DMake(40.040414993, 116.273511
 completion:^(TMMSearchSuggestionResponse *response, NSError *error) {
 
  }];
+```
+
+### 驾车路线规划
+
+```objc
+ TMMSearchDrivingRequest *drivingRequest = [[TMMSearchDrivingRequest alloc] init];
+ drivingRequest.start = [[TMMNaviPOI alloc] init];
+ drivingRequest.destination = [[TMMNaviPOI alloc] init];
+
+ drivingRequest.start.coordinate = 起点坐标;
+ drivingRequest.destination.coordinate = 终点坐标;
+ 
+ // 发起驾车路线规划请求   
+[TMMSearchManager queryDrivingWithRequest:drivingRequest completion:^(TMMSearchDrivingResponse * _Nullable response, NSError * _Nullable error) {
+   //画路线
+}];
+
+```
+### 步行路线规划
+
+
+```objc
+TMMSearchWalkingRequest *walkingRequest = [[TMMSearchWalkingRequest alloc] init];
+walkingRequest.startCoordinate = 起点坐标;
+walkingRequest.destinationCoordinate = 终点坐标;
+
+ 
+ // 发起步行路线规划请求   
+[TMMSearchManager queryWalkingWithRequest:walkingRequest completion:^(TMMSearchWalkingResponse * _Nullable response, NSError * _Nullable error) {
+  // 画路线
+}];
+
 ```

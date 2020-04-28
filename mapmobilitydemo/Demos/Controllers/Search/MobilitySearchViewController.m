@@ -129,7 +129,7 @@
                 break;
         }
     };
-    
+    searchKeywordViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:searchKeywordViewController animated:YES completion:nil];
     self.searchKeywordViewController = searchKeywordViewController;
 }

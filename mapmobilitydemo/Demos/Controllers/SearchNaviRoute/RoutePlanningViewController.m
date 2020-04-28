@@ -10,6 +10,7 @@
 #import <TencentMapMobilitySDK/TencentMapMobilitySDK.h>
 #import <TencentMapMobilitySearchSDK/TMMSearch.h>
 #import "TrafficPolyline.h"
+#import "MapMathTool.h"
 
 @interface RoutePlanningViewController ()<QMapViewDelegate>
 
@@ -200,12 +201,16 @@
         }
         [self.mapView addOverlay:self.trafficLine];
         [self.trafficlines addObject:self.trafficLine];
+        
+        // 调整地图显示区域
+        [self.mapView setVisibleMapRect:[MapMathTool mapRectWithLocationPoints:route.points] edgePadding:UIEdgeInsetsMake(30, 30, 30, 30) animated:YES];
     }
-    
-    if ([type isEqualToString:@"walking"])
+    else if ([type isEqualToString:@"walking"])
     {
         self.routeLine = [QPolyline polylineWithCoordinates:coordinates count:route.points.count];
         [self.mapView addOverlay:self.routeLine];
+        // 调整地图显示区域
+        [self.mapView setVisibleMapRect:[MapMathTool mapRectWithLocationPoints:route.points] edgePadding:UIEdgeInsetsMake(30, 40, 30, 40) animated:YES];
     }
 }
 

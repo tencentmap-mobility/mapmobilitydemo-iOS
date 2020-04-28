@@ -66,6 +66,7 @@
 		E1BFD8CA22FB006000DF8C68 /* btn_elevated_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8BB22FB005F00DF8C68 /* btn_elevated_normal.png */; };
 		E1BFD8CB22FB006000DF8C68 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8BC22FB005F00DF8C68 /* location.png */; };
 		E1BFD8CC22FB006000DF8C68 /* navi_bg_speedlimit.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFD8BD22FB005F00DF8C68 /* navi_bg_speedlimit.png */; };
+		E1EDCAA124582BA800EF6E69 /* MapMathTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EDCAA024582BA800EF6E69 /* MapMathTool.m */; };
 		E1EED4B9242C6036002A22E5 /* TNKNavigationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1EED4B8242C6036002A22E5 /* TNKNavigationKit.framework */; };
 		E1EED4BB242C6041002A22E5 /* TencentNavigationKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1EED4BA242C6041002A22E5 /* TencentNavigationKit.bundle */; };
 /* End PBXBuildFile section */
@@ -157,6 +158,8 @@
 		E1BFD8BB22FB005F00DF8C68 /* btn_elevated_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_elevated_normal.png; sourceTree = "<group>"; };
 		E1BFD8BC22FB005F00DF8C68 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		E1BFD8BD22FB005F00DF8C68 /* navi_bg_speedlimit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navi_bg_speedlimit.png; sourceTree = "<group>"; };
+		E1EDCA9F24582BA800EF6E69 /* MapMathTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapMathTool.h; sourceTree = "<group>"; };
+		E1EDCAA024582BA800EF6E69 /* MapMathTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapMathTool.m; sourceTree = "<group>"; };
 		E1EED4B8242C6036002A22E5 /* TNKNavigationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNKNavigationKit.framework; path = TNKNavigationSDK/TNKNavigationKit.framework; sourceTree = "<group>"; };
 		E1EED4BA242C6041002A22E5 /* TencentNavigationKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentNavigationKit.bundle; path = TNKNavigationSDK/TNKNavigationKit.framework/TencentNavigationKit.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -289,6 +292,8 @@
 				E1435D8B22F5344800C2B4D0 /* EntryViewController.m */,
 				E1435D8322F5344800C2B4D0 /* EntryData.h */,
 				E1435D8C22F5344800C2B4D0 /* EntryData.m */,
+				E1EDCA9F24582BA800EF6E69 /* MapMathTool.h */,
+				E1EDCAA024582BA800EF6E69 /* MapMathTool.m */,
 			);
 			path = Demos;
 			sourceTree = "<group>";
@@ -572,6 +577,7 @@
 				03E7482E2303FF96000D9045 /* NearbyCarsViewController.m in Sources */,
 				E1435D9822F5344800C2B4D0 /* EntryData.m in Sources */,
 				03DF98D5242A1E1600A7752C /* SFCPassengerSynchroViewController.m in Sources */,
+				E1EDCAA124582BA800EF6E69 /* MapMathTool.m in Sources */,
 				E1435D7C22F524EF00C2B4D0 /* main.m in Sources */,
 				E1AC7437239768B1006645CE /* SearchKeywordViewController.m in Sources */,
 				E1BFD8AD22FAFC2D00DF8C68 /* MathTool.m in Sources */,

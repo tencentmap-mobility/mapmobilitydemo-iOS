@@ -29,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable) TNKCarRouteSearchOption *searchOption;
 // 剩余途经点信息
 @property (nonatomic, readonly) NSArray<TLSDWayPointInfo *> *remainingWayPointInfoArray;
+// 途经点icon信息，可用于设置carNaviView的途经点icon
+@property (nonatomic, readonly) NSArray<TNKWayPointMarkerPresentation *> *wayPointMarkerPresentations;
+
 
 /// 路线规划方法
 /// @param start 起点信息

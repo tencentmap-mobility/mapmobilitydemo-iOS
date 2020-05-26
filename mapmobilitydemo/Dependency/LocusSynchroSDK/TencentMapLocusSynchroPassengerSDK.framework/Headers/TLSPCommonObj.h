@@ -2,7 +2,7 @@
 //  TLSPCommonObj.h
 //  TencentMapLocusSynchroPassengerSDK
 //
-//  Created by Yuchen Wang on 2020/3/11.
+//  Created by ikaros on 2020/3/11.
 //  Copyright © 2020 Tencent. All rights reserved.
 //
 
@@ -10,19 +10,29 @@
 #import <CoreLocation/CoreLocation.h>
 #import <TencentMapLocusSynchroSDK/TLSBCommonObj.h>
 
-
+/**
+ * @brief 乘客拉取司机的信息
+ */
 @interface TLSPFetchedData : NSObject
 
-// 是否已经到达
+/**
+ * @brief 是否已经到达
+ */
 @property (nonatomic, assign) BOOL hasArrived;
 
-// 拉取的订单信息
+/**
+ * @brief 拉取的订单信息
+ */
 @property (nonatomic, strong) TLSBOrder *order;
 
-// 拉取的路线信息
+/**
+ * @brief 拉取的路线信息
+ */
 @property (nonatomic, strong) TLSBRoute *route;
 
-// 拉取的轨迹信息
+/**
+ * @brief 拉取的轨迹信息
+ */
 @property (nonatomic, copy) NSArray <TLSDDriverPosition *> *positions;
 
 @end

@@ -28,13 +28,34 @@
     
     {
         Section *section = [[Section alloc] init];
-        section.title = @"司乘同显-顺风车";
+        
+        // 拼车
+        section.title = @"司乘同显-拼车";
         NSMutableArray<Cell *> *cellArray = [NSMutableArray array];
         section.cells = cellArray;
         
         [sectionArray addObject:section];
         
-        // 基础导航
+        {
+            Cell *cell = [[Cell alloc] init];
+            cell.title = @"司机端";
+            cell.controllerClassName = @"PCDriverSynchroViewController";
+            [cellArray addObject:cell];
+            
+            cell = [[Cell alloc] init];
+            cell.title = @"乘客端";
+            cell.controllerClassName = @"PCPassengerSynchroViewController";
+            [cellArray addObject:cell];
+        }
+        
+        // 顺风车
+        section = [[Section alloc] init];
+        section.title = @"司乘同显-顺风车";
+        cellArray = [NSMutableArray array];
+        section.cells = cellArray;
+        
+        [sectionArray addObject:section];
+        
         {
             Cell *cell = [[Cell alloc] init];
             cell.title = @"司机端";
@@ -47,6 +68,7 @@
             [cellArray addObject:cell];
         }
         
+        // 快车
         section = [[Section alloc] init];
         section.title = @"司乘同显-快车";
         cellArray = [NSMutableArray array];
@@ -54,7 +76,6 @@
         
         [sectionArray addObject:section];
         
-        // 基础导航
         {
             Cell *cell = [[Cell alloc] init];
             cell.title = @"司机端";

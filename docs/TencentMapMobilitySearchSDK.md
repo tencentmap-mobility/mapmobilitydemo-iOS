@@ -50,11 +50,6 @@
 }
 ```
 
-因检索SDK需要使用定位SDK，所以需要在使用时配置定位SDK的key
-
-```objc
-    [self.locationManager setApiKey:@"您的key"];
-```
 二、创建manager
 
 创建检索需要使用的manager
@@ -92,7 +87,7 @@ request.locationCoordinate = CLLocationCoordinate2DMake(40.040414993, 116.273511
 // 发起逆地址解析请求
 [TMMSearchManager queryReGeocodeWithRequest:request 
 completion:^(TMMSearchReGeocodeResponse *response, NSError *error) {
-
+    // response 返回逆地址解析结果
  }];
 ```
 
@@ -113,7 +108,7 @@ request.locationCoordinate = CLLocationCoordinate2DMake(40.040414993, 116.273511
 // 发起检索请求
 [TMMSearchManager querySuggestionWithRequest:request
 completion:^(TMMSearchSuggestionResponse *response, NSError *error) {
-
+        // response 返回关键词检索结果
  }];
 ```
 

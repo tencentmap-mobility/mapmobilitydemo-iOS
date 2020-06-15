@@ -11,7 +11,7 @@
 #ifndef TencentMapLocusSynchroPassengerSDKVersion_h
 #define TencentMapLocusSynchroPassengerSDKVersion_h
 
-#define TencentMapLocusSynchroPassengerSDKVersionNumber    020000
+#define TencentMapLocusSynchroPassengerSDKVersionNumber    020100
 
 // SDK版本
 FOUNDATION_EXTERN NSString * const TencentMapLocusSynchroPassengerSDKVersion;

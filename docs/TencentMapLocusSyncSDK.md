@@ -411,12 +411,67 @@
 // 上报路线失败回调
 - (void)tlsDriverManagerDidUploadRouteFail:(TLSDriverManager *)driverManager error:(NSError *)error;
 
-// 拉去乘客信息回调
+// 拉取乘客信息回调
 - (void)tlsDriverManager:(TLSDriverManager *)driverManager didFetchData:(TLSDFetchedData *)fetchedData;
 
 // 移除途经点之后需要重新路线规划并启动导航
 - (void)tlsDriverManager:(TLSDriverManager *)driverManager didRemoveWayPointInfo:(TLSDWayPointInfo *)removedWayPointInfo;
 ```
+关于司机端路径规划和最优送驾顺序的方法
+
+```objc
+/// 快车和顺风车路线规划方法
+/// @param start 起点信息
+/// @param end 终点信息
+/// @param wayPoints 途经点信息
+/// @param option 路线规划策略
+/// @param callback 路线返回值
+- (void)searchCarRoutesWithStart:(TNKSearchNaviPoi *)start
+                             end:(TNKSearchNaviPoi *)end
+                       wayPoints:(NSArray<TLSDWayPointInfo *> * _Nullable)wayPoints
+                          option:(TNKCarRouteSearchOption * _Nullable)option
+                      completion:(void (^)(TNKCarRouteSearchResult *result, NSError * _Nullable error))callback;
+
+/// 拼车路线规划方法
+/// @param start 起点信息
+/// @param wayPoints 途经点信息
+/// @param option 路线规划策略
+/// @param callback 路线返回值
+- (void)searchRideSharingCarRoutesWithStart:(TNKSearchNaviPoi *)start
+                                  wayPoints:(NSArray<TLSDWayPointInfo *> * _Nullable)wayPoints
+                                     option:(TNKCarRouteSearchOption * _Nullable)option
+                                 completion:(void (^)(TNKCarRouteSearchResult *result, NSError * _Nullable error))callback;
+
+
+/// 上报第几条路线信息。调用时机在初始路线规划（searchCarRoutesWithStart:end:wayPoints:option:completion）之后，导航开始之前。
+/// @param routeIndex 路线索引
+- (BOOL)uploadRouteWithIndex:(NSInteger)routeIndex;
+
+// 接到乘客订单ID为pOrderID的乘客
+- (void)arrivedPassengerStartPoint:(NSString *)pOrderID;
+
+// 送到乘客订单ID为pOrderID的乘客
+- (void)arrivedPassengerEndPoint:(NSString *)pOrderID;
+
+/// 获取顺风车最优送驾顺序
+/// @param startPoint 起点坐标
+/// @param endPoint 终点坐标
+/// @param originalWayPoints 途经点坐标,个数不能超过10个！
+/// @param completion 最优顺序回调
+- (NSURLSessionTask *)requestBestSortedWayPointsWithStartPoint:(CLLocationCoordinate2D)startPoint
+                                                      endPoint:(CLLocationCoordinate2D)endPoint
+                                                     wayPoints:(NSArray<TLSDWayPointInfo *> *)originalWayPoints
+                                                    completion:(void(^)(NSArray<TLSDWayPointInfo *> * _Nullable sortedWayPoints, NSError * _Nullable error))completion;
+/// 获取拼车最优送驾顺序
+/// @param startPoint 起点坐标
+/// @param originalWayPoints 途经点坐标,个数不能超过10个！
+/// @param completion 最优顺序回调
+- (NSURLSessionTask *)requestRideSharingBestSortedWayPointsWithStartPoint:(CLLocationCoordinate2D)startPoint
+                                                     wayPoints:(NSArray<TLSDWayPointInfo *> *)originalWayPoints
+                                                    completion:(void (^)(NSArray<TLSDWayPointInfo *> * _Nullable sortedWayPoints, NSError * _Nullable error))completion;
+
+```
+
 五、司乘同显乘客端回调
 
 ```objc

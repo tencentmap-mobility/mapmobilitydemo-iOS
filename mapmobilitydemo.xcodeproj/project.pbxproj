@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		036A9447247D07C6006BE642 /* PCDriverSynchroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036A9446247D07C6006BE642 /* PCDriverSynchroViewController.m */; };
+		036A944A247D085A006BE642 /* BaseSynchroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036A9449247D085A006BE642 /* BaseSynchroViewController.m */; };
+		036A944E247D0928006BE642 /* TencentMapLocusSynchroSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036A944B247D0927006BE642 /* TencentMapLocusSynchroSDK.framework */; };
+		036A944F247D0928006BE642 /* TencentMapLocusSynchroDriverSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036A944C247D0927006BE642 /* TencentMapLocusSynchroDriverSDK.framework */; };
+		036A9450247D0928006BE642 /* TencentMapLocusSynchroPassengerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036A944D247D0928006BE642 /* TencentMapLocusSynchroPassengerSDK.framework */; };
+		036A9453247D0969006BE642 /* PCPassengerSynchroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036A9452247D0969006BE642 /* PCPassengerSynchroViewController.m */; };
 		03DF98D2242A1C2F00A7752C /* SFCDriverSynchroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF98D1242A1C2F00A7752C /* SFCDriverSynchroViewController.m */; };
 		03DF98D5242A1E1600A7752C /* SFCPassengerSynchroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF98D4242A1E1600A7752C /* SFCPassengerSynchroViewController.m */; };
 		03DF98DC242A1E4300A7752C /* CalloutAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF98D8242A1E4300A7752C /* CalloutAnnotationView.m */; };
@@ -14,7 +20,6 @@
 		03DF98DE242A1E4300A7752C /* RouteLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF98DB242A1E4300A7752C /* RouteLocation.m */; };
 		03DF98E1242A1EE600A7752C /* KCDriverSynchroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF98E0242A1EE600A7752C /* KCDriverSynchroViewController.m */; };
 		03DF98E4242A211C00A7752C /* KCPassengerSynchroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF98E3242A211C00A7752C /* KCPassengerSynchroViewController.m */; };
-		03DF98E7242A218300A7752C /* BaseSynchroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF98E5242A218300A7752C /* BaseSynchroViewController.m */; };
 		03E6FAEB239682DA007CE9F7 /* BoardingPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E6FAEA239682DA007CE9F7 /* BoardingPlacesViewController.m */; };
 		03E7482E2303FF96000D9045 /* NearbyCarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E748162303FF96000D9045 /* NearbyCarsViewController.m */; };
 		435AA01AE14947E59D80E8DB /* Pods_mapmobilitydemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6426C55D170FC9DB4426375C /* Pods_mapmobilitydemo.framework */; };
@@ -28,9 +33,6 @@
 		E159AF9C243725560052407A /* TencentMapMobilityBoardingPlacesSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E159AF98243725560052407A /* TencentMapMobilityBoardingPlacesSDK.framework */; };
 		E159AF9D243725560052407A /* TencentMapMobilitySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E159AF99243725560052407A /* TencentMapMobilitySDK.framework */; };
 		E159AF9E243725560052407A /* TencentMapMobilitySearchSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E159AF9A243725560052407A /* TencentMapMobilitySearchSDK.framework */; };
-		E159AFA3243725600052407A /* TencentMapLocusSynchroDriverSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E159AFA0243725600052407A /* TencentMapLocusSynchroDriverSDK.framework */; };
-		E159AFA4243725600052407A /* TencentMapLocusSynchroSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E159AFA1243725600052407A /* TencentMapLocusSynchroSDK.framework */; };
-		E159AFA5243725600052407A /* TencentMapLocusSynchroPassengerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E159AFA2243725600052407A /* TencentMapLocusSynchroPassengerSDK.framework */; };
 		E159AFA9243725740052407A /* TencentMapMobilityBoardingPlacesSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E159AFA6243725740052407A /* TencentMapMobilityBoardingPlacesSDK.bundle */; };
 		E159AFAA243725740052407A /* TencentMapMobilityNearbyCarsSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E159AFA7243725740052407A /* TencentMapMobilityNearbyCarsSDK.bundle */; };
 		E159AFAB243725740052407A /* TencentMapMobilitySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E159AFA8243725740052407A /* TencentMapMobilitySDK.bundle */; };
@@ -72,6 +74,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		036A9445247D07C6006BE642 /* PCDriverSynchroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCDriverSynchroViewController.h; sourceTree = "<group>"; };
+		036A9446247D07C6006BE642 /* PCDriverSynchroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCDriverSynchroViewController.m; sourceTree = "<group>"; };
+		036A9448247D085A006BE642 /* BaseSynchroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSynchroViewController.h; sourceTree = "<group>"; };
+		036A9449247D085A006BE642 /* BaseSynchroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSynchroViewController.m; sourceTree = "<group>"; };
+		036A944B247D0927006BE642 /* TencentMapLocusSynchroSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapLocusSynchroSDK.framework; sourceTree = "<group>"; };
+		036A944C247D0927006BE642 /* TencentMapLocusSynchroDriverSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapLocusSynchroDriverSDK.framework; sourceTree = "<group>"; };
+		036A944D247D0928006BE642 /* TencentMapLocusSynchroPassengerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapLocusSynchroPassengerSDK.framework; sourceTree = "<group>"; };
+		036A9451247D0969006BE642 /* PCPassengerSynchroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCPassengerSynchroViewController.h; sourceTree = "<group>"; };
+		036A9452247D0969006BE642 /* PCPassengerSynchroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCPassengerSynchroViewController.m; sourceTree = "<group>"; };
 		03DF98D0242A1C2F00A7752C /* SFCDriverSynchroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFCDriverSynchroViewController.h; sourceTree = "<group>"; };
 		03DF98D1242A1C2F00A7752C /* SFCDriverSynchroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFCDriverSynchroViewController.m; sourceTree = "<group>"; };
 		03DF98D3242A1E1600A7752C /* SFCPassengerSynchroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFCPassengerSynchroViewController.h; sourceTree = "<group>"; };
@@ -86,8 +97,6 @@
 		03DF98E0242A1EE600A7752C /* KCDriverSynchroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KCDriverSynchroViewController.m; sourceTree = "<group>"; };
 		03DF98E2242A211C00A7752C /* KCPassengerSynchroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KCPassengerSynchroViewController.h; sourceTree = "<group>"; };
 		03DF98E3242A211C00A7752C /* KCPassengerSynchroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KCPassengerSynchroViewController.m; sourceTree = "<group>"; };
-		03DF98E5242A218300A7752C /* BaseSynchroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSynchroViewController.m; sourceTree = "<group>"; };
-		03DF98E6242A218300A7752C /* BaseSynchroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSynchroViewController.h; sourceTree = "<group>"; };
 		03E6FAE9239682DA007CE9F7 /* BoardingPlacesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardingPlacesViewController.h; sourceTree = "<group>"; };
 		03E6FAEA239682DA007CE9F7 /* BoardingPlacesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoardingPlacesViewController.m; sourceTree = "<group>"; };
 		03E748162303FF96000D9045 /* NearbyCarsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyCarsViewController.m; sourceTree = "<group>"; };
@@ -111,9 +120,6 @@
 		E159AF98243725560052407A /* TencentMapMobilityBoardingPlacesSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapMobilityBoardingPlacesSDK.framework; sourceTree = "<group>"; };
 		E159AF99243725560052407A /* TencentMapMobilitySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapMobilitySDK.framework; sourceTree = "<group>"; };
 		E159AF9A243725560052407A /* TencentMapMobilitySearchSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapMobilitySearchSDK.framework; sourceTree = "<group>"; };
-		E159AFA0243725600052407A /* TencentMapLocusSynchroDriverSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapLocusSynchroDriverSDK.framework; sourceTree = "<group>"; };
-		E159AFA1243725600052407A /* TencentMapLocusSynchroSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapLocusSynchroSDK.framework; sourceTree = "<group>"; };
-		E159AFA2243725600052407A /* TencentMapLocusSynchroPassengerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentMapLocusSynchroPassengerSDK.framework; sourceTree = "<group>"; };
 		E159AFA6243725740052407A /* TencentMapMobilityBoardingPlacesSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilityBoardingPlacesSDK.bundle; path = TencentMapMobilityBoardingPlacesSDK.framework/TencentMapMobilityBoardingPlacesSDK.bundle; sourceTree = "<group>"; };
 		E159AFA7243725740052407A /* TencentMapMobilityNearbyCarsSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilityNearbyCarsSDK.bundle; path = TencentMapMobilityNearbyCarsSDK.framework/TencentMapMobilityNearbyCarsSDK.bundle; sourceTree = "<group>"; };
 		E159AFA8243725740052407A /* TencentMapMobilitySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentMapMobilitySDK.bundle; path = TencentMapMobilitySDK.framework/TencentMapMobilitySDK.bundle; sourceTree = "<group>"; };
@@ -171,21 +177,21 @@
 			files = (
 				E1B3D1FC22F539F900E753CB /* CoreGraphics.framework in Frameworks */,
 				E159AF9C243725560052407A /* TencentMapMobilityBoardingPlacesSDK.framework in Frameworks */,
+				036A944E247D0928006BE642 /* TencentMapLocusSynchroSDK.framework in Frameworks */,
 				E1B3D1FA22F539F300E753CB /* Foundation.framework in Frameworks */,
 				E159AF9E243725560052407A /* TencentMapMobilitySearchSDK.framework in Frameworks */,
 				E1EED4B9242C6036002A22E5 /* TNKNavigationKit.framework in Frameworks */,
 				E1B3D1F822F539EB00E753CB /* CoreLocation.framework in Frameworks */,
 				E1AC749C239A071A006645CE /* QMapSDKUtils.framework in Frameworks */,
-				E159AFA3243725600052407A /* TencentMapLocusSynchroDriverSDK.framework in Frameworks */,
 				E1AC749F239A071A006645CE /* TencentLBS.framework in Frameworks */,
 				E1B3D1F622F539E500E753CB /* QuartzCore.framework in Frameworks */,
 				E159AF9D243725560052407A /* TencentMapMobilitySDK.framework in Frameworks */,
 				E1B3D1F422F539DD00E753CB /* SystemConfiguration.framework in Frameworks */,
-				E159AFA4243725600052407A /* TencentMapLocusSynchroSDK.framework in Frameworks */,
 				E159AF9B243725560052407A /* TencentMapMobilityNearbyCarsSDK.framework in Frameworks */,
 				E1AC7498239A071A006645CE /* WebP.framework in Frameworks */,
+				036A944F247D0928006BE642 /* TencentMapLocusSynchroDriverSDK.framework in Frameworks */,
 				435AA01AE14947E59D80E8DB /* Pods_mapmobilitydemo.framework in Frameworks */,
-				E159AFA5243725600052407A /* TencentMapLocusSynchroPassengerSDK.framework in Frameworks */,
+				036A9450247D0928006BE642 /* TencentMapLocusSynchroPassengerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,8 +231,8 @@
 		03E748182303FF96000D9045 /* Synchro */ = {
 			isa = PBXGroup;
 			children = (
-				03DF98E6242A218300A7752C /* BaseSynchroViewController.h */,
-				03DF98E5242A218300A7752C /* BaseSynchroViewController.m */,
+				036A9448247D085A006BE642 /* BaseSynchroViewController.h */,
+				036A9449247D085A006BE642 /* BaseSynchroViewController.m */,
 				03DF98D0242A1C2F00A7752C /* SFCDriverSynchroViewController.h */,
 				03DF98D1242A1C2F00A7752C /* SFCDriverSynchroViewController.m */,
 				03DF98D3242A1E1600A7752C /* SFCPassengerSynchroViewController.h */,
@@ -235,6 +241,10 @@
 				03DF98E0242A1EE600A7752C /* KCDriverSynchroViewController.m */,
 				03DF98E2242A211C00A7752C /* KCPassengerSynchroViewController.h */,
 				03DF98E3242A211C00A7752C /* KCPassengerSynchroViewController.m */,
+				036A9445247D07C6006BE642 /* PCDriverSynchroViewController.h */,
+				036A9446247D07C6006BE642 /* PCDriverSynchroViewController.m */,
+				036A9451247D0969006BE642 /* PCPassengerSynchroViewController.h */,
+				036A9452247D0969006BE642 /* PCPassengerSynchroViewController.m */,
 			);
 			path = Synchro;
 			sourceTree = "<group>";
@@ -329,9 +339,9 @@
 		E159AF9F243725600052407A /* LocusSynchroSDK */ = {
 			isa = PBXGroup;
 			children = (
-				E159AFA0243725600052407A /* TencentMapLocusSynchroDriverSDK.framework */,
-				E159AFA1243725600052407A /* TencentMapLocusSynchroSDK.framework */,
-				E159AFA2243725600052407A /* TencentMapLocusSynchroPassengerSDK.framework */,
+				036A944C247D0927006BE642 /* TencentMapLocusSynchroDriverSDK.framework */,
+				036A944D247D0928006BE642 /* TencentMapLocusSynchroPassengerSDK.framework */,
+				036A944B247D0927006BE642 /* TencentMapLocusSynchroSDK.framework */,
 			);
 			path = LocusSynchroSDK;
 			sourceTree = "<group>";
@@ -571,15 +581,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				036A9447247D07C6006BE642 /* PCDriverSynchroViewController.m in Sources */,
 				03DF98DE242A1E4300A7752C /* RouteLocation.m in Sources */,
 				E1AC743D239791C4006645CE /* SearchKeywordPOICell.m in Sources */,
 				E1AC743A23976955006645CE /* SearchKeywordHeaderView.m in Sources */,
 				03E7482E2303FF96000D9045 /* NearbyCarsViewController.m in Sources */,
 				E1435D9822F5344800C2B4D0 /* EntryData.m in Sources */,
 				03DF98D5242A1E1600A7752C /* SFCPassengerSynchroViewController.m in Sources */,
+				036A9453247D0969006BE642 /* PCPassengerSynchroViewController.m in Sources */,
 				E1EDCAA124582BA800EF6E69 /* MapMathTool.m in Sources */,
 				E1435D7C22F524EF00C2B4D0 /* main.m in Sources */,
 				E1AC7437239768B1006645CE /* SearchKeywordViewController.m in Sources */,
+				036A944A247D085A006BE642 /* BaseSynchroViewController.m in Sources */,
 				E1BFD8AD22FAFC2D00DF8C68 /* MathTool.m in Sources */,
 				E1AC744223979344006645CE /* SearchKeywordPOIModel.m in Sources */,
 				03DF98D2242A1C2F00A7752C /* SFCDriverSynchroViewController.m in Sources */,
@@ -587,7 +600,6 @@
 				E1AC743423976881006645CE /* MobilitySearchViewController.m in Sources */,
 				E1AC743223975908006645CE /* TripPanelView.m in Sources */,
 				E1BFD8AC22FAFC2D00DF8C68 /* ReplaceUnicode.m in Sources */,
-				03DF98E7242A218300A7752C /* BaseSynchroViewController.m in Sources */,
 				E159AFAF24373E240052407A /* RoutePlanningViewController.m in Sources */,
 				03DF98E1242A1EE600A7752C /* KCDriverSynchroViewController.m in Sources */,
 				03DF98DD242A1E4300A7752C /* TrafficPolyline.m in Sources */,

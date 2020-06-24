@@ -182,7 +182,6 @@
         }
         
         strongself.tripPanelView.startAddress = response.formattedAddress;
-        
     }];
 }
 

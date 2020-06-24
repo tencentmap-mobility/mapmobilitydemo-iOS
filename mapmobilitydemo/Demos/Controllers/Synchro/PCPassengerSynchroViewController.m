@@ -587,18 +587,18 @@ UIColor *PCRouteTrafficStatusColor(long trafficDataStatus) {
         polylineCoords[i].longitude = route.points[i].coordinate.longitude;
     }
 
-    NSArray *routeTraffic = [self getSegmentStylesWithItems:route.trafficItems];
+    NSArray *routeTraffic = [self getSegmentColorsWithItems:route.trafficItems];
     
     if (routeTraffic.count == 0) {
         NSMutableArray* routeLineArray = [NSMutableArray array];
         
-        QSegmentStyle *style = [[QSegmentStyle alloc] init];
+        QSegmentColor *color = [[QSegmentColor alloc] init];
         
-        style.startIndex = 0;
-        style.endIndex   = (int)(route.points.count - 1);
-        style.colorImageIndex = 4;
+        color.startIndex = 0;
+        color.endIndex   = (int)(route.points.count - 1);
+        color.color = PCRouteTrafficStatusColor(0);
         
-        [routeLineArray addObject:style];
+        [routeLineArray addObject:color];
         
         routeTraffic = [routeLineArray copy];
     }
@@ -608,7 +608,7 @@ UIColor *PCRouteTrafficStatusColor(long trafficDataStatus) {
     return routeOverlay;
 }
 
-- (NSArray<QSegmentColor *> *)getSegmentStylesWithItems:(NSArray<TLSBRouteTrafficItem *> *)items
+- (NSArray<QSegmentColor *> *)getSegmentColorsWithItems:(NSArray<TLSBRouteTrafficItem *> *)items
 {
     if(items == nil || items.count == 0) return nil;
     
@@ -631,7 +631,7 @@ UIColor *PCRouteTrafficStatusColor(long trafficDataStatus) {
 
 - (void)updateRouteTraffic:(NSArray<TLSBRouteTrafficItem *> *)data
 {
-    [self.route.arrLine setArray:[self getSegmentStylesWithItems:data]];
+    [self.route.arrLine setArray:[self getSegmentColorsWithItems:data]];
     
     if (self.trafficOverlayView) {
         self.trafficOverlayView.segmentStyle = [self.route.arrLine copy];

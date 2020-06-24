@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @brief 推荐上车点模型类
+ */
 @interface TMMNearbyBoardingPlaceModel : NSObject
 
 /**

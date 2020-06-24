@@ -9,9 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+/**
+ * @brief 数学类
+ */
 @interface TMMMathTool : NSObject
 
-// 两个坐标点之间的直线距离，单位：米
+/**
+ * @brief 两个坐标点之间的直线距离，单位：米
+ */
 + (double)distanceBetweenCoordinate:(CLLocationCoordinate2D)coordinate1
                          coordinate:(CLLocationCoordinate2D)coordinate2;
 

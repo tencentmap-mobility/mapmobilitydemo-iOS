@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class TMMDCenterPinView;
 
+/**
+ * @brief 出行类扩展
+ */
 @interface QMapView (TMMobility)
 
 /**

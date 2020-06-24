@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @brief 推荐上车点子围栏类
+ */
 @interface TMMSubFenceModel : NSObject
 
 /**

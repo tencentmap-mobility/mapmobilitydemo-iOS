@@ -10,6 +10,9 @@
 #import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @brief 推荐上车点配置类
+ */
 @interface TMMNearbyBoardingPlacesConfig : NSObject
 
 /**

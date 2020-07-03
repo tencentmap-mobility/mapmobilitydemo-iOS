@@ -17,13 +17,13 @@
 #import <TencentMapMobilitySearchSDK/TMMSearchDrivingResponse.h>
 #import <TencentMapMobilitySearchSDK/TMMSearchWalkingRequest.h>
 #import <TencentMapMobilitySearchSDK/TMMSearchWalkingResponse.h>
-
-
+#import <TencentMapMobilitySearchSDK/TMMSearchAddressComponent.h>
+#import <TencentMapMobilitySearchSDK/TMMSearchAdInfo.h>
 
 #ifndef TencentMapMobilitySearchVersion_h
 #define TencentMapMobilitySearchVersion_h
 
-#define TencentMapMobilitySearchVersionNumber    010200
+#define TencentMapMobilitySearchVersionNumber    010202
 
 // SDK版本
 FOUNDATION_EXTERN NSString * const TencentMapMobilitySearchSDKVersion;

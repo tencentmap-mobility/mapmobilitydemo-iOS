@@ -10,22 +10,43 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @brief 地址信息
+ */
 @interface TMMSearchAddressComponent : NSObject
 
-// 国家
+/**
+ * @brief 国家
+ */
 @property (nonatomic, copy) NSString  *nation;
-// 省
+
+/**
+ * @brief 省
+ */
 @property (nonatomic, copy) NSString  *province;
-// 市
+
+/**
+ * @brief 市
+ */
 @property (nonatomic, copy) NSString  *city;
-// 区，可能为空字串
+
+/**
+ * @brief 区，可能为空字串
+ */
 @property (nonatomic, copy, nullable) NSString  *district;
-// 街道，可能为空字串
+
+/**
+ * @brief 街道，可能为空字串
+ */
 @property (nonatomic, copy, nullable) NSString  *street;
-// 门牌，可能为空字串
+
+/**
+ * @brief 门牌，可能为空字串
+ */
 @property (nonatomic, copy, nullable) NSString  *streetNumber;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 @end
 
 NS_ASSUME_NONNULL_END

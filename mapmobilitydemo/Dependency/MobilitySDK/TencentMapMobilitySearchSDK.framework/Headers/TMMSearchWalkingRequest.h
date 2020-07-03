@@ -10,13 +10,19 @@
 #import <CoreLocation/CoreLocation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+/**
+ * @brief 检索步行请求
+ */
 @interface TMMSearchWalkingRequest : NSObject
 
-// 起点坐标（必传）
+/**
+ * @brief 起点坐标（必传）
+ */
 @property (nonatomic, assign) CLLocationCoordinate2D startCoordinate;
 
-//终点坐标（必传）
+/**
+ * @brief 终点坐标（必传）
+ */
 @property (nonatomic, assign) CLLocationCoordinate2D destinationCoordinate;
 
 @end

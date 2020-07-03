@@ -21,12 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIImage *image;
 
 /**
- * @brief 气泡上的文字
+ * @brief 气泡上的文字，必须先设置文字，再把calloutViewHidden置为NO，才会生效！
  */
 @property (nonatomic, copy, nullable) NSAttributedString *calloutAttribtedText;
 
 /**
- * @brief 气泡是否显示
+ * @brief 气泡是否隐藏，默认为YES隐藏
  */
 @property (nonatomic, assign, getter=isCalloutViewHidden) BOOL calloutViewHidden;
 

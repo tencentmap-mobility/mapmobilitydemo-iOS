@@ -10,9 +10,14 @@
 #import "TMMSearchPOIModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+/**
+ * @brief 检索response类
+ */
 @interface TMMSearchSuggestionResponse : NSObject
 
+/**
+ * @brief poi模型
+ */
 @property (nonatomic, strong) NSArray<TMMSearchPOIModel *> *poiModels;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

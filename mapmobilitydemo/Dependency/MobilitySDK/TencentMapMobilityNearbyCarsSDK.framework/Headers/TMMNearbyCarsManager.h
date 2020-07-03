@@ -21,14 +21,16 @@ TMMNearbyCarsManager;
 @optional
 
 /**
- @brief 发起周边车辆的回调
- 
- @param manager 周边车辆管理类
+ * @brief 发起周边车辆失败的回调
+ * @param manager 周边车辆管理类
  */
 - (void)TMMNearbyCarsManager:(TMMNearbyCarsManager *)manager requestFailed:(NSError *)error;
 
 @end
 
+/**
+ * @brief 周边车辆管理类
+ */
 @interface TMMNearbyCarsManager : NSObject
 
 /**
@@ -41,18 +43,27 @@ TMMNearbyCarsManager;
  */
 @property (nonatomic, strong) TMMNearbyCarConfig *nearbyCarConfig;
 
+/**
+ * @brief 周边车辆代理
+ */
 @property (nonatomic, weak, nullable) id<TMMNearbyCarsManagerDelegate> delegate;
 
+/**
+ * @brief 周边车辆初始化方法
+ * @param mapView 地图视图
+ * @param delegate 代理
+ */
 - (instancetype)initWithMapView:(QMapView *)mapView delagate:(id<TMMNearbyCarsManagerDelegate> _Nullable)delegate;
 - (instancetype)init UNAVAILABLE_ATTRIBUTE;
 
-
-//请求周边车辆
+/**
+ * @brief 请求周边车辆
+ */
 - (void)getNearbyCars;
 
 /**
- * 删除周边所有车辆
- **/
+ * @brief 删除周边所有车辆
+ */
 - (void)removeAllNearbyCars;
 
 /**

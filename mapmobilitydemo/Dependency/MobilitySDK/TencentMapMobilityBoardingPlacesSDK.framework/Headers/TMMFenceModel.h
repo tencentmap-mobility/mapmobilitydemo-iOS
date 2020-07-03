@@ -17,15 +17,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface TMMFenceModel : NSObject
 
+
+@property (nonatomic, readonly) NSString *title;
+
 /**
  * @brief 所有二级围栏模型集合
  */
-@property (nonatomic, strong) NSArray <TMMSubFenceModel *> *subFenceModels;
+@property (nonatomic, readonly) NSArray <TMMSubFenceModel *> *subFenceModels;
 
 /**
  * @brief 命中的二级围栏模型
  */
-@property (nonatomic, strong, readonly) TMMSubFenceModel *selectedSubFenceModel;
+@property (nonatomic, readonly) TMMSubFenceModel *selectedSubFenceModel;
 
 /**
  * @brief 命中的二级围栏index

@@ -17,6 +17,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class TMMNearbyBoardingPlacesManager;
 
+typedef NS_ENUM(NSInteger, TMMBPAbsorbedFailedReason) {
+    TMMBPAbsorbedFailedReasonDistance = 0,          ///<  大于吸附阈值(TMMNearbyBoardingPlacesConfig->absorbThreshold)
+    TMMBPAbsorbedFailedReasonMapZoomLevel = 1,      ///<  地图zoomLevel小于TMMNearbyBoardingPlacesConfig->minMapZoomLevel
+    TMMBPAbsorbedFailedReasonRequestFail = 2,       ///<  请求推荐上车点失败造成的
+    TMMBPAbsorbedFailedReasonAbsorbedIsFalse = 3,   ///< TMMNearbyBoardingPlacesConfig-> isAbsorbed 为false造成没有吸附
+};
+
 @protocol TMMNearbyBoardingPlacesManagerDelegate <NSObject>
 
 @optional
@@ -28,14 +35,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)TMMNearbyBoardingPlaceManager:(TMMNearbyBoardingPlacesManager *)manager didAbsorbedToBoardingPlaceModel:(TMMNearbyBoardingPlaceModel *)absorbedBoardingPlaceModel;
 
+/**
+ * @brief 大头针未吸附到上车点的回调
+ * @param manager 推荐上车点管理类
+ * @param absorbedFailedReason 吸附失败的原因
+ */
+- (void)TMMNearbyBoardingPlaceManager:(TMMNearbyBoardingPlacesManager *)manager didAbsorbedFailed:(TMMBPAbsorbedFailedReason)absorbedFailedReason;
 
 /**
- * @brief 大头针未吸附时，逆地址请求结果回调
+ * @brief 大头针未吸附时，逆地址请求结果回调 （弃用）
  * @param manager 推荐上车点管理类
- * @param locationName 逆地址请求返回的地点名
+ * @param locationName 逆地址请求返回的名称
  */
-- (void)TMMNearbyBoardingPlaceManager:(TMMNearbyBoardingPlacesManager *)manager didRegeocodeReceivedLocationName:(NSString *)locationName;
-
+- (void)TMMNearbyBoardingPlaceManager:(TMMNearbyBoardingPlacesManager *)manager didRegeocodeReceivedLocationName:(NSString *)locationName
+            __attribute__((deprecated("do not use it!")));
 
 /**
  * @brief 推荐上车点请求成功的回调
@@ -88,6 +101,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak, nullable) id<TMMNearbyBoardingPlacesManagerDelegate> delegate;
 
 /**
+ * @brief 推荐上车点初始化方法
+ * @param mapView 地图
+ * @param delegate 推荐上车点代理
+ */
+- (instancetype)initWithMapView:(QMapView *)mapView delagate:(id <TMMNearbyBoardingPlacesManagerDelegate> _Nullable)delegate;
+- (instancetype)init UNAVAILABLE_ATTRIBUTE;
+
+
+/**
  * @brief 获取推荐上车点
  */
 - (void)getNearbyBoardingPlaces;
@@ -97,13 +119,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)removeAllNearbyBoardingPlaces;
 
-/**
- * @brief 推荐上车点初始化方法
- * @param mapView 地图
- * @param delegate 推荐上车点代理
- */
-- (instancetype)initWithMapView:(QMapView *)mapView delagate:(id <TMMNearbyBoardingPlacesManagerDelegate> _Nullable)delegate;
-- (instancetype)init UNAVAILABLE_ATTRIBUTE;
 
 /**
  * @brief 当前一级围栏model, nil为当前没有命中围栏

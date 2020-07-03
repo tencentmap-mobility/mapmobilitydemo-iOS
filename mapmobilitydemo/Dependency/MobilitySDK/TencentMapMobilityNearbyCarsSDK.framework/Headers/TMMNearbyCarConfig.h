@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @brief 周边车辆配置类
+ */
 @interface TMMNearbyCarConfig : NSObject
 
 /**

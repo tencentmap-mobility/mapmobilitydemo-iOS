@@ -22,6 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString *title;
 
 /**
+* @brief 二级围栏详细名称
+*/
+@property (nonatomic, readonly) NSString *detailName;
+
+/**
  * @brief 二级围栏推荐上车点集合
  */
 @property (nonatomic, strong, readonly) NSArray<TMMNearbyBoardingPlaceModel *> *nearbyBoardingPlaceModels;

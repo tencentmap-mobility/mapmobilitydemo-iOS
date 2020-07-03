@@ -10,13 +10,19 @@
 #import "TMMSearchRouteObj.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+/**
+ * @brief 检索驾车请求
+ */
 @interface TMMSearchDrivingRequest : NSObject
 
-//驾车规划的起点
+/**
+ * @brief 驾车规划的起点
+ */
 @property (nonatomic, strong) TMMNaviPOI *start;
 
-//驾车规划的终点
+/**
+ * @brief 驾车规划的终点
+ */
 @property (nonatomic, strong) TMMNaviPOI *destination;
 
 @end

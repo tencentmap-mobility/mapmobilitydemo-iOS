@@ -8,18 +8,42 @@
 
 #import <Foundation/Foundation.h>
 
+@class TMMSearchAddressComponent, TMMSearchPOIModel, TMMSearchAdInfo;
 NS_ASSUME_NONNULL_BEGIN
 
-@class TMMSearchPOIModel, TMMSearchAddressComponent;
+/**
+ * @brief 逆地址解析response类
+ */
 @interface TMMSearchReGeocodeResponse : NSObject
 
-// 地址描述
+/**
+ * @brief 地址描述
+ */
 @property (nonatomic, copy) NSString *address;
-// 格式化地址
+
+/**
+ * @brief 逆地址解析所在城市adcode
+ */
+@property (nonatomic, copy) NSString *adcode;
+
+/**
+ * @brief 格式化地址
+ */
 @property (nonatomic, copy, nullable) NSString *formattedAddress;
-// 地址组成要素
+
+/**
+ * @brief adinfo
+ */
+@property (nonatomic, strong) TMMSearchAdInfo *adInfo;
+
+/**
+ * @brief 地址组成要素
+ */
 @property (nonatomic, strong) TMMSearchAddressComponent *addressComponent;
-// 周边兴趣点列表
+
+/**
+ * @brief 周边兴趣点列表
+ */
 @property (nonatomic, strong) NSArray<TMMSearchPOIModel *> *poiModels;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

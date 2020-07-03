@@ -11,14 +11,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @brief 驾车response类
+ */
 @interface TMMSearchDrivingResponse : NSObject
 
-// 请求id，有问题可提供requestID方便排查
+/**
+ * @brief 请求id，有问题可提供requestID方便排查
+ */
 @property (nonatomic, readonly) NSString *requestID;
 
-// status为0时请求成功
+/**
+ * @brief status为0时请求成功
+ */
 @property (nonatomic, readonly) NSInteger status;
 
+/**
+ * @brief 导航路线信息
+ */
 @property (nonatomic, readonly, nullable) NSArray<TMMCarNaviRoute *> *routes;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

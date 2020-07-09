@@ -341,13 +341,13 @@
     self.lastLocationTimestamp = [location.location.timestamp timeIntervalSince1970];
     self.driverManager.cityCode = location.code;
     
-    if (!self.isNavigating) {
-        // 听单中上报定位点
-        TLSDDriverPosition *myPosition = [[TLSDDriverPosition alloc] init];
-        myPosition.location = location.location;
-        myPosition.cityCode = location.code;
-        [self.driverManager uploadPosition:myPosition];
-    }
+//    if (!self.isNavigating) {
+//        // 听单中上报定位点
+//        TLSDDriverPosition *myPosition = [[TLSDDriverPosition alloc] init];
+//        myPosition.location = location.location;
+//        myPosition.cityCode = location.code;
+//        [self.driverManager uploadPosition:myPosition];
+//    }
 }
 
 

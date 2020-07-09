@@ -11,9 +11,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @brief 逆地址解析请求类
+ */
 @interface TMMSearchReGeocodeRequest : NSObject
 
-// 定位点（必传）
+/**
+ * @brief 定位点（必传）
+ */
 @property (nonatomic, assign) CLLocationCoordinate2D locationCoordinate;
 
 @end

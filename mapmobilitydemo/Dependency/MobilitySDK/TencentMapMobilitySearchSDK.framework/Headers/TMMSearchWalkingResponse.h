@@ -11,11 +11,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @brief 步行 response
+ */
 @interface TMMSearchWalkingResponse : NSObject
 
-// status为0时请求成功
+/**
+ * @brief status为0时请求成功
+ */
 @property (nonatomic, readonly) NSInteger status;
 
+/**
+ * @brief 步行路线
+ */
 @property (nonatomic, readonly, nullable) NSArray<TMMWalkingNaviRoute *>*routes;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

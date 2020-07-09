@@ -12,15 +12,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @brief 周边车辆请求类
+ */
 @interface TMMNearbyCarRequest : NSObject
-
-// 中心点坐标（必传）
+/**
+ * @brief 中心点坐标（必传）
+ */
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
-// 城市编码（必传）
-@property (nonatomic, copy) NSString *cityCode;
-// 其他配置信息（必传）
-@property (nonatomic, strong) TMMNearbyCarConfig *nearbyCarConfig;
 
+/**
+ * @brief 城市编码（必传）
+ */
+@property (nonatomic, copy) NSString *cityCode;
+
+/**
+ * @brief 其他配置信息（必传）
+ */
+@property (nonatomic, strong) TMMNearbyCarConfig *nearbyCarConfig;
 
 @end
 

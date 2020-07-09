@@ -11,21 +11,37 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @brief 检索策略
+ */
 typedef NS_ENUM(NSInteger, TMMSSuggestionPolicy) {
-    TMMSSuggestionPolicySource = 1,         // 起点
-    TMMSSuggestionPolicyDestination = 2,    // 终点
+    TMMSSuggestionPolicySource = 1,         ///<  起点
+    TMMSSuggestionPolicyDestination = 2,    ///<  终点
 };
 
+/**
+ * @brief 检索请求类
+ */
 @interface TMMSearchSuggestionRequest : NSObject
 
-// 关键词（必传）
+/**
+ * @brief 关键词（必传）
+ */
 @property (nonatomic, copy) NSString *keyword;
-// 城市名. 例，北京（必传）
+
+/**
+ * @brief 城市名. 例，北京（必传）
+ */
 @property (nonatomic, copy) NSString *region;
-// 检索策略（必传）
+
+/**
+ * @brief 检索策略（必传）
+ */
 @property (nonatomic, assign) TMMSSuggestionPolicy policy;
 
-// 当前定位点. policy为TMMSSuggestionPolicySource时必传，有助于优化检索结果
+/**
+ * @brief 当前定位点. policy为TMMSSuggestionPolicySource时必传，有助于优化检索结果
+ */
 @property (nonatomic, assign) CLLocationCoordinate2D locationCoordinate;
 @end
 

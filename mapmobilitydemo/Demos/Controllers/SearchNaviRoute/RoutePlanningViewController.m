@@ -142,9 +142,10 @@
         
         if (error) {
             NSLog(@"error=%@",error);
+            return;
         }
         
-        [weakSelf drawRoutesWithRoute:response.routes.firstObject type:@"driving"];
+        [weakSelf drawRoutesWithCarRoute:response.routes.firstObject];
 
     }];
 }
@@ -155,11 +156,17 @@
     walkingRequest.startCoordinate = _from;
     walkingRequest.destinationCoordinate = _to;
     
+    __weak typeof(self) weakSelf = self;
+    
     [TMMSearchManager queryWalkingWithRequest:walkingRequest completion:^(TMMSearchWalkingResponse * _Nullable response, NSError * _Nullable error) {
-        for (TMMCarNaviRoute *route in response.routes)
-        {
-            [self drawRoutesWithRoute:route type:@"walking"];
+
+        if (error) {
+            NSLog(@"error=%@",error);
+            return;
         }
+        
+        [weakSelf drawRouteWithWalkingRoute:response.routes.firstObject];
+        
     }];
 }
 
@@ -182,8 +189,32 @@
     }
 }
 
-- (void)drawRoutesWithRoute:(TMMCarNaviRoute *)route type:(NSString *)type
-{
+- (void)drawRoutesWithCarRoute:(TMMCarNaviRoute *)route {
+    
+    CLLocationCoordinate2D coordinates[route.points.count];
+    for (int i = 0; i < route.points.count; i++)
+    {
+        TMMLocationPoint *point = route.points[i];
+        coordinates[i] = point.coordinate;
+    }
+
+    NSArray <QSegmentColor *> * colorArray = [self segmentColorWithDrivingRoute:route];
+    self.trafficLine = [[TrafficPolyline alloc] initWithCoordinates:coordinates count:route.points.count arrLine:colorArray];
+    if (!self.trafficlines)
+    {
+        self.trafficlines = [[NSMutableArray alloc] init];
+    }
+    [self.mapView addOverlay:self.trafficLine];
+    [self.trafficlines addObject:self.trafficLine];
+    
+    // 调整地图显示区域
+    [self.mapView setVisibleMapRect:[MapMathTool mapRectWithLocationPoints:route.points] edgePadding:UIEdgeInsetsMake(30, 30, 30, 30) animated:YES];
+
+
+}
+
+- (void)drawRouteWithWalkingRoute:(TMMWalkingNaviRoute *)route {
+    
     CLLocationCoordinate2D coordinates[route.points.count];
     for (int i = 0; i < route.points.count; i++)
     {
@@ -191,29 +222,13 @@
         coordinates[i] = point.coordinate;
     }
     
-    if ([type isEqualToString:@"driving"])
-    {
-        NSArray <QSegmentColor *> * colorArray = [self segmentColorWithDrivingRoute:route];
-        self.trafficLine = [[TrafficPolyline alloc] initWithCoordinates:coordinates count:route.points.count arrLine:colorArray];
-        if (!self.trafficlines)
-        {
-            self.trafficlines = [[NSMutableArray alloc] init];
-        }
-        [self.mapView addOverlay:self.trafficLine];
-        [self.trafficlines addObject:self.trafficLine];
-        
-        // 调整地图显示区域
-        [self.mapView setVisibleMapRect:[MapMathTool mapRectWithLocationPoints:route.points] edgePadding:UIEdgeInsetsMake(30, 30, 30, 30) animated:YES];
-    }
-    else if ([type isEqualToString:@"walking"])
-    {
-        self.routeLine = [QPolyline polylineWithCoordinates:coordinates count:route.points.count];
-        [self.mapView addOverlay:self.routeLine];
-        // 调整地图显示区域
-        [self.mapView setVisibleMapRect:[MapMathTool mapRectWithLocationPoints:route.points] edgePadding:UIEdgeInsetsMake(30, 40, 30, 40) animated:YES];
-    }
-}
+    self.routeLine = [QPolyline polylineWithCoordinates:coordinates count:route.points.count];
+    [self.mapView addOverlay:self.routeLine];
+    // 调整地图显示区域
+    [self.mapView setVisibleMapRect:[MapMathTool mapRectWithLocationPoints:route.points] edgePadding:UIEdgeInsetsMake(30, 40, 30, 40) animated:YES];
 
+    
+}
 
 - (NSArray <QSegmentColor *> *)segmentColorWithDrivingRoute:(TMMCarNaviRoute *)route
 {

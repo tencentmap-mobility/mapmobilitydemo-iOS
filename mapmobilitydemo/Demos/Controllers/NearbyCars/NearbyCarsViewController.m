@@ -109,8 +109,28 @@
     TMMNearbyCarConfig *nearbyCarConfig = [[TMMNearbyCarConfig alloc] init];
     // 1.模拟数据；2.真是数据
     nearbyCarConfig.mock = 1;
+    
     // 配置不同车型不同的图片资源
-    nearbyCarConfig.carIconDictionary = @{@(1) : [UIImage imageNamed:@"taxi"], @(2) : [UIImage imageNamed:@"cleanEnergyCar"], @(3) : [UIImage imageNamed:@"comfortCar"], @(4):[UIImage imageNamed:@"luxuryCar"], @(5):[UIImage imageNamed:@"businessCar"], @(6):[UIImage imageNamed:@"economyCar"]};
+    TMMNearbyCarTypeConfig *taxiConfig = [[TMMNearbyCarTypeConfig alloc] init];
+    taxiConfig.image = [UIImage imageNamed:@"taxi"];
+    
+    TMMNearbyCarTypeConfig *cleanEnergyCarConfig = [[TMMNearbyCarTypeConfig alloc] init];
+    cleanEnergyCarConfig.image = [UIImage imageNamed:@"cleanEnergyCar"];
+    
+    TMMNearbyCarTypeConfig *comfortCarConfig = [[TMMNearbyCarTypeConfig alloc] init];
+    comfortCarConfig.image = [UIImage imageNamed:@"comfortCar"];
+    comfortCarConfig.willRotate = NO;
+    
+    TMMNearbyCarTypeConfig *luxuryCarConfig = [[TMMNearbyCarTypeConfig alloc] init];
+    luxuryCarConfig.image = [UIImage imageNamed:@"luxuryCar"];
+    
+    TMMNearbyCarTypeConfig *businessCarConfig = [[TMMNearbyCarTypeConfig alloc] init];
+    businessCarConfig.image = [UIImage imageNamed:@"businessCar"];
+    
+    TMMNearbyCarTypeConfig *economyCarConfig = [[TMMNearbyCarTypeConfig alloc] init];
+    economyCarConfig.image = [UIImage imageNamed:@"economyCar"];
+    
+    nearbyCarConfig.carTypeConfigDictionary = @{@(1) : taxiConfig, @(2) : cleanEnergyCarConfig, @(3) : comfortCarConfig, @(4): luxuryCarConfig, @(5):businessCarConfig, @(6):economyCarConfig};
     // 轮询请求周边车辆数据
     nearbyCarConfig.requestRepeatedly = YES;
     

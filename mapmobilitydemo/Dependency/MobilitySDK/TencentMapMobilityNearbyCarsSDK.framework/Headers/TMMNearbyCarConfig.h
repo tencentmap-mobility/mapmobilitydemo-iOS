@@ -11,6 +11,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class TMMNearbyCarTypeConfig;
+
 /**
  * @brief 周边车辆配置类
  */
@@ -59,12 +61,32 @@ NS_ASSUME_NONNULL_BEGIN
  * @brief 自定义替换车型图片 （非必须）
  * key分别可以取vehicle_types的 1～6，value对应的是自定义的图片
  */
-@property (nonatomic, copy, nullable) NSDictionary<NSNumber *, UIImage *> *carIconDictionary;
+@property (nonatomic, copy, nullable) NSDictionary<NSNumber *, UIImage *> *carIconDictionary __attribute__((deprecated("use carTypeConfigDictionary!")));
+
+/**
+ * @brief 自定义替换车型配置 （非必须）
+ * key分别可以取vehicle_types的 1～6，value对应的是自定义的配置
+ */
+@property (nonatomic, copy, nullable) NSDictionary<NSNumber *, TMMNearbyCarTypeConfig *> *carTypeConfigDictionary;
 
 /**
  * @brief 是否轮询请求周边车辆，默认为YES.如果开启，则60s重新请求一次周边车辆
  */
 @property (nonatomic, assign) BOOL requestRepeatedly;
+
+@end
+
+@interface TMMNearbyCarTypeConfig : NSObject
+
+/**
+ * @brief 车辆图片资源
+ */
+@property (nonatomic, strong) UIImage *image;
+
+/**
+ * @brief 车辆图片是否随着行进方向变化做相应的旋转。默认YES
+ */
+@property (nonatomic, assign) BOOL willRotate;
 
 @end
 

@@ -4,6 +4,10 @@
 
 推荐上车点SDK，是针对于出行场景（推荐上车点）开发的SDK。该产品能够进行用户周边不同推荐上车点展示，力求提供用户更优质的出行体验。
 
+![](../boardingplaces.png)
+
+![](../boardingplaces1.png)
+
 ## 准备工作
 
 一、申请开发密钥
@@ -56,8 +60,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    //地图SDK设置key
     [QMapServices sharedServices].APIKey = @"您的key";
+    //出行方向SDK设置Key
     [TMMServices sharedServices].apiKey = @"您的key";
+    
     return YES;
 }
 ```

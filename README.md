@@ -4,19 +4,25 @@
 
 出行SDK是针对于出行场景开发的多个SDK，包括:周边车辆SDK,推荐上车点SDK，出行检索SDK和司乘同显SDK。每个SDK功能独立、接入方便，开发者可以根据自己的需求进行选择。
 
+乘客端:
+![](passengerSDK.jpg)
+
+司机端:
+![](driverSDK.jpg)
+
 ## 接口文档地址
 
 https://tencentmap-mobility.github.io/
 
 ## 依赖项
 
-![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `拉取代码之后，请将腾讯导航SDK放至mapmobilitydemo/Dependency/TNKNavigationSDK目录下，否则会编译错误！`
+`拉取代码之后，请将腾讯导航SDK放至mapmobilitydemo/Dependency/TNKNavigationSDK目录下，否则会编译错误！`
 
 ### 腾讯地图SDK QMapKit.framework
 详细信息和使用方式可以在官网https://lbs.qq.com上获得。
 
 ### 出行SDK基础库 TencentMapMobilitySDK.framwork
-出行的多个SDK均依赖于该基础库，使用方法在SDK文档列表中。
+周边车辆SDK,推荐上车点SDK，出行检索SDK均依赖于该基础库，使用方法在SDK文档列表中。
  
 
 ## SDK文档列表
@@ -25,3 +31,5 @@ https://tencentmap-mobility.github.io/
 3. [出行检索SDK](docs/TencentMapMobilitySearchSDK.md)
 4. [出行SDK基础库](docs/MobilitySDK.md)
 5. [司乘同显SDK](docs/TencentMapLocusSyncSDK.md)
+6. [司乘同显司机端流程](docs/TencentMapLocusSyncDriverSDK.md)
+7. [司乘同显乘客端流程](docs/TencentMapLocusSyncPassengnerSDK.md)

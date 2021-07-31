@@ -45,7 +45,7 @@
 
 ## 快速接入
 
-一、初始化配置
+### 一、初始化配置
 
 在工程的“AppDelegate.m”中引入“#import < QMapKit/QMapKit.h >” , "#import <TNKNavigationKit/TNKNaviServices.h>"
 
@@ -53,13 +53,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // 配置地图key
     [QMapServices sharedServices].APIKey = @"您的key";
+    // 配置导航key
     [TNKNaviServices sharedServices].APIKey = @"您的key";
+    
     return YES;
 }
 ```
 
-1 司机侧
+#### 1 司机端
 
 * 需要配置司乘同显SDK的key，driverID和orderID及其他相应的配置信息
 
@@ -70,10 +73,14 @@
     
 	 self.driverManager = [[TLSDriverManager alloc] initWithConfig: config];
     self.driverManager.delegate = self;
+    // 导航地图交给司乘同显管理
     self.driverManager.carNaviView = self.carNaviView;
+    // 导航管理器交给司乘同显管理
     self.driverManager.carNaviManger = self.carNaviManager;
+    // 设置订单id，需要真实订单id
     self.driverManager.orderID = kSynchroDriverOrderID;
-    self.driverManager.orderType = TLSBOrderTypeHitchRide;
+    // 设置订单类型，快车
+    self.driverManager.orderType = TLSBOrderTypeNormal;
     self.driverManager.orderStatus = TLSBOrderStatusTrip;
     self.driverManager.driverStatus = TLSDDriverStatusServing;
 ```
@@ -97,7 +104,7 @@
 ```
 
 
-2 乘客端
+### 2 乘客端
 
 * 需要配置司乘同显SDK的key，passengerID,orderID, 和pOrderID及其他相应的配置信息
 

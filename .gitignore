@@ -63,4 +63,4 @@ fastlane/test_output
 iOSInjectionProject/
 
 Pods/
-mapmobilitydemo/Dependency/TNKNavigationSDK/
+mapmobilitydemo/Dependency/TNKNavigationKit.framework

@@ -64,3 +64,6 @@ iOSInjectionProject/
 
 Pods/
 mapmobilitydemo/Dependency/TNKNavigationKit.framework
+mapmobilitydemo/Dependency/TencentLBS.framework
+mapmobilitydemo/Dependency/TLBSBundle.bundle
+mapmobilitydemo/Dependency/TencentNavigationKit.bundle

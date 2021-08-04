@@ -16,14 +16,14 @@ https://tencentmap-mobility.github.io/
 
 ## 依赖项
 
-`拉取代码之后，请将腾讯导航SDK放至mapmobilitydemo/Dependency/TNKNavigationSDK目录下，否则会编译错误！`
+`拉取代码之后，请将腾讯导航SDK+定位SDK放至mapmobilitydemo/Dependency/目录下，否则会编译错误！`
+
+1. 导航SDK下载地址: https://github.com/tencentmap-mobility/TencentNaviDemo_iOS/releases/tag/v5.3.0
+2. 定位SDK下载地址: https://github.com/tencentmap-mobility/TencentNaviDemo_iOS/releases/tag/v5.2.7.11
 
 ### 腾讯地图SDK QMapKit.framework
 详细信息和使用方式可以在官网https://lbs.qq.com上获得。
 
-### 出行SDK基础库 TencentMapMobilitySDK.framwork
-周边车辆SDK,推荐上车点SDK，出行检索SDK均依赖于该基础库，使用方法在SDK文档列表中。
- 
 
 ## SDK文档列表
 1. [出行周边车辆SDK](docs/TencentMapMobilityNearbyCarsSDK.md)

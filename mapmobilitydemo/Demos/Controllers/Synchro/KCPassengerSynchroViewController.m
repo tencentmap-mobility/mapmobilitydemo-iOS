@@ -511,6 +511,16 @@ UIColor *KCRouteTrafficStatusColor(long trafficDataStatus) {
     
     [QMUAnnotationAnimator translateWithAnnotationView:[self.mapView viewForAnnotation:self.bubblePoint] locations:locationData duration:4.95 rotateEnabled:NO];
     
+    // 只有一个定位点，无法监听到坐标变化，无法做路线擦除
+    // 所以当只有一个定位点时，这里调用擦除方法
+    if (locations.count == 1) {
+
+        int eraseIndex = [self updatePointIndex:self.tlsLocations fromDriverLocation:self.currentCoordinate];
+        
+        // 根据获得的pointIndex擦除路线
+        [self.trafficOverlayView eraseFromStartToCurrentPoint:self.driverPoint.coordinate searchFrom:eraseIndex toColor:YES];
+    }
+    
 }
 
 - (CLLocationCoordinate2D)driverCoordinate:(TLSDDriverPosition *)location
@@ -566,6 +576,53 @@ UIColor *KCRouteTrafficStatusColor(long trafficDataStatus) {
     
     self.trafficOverlayView = (QTexturePolylineView *)[self.mapView viewForOverlay:self.route];
     self.trafficOverlayView.segmentStyle = [self.route.arrLine copy];
+    
+    // 更新视野
+    QMapRect mapRect = [self mapRectFitsPoints:route.points];
+    [self.mapView setVisibleMapRect:mapRect edgePadding:UIEdgeInsetsMake(50, 50, 50, 50) animated:NO];
+    
+}
+
+/** @brief 计算地图适合的正方形点 **/
+- (QMapRect)mapRectFitsPoints:(NSArray<id<TLSBLocation>> *)points
+{
+    NSAssert(points != nil && points.count > 0, @"points array invalid");
+    
+    QMapPoint firstMapPoint = QMapPointForCoordinate(points[0].coordinate);
+    
+    CGFloat minX = firstMapPoint.x;
+    CGFloat minY = firstMapPoint.y;
+    CGFloat maxX = minX;
+    CGFloat maxY = minY;
+    
+    for (int i = 1; i < points.count; i++) {
+        
+        QMapPoint point = QMapPointForCoordinate(points[i].coordinate);
+        
+        if (point.x < minX)
+        {
+            minX = point.x;
+        }
+        if (point.y < minY)
+        {
+            minY = point.y;
+        }
+        if (point.x > maxX)
+        {
+            maxX = point.x;
+        }
+        if (point.y > maxY)
+        {
+            maxY = point.y;
+        }
+        
+    }
+    
+    CGFloat width  = fabs(maxX - minX);
+    CGFloat height = fabs(maxY - minY);
+    
+    return QMapRectMake(minX, minY, width, height);
+    
 }
 
 - (TrafficPolyline *)polylineForRoute:(TLSBRoute *)route

@@ -25,6 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong) TMMNaviPOI *destination;
 
+/**
+ * @brief 驾车规划的途径点.最多支持16个
+ */
+@property (nonatomic, copy, nullable) NSArray<TMMNaviPOI *> *waypoints;
+
 @end
 
 NS_ASSUME_NONNULL_END

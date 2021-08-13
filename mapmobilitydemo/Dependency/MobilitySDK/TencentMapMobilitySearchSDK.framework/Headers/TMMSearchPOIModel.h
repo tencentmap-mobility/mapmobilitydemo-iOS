@@ -37,6 +37,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable) NSString *adcode;
 
 /**
+ * @brief 省
+ */
+@property (nonatomic, readonly, nullable) NSString *province;
+
+/**
+ * @brief 市
+ */
+@property (nonatomic, readonly, nullable) NSString *city;
+
+/**
  * @brief 逆地址解析返回的坐标与此poi的距离
  */
 @property (nonatomic, readonly) int distance;

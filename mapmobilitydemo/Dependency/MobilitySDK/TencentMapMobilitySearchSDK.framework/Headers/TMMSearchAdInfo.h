@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @brief AdInfo类
+ */
 @interface TMMSearchAdInfo : NSObject
 
 /**

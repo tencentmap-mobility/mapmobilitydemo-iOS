@@ -136,6 +136,10 @@
     drivingRequest.start.coordinate = _from;
     drivingRequest.destination.coordinate = _to;
     
+//    TMMNaviPOI *waypoint = [[TMMNaviPOI alloc] init];
+//    waypoint.coordinate = CLLocationCoordinate2DMake(31.0, 119.0);
+//    drivingRequest.waypoints = @[waypoint];
+    
     __weak typeof(self) weakSelf = self;
     
     [TMMSearchManager queryDrivingWithRequest:drivingRequest completion:^(TMMSearchDrivingResponse * _Nullable response, NSError * _Nullable error) {

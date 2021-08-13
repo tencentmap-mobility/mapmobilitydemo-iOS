@@ -18,9 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * @brief poi模型
  */
-@property (nonatomic, strong) NSArray<TMMSearchPOIModel *> *poiModels;
+@property (nonatomic, readonly) NSArray<TMMSearchPOIModel *> *poiModels;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -25,8 +25,6 @@
 		03DF98DC242A1E4300A7752C /* CalloutAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF98D8242A1E4300A7752C /* CalloutAnnotationView.m */; };
 		03DF98DD242A1E4300A7752C /* TrafficPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF98DA242A1E4300A7752C /* TrafficPolyline.m */; };
 		03DF98DE242A1E4300A7752C /* RouteLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF98DB242A1E4300A7752C /* RouteLocation.m */; };
-		03DF98E1242A1EE600A7752C /* KCDriverSynchroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF98E0242A1EE600A7752C /* KCDriverSynchroViewController.m */; };
-		03DF98E4242A211C00A7752C /* KCPassengerSynchroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF98E3242A211C00A7752C /* KCPassengerSynchroViewController.m */; };
 		03E6FAEB239682DA007CE9F7 /* BoardingPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E6FAEA239682DA007CE9F7 /* BoardingPlacesViewController.m */; };
 		03E7482E2303FF96000D9045 /* NearbyCarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E748162303FF96000D9045 /* NearbyCarsViewController.m */; };
 		435AA01AE14947E59D80E8DB /* Pods_mapmobilitydemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6426C55D170FC9DB4426375C /* Pods_mapmobilitydemo.framework */; };
@@ -50,6 +48,19 @@
 		E1AC744223979344006645CE /* SearchKeywordPOIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC744123979344006645CE /* SearchKeywordPOIModel.m */; };
 		E1AC7498239A071A006645CE /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7490239A071A006645CE /* WebP.framework */; };
 		E1AC749C239A071A006645CE /* QMapSDKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7494239A071A006645CE /* QMapSDKUtils.framework */; };
+		E1B206C426E9DBB000D8C95A /* TLSRoutePolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B206BC26E9DBAF00D8C95A /* TLSRoutePolyline.m */; };
+		E1B206C526E9DBB000D8C95A /* CarRoutePolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B206BF26E9DBB000D8C95A /* CarRoutePolyline.m */; };
+		E1B206C626E9DBB000D8C95A /* CarBubbleAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B206C126E9DBB000D8C95A /* CarBubbleAnnotationView.m */; };
+		E1B206C726E9DBB000D8C95A /* JSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B206C226E9DBB000D8C95A /* JSONSerializer.m */; };
+		E1B206D826E9DBE400D8C95A /* KCOrderSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B206C926E9DBE200D8C95A /* KCOrderSyncViewController.m */; };
+		E1B206D926E9DBE400D8C95A /* KCPassengerModule.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B206CA26E9DBE200D8C95A /* KCPassengerModule.m */; };
+		E1B206DA26E9DBE400D8C95A /* KCPassengerSynchroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B206CB26E9DBE300D8C95A /* KCPassengerSynchroViewController.m */; };
+		E1B206DB26E9DBE400D8C95A /* KCChooseRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B206CF26E9DBE300D8C95A /* KCChooseRouteViewController.m */; };
+		E1B206DC26E9DBE400D8C95A /* KCDriverModule.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B206D026E9DBE300D8C95A /* KCDriverModule.m */; };
+		E1B206DD26E9DBE400D8C95A /* KCPassengerBeforeTripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B206D126E9DBE300D8C95A /* KCPassengerBeforeTripViewController.m */; };
+		E1B206DE26E9DBE400D8C95A /* KCOrderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B206D426E9DBE300D8C95A /* KCOrderManager.m */; };
+		E1B206DF26E9DBE400D8C95A /* KCDriverSynchroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B206D526E9DBE300D8C95A /* KCDriverSynchroViewController.m */; };
+		E1B206E226E9DE7400D8C95A /* OrderMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B206E126E9DE7400D8C95A /* OrderMenuViewController.m */; };
 		E1B3D1F422F539DD00E753CB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1F322F539DD00E753CB /* SystemConfiguration.framework */; };
 		E1B3D1F622F539E500E753CB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1F522F539E500E753CB /* QuartzCore.framework */; };
 		E1B3D1F822F539EB00E753CB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3D1F722F539EB00E753CB /* CoreLocation.framework */; };
@@ -102,10 +113,6 @@
 		03DF98D9242A1E4300A7752C /* TrafficPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficPolyline.h; sourceTree = "<group>"; };
 		03DF98DA242A1E4300A7752C /* TrafficPolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficPolyline.m; sourceTree = "<group>"; };
 		03DF98DB242A1E4300A7752C /* RouteLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteLocation.m; sourceTree = "<group>"; };
-		03DF98DF242A1EE600A7752C /* KCDriverSynchroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KCDriverSynchroViewController.h; sourceTree = "<group>"; };
-		03DF98E0242A1EE600A7752C /* KCDriverSynchroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KCDriverSynchroViewController.m; sourceTree = "<group>"; };
-		03DF98E2242A211C00A7752C /* KCPassengerSynchroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KCPassengerSynchroViewController.h; sourceTree = "<group>"; };
-		03DF98E3242A211C00A7752C /* KCPassengerSynchroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KCPassengerSynchroViewController.m; sourceTree = "<group>"; };
 		03E6FAE9239682DA007CE9F7 /* BoardingPlacesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardingPlacesViewController.h; sourceTree = "<group>"; };
 		03E6FAEA239682DA007CE9F7 /* BoardingPlacesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoardingPlacesViewController.m; sourceTree = "<group>"; };
 		03E748162303FF96000D9045 /* NearbyCarsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyCarsViewController.m; sourceTree = "<group>"; };
@@ -146,6 +153,32 @@
 		E1AC744123979344006645CE /* SearchKeywordPOIModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchKeywordPOIModel.m; sourceTree = "<group>"; };
 		E1AC7490239A071A006645CE /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
 		E1AC7494239A071A006645CE /* QMapSDKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QMapSDKUtils.framework; sourceTree = "<group>"; };
+		E1B206BC26E9DBAF00D8C95A /* TLSRoutePolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSRoutePolyline.m; sourceTree = "<group>"; };
+		E1B206BD26E9DBB000D8C95A /* TLSRoutePolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSRoutePolyline.h; sourceTree = "<group>"; };
+		E1B206BE26E9DBB000D8C95A /* CarRoutePolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarRoutePolyline.h; sourceTree = "<group>"; };
+		E1B206BF26E9DBB000D8C95A /* CarRoutePolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarRoutePolyline.m; sourceTree = "<group>"; };
+		E1B206C026E9DBB000D8C95A /* JSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONSerializer.h; sourceTree = "<group>"; };
+		E1B206C126E9DBB000D8C95A /* CarBubbleAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarBubbleAnnotationView.m; sourceTree = "<group>"; };
+		E1B206C226E9DBB000D8C95A /* JSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONSerializer.m; sourceTree = "<group>"; };
+		E1B206C326E9DBB000D8C95A /* CarBubbleAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarBubbleAnnotationView.h; sourceTree = "<group>"; };
+		E1B206C826E9DBE200D8C95A /* KCDriverModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCDriverModule.h; sourceTree = "<group>"; };
+		E1B206C926E9DBE200D8C95A /* KCOrderSyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCOrderSyncViewController.m; sourceTree = "<group>"; };
+		E1B206CA26E9DBE200D8C95A /* KCPassengerModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPassengerModule.m; sourceTree = "<group>"; };
+		E1B206CB26E9DBE300D8C95A /* KCPassengerSynchroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPassengerSynchroViewController.m; sourceTree = "<group>"; };
+		E1B206CC26E9DBE300D8C95A /* KCOrderSyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCOrderSyncViewController.h; sourceTree = "<group>"; };
+		E1B206CD26E9DBE300D8C95A /* KCDriverSynchroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCDriverSynchroViewController.h; sourceTree = "<group>"; };
+		E1B206CE26E9DBE300D8C95A /* KCPassengerBeforeTripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPassengerBeforeTripViewController.h; sourceTree = "<group>"; };
+		E1B206CF26E9DBE300D8C95A /* KCChooseRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCChooseRouteViewController.m; sourceTree = "<group>"; };
+		E1B206D026E9DBE300D8C95A /* KCDriverModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCDriverModule.m; sourceTree = "<group>"; };
+		E1B206D126E9DBE300D8C95A /* KCPassengerBeforeTripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPassengerBeforeTripViewController.m; sourceTree = "<group>"; };
+		E1B206D226E9DBE300D8C95A /* KCOrderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCOrderManager.h; sourceTree = "<group>"; };
+		E1B206D326E9DBE300D8C95A /* KCChooseRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCChooseRouteViewController.h; sourceTree = "<group>"; };
+		E1B206D426E9DBE300D8C95A /* KCOrderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCOrderManager.m; sourceTree = "<group>"; };
+		E1B206D526E9DBE300D8C95A /* KCDriverSynchroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCDriverSynchroViewController.m; sourceTree = "<group>"; };
+		E1B206D626E9DBE300D8C95A /* KCPassengerModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPassengerModule.h; sourceTree = "<group>"; };
+		E1B206D726E9DBE400D8C95A /* KCPassengerSynchroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPassengerSynchroViewController.h; sourceTree = "<group>"; };
+		E1B206E026E9DE7400D8C95A /* OrderMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderMenuViewController.h; sourceTree = "<group>"; };
+		E1B206E126E9DE7400D8C95A /* OrderMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderMenuViewController.m; sourceTree = "<group>"; };
 		E1B3D1F322F539DD00E753CB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E1B3D1F522F539E500E753CB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E1B3D1F722F539EB00E753CB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -238,14 +271,28 @@
 			children = (
 				036A9448247D085A006BE642 /* BaseSynchroViewController.h */,
 				036A9449247D085A006BE642 /* BaseSynchroViewController.m */,
+				E1B206E026E9DE7400D8C95A /* OrderMenuViewController.h */,
+				E1B206E126E9DE7400D8C95A /* OrderMenuViewController.m */,
+				E1B206D326E9DBE300D8C95A /* KCChooseRouteViewController.h */,
+				E1B206CF26E9DBE300D8C95A /* KCChooseRouteViewController.m */,
+				E1B206C826E9DBE200D8C95A /* KCDriverModule.h */,
+				E1B206D026E9DBE300D8C95A /* KCDriverModule.m */,
+				E1B206CD26E9DBE300D8C95A /* KCDriverSynchroViewController.h */,
+				E1B206D526E9DBE300D8C95A /* KCDriverSynchroViewController.m */,
+				E1B206D226E9DBE300D8C95A /* KCOrderManager.h */,
+				E1B206D426E9DBE300D8C95A /* KCOrderManager.m */,
+				E1B206CC26E9DBE300D8C95A /* KCOrderSyncViewController.h */,
+				E1B206C926E9DBE200D8C95A /* KCOrderSyncViewController.m */,
+				E1B206CE26E9DBE300D8C95A /* KCPassengerBeforeTripViewController.h */,
+				E1B206D126E9DBE300D8C95A /* KCPassengerBeforeTripViewController.m */,
+				E1B206D626E9DBE300D8C95A /* KCPassengerModule.h */,
+				E1B206CA26E9DBE200D8C95A /* KCPassengerModule.m */,
+				E1B206D726E9DBE400D8C95A /* KCPassengerSynchroViewController.h */,
+				E1B206CB26E9DBE300D8C95A /* KCPassengerSynchroViewController.m */,
 				03DF98D0242A1C2F00A7752C /* SFCDriverSynchroViewController.h */,
 				03DF98D1242A1C2F00A7752C /* SFCDriverSynchroViewController.m */,
 				03DF98D3242A1E1600A7752C /* SFCPassengerSynchroViewController.h */,
 				03DF98D4242A1E1600A7752C /* SFCPassengerSynchroViewController.m */,
-				03DF98DF242A1EE600A7752C /* KCDriverSynchroViewController.h */,
-				03DF98E0242A1EE600A7752C /* KCDriverSynchroViewController.m */,
-				03DF98E2242A211C00A7752C /* KCPassengerSynchroViewController.h */,
-				03DF98E3242A211C00A7752C /* KCPassengerSynchroViewController.m */,
 				036A9445247D07C6006BE642 /* PCDriverSynchroViewController.h */,
 				036A9446247D07C6006BE642 /* PCDriverSynchroViewController.m */,
 				036A9451247D0969006BE642 /* PCPassengerSynchroViewController.h */,
@@ -407,6 +454,14 @@
 				03DF98DB242A1E4300A7752C /* RouteLocation.m */,
 				03DF98D9242A1E4300A7752C /* TrafficPolyline.h */,
 				03DF98DA242A1E4300A7752C /* TrafficPolyline.m */,
+				E1B206C326E9DBB000D8C95A /* CarBubbleAnnotationView.h */,
+				E1B206C126E9DBB000D8C95A /* CarBubbleAnnotationView.m */,
+				E1B206BE26E9DBB000D8C95A /* CarRoutePolyline.h */,
+				E1B206BF26E9DBB000D8C95A /* CarRoutePolyline.m */,
+				E1B206C026E9DBB000D8C95A /* JSONSerializer.h */,
+				E1B206C226E9DBB000D8C95A /* JSONSerializer.m */,
+				E1B206BD26E9DBB000D8C95A /* TLSRoutePolyline.h */,
+				E1B206BC26E9DBAF00D8C95A /* TLSRoutePolyline.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -589,6 +644,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B206D826E9DBE400D8C95A /* KCOrderSyncViewController.m in Sources */,
 				036A9447247D07C6006BE642 /* PCDriverSynchroViewController.m in Sources */,
 				03DF98DE242A1E4300A7752C /* RouteLocation.m in Sources */,
 				E1AC743D239791C4006645CE /* SearchKeywordPOICell.m in Sources */,
@@ -599,21 +655,31 @@
 				036A9453247D0969006BE642 /* PCPassengerSynchroViewController.m in Sources */,
 				E1EDCAA124582BA800EF6E69 /* MapMathTool.m in Sources */,
 				E1435D7C22F524EF00C2B4D0 /* main.m in Sources */,
+				E1B206DA26E9DBE400D8C95A /* KCPassengerSynchroViewController.m in Sources */,
+				E1B206DC26E9DBE400D8C95A /* KCDriverModule.m in Sources */,
+				E1B206DF26E9DBE400D8C95A /* KCDriverSynchroViewController.m in Sources */,
 				E1AC7437239768B1006645CE /* SearchKeywordViewController.m in Sources */,
 				036A944A247D085A006BE642 /* BaseSynchroViewController.m in Sources */,
 				E1BFD8AD22FAFC2D00DF8C68 /* MathTool.m in Sources */,
+				E1B206D926E9DBE400D8C95A /* KCPassengerModule.m in Sources */,
 				E1AC744223979344006645CE /* SearchKeywordPOIModel.m in Sources */,
+				E1B206C626E9DBB000D8C95A /* CarBubbleAnnotationView.m in Sources */,
+				E1B206E226E9DE7400D8C95A /* OrderMenuViewController.m in Sources */,
 				03DF98D2242A1C2F00A7752C /* SFCDriverSynchroViewController.m in Sources */,
-				03DF98E4242A211C00A7752C /* KCPassengerSynchroViewController.m in Sources */,
 				E1AC743423976881006645CE /* MobilitySearchViewController.m in Sources */,
 				E1AC743223975908006645CE /* TripPanelView.m in Sources */,
+				E1B206DB26E9DBE400D8C95A /* KCChooseRouteViewController.m in Sources */,
 				E1BFD8AC22FAFC2D00DF8C68 /* ReplaceUnicode.m in Sources */,
 				E159AFAF24373E240052407A /* RoutePlanningViewController.m in Sources */,
-				03DF98E1242A1EE600A7752C /* KCDriverSynchroViewController.m in Sources */,
 				03DF98DD242A1E4300A7752C /* TrafficPolyline.m in Sources */,
 				03E6FAEB239682DA007CE9F7 /* BoardingPlacesViewController.m in Sources */,
+				E1B206C426E9DBB000D8C95A /* TLSRoutePolyline.m in Sources */,
+				E1B206DE26E9DBE400D8C95A /* KCOrderManager.m in Sources */,
 				03DF98DC242A1E4300A7752C /* CalloutAnnotationView.m in Sources */,
 				E1435D9722F5344800C2B4D0 /* EntryViewController.m in Sources */,
+				E1B206C726E9DBB000D8C95A /* JSONSerializer.m in Sources */,
+				E1B206DD26E9DBE400D8C95A /* KCPassengerBeforeTripViewController.m in Sources */,
+				E1B206C526E9DBB000D8C95A /* CarRoutePolyline.m in Sources */,
 				E1435D6E22F524ED00C2B4D0 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -756,7 +822,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/mapmobilitydemo/Dependency",
-					"$(PROJECT_DIR)/mapmobilitydemo/Dependency/TNKNavigationSDK",
 					"$(PROJECT_DIR)/mapmobilitydemo/Dependency/MobilitySDK",
 					"$(PROJECT_DIR)/mapmobilitydemo/Dependency/LocusSynchroSDK",
 				);
@@ -785,7 +850,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/mapmobilitydemo/Dependency",
-					"$(PROJECT_DIR)/mapmobilitydemo/Dependency/TNKNavigationSDK",
 					"$(PROJECT_DIR)/mapmobilitydemo/Dependency/MobilitySDK",
 					"$(PROJECT_DIR)/mapmobilitydemo/Dependency/LocusSynchroSDK",
 				);

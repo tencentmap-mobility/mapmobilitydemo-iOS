@@ -22,8 +22,12 @@
 
 #define kNavigationBarHeight (KISIphoneX? 88 : 64)
 
+@protocol TLSBLocation;
+
 @interface MathTool : NSObject
 
 + (QMapRect)mapRectFitsPoints:(NSArray<TNKCoordinatePoint *>*)points;
 
+/** @brief 计算地图适合的正方形点 **/
++ (QMapRect)mapRectFitsLocations:(NSArray<id<TLSBLocation>> *)points;
 @end

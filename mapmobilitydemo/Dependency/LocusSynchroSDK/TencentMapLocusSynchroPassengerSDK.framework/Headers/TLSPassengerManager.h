@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param passengerManager 乘客端管理类
  * @param fetchedData 乘客拉取司机的信息
  */
-- (void)tlsPassengerManager:(TLSPassengerManager *)passengerManager didFetchedData:(TLSPFetchedData*)fetchedData;
+- (void)tlsPassengerManager:(TLSPassengerManager *)passengerManager didFetchedData:(TLSPFetchedData *)fetchedData;
 
 /**
  * @brief 拉取司机信息失败回调
@@ -46,6 +46,21 @@ NS_ASSUME_NONNULL_BEGIN
  * @param error 错误信息
  */
 - (void)tlsPassengerManager:(TLSPassengerManager *)passengerManager didFailWithError:(NSError *)error;
+
+
+/**
+ * @brief 发起选路请求成功回调. since 2.2.0
+ * @param passengerManager 乘客端管理类
+ */
+- (void)tlsPassengerManagerDidSendRouteRequestSuccess:(TLSPassengerManager *)passengerManager;
+
+/**
+ * @brief 发起选路请求失败回调. since 2.2.0
+ * @param passengerManager 乘客端管理类
+ * @param error 错误信息
+ */
+- (void)tlsPassengerManagerDidSendRouteRequestFail:(TLSPassengerManager *)passengerManager error:(NSError *)error;
+
 @end
 
 /**
@@ -94,10 +109,25 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL uploadPassengerPositionsEnabled;
 
 /**
+ * @brief 是否获取所有的路线、定位信息。 顺风车/拼车场景如果开启，需要开发者自行进行过滤和截取。默认为NO
+ */
+@property (nonatomic, assign) BOOL driverAllSyncDataEnabled;
+
+/**
  * @brief 初始化乘客管理类
  * @param config 乘客端配置信息
  */
 - (instancetype)initWithConfig:(TLSPConfig *)config;
+
+/**
+ * @brief 开始拉取信息。乘客拉取司机的信息。
+ */
+- (void)start;
+
+/**
+ * @brief 结束拉取信息
+ */
+- (void)stop;
 
 /**
  * @brief 乘客需要调用该方法上报乘客轨迹点
@@ -111,14 +141,22 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)resetOrderInfo;
 
 /**
- * @brief 开始拉取信息。乘客拉取司机的信息。
+ * @brief 行前驾车路线规划. since 2.2.0
+ * @param request 驾车请求参数
+ * @param completion 驾车请求结果
+ * @return 请求Task
  */
-- (void)start;
+- (NSURLSessionTask * _Nullable)queryDrivingWithRequest:(TLSPSearchDrivingRequest *)request
+                                             completion:(void(^)(TLSPSearchDrivingResponse * _Nullable response,
+                                                                 NSError * _Nullable error))completion;
 
-/**
- * @brief 结束拉取信息
- */
-- (void)stop;
+/// 送驾中乘客选路方法. since 2.2.0
+/// @param route 路线信息。路线信息中routeID不可为空
+- (void)chooseRouteWhenTrip:(TLSBRoute *)route;
+
+/// 送驾前乘客选择送驾路线方法. since 2.2.0
+/// @param route 路线信息。
+- (void)chooseRouteBeforeTrip:(TLSBRoute *)route;
 
 @end
 
@@ -133,6 +171,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *key;
 
 /**
+ * @brief 司乘同显的secretKey， 如果鉴权方式不是签名校验则无需填写。在https://lbs.qq.com/的控制台->应用管理->我的应用中查看
+ */
+@property (nonatomic, copy, nullable) NSString *secretKey;
+
+/**
  * @brief 乘客id
  */
 @property (nonatomic, copy) NSString *passengerID;
@@ -142,6 +185,7 @@ NS_ASSUME_NONNULL_BEGIN
  * 如果希望使用自己业务上的设备标识来排查问题，可以将deviceID修改为自己业务上的设备标识。
  */
 @property (nonatomic, copy) NSString *deviceID;
+
 @end
 
 NS_ASSUME_NONNULL_END

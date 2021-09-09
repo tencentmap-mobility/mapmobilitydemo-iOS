@@ -27,11 +27,47 @@
     entry.sections = sectionArray;
     
     {
-        Section *section = [[Section alloc] init];
+        Section *section;
+        NSMutableArray<Cell *> *cellArray;
+        
+        // 快车
+        section = [[Section alloc] init];
+        section.title = @"司乘同显-快车";
+        cellArray = [NSMutableArray array];
+        section.cells = cellArray;
+        
+        [sectionArray addObject:section];
+        
+        {
+            [sectionArray addObject:section];
+            Cell * cell = [[Cell alloc] init];
+            cell.title = @"快车订单管理";
+            cell.controllerClassName = @"KCOrderSyncViewController";
+            [cellArray addObject:cell];
+            
+            [sectionArray addObject:section];
+            cell = [[Cell alloc] init];
+            cell.title = @"司机端";
+            cell.controllerClassName = @"KCDriverSynchroViewController";
+            [cellArray addObject:cell];
+            
+            cell = [[Cell alloc] init];
+            cell.title = @"乘客端";
+            cell.controllerClassName = @"KCPassengerSynchroViewController";
+            [cellArray addObject:cell];
+            
+            cell = [[Cell alloc] init];
+            cell.title = @"送驾前选路";
+            cell.controllerClassName = @"KCPassengerBeforeTripViewController";
+            [cellArray addObject:cell];
+        }
+        
+        
         
         // 拼车
+        section = [[Section alloc] init];
         section.title = @"司乘同显-拼车";
-        NSMutableArray<Cell *> *cellArray = [NSMutableArray array];
+        cellArray = [NSMutableArray array];
         section.cells = cellArray;
         
         [sectionArray addObject:section];
@@ -68,25 +104,6 @@
             [cellArray addObject:cell];
         }
         
-        // 快车
-        section = [[Section alloc] init];
-        section.title = @"司乘同显-快车";
-        cellArray = [NSMutableArray array];
-        section.cells = cellArray;
-        
-        [sectionArray addObject:section];
-        
-        {
-            Cell *cell = [[Cell alloc] init];
-            cell.title = @"司机端";
-            cell.controllerClassName = @"KCDriverSynchroViewController";
-            [cellArray addObject:cell];
-            
-            cell = [[Cell alloc] init];
-            cell.title = @"乘客端";
-            cell.controllerClassName = @"KCPassengerSynchroViewController";
-            [cellArray addObject:cell];
-        }
     }
     {
         Section *section = [[Section alloc] init];

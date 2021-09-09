@@ -211,6 +211,8 @@ typedef NS_ENUM(NSInteger, TLSDDriverStatus) {
 
 #pragma mark - 路线信息
 
+@class TLSBRouteSegment;
+
 /**
  * @brief 路线信息
  */
@@ -246,6 +248,19 @@ typedef NS_ENUM(NSInteger, TLSDDriverStatus) {
  */
 @property (nonatomic, assign) int remainingTime;
 
+
+/**
+ * @brief 路线标签。例如: 时间短、距离短
+ */
+@property (nonatomic, copy, nullable) NSString *tag;
+
+/**
+ * @brief 剩余红绿灯个数
+ */
+@property (nonatomic, assign) int leftTrafficCount;
+
+@property (nonatomic, copy, nullable) NSArray<TLSBRouteSegment *> *routeSegments;
+
 /**
  * @brief 数据是否有效
  */
@@ -276,7 +291,7 @@ typedef NS_ENUM(NSInteger, TLSDDriverStatus) {
 @property (nonatomic, assign) TLSBOrderStatus orderStatus;
 
 /**
- * @brief 订单总时间，单位：分支。乘客端拉取数据中返回
+ * @brief 订单总时间，单位：分钟。乘客端拉取数据中返回
  */
 @property (nonatomic, readonly) int totalTime;
 
@@ -304,6 +319,32 @@ typedef NS_ENUM(NSInteger, TLSDDriverStatus) {
 
 @end
 
+/**
+ * @brief 路线分段信息
+ */
+@interface TLSBRouteSegment : NSObject
+
+/**
+ * @brief 路名
+ */
+@property (nonatomic, copy) NSString *roadName;
+
+/**
+ * @brief 路线点串起点索引
+ */
+@property (nonatomic, assign) int from;
+
+/**
+ * @brief 路线点串终点索引
+ */
+@property (nonatomic, assign) int to;
+
+/**
+ * @brief 路线长度
+ */
+@property (nonatomic, assign) int length;
+
+@end
 
 NS_ASSUME_NONNULL_END
 

@@ -14,33 +14,54 @@
 #import <TencentLBS/TencentLBS.h>
 #import "TrafficPolyline.h"
 #import "MathTool.h"
+#import "OrderMenuViewController.h"
 
-@interface KCDriverSynchroViewController ()<TNKCarNaviViewDelegate, TNKCarNaviDelegate, TLSDriverManagerDelegate, QMapViewDelegate, TencentLBSLocationManagerDelegate>
+NSString * const kStartMarkerId = @"startMarker";
+NSString * const kDestMarkerId = @"destMarker";
 
-// 驾车导航
+@interface KCDriverSynchroViewController () <
+TNKCarNaviViewDelegate, TNKCarNaviDelegate, TNKCarNaviUIDelegate,
+TLSDriverManagerDelegate,
+QMapViewDelegate,
+TencentLBSLocationManagerDelegate,
+OrderMenuViewDelegate
+>
+
+// 退出页面按钮
+@property (nonatomic, strong) UIBarButtonItem *exitItem;
+// 菜单按钮
+@property (nonatomic, strong) UIBarButtonItem *menuItem;
+
+// 驾车导航管理器
 @property (nonatomic, strong) TNKCarNaviManager *carNaviManager;
+// 导航地图
 @property (nonatomic, strong) TNKCarNaviView *carNaviView;
-
-// 司乘同学司机管理类
+// 司乘同显司机管理类
 @property (nonatomic, strong) TLSDriverManager *driverManager;
 
-@property (nonatomic, strong) QPointAnnotation *passengerAnnotation;
-
+// 定位管理类，在非导航状态下获取定位使用
 @property (nonatomic, strong) TencentLBSLocationManager *locationManager;
+
+// 起点marker
+@property (nonatomic, strong, nullable) QPointAnnotation *startMarker;
+// 终点marker
+@property (nonatomic, strong, nullable) QPointAnnotation *destMarker;
+// 乘客位置
+@property (nonatomic, strong, nullable) QPointAnnotation *passengerMarker;
+
+// 路况
+@property (nonatomic, strong, nullable) TrafficPolyline *trafficLine;
+// 路线结果
+@property (nonatomic, strong, nullable) TNKCarRouteSearchResult *routeResult;
+
+// 上次定位更新时间戳
 @property (nonatomic, assign) NSTimeInterval lastLocationTimestamp;
-// 正在导航中
+// 正在是否在导航中
 @property (nonatomic, assign) BOOL isNavigating;
 
-//起终bar item
-@property (nonatomic, strong) UIBarButtonItem *searchNavi;
-@property (nonatomic, strong) UIBarButtonItem *startNavi;
-@property (nonatomic, strong) UIBarButtonItem *stopNavi;
+// 当前订单状态
+@property (nonatomic, assign) TLSBOrderStatus curOrderStatus;
 
-@property (nonatomic, strong) TrafficPolyline *trafficLine;
-@property (nonatomic, strong) TNKCarRouteSearchResult *routeResult;
-
-@property (nonatomic, strong) QPointAnnotation *destAnnotation;
-@property (nonatomic, strong) QPointAnnotation *startAnnotation;
 @end
 
 @implementation KCDriverSynchroViewController
@@ -50,21 +71,25 @@
     
     [self.carNaviManager stop];
     [self.driverManager stop];
+    // 结束连续定位
     [self stopSerialLocation];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    // 地图初始化
     [self setupCarNaviView];
+    // 导航管理类初始化
     [self setupCarNaviManager];
+    // 司乘同显初始化
     [self setupSynchroDriverManager];
+    
+    // 设置toolbar
     [self setupToolbar];
     
     // 启动定位SDK
     [self configLocationManager];
-    self.destAnnotation = [[QPointAnnotation alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -82,129 +107,240 @@
 
 #pragma mark - setups
 
-- (void)setupCarNaviView
-{
+- (void)setupCarNaviView {
     // 初始化地图
     self.carNaviView = [[TNKCarNaviView alloc] initWithFrame:self.view.bounds];
     self.carNaviView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.carNaviView];
+    // 检测导航地图的事件回调
     self.carNaviView.delegate = self;
+    // 不展示导航的默认UI元素
     self.carNaviView.showUIElements = NO;
+    // 注册地图QMapView的事件回调
     self.carNaviView.naviMapView.delegate = self;
+    // 展示当前位置的icon，导航时隐藏
     self.carNaviView.naviMapView.showsUserLocation = YES;
 }
 
-- (void)setupCarNaviManager
-{
+// 初始化驾车导航管理类
+- (void)setupCarNaviManager {
+    
     // 初始化导航管理器
     self.carNaviManager = [[TNKCarNaviManager alloc] init];
+    // 使用导航自带tts播报
      self.carNaviManager.enableInternalTTS = YES;
+    // 注册接收导航事件变化.
     [self.carNaviManager registerNaviDelegate:self];
+    [self.carNaviManager registerUIDelegate:self];
+    // 将导航管理器和导航地图关联, 必须
     [self.carNaviManager registerUIDelegate:self.carNaviView];
 }
 
-- (void)setupSynchroDriverManager
-{
+// 初始化司乘同显管理类，并关联导航管理类
+- (void)setupSynchroDriverManager {
+    
     // 初始化司乘同显
     TLSDConfig *dConfig = [[TLSDConfig alloc] init];
+    // 设置司机id
     dConfig.driverID = kSynchroKCDriverAccountID;
+    // 设置司乘同显Key
     dConfig.key = kSynchroKey;
+    dConfig.secretKey = kSynchroSecretKey;
     
     self.driverManager = [[TLSDriverManager alloc] initWithConfig:dConfig];
     self.driverManager.delegate = self;
+    // 导航地图交由司乘同显操作
     self.driverManager.carNaviView = self.carNaviView;
+    // 导航管理器交由司乘同显操作
     self.driverManager.carNaviManger = self.carNaviManager;
-    self.driverManager.orderID = kSynchroKCOrderID;
-    self.driverManager.orderType = TLSBOrderTypeNormal;
-    self.driverManager.orderStatus = TLSBOrderStatusTrip;
+    
+    // 司机状态更改为服务中
     self.driverManager.driverStatus = TLSDDriverStatusServing;
+    
+    // 允许送驾过程乘客选路
+    self.driverManager.passengerChooseRouteEnable = YES;
+    
     self.driverManager.fetchPassengerPositionsEnabled = YES;
+
+    
+    //开启司乘同显
     [self.driverManager start];
 }
 
-- (void)setupToolbar
-{
-    UIBarButtonItem *flexble = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+// 设置底部工具栏
+- (void)setupToolbar {
     
-    self.searchNavi   = [[UIBarButtonItem alloc] initWithTitle:@"路线规划" style:UIBarButtonItemStyleDone target:self action:@selector(handleNaviSearch:)];
-    self.startNavi    = [[UIBarButtonItem alloc] initWithTitle:@"开始导航" style:UIBarButtonItemStyleDone target:self action:@selector(handleStartNavi:)];
-    self.stopNavi     = [[UIBarButtonItem alloc] initWithTitle:@"退出界面" style:UIBarButtonItemStyleDone target:self action:@selector(handleStopNavi:)];
+    UIBarButtonItem *flexble = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                             target:nil
+                                                                             action:nil];
     
-    self.toolbarItems = @[flexble, self.searchNavi,
-                          flexble, self.startNavi,
-                          flexble, self.stopNavi,
+    self.exitItem = [[UIBarButtonItem alloc] initWithTitle:@"退出界面"
+                                                     style:UIBarButtonItemStyleDone
+                                                    target:self
+                                                    action:@selector(handleExitAction:)];
+    
+    self.menuItem    = [[UIBarButtonItem alloc] initWithTitle:@"控制菜单"
+                                                        style:UIBarButtonItemStyleDone
+                                                       target:self
+                                                       action:@selector(handleMenuAction:)];
+    
+    self.toolbarItems = @[flexble,
+                          self.exitItem,
+                          flexble,
+                          self.menuItem,
                           flexble];
 }
+
 #pragma mark - actions
 
-- (void)addDestAnnotation:(CLLocationCoordinate2D)coordinate
-{
-    [self.carNaviView.naviMapView removeAnnotation:self.destAnnotation];
-
-    self.destAnnotation = [[QPointAnnotation alloc] init];
-    self.destAnnotation.coordinate = coordinate;
-    self.destAnnotation.title = @"destAnnotation";
-
-    [self.carNaviView.naviMapView addAnnotation:self.destAnnotation];
-}
-
-- (void)handleNaviSearch:(UIBarButtonItem *)sender
-{
-    self.isNavigating = NO;
-    [self.carNaviManager stop];
-    self.carNaviView.showUIElements = NO;
-    self.carNaviView.hideNavigationPanel = YES;
-    [self.carNaviView clearAllRouteUI];
+- (void)addDestMarker:(CLLocationCoordinate2D)coordinate {
     
-    [self searchRoutePlanning];
+    [self.carNaviView.naviMapView removeAnnotation:self.destMarker];
+
+    self.destMarker = [[QPointAnnotation alloc] init];
+    self.destMarker.coordinate = coordinate;
+    self.destMarker.title = kDestMarkerId;
+
+    [self.carNaviView.naviMapView addAnnotation:self.destMarker];
 }
 
-- (void)handleStartNavi:(UIBarButtonItem *)sender
-{
+- (void)addStartMarker:(CLLocationCoordinate2D)coordinate {
+    
+    [self.carNaviView.naviMapView removeAnnotation:self.startMarker];
 
+    self.startMarker = [[QPointAnnotation alloc] init];
+    self.startMarker.coordinate = coordinate;
+    self.startMarker.title = kStartMarkerId;
+
+    [self.carNaviView.naviMapView addAnnotation:self.startMarker];
+}
+
+- (void)handleStartNavi:(BOOL)isSimulation {
+
+    // 隐藏toolbar
     [self.navigationController setToolbarHidden:YES animated:YES];
+    // 隐藏地图"我的位置"的icon
     self.carNaviView.naviMapView.showsUserLocation = NO;
+    self.carNaviView.dayNightMode = TNKCarNaviDayNightModeAuto;
+    self.carNaviView.mode = TNKCarNaviUIMode3DCarTowardsUp;
+    
     // 开启导航
     self.isNavigating = YES;
+    // 展示默认UI
     self.carNaviView.showUIElements = YES;
     self.carNaviView.hideNavigationPanel = NO;
+    
+    // 移除导航前的元素
     [self.carNaviView.naviMapView removeOverlay:self.trafficLine];
-    [self.carNaviView.naviMapView removeAnnotation:self.destAnnotation];
-    [self.carNaviManager startSimulateWithIndex:0 locationEntry:nil];
+    [self.carNaviView.naviMapView removeAnnotation:self.destMarker];
+    [self.carNaviView.naviMapView removeAnnotation:self.startMarker];
+    
+    // 需要导航前调用 [self.driverManager uploadRouteWithRouteID:routePlan.routeID];
+    // 这样self.driverManager.selectedRouteID的值才会存在
+    
+    if (isSimulation) {
+        //开启模拟导航
+        [self.carNaviManager startSimulateWithRouteID:self.driverManager.selectedRouteID locationEntry:nil];
+    } else {
+        [self.carNaviManager startWithRouteID:self.driverManager.selectedRouteID];
+    }
+    
+    // 送驾接力单事例
+    
+    if (TLSBOrderStatusTrip == self.driverManager.orderStatus) {
+
+        // 2秒后接到接力单
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            // 收到接力单
+
+            //接力单接驾点
+            TNKSearchNaviPoi *relayPickupPoint = [[TNKSearchNaviPoi alloc] init];
+            relayPickupPoint.coordinate = kSynchroKCPassenger2Start;
+
+            // 当前订单终点
+            TNKSearchNaviPoi *curTripPoint = [[TNKSearchNaviPoi alloc] init];
+            curTripPoint.coordinate = kSynchroKCPassenger1End;
+
+            __weak typeof(self) weakself = self;
+
+            [self.driverManager setupRelayOrder:kSynchroKCOrder2ID relayPickupPoint:relayPickupPoint curTripPoint:curTripPoint option:nil completion:^(TNKCarRouteSearchResult * _Nonnull result, NSError * _Nullable error) {
+
+                __strong KCDriverSynchroViewController *strongself = weakself;
+                if (!strongself) {
+                    return;
+                }
+
+                if (!error) {
+
+                    // 上报接力单路线
+                    [strongself.driverManager uploadRelayRoute:result.routes.firstObject];
+                }
+            }];
+        });
+
+    }
 }
 
-- (void)handleStopNavi:(UIBarButtonItem *)sender
-{
+// 退出
+- (void)handleExitAction:(UIBarButtonItem *)sender {
+    
     self.isNavigating = NO;
     [self.carNaviManager stop];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)searchRoutePlanning
-{
-     // 导航起终点
-     TNKSearchNaviPoi *startPOI = [[TNKSearchNaviPoi alloc] init];
-     startPOI.coordinate = self.carNaviView.naviMapView.userLocation.location.coordinate;
-     // startPOI.coordinate = kSynchroDriverStart;
-     TNKSearchNaviPoi *endPOI = [[TNKSearchNaviPoi alloc] init];
-     endPOI.coordinate = kSynchroDriverEnd;
-    [self addDestAnnotation:endPOI.coordinate];
-     [self searchRouteAndStartNaviWithStart:startPOI end:endPOI wayPoints:@[]];
+// 打开菜单
+- (void)handleMenuAction:(UIBarButtonItem *)sender {
+
+    self.modalPresentationStyle = UIModalPresentationCurrentContext;
+
+    OrderMenuViewController *orderMenuVC = [[OrderMenuViewController alloc] init];
+    orderMenuVC.delegate = self;
+    orderMenuVC.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    orderMenuVC.orderStatus = self.curOrderStatus;
+    
+    [self presentViewController:orderMenuVC animated:NO completion:^{
+        [orderMenuVC showMenu];
+    }];
 }
 
-- (QMapRect)visibleMapRectForNaviResult:(TNKCarRouteSearchResult *)result
-{
-    NSAssert(result.routes.count != 0, @"route count 0 error");
+// 进行接驾路径规划
+- (void)searchPickupRoute {
     
-    TNKCarRouteSearchRoutePlan *plan = result.routes[0];
-    TNKCarRouteSearchRouteLine *line = plan.line;
+    // 导航起点，司机当前位置
+    TNKSearchNaviPoi *startPOI = [[TNKSearchNaviPoi alloc] init];
+    startPOI.coordinate = self.carNaviView.naviMapView.userLocation.location.coordinate;
+    // 导航终点，乘客上车位置
+    TNKSearchNaviPoi *endPOI = [[TNKSearchNaviPoi alloc] init];
+    endPOI.coordinate = kSynchroKCPassenger1Start;
+    
+    [self searchRouteAndStartNaviWithStart:startPOI end:endPOI wayPoints:@[]];
+}
+
+// 进行送驾路径规划
+- (void)searchTripRoute {
+    
+    // 导航起点，司机当前位置
+    TNKSearchNaviPoi *startPOI = [[TNKSearchNaviPoi alloc] init];
+    startPOI.coordinate = self.carNaviView.naviMapView.userLocation.location.coordinate;
+    // 导航终点，乘客下车位置
+    TNKSearchNaviPoi *endPOI = [[TNKSearchNaviPoi alloc] init];
+    endPOI.coordinate = kSynchroKCPassenger1End;
+    
+    [self searchRouteAndStartNaviWithStart:startPOI end:endPOI wayPoints:@[]];
+}
+
+// 计算路线展示在地图上的视野
+- (QMapRect)visibleMapRectForRoutePlan:(TNKCarRouteSearchRoutePlan *)routePlan {
+    
+    TNKCarRouteSearchRouteLine *line = routePlan.line;
     
     return [MathTool mapRectFitsPoints:line.coordinatePoints];
 }
 
-- (TrafficPolyline *)polylineForRoutePlan :(TNKCarRouteSearchRoutePlan *)routePlan
-{
+// 通过路线数据创建Overlay，画到地图上
+- (TrafficPolyline *)polylineForRoutePlan:(TNKCarRouteSearchRoutePlan *)routePlan {
 
     TNKCarRouteSearchRouteLine *line = routePlan.line;
     NSArray<TNKRouteTrafficData *> *trafficDataArray = line.initialTrafficDataArray;
@@ -232,12 +368,17 @@
     return routeOverlay;
 }
 
+// 路径规划
 - (void)searchRouteAndStartNaviWithStart:(TNKSearchNaviPoi *)startPOI
                                      end:(TNKSearchNaviPoi *)endPOI
                                wayPoints:(NSArray<TLSDWayPointInfo *> * _Nullable)wayPoints {
     
     __weak typeof(self) weakself = self;
+    
+    // 移除当前路线
+    [self.carNaviView.naviMapView removeOverlay:self.trafficLine];
 
+    // 司乘同显路径规划接口，内部调用了导航SDK的路径规划服务
     [self.driverManager searchCarRoutesWithStart:startPOI end:endPOI wayPoints:wayPoints option:nil completion:^(TNKCarRouteSearchResult * _Nonnull result, NSError * _Nullable error) {
        
         __strong KCDriverSynchroViewController *strongself = weakself;
@@ -250,20 +391,60 @@
             return;
         }
         
-        [strongself.driverManager uploadRouteWithIndex:0];
-        weakself.routeResult = result;
-        
-        strongself.trafficLine = [strongself polylineForRoutePlan:result.routes.firstObject];
-        [strongself.carNaviView.naviMapView addOverlay:strongself.trafficLine];
-        
-        QMapRect mapRect = [weakself visibleMapRectForNaviResult:result];
-        [weakself.carNaviView.naviMapView setVisibleMapRect:mapRect edgePadding:UIEdgeInsetsMake(kNavigationBarHeight + 64, 30, kHomeIndicatorHeight + 64 + 80, 30) animated:YES];
+        // 保存路径规划结果
+        strongself.routeResult = result;
+        // 先选择首方案
+        [strongself selectAndShowRoutePlan:result.routes.firstObject];
     }];
 }
 
+- (void)selectAndShowRoutePlan:(TNKCarRouteSearchRoutePlan *)routePlan {
+
+    // 上传路线信息到司乘同显服务
+    [self.driverManager uploadRouteWithRouteID:routePlan.routeID];
+     
+    // 画路线
+    if (self.trafficLine) {
+        [self.carNaviView.naviMapView removeOverlay:self.trafficLine];
+        self.trafficLine = nil;
+    }
+    self.trafficLine = [self polylineForRoutePlan:routePlan];
+    [self.carNaviView.naviMapView addOverlay:self.trafficLine];
+    
+    // 调整地图视野
+    QMapRect mapRect = [self visibleMapRectForRoutePlan:routePlan];
+    [self.carNaviView.naviMapView setVisibleMapRect:mapRect
+                                              edgePadding:UIEdgeInsetsMake(kNavigationBarHeight + 64, 30, kHomeIndicatorHeight + 124, 30) animated:YES];
+}
+
+
+// 停止导航
+- (void)stopNavi {
+    
+    // 切换至日间模式
+    [self.carNaviView setDayNightMode:TNKCarNaviDayNightModeAlwaysDay];
+    
+    // 结束导航
+    self.isNavigating = NO;
+    [self.carNaviManager stop];
+    self.carNaviView.showUIElements = NO;
+    self.carNaviView.hideNavigationPanel = YES;
+    
+    // 结束导航后清理导航中的元素
+    [self.carNaviView clearAllRouteUI];
+    
+    //再次展示地图SDK，我的位置
+    self.carNaviView.naviMapView.showsUserLocation = YES;
+    
+    // 改回俯仰角
+    self.carNaviView.naviMapView.overlooking = 0.0;
+    
+     [self.navigationController setToolbarHidden:NO animated:YES];
+    
+}
+
 #pragma mark - location manager
-- (void)configLocationManager
-{
+- (void)configLocationManager {
     self.locationManager = [[TencentLBSLocationManager alloc] init];
  
     [self.locationManager setDelegate:self];
@@ -300,7 +481,9 @@
  
 - (void)tencentLBSLocationManager:(TencentLBSLocationManager *)manager
                  didFailWithError:(NSError *)error {
+    
     CLAuthorizationStatus authorizationStatus = [CLLocationManager authorizationStatus];
+    
     if (authorizationStatus == kCLAuthorizationStatusDenied ||
         authorizationStatus == kCLAuthorizationStatusRestricted) {
  
@@ -333,7 +516,6 @@
 - (void)tencentLBSLocationManager:(TencentLBSLocationManager *)manager
                 didUpdateLocation:(TencentLBSLocation *)location {
     //定位结果
-    NSLog(@"location:%@", location.location);
     if (self.lastLocationTimestamp == [location.location.timestamp timeIntervalSince1970]) {
         // 时间戳相同，过滤
         return;
@@ -350,22 +532,86 @@
 //    }
 }
 
+#pragma mark - 司乘同显相关
+
+// 获取订单，订单设置为接驾状态，司机状态为服务中
+- (void)getOrder {
+    
+    self.curOrderStatus = TLSBOrderStatusPickup;
+    // 更新司乘同显信息
+    self.driverManager.orderID = kSynchroKCOrder1ID;
+    // 订单为快车单
+    self.driverManager.orderType = TLSBOrderTypeNormal;
+    // 订单状态设置为接驾
+    self.driverManager.orderStatus = TLSBOrderStatusPickup;
+    
+    // 地图展示起终点marker，画出接驾路线
+    [self addStartMarker:kSynchroKCPassenger1Start];
+    [self addDestMarker:kSynchroKCPassenger1End];
+    
+    // 接驾路径规划
+    [self searchPickupRoute];
+}
+
+// 订单切换至送驾状态
+- (void)startTrip {
+    //送驾
+    self.curOrderStatus = TLSBOrderStatusTrip;
+
+    // 更新司乘同显信息
+    self.driverManager.orderID = kSynchroKCOrder1ID;
+    // 订单为快车单
+    self.driverManager.orderType = TLSBOrderTypeNormal;
+    // 订单状态设置为送驾
+    self.driverManager.orderStatus = TLSBOrderStatusTrip;
+    
+    // 地图展示起终点marker，画出接驾路线
+    [self addDestMarker:kSynchroKCPassenger1End];
+    
+    // 接驾路径规划
+    [self searchTripRoute];
+}
+
+#pragma mark - OrderMenuViewDelegate
+
+// 切换至接驾
+- (void)orderMenuViewControllerPickup:(OrderMenuViewController *)orderMenuViewController {
+    [self getOrder];
+}
+
+// 切换至送驾
+- (void)orderMenuViewControllerTrip:(OrderMenuViewController *)orderMenuViewController {
+    [self startTrip];
+}
+
+// 开启导航
+- (void)orderMenuViewControllerStartNavi:(OrderMenuViewController *)orderMenuViewController {
+    [self handleStartNavi:NO];
+}
+
+// 开启模拟导航
+- (void)orderMenuViewControllerStartSimulateNavi:(OrderMenuViewController *)orderMenuViewController {
+    [self handleStartNavi:YES];
+}
 
 #pragma mark - TNKCarNaviDelegate
+// 获取导航过程中的定位信息，包括原始定位于路线吸附数据
 - (void)carNavigationManager:(TNKCarNaviManager *)manager didUpdateLocation:(TNKLocation *)location {
     
 }
 
+#pragma mark - TNKCarNaviUIDelegate
+- (void)carNavigationManagerDidArriveDestination:(TNKCarNaviManager *)manager {
+    // 到达目的地, 停止导航
+    [self stopNavi];
+}
+
+
 #pragma mark - TNKCarNaviViewDelegate
 - (void)carNaviViewCloseButtonClicked:(TNKCarNaviView *)carNaviView {
-    self.isNavigating = NO;
-    [self.carNaviManager stop];
-    self.carNaviView.showUIElements = NO;
-    self.carNaviView.hideNavigationPanel = YES;
-    [self.carNaviView clearAllRouteUI];
-    self.carNaviView.naviMapView.showsUserLocation = YES;
     
-     [self.navigationController setToolbarHidden:NO animated:YES];
+    // 停止导航
+    [self stopNavi];
 }
 
 #pragma mark - TLSDriverManagerDelegate
@@ -386,41 +632,89 @@
 //    }
 }
 
+- (void)tlsDriverManagerDidUploadRouteFail:(TLSDriverManager *)driverManager error:(NSError *)error {
+    
+}
+
+
+/**
+ * @brief 上报定位成功回调
+ * @param driverManager 司机manager
+ */
+- (void)tlsDriverManagerDidUploadLocationSuccess:(TLSDriverManager *)driverManager {
+    
+}
+
+/**
+ * @brief 上报定位失败回调
+ * @param driverManager 司机manager
+ * @param error 错误信息
+ */
+- (void)tlsDriverManagerDidUploadLocationFail:(TLSDriverManager *)driverManager error:(NSError *)error {
+    
+}
+
+/**
+ * @brief 上报路线成功回调
+ * @param driverManager 司机manager
+ */
+- (void)tlsDriverManagerDidUploadRouteSuccess:(TLSDriverManager *)driverManager {
+    
+}
+
+/// 乘客选路回调。如果当前正在导航，则路线被自动切换。如果当前还没开启导航，需要开发者重新绘制路线然后使用routePlan中的routeID去开启导航
+/// @param driverManager 司机manager
+/// @param routePlan 路线数据
+/// @param trafficStatus 路况数据
+- (void)tlsDriverManager:(TLSDriverManager *)driverManager didPassengerChangeRoute:(TNKCarRouteSearchRoutePlan *)routePlan routeTrafficStatus:(TNKRouteTrafficStatus *)trafficStatus {
+    
+    [SVProgressHUD showInfoWithStatus:@"乘客发送了送驾路线切换命令！"];
+
+    if (self.carNaviManager.isRunning) {
+        // 记录新的导航路线
+        return;
+    }
+    
+    //还没开启导航，需要开发者重新绘制送驾路线
+    [self selectAndShowRoutePlan:routePlan];
+}
+
+
 #pragma mark - QMapViewDelegate
 - (QAnnotationView *)mapView:(QMapView *)mapView viewForAnnotation:(id<QAnnotation>)annotation {
     
-        if ([annotation isKindOfClass:[QPointAnnotation class]])
-        {
-            static NSString *pointReuseIndetifier = @"pointReuseIndetifier";
-            QPinAnnotationView *annotationView = (QPinAnnotationView *)[self.carNaviView.naviMapView dequeueReusableAnnotationViewWithIdentifier:pointReuseIndetifier];
-            
-            if (annotationView == nil)
-            {
-                annotationView = [[QPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pointReuseIndetifier];
-            }
-            
-            if ([annotation.title isEqualToString:@"destAnnotation"])
-            {
-                NSString *identifier = @"destination";
-                QAnnotationView *annotationView = [self.carNaviView.naviMapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-                if (!annotationView)
-                {
-                    annotationView = [[QAnnotationView alloc] init];
-                }
-                annotationView.image = [UIImage imageNamed:@"ic_end"];
-                return annotationView;
-            }
-            
-            annotationView.animatesDrop = YES;
-            
-            return annotationView;
+    if ([annotation isKindOfClass:[QPointAnnotation class]]) {
+
+        // 自定义marker
+        
+        NSString *identifier = annotation.title;
+
+        NSString *imageName;
+        
+        if ([identifier isEqualToString:kStartMarkerId]) {
+            // 起点、接驾点marker
+            imageName = @"ic_start_marker";
+        } else if ([identifier isEqualToString:kDestMarkerId]) {
+            // 终点、送驾点marker
+            imageName = @"ic_end_marker";
         }
+        
+        // 如果是终点marker
+        QPinAnnotationView *annotationView = (QPinAnnotationView *)[self.carNaviView.naviMapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (!annotationView) {
+            annotationView = [[QPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        }
+        annotationView.image = [UIImage imageNamed:imageName];
+        annotationView.animatesDrop = YES;
+        
+        return annotationView;
+    }
+    
     return nil;
 }
 
 
-- (QOverlayView *)mapView:(QMapView *)mapView viewForOverlay:(id<QOverlay>)overlay
-{
+- (QOverlayView *)mapView:(QMapView *)mapView viewForOverlay:(id<QOverlay>)overlay {
     if ([overlay isKindOfClass:[TrafficPolyline class]])
     {
         TrafficPolyline *tl = (TrafficPolyline*)overlay;
@@ -445,7 +739,7 @@
         return polylineRender;
     }
     
-    
     return nil;
 }
+
 @end

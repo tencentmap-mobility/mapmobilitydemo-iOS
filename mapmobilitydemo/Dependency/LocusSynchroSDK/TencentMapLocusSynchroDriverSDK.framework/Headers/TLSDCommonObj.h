@@ -24,6 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *key;
 
 /**
+ * @brief  司乘同显的secretKey， 如果鉴权方式不是签名校验则无需填写。在https://lbs.qq.com/的控制台->应用管理->我的应用中查看
+ */
+@property (nonatomic, copy, nullable) NSString *secretKey;
+
+/**
  * @brief 司机id
  */
 @property (nonatomic, copy) NSString *driverID;
@@ -82,6 +87,28 @@ NS_ASSUME_NONNULL_BEGIN
  * @brief 乘客的轨迹信息
  */
 @property (nonatomic, readonly, nullable) NSArray<TLSBPosition *> *positions;
+
+@end
+
+
+typedef NS_ENUM(NSInteger, TLSBChooseRouteStatus) {
+    TLSBChooseRouteStatusNone,              // 乘客没有进行选路
+    TLSBChooseRouteStatusMatchedFail,       // 乘客行前选路，但是导航没有匹配出路线
+    TLSBChooseRouteStatusMatchedSuccess,    // 乘客行前选路，导航匹配成功
+};
+
+/**
+ * @brief 乘客选路指令信息
+ */
+@interface TLSBChooseRouteInfo : NSObject
+
+//乘客选路指令信息状态。当为TLSBChooseRouteStatusMatchedSuccess时，selectedRouteID有值
+@property (nonatomic, assign) TLSBChooseRouteStatus chooseRouteStatus;
+
+/**
+ * @brief 选中路线的路线id
+ */
+@property (nonatomic, copy, nullable) NSString *selectedRouteID;
 
 @end
 

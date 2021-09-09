@@ -8,6 +8,9 @@
 
 #define kMapKey @"" // 需要填写地图的key
 #define kSynchroKey @""  // 需要填写司乘同显的Key
+#define kSynchroSecretKey @""  // 需要填写司乘同显Key对应的secretKey，不是签名校验方式则不用填写
+
+
 #define kMobilityKey @"" // 需要填写webServiceKey
 #define kMobilitySecretKey @"" // 需要填写webServiceSecretKey
 
@@ -32,6 +35,15 @@
 
 
 // 快车订单
-#define kSynchroKCOrderID            @""
-#define kSynchroKCDriverAccountID    @""
-#define kSynchroKCPassengerAccountID @""
+#define kSynchroKCDriverAccountID    @"kc_driver_ios_mol_000001"
+
+#define kSynchroKCOrder1ID            @"kc_ios_mol_000006"
+#define kSynchroKCPassenger1AccountID @"kc_passenger_ios_mol_000001"
+#define kSynchroKCPassenger1Start         CLLocationCoordinate2DMake(39.988955, 116.410266)
+#define kSynchroKCPassenger1End           CLLocationCoordinate2DMake(40.113174, 116.658524)
+
+// 接力单订单，请同步订单状态为接驾
+#define kSynchroKCOrder2ID            @"kc_ios_mol_000007"
+#define kSynchroKCPassenger2AccountID @"kc_passenger_ios_mol_000002"
+#define kSynchroKCPassenger2Start         CLLocationCoordinate2DMake(40.149619, 116.662102)
+#define kSynchroKCPassenger2End           CLLocationCoordinate2DMake(40.129771, 116.641374)

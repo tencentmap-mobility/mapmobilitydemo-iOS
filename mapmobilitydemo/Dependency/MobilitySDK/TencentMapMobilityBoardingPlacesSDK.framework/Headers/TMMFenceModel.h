@@ -17,7 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface TMMFenceModel : NSObject
 
-
+/**
+ * @brief 一级围栏名称
+ */
 @property (nonatomic, readonly) NSString *title;
 
 /**

@@ -22,8 +22,12 @@ typedef NS_ENUM(NSInteger, TMMBPAbsorbedFailedReason) {
     TMMBPAbsorbedFailedReasonMapZoomLevel = 1,      ///<  地图zoomLevel小于TMMNearbyBoardingPlacesConfig->minMapZoomLevel
     TMMBPAbsorbedFailedReasonRequestFail = 2,       ///<  请求推荐上车点失败造成的
     TMMBPAbsorbedFailedReasonAbsorbedIsFalse = 3,   ///< TMMNearbyBoardingPlacesConfig-> isAbsorbed 为false造成没有吸附
+    TMMBPAbsorbedFailedReasonNoBoardingPlaces = 4,  ///< 推荐上车点个数为0造成
 };
 
+/**
+ * @brief 推荐上车点管理类 delegate
+ */
 @protocol TMMNearbyBoardingPlacesManagerDelegate <NSObject>
 
 @optional

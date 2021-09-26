@@ -15,7 +15,7 @@
 #ifndef TencentMapMobilityBoardingPlacesVersion_h
 #define TencentMapMobilityBoardingPlacesVersion_h
 
-#define TencentMapMobilityBoardingPlacesVersionNumber    010104
+#define TencentMapMobilityBoardingPlacesVersionNumber    010203
 
 // SDK版本
 FOUNDATION_EXTERN NSString * const TencentMapMobilityBoardingPlacesSDKVersion;

@@ -89,6 +89,28 @@ typedef NS_ENUM(NSInteger, TLSDDriverStatus) {
 
 @end
 
+/**
+ * @brief POI类。 since 2.2.0
+ */
+@interface TLSBNaviPOI : NSObject
+
+/**
+ * @brief  POI ID
+ */
+@property (nonatomic, copy, nullable) NSString *poiID;
+
+/**
+ * @brief 坐标（必传）
+ */
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
+
+/**
+ * @brief poi名称
+ */
+@property (nonatomic, copy, nullable) NSString *poiName;
+
+@end
+
 #pragma mark - 轨迹点信息
 
 /**
@@ -180,7 +202,7 @@ typedef NS_ENUM(NSInteger, TLSDDriverStatus) {
 @property (nonatomic, assign) int to;
 
 /**
- * @brief 路况颜色
+ * @brief 路况颜色. 0:通畅 1:缓行 2:堵塞 3:未知路况 4:严重堵塞.
  */
 @property (nonatomic, assign) int color;
 @end

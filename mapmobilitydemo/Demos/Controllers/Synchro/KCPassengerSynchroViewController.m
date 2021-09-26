@@ -58,9 +58,9 @@ KCChooseRouteDelegate>
     KCMyOrder *order = [[KCMyOrder alloc] init];
     order.driverID = kSynchroKCDriverAccountID;
     order.adCode = @"110000";
-    order.orderID = kSynchroKCOrder2ID;
-    order.passengerID = kSynchroKCPassenger2AccountID;
-    order.orderStatus = TLSBOrderStatusPickup;
+    order.orderID = kSynchroKCOrder1ID;
+    order.passengerID = kSynchroKCPassenger1AccountID;
+    order.orderStatus = TLSBOrderStatusTrip;
     
     MyPOI *startPOI = [[MyPOI alloc] init];
     startPOI.coord = kSynchroKCPassenger2Start;
@@ -127,10 +127,13 @@ KCChooseRouteDelegate>
     
     UIBarButtonItem *flexble = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
-    UIBarButtonItem *fetchButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"启动同步" style:UIBarButtonItemStyleDone target:self action:@selector(handleStartFetch:)];
+    UIBarButtonItem *fetchButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"启动" style:UIBarButtonItemStyleDone target:self action:@selector(handleStartFetch:)];
     UIBarButtonItem *uploadLocationButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"上报定位" style:UIBarButtonItemStyleDone target:self action:@selector(handleStopFetch:)];
     
-    UIBarButtonItem *chooseRouteItem = [[UIBarButtonItem alloc] initWithTitle:@"送驾中选路" style:UIBarButtonItemStyleDone target:self action:@selector(chooseRoute:)];
+    UIBarButtonItem *chooseRouteItem = [[UIBarButtonItem alloc] initWithTitle:@"送驾选路" style:UIBarButtonItemStyleDone target:self action:@selector(chooseRoute:)];
+    
+    UIBarButtonItem *changeDestinationItem = [[UIBarButtonItem alloc] initWithTitle:@"改目的地" style:UIBarButtonItemStyleDone target:self action:@selector(changeDestination:)];
+    
     
     self.toolbarItems = @[flexble,
                           fetchButtonItem,
@@ -139,6 +142,8 @@ KCChooseRouteDelegate>
                           flexble,
                           chooseRouteItem,
                           flexble,
+                          changeDestinationItem,
+                          flexble
     ];
     
     self.restoreVisableRectButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"恢复视野" style:UIBarButtonItemStylePlain target:self action:@selector(restoreVisableRect:)];
@@ -376,13 +381,13 @@ KCChooseRouteDelegate>
         [self.passengerModule.passengerManager start];
     }
     
-    sender.title = self.passengerModule.passengerManager.isRunning ? @"停止拉取" : @"开启拉取";
+    sender.title = self.passengerModule.passengerManager.isRunning ? @"停止" : @"开启";
 
 }
 
 - (void)handleStopFetch:(UIBarButtonItem *)sender {
     self.passengerModule.passengerManager.uploadPassengerPositionsEnabled = !self.passengerModule.passengerManager.uploadPassengerPositionsEnabled;
-    sender.title = self.passengerModule.passengerManager.uploadPassengerPositionsEnabled ? @"关闭上报定位" : @"开启上报定位";
+    sender.title = self.passengerModule.passengerManager.uploadPassengerPositionsEnabled ? @"关闭上报" : @"上报定位";
 }
 
 - (void)chooseRoute:(UIBarButtonItem *)sender {
@@ -400,6 +405,19 @@ KCChooseRouteDelegate>
     chooseRouteVC.delegate = self;
 
     [self.navigationController pushViewController:chooseRouteVC animated:YES];
+}
+
+- (void)changeDestination:(UIBarButtonItem *)sender {
+    
+    if (self.passengerModule.passengerManager.orderStatus != TLSBOrderStatusTrip) {
+        NSLog(@"送驾过程才可修改目的地");
+        return;
+    }
+    
+    TLSBNaviPOI *point = [[TLSBNaviPOI alloc] init];
+    point.coordinate = CLLocationCoordinate2DMake(39.894592, 116.321526);
+    
+    [self.passengerModule.passengerManager changeDestinationWhenTrip:point];
 }
 
 

@@ -140,7 +140,32 @@
 ```
 
 
-## 5. 司乘同显乘客端回调
+## 5. 送驾乘客修改目的地
+
+```objc
+/// 送驾中乘客选修改目的地方法. since 2.3.0
+/// @param endPoint 目的地信息。
+- (void)changeDestinationWhenTrip:(TLSBNaviPOI *)endPoint;
+```
+
+通过TLSPassengerManagerDelegate回调可以看到请求状态
+
+```objc
+/**
+ * @brief 送驾过程发起修改目的地请求失败回调. since 2.3.0
+ * @param passengerManager 乘客端管理类
+ * @param error 错误信息
+ */
+- (void)tlsPassengerManagerDidSendChangeDestinationRequesFail:(TLSPassengerManager *)passengerManager error:(NSError *)error;
+
+/// 司机修改送驾目的地回调. since 2.3.0.
+/// @param passengerManager 乘客manager
+/// @param endNaviPOI 新的目的地
+- (void)tlsPassengerManager:(TLSPassengerManager *)passengerManager didDriverChangeDestinaton:(TLSBNaviPOI *)endNaviPOI;
+```
+
+
+## 司乘同显乘客端回调
 
 ```objc
 /**

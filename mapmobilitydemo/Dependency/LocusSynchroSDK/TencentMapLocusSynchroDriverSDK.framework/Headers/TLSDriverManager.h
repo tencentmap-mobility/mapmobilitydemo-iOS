@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tlsDriverManager:(TLSDriverManager *)driverManager didRemoveWayPointInfo:(TLSDWayPointInfo *)removedWayPointInfo;
 
 
-/// 乘客选路成功回调. since 2.2.0. 如果当前正在导航，则路线被自动切换。如果当前还没开启导航，需要开发者重新绘制路线然后使用routePlan中的routeID去开启导航
+/// 乘客选路成功回调. since 2.2.0. 如果当前正在导航，需要开发者调用导航SDK切换路线方法；如果当前还没开启导航，需要开发者重新绘制路线然后使用routePlan中的routeID去开启导航
 /// @param driverManager 司机manager
 /// @param routePlan 路线数据
 /// @param trafficStatus 路况数据
@@ -76,6 +76,11 @@ NS_ASSUME_NONNULL_BEGIN
  * @param error 错误信息
  */
 - (void)tlsDriverManagerDidPassengerChangeRouteFail:(TLSDriverManager *)driverManager error:(NSError *)error;
+
+/// 乘客修改送驾目的地回调. since 2.3.0. 如果当前正在导航，需要开发者调用TLSDriverManager修改目的地方法changeDestination:type:；如果当前还没开启导航，需要开发者重新进行路径规划。
+/// @param driverManager 司机manager
+/// @param endNaviPOI 新的目的地
+- (void)tlsDriverManager:(TLSDriverManager *)driverManager didPassengerChangeDestinaton:(TLSBNaviPOI *)endNaviPOI;
 
 @end
 

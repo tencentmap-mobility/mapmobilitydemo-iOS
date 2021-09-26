@@ -259,7 +259,7 @@
     // 更新视野
     QMapRect mapRect = [MathTool mapRectFitsLocations:allPoints];
     [self.mapView setVisibleMapRect:mapRect
-                        edgePadding:UIEdgeInsetsMake(50, 50, 20, 50)
+                        edgePadding:UIEdgeInsetsMake(80, 80, 20, 80)
                            animated:YES];
 }
 
@@ -592,4 +592,21 @@
     [SVProgressHUD showErrorWithStatus:errorDes];
 }
 
+/**
+ * @brief 送驾过程发起修改目的地请求成功回调. since 2.3.0
+ * @param passengerManager 乘客端管理类
+ */
+- (void)tlsPassengerManagerDidSendChangeDestinationRequestSuccess:(TLSPassengerManager *)passengerManager {
+    [SVProgressHUD showSuccessWithStatus:@"乘客修改目的地指令发送成功！"];
+}
+
+/**
+ * @brief 送驾过程发起修改目的地请求失败回调. since 2.3.0
+ * @param passengerManager 乘客端管理类
+ * @param error 错误信息
+ */
+- (void)tlsPassengerManagerDidSendChangeDestinationRequesFail:(TLSPassengerManager *)passengerManager error:(NSError *)error {
+    NSString *errorDes = [NSString stringWithFormat:@"乘客修改目的地失败error:%@", error];
+    [SVProgressHUD showErrorWithStatus:errorDes];
+}
 @end

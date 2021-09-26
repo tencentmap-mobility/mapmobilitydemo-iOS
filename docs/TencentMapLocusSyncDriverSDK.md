@@ -322,7 +322,53 @@
 
 ```
 
-## 5. 司乘同显司机端回调
+## 5. 送驾中乘客修改目的地
+监听TLSDriverManagerDelegate的回调：
+
+```objc
+/// 乘客修改送驾目的地回调. since 2.3.0. 如果当前正在导航，需要开发者调用TLSDriverManager修改目的地方法changeDestination:type:；如果当前还没开启导航，需要开发者重新进行路径规划。
+/// @param driverManager 司机manager
+/// @param endNaviPOI 新的目的地
+- (void)tlsDriverManager:(TLSDriverManager *)driverManager didPassengerChangeDestinaton:(TLSBNaviPOI *)endNaviPOI;
+
+```
+
+处理开启导航、未开启导航两种情况：
+
+```objc
+/// 乘客修改送驾目的地回调. since 2.3.0. 如果当前正在导航，需要开发者调用导航SDK修改目的地方法；如果当前还没开启导航，需要开发者重新进行路径规划。
+/// @param driverManager 司机manager
+/// @param endNaviPOI 新的目的地
+- (void)tlsDriverManager:(TLSDriverManager *)driverManager didPassengerChangeDestinaton:(TLSBNaviPOI *)endNaviPOI {
+    
+    [SVProgressHUD showInfoWithStatus:@"乘客发送了送驾修改目的地命令！"];
+
+    TNKSearchNaviPoi *naviPOI = [[TNKSearchNaviPoi alloc] init];
+    naviPOI.coordinate = endNaviPOI.coordinate;
+    naviPOI.uid = endNaviPOI.poiID;
+    
+    if (self.carNaviManager.isRunning) {
+        // 记录新的导航路线
+       
+        // 有选中路线
+        [self.driverManager changeDestination:naviPOI type:2];
+    } else {
+        
+        //还没开启导航，需要开发者重新路径规划
+        // 导航起点，司机当前位置
+        TNKSearchNaviPoi *startPOI = [[TNKSearchNaviPoi alloc] init];
+        startPOI.coordinate = self.carNaviView.naviMapView.userLocation.location.coordinate;
+        // 导航终点，乘客下车位置
+        
+        [self searchRouteAndStartNaviWithStart:startPOI end:naviPOI wayPoints:@[]];
+        
+    }
+}
+```
+
+
+
+## 司乘同显司机端回调
 
 ```objc
 /**

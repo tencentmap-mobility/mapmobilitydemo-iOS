@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class TLSPConfig, TLSPassengerManager;
+@class TLSPConfig, TLSPassengerManager, TLSBNaviPOI;
 
 /**
  * @brief 司乘同显-乘客管理类代理
@@ -60,6 +60,24 @@ NS_ASSUME_NONNULL_BEGIN
  * @param error 错误信息
  */
 - (void)tlsPassengerManagerDidSendRouteRequestFail:(TLSPassengerManager *)passengerManager error:(NSError *)error;
+
+/**
+ * @brief 送驾过程发起修改目的地请求成功回调. since 2.3.0
+ * @param passengerManager 乘客端管理类
+ */
+- (void)tlsPassengerManagerDidSendChangeDestinationRequestSuccess:(TLSPassengerManager *)passengerManager;
+
+/**
+ * @brief 送驾过程发起修改目的地请求失败回调. since 2.3.0
+ * @param passengerManager 乘客端管理类
+ * @param error 错误信息
+ */
+- (void)tlsPassengerManagerDidSendChangeDestinationRequesFail:(TLSPassengerManager *)passengerManager error:(NSError *)error;
+
+/// 司机修改送驾目的地回调. since 2.3.0.
+/// @param passengerManager 乘客manager
+/// @param endNaviPOI 新的目的地
+- (void)tlsPassengerManager:(TLSPassengerManager *)passengerManager didDriverChangeDestinaton:(TLSBNaviPOI *)endNaviPOI;
 
 @end
 
@@ -157,6 +175,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 送驾前乘客选择送驾路线方法. since 2.2.0
 /// @param route 路线信息。
 - (void)chooseRouteBeforeTrip:(TLSBRoute *)route;
+
+
+/// 送驾中乘客选修改目的地方法. since 2.3.0
+/// @param endPoint 目的地信息。
+- (void)changeDestinationWhenTrip:(TLSBNaviPOI *)endPoint;
 
 @end
 

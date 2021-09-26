@@ -175,6 +175,11 @@ NS_ASSUME_NONNULL_BEGIN
                                                NSError * _Nullable error,
                                                TLSBChooseRouteInfo * _Nullable chooseRouteInfo))callback;
 
+/// 导航过程修改目的地接口 since 2.3.0
+/// @param endPoi 新的目的地
+/// @param changeType 修改目的地类型。1代表司机修改；2代表乘客修改、
+- (void)changeDestination:(TNKSearchNaviPoi *)endPoi type:(int)changeType;
+
 @end
 
 NS_ASSUME_NONNULL_END

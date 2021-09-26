@@ -12,6 +12,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class TLSBNaviPOI;
+
 /**
  * @brief 乘客拉取司机的信息
  */
@@ -48,22 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-/**
- * @brief POI类。算路起终点. since 2.2.0
- */
-@interface TLSBNaviPOI : NSObject
-
-/**
- * @brief  POI ID
- */
-@property (nonatomic, copy, nullable) NSString *poiID;
-
-/**
- * @brief 坐标（必传）
- */
-@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
-
-@end
 
 /**
  * @brief 驾车请求. since 2.2.0

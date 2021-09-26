@@ -158,7 +158,7 @@ OrderMenuViewDelegate
     self.driverManager.driverStatus = TLSDDriverStatusServing;
     
     // 允许送驾过程乘客选路
-    self.driverManager.passengerChooseRouteEnable = YES;
+    //self.driverManager.passengerChooseRouteEnable = YES;
     
     self.driverManager.fetchPassengerPositionsEnabled = YES;
 
@@ -247,38 +247,38 @@ OrderMenuViewDelegate
     
     // 送驾接力单事例
     
-    if (TLSBOrderStatusTrip == self.driverManager.orderStatus) {
-
-        // 2秒后接到接力单
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            // 收到接力单
-
-            //接力单接驾点
-            TNKSearchNaviPoi *relayPickupPoint = [[TNKSearchNaviPoi alloc] init];
-            relayPickupPoint.coordinate = kSynchroKCPassenger2Start;
-
-            // 当前订单终点
-            TNKSearchNaviPoi *curTripPoint = [[TNKSearchNaviPoi alloc] init];
-            curTripPoint.coordinate = kSynchroKCPassenger1End;
-
-            __weak typeof(self) weakself = self;
-
-            [self.driverManager setupRelayOrder:kSynchroKCOrder2ID relayPickupPoint:relayPickupPoint curTripPoint:curTripPoint option:nil completion:^(TNKCarRouteSearchResult * _Nonnull result, NSError * _Nullable error) {
-
-                __strong KCDriverSynchroViewController *strongself = weakself;
-                if (!strongself) {
-                    return;
-                }
-
-                if (!error) {
-
-                    // 上报接力单路线
-                    [strongself.driverManager uploadRelayRoute:result.routes.firstObject];
-                }
-            }];
-        });
-
-    }
+//    if (TLSBOrderStatusTrip == self.driverManager.orderStatus) {
+//
+//        // 2秒后接到接力单
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            // 收到接力单
+//
+//            //接力单接驾点
+//            TNKSearchNaviPoi *relayPickupPoint = [[TNKSearchNaviPoi alloc] init];
+//            relayPickupPoint.coordinate = kSynchroKCPassenger2Start;
+//
+//            // 当前订单终点
+//            TNKSearchNaviPoi *curTripPoint = [[TNKSearchNaviPoi alloc] init];
+//            curTripPoint.coordinate = kSynchroKCPassenger1End;
+//
+//            __weak typeof(self) weakself = self;
+//
+//            [self.driverManager setupRelayOrder:kSynchroKCOrder2ID relayPickupPoint:relayPickupPoint curTripPoint:curTripPoint option:nil completion:^(TNKCarRouteSearchResult * _Nonnull result, NSError * _Nullable error) {
+//
+//                __strong KCDriverSynchroViewController *strongself = weakself;
+//                if (!strongself) {
+//                    return;
+//                }
+//
+//                if (!error) {
+//
+//                    // 上报接力单路线
+//                    [strongself.driverManager uploadRelayRoute:result.routes.firstObject];
+//                }
+//            }];
+//        });
+//
+//    }
 }
 
 // 退出
@@ -677,6 +677,35 @@ OrderMenuViewDelegate
     
     //还没开启导航，需要开发者重新绘制送驾路线
     [self selectAndShowRoutePlan:routePlan];
+}
+
+/// 乘客修改送驾目的地回调. since 2.3.0. 如果当前正在导航，需要开发者调用TLSDriverManager修改目的地方法changeDestination:type:；如果当前还没开启导航，需要开发者重新进行路径规划。
+/// @param driverManager 司机manager
+/// @param endNaviPOI 新的目的地
+- (void)tlsDriverManager:(TLSDriverManager *)driverManager didPassengerChangeDestinaton:(TLSBNaviPOI *)endNaviPOI {
+    
+    [SVProgressHUD showInfoWithStatus:@"乘客发送了送驾修改目的地命令！"];
+
+    TNKSearchNaviPoi *naviPOI = [[TNKSearchNaviPoi alloc] init];
+    naviPOI.coordinate = endNaviPOI.coordinate;
+    naviPOI.uid = endNaviPOI.poiID;
+    
+    if (self.carNaviManager.isRunning) {
+        // 记录新的导航路线
+       
+        // 修改目的地
+        [self.driverManager changeDestination:naviPOI type:2];
+    } else {
+        
+        //还没开启导航，需要开发者重新路径规划
+        // 导航起点，司机当前位置
+        TNKSearchNaviPoi *startPOI = [[TNKSearchNaviPoi alloc] init];
+        startPOI.coordinate = self.carNaviView.naviMapView.userLocation.location.coordinate;
+        // 导航终点，乘客下车位置
+        
+        [self searchRouteAndStartNaviWithStart:startPOI end:naviPOI wayPoints:@[]];
+        
+    }
 }
 
 

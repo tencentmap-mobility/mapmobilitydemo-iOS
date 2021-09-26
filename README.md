@@ -18,7 +18,7 @@ https://tencentmap-mobility.github.io/
 
 `拉取代码之后，请将腾讯导航SDK+定位SDK放至mapmobilitydemo/Dependency/目录下，否则会编译错误！`
 
-1. 导航SDK下载地址: https://github.com/tencentmap-mobility/TencentNaviDemo_iOS/releases/tag/v5.3.0
+1. 导航SDK下载地址: https://github.com/tencentmap-mobility/TencentNaviDemo_iOS/releases/tag/v5.3.1.3
 2. 定位SDK下载地址: https://github.com/tencentmap-mobility/TencentNaviDemo_iOS/releases/tag/v5.2.7.11
 
 ### 腾讯地图SDK QMapKit.framework

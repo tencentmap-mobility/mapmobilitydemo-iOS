@@ -351,7 +351,7 @@
         // 记录新的导航路线
        
         // 有选中路线
-        [self.driverManager changeDestination:naviPOI type:2];
+        [self.driverManager changeOrderDestination:naviPOI type:2];
     } else {
         
         //还没开启导航，需要开发者重新路径规划

@@ -12,7 +12,7 @@
 #ifndef TencentMapLocusSynchroSDKVersion_h
 #define TencentMapLocusSynchroSDKVersion_h
 
-#define TencentMapLocusSynchroSDKVersionNumber    020301
+#define TencentMapLocusSynchroSDKVersionNumber    020400
 
 // SDK版本
 FOUNDATION_EXTERN NSString * const TencentMapLocusSynchroSDKVersion;

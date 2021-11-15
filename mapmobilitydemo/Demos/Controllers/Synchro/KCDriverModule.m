@@ -96,7 +96,11 @@
     [self.carNaviView.naviMapView removeOverlay:self.routePolyline];
 
     // 司乘同显路径规划接口，内部调用了导航SDK的路径规划服务
-    [self.driverManager searchTripCarRoutesWithStart:startPOI end:endPOI option:option completion:^(TNKCarRouteSearchResult * _Nonnull result, NSError * _Nullable error, TLSBChooseRouteInfo * _Nullable chooseRouteInfo) {
+    [self.driverManager searchTripCarRoutesWithStart:startPOI
+                                                 end:endPOI
+                                           wayPoints:nil
+                                              option:option
+                                          completion:^(TNKCarRouteSearchResult * _Nonnull result, NSError * _Nullable error, TLSBChooseRouteInfo * _Nullable chooseRouteInfo) {
        
         __strong KCDriverModule *strongself = weakself;
         if (!strongself) {

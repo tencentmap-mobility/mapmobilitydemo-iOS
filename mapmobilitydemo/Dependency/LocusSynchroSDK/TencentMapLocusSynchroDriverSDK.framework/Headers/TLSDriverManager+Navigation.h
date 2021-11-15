@@ -64,30 +64,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable) NSString *selectedRouteID;
 
 /**
- * @brief 快车和顺风车路线规划方法
+ * @brief 路线规划方法
  * @param start 起点信息
- * @param end 终点信息
+ * @param end 终点信息(可为空，即无司机终点。终点和途径点不可同时为空)
  * @param wayPoints 途经点信息
  * @param option 路线规划策略
  * @param callback 路线返回值
  */
 - (void)searchCarRoutesWithStart:(TNKSearchNaviPoi *)start
-                             end:(TNKSearchNaviPoi *)end
+                             end:(TNKSearchNaviPoi * _Nullable)end
                        wayPoints:(NSArray<TLSDWayPointInfo *> * _Nullable)wayPoints
                           option:(TNKCarRouteSearchOption * _Nullable)option
-                      completion:(void (^)(TNKCarRouteSearchResult *result, NSError * _Nullable error))callback;
-
-/**
- * @brief 拼车路线规划方法
- * @param start 起点信息
- * @param wayPoints 途经点信息
- * @param option 路线规划策略
- * @param callback 路线返回值
- */
-- (void)searchRideSharingCarRoutesWithStart:(TNKSearchNaviPoi *)start
-                                  wayPoints:(NSArray<TLSDWayPointInfo *> * _Nullable)wayPoints
-                                     option:(TNKCarRouteSearchOption * _Nullable)option
-                                 completion:(void (^)(TNKCarRouteSearchResult *result, NSError * _Nullable error))callback;
+                      completion:(void (^)(TNKCarRouteSearchResult *result,
+                                           NSError * _Nullable error))callback;
 
 
 /**
@@ -112,28 +101,33 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)arrivedPassengerEndPoint:(NSString *)pOrderID;
 
+
 /**
- * @brief 获取顺风车最优送驾顺序
+ * @brief 获取最优送驾顺序（无司机终点）
  * @param startPoint 起点坐标
- * @param endPoint 终点坐标
- * @param originalWayPoints 途经点坐标,个数不能超过10个！
+ * @param originalWayPoints 途经点坐标,个数不能超过16个！
+ * @param orderType 订单类型。可传顺风车类型或者拼车类型
  * @param completion 最优顺序回调
  */
 - (NSURLSessionTask *)requestBestSortedWayPointsWithStartPoint:(CLLocationCoordinate2D)startPoint
-                                                      endPoint:(CLLocationCoordinate2D)endPoint
                                                      wayPoints:(NSArray<TLSDWayPointInfo *> *)originalWayPoints
-                                                    completion:(void(^)(NSArray<TLSDWayPointInfo *> * _Nullable sortedWayPoints,
-                                                                        NSError * _Nullable error))completion;
+                                                     orderType:(TLSBOrderType)orderType
+                                                    completion:(void (^)(NSArray<TLSDWayPointInfo *> * _Nullable sortedWayPoints,
+                                                                         NSError * _Nullable error))completion;
 
 /**
- * @brief 获取拼车最优送驾顺序
+ * @brief 获取最优送驾顺序（带司机终点）
  * @param startPoint 起点坐标
- * @param originalWayPoints 途经点坐标,个数不能超过10个！
+ * @param originalWayPoints 途经点坐标,个数不能超过16个！
+ * @param endPoint 司机的终点坐标
+ * @param orderType 订单类型。可传顺风车类型或者拼车类型
  * @param completion 最优顺序回调
  */
-- (NSURLSessionTask *)requestRideSharingBestSortedWayPointsWithStartPoint:(CLLocationCoordinate2D)startPoint
-                                                                wayPoints:(NSArray<TLSDWayPointInfo *> *)originalWayPoints
-                                                               completion:(void (^)(NSArray<TLSDWayPointInfo *> * _Nullable sortedWayPoints,
+- (NSURLSessionTask *)requestBestSortedWayPointsWithStartPoint:(CLLocationCoordinate2D)startPoint
+                                                     wayPoints:(NSArray<TLSDWayPointInfo *> *)originalWayPoints
+                                                      endPoint:(CLLocationCoordinate2D)endPoint
+                                                     orderType:(TLSBOrderType)orderType
+                                                    completion:(void (^)(NSArray<TLSDWayPointInfo *> * _Nullable sortedWayPoints,
                                                                          NSError * _Nullable error))completion;
 
 /**
@@ -164,12 +158,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * @brief 快车送驾路线规划方法. since 2.2.0
  * @param start 起点信息
- * @param end 终点信息
+ * @param end 终点信息(可为空，即无司机终点。终点和途径点不可同时为空)
+ * @param wayPoints 途经点信息
  * @param option 路线规划策略
  * @param callback 路线返回值。chooseRouteInfo若有值，表示乘客选中了某条路线，开发者可以使用乘客选择的路线进行导航
  */
 - (void)searchTripCarRoutesWithStart:(TNKSearchNaviPoi *)start
-                                 end:(TNKSearchNaviPoi *)end
+                                 end:(TNKSearchNaviPoi * _Nullable)end
+                           wayPoints:(NSArray<TLSDWayPointInfo *> * _Nullable)wayPoints
                               option:(TNKCarRouteSearchOption * _Nullable)option
                           completion:(void (^)(TNKCarRouteSearchResult *result,
                                                NSError * _Nullable error,

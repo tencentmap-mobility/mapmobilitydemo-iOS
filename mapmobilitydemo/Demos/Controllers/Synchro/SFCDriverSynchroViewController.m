@@ -220,7 +220,11 @@
     [SVProgressHUD showWithStatus:@"请求接送驾最优顺序"];
     
     // 最优送驾顺序匹配
-    [self.driverManager requestBestSortedWayPointsWithStartPoint:startPOI.coordinate endPoint:endPOI.coordinate wayPoints:@[order1WayPointIn, order1WayPointOff, order2WayPointIn, order2WayPointOff] completion:^(NSArray<TLSDWayPointInfo *> * _Nullable sortedWayPoints, NSError * _Nullable error) {
+    [self.driverManager requestBestSortedWayPointsWithStartPoint:startPOI.coordinate
+                                                       wayPoints:@[order1WayPointIn, order1WayPointOff, order2WayPointIn, order2WayPointOff]
+                                                        endPoint:endPOI.coordinate
+                                                       orderType:TLSBOrderTypeHitchRide
+                                                      completion:^(NSArray<TLSDWayPointInfo *> * _Nullable sortedWayPoints, NSError * _Nullable error) {
        
         __strong SFCDriverSynchroViewController *strongself = weakself;
         if (!strongself) {

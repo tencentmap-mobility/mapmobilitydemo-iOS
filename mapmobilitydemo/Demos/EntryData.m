@@ -39,13 +39,11 @@
         [sectionArray addObject:section];
         
         {
-            [sectionArray addObject:section];
             Cell * cell = [[Cell alloc] init];
             cell.title = @"快车订单管理";
             cell.controllerClassName = @"KCOrderSyncViewController";
             [cellArray addObject:cell];
             
-            [sectionArray addObject:section];
             cell = [[Cell alloc] init];
             cell.title = @"司机端";
             cell.controllerClassName = @"KCDriverSynchroViewController";

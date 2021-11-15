@@ -175,7 +175,11 @@ QMapViewDelegate>
 
     [SVProgressHUD showWithStatus:@"请求接送驾最优顺序"];
     
-    [self.driverManager requestRideSharingBestSortedWayPointsWithStartPoint:startPOI.coordinate  wayPoints:@[order1WayPointIn, order1WayPointOff, order2WayPointIn, order2WayPointOff] completion:^(NSArray<TLSDWayPointInfo *> * _Nullable sortedWayPoints, NSError * _Nullable error) {
+   
+    [self.driverManager requestBestSortedWayPointsWithStartPoint:startPOI.coordinate
+                                                       wayPoints:@[order1WayPointIn, order1WayPointOff, order2WayPointIn, order2WayPointOff]
+                                                       orderType:TLSBOrderTypeRidesharing
+                                                      completion:^(NSArray<TLSDWayPointInfo *> * _Nullable sortedWayPoints, NSError * _Nullable error) {
         __strong PCDriverSynchroViewController *strongself = weakself;
         if (!strongself) {
             return ;
@@ -304,7 +308,10 @@ QMapViewDelegate>
                                           wayPoints:(NSArray<TLSDWayPointInfo *> * _Nullable)wayPoints {
     __weak typeof(self) weakself = self;
     
-    [self.driverManager searchRideSharingCarRoutesWithStart:startPOI wayPoints:wayPoints option:nil completion:^(TNKCarRouteSearchResult * _Nonnull result, NSError * _Nullable error) {
+    [self.driverManager searchCarRoutesWithStart:startPOI
+                                             end:nil
+                                       wayPoints:wayPoints option:nil
+                                      completion:^(TNKCarRouteSearchResult * _Nonnull result, NSError * _Nullable error) {
         __strong PCDriverSynchroViewController *strongself = weakself;
        if (!strongself) {
            return ;

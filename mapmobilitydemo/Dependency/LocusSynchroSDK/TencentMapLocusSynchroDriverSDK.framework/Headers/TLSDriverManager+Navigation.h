@@ -54,6 +54,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSArray<TNKWayPointMarkerPresentation *> *wayPointMarkerPresentations;
 
 /**
+ * @brief 定位额外信息, 导航过程中会将此字段进行上报. since 2.4.4
+ */
+@property (nonatomic, copy, nullable) NSString *extraInfo;
+
+/**
  * @brief 是否开启乘客选路功能
  */
 @property (nonatomic, assign) BOOL passengerChooseRouteEnable;

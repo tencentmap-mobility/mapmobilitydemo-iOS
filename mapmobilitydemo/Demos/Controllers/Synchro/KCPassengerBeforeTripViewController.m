@@ -362,6 +362,7 @@ TLSPassengerManagerDelegate>
     endPOI.coordinate = self.order.endPOI.coord;;
     
     TNKCarRouteSearchOption *option = [[TNKCarRouteSearchOption alloc] init];
+    // 送驾参数
     option.navScene = 2;
     
     // 路径规划

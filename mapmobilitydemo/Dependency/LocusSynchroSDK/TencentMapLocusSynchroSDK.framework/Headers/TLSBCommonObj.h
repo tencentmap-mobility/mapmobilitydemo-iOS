@@ -182,6 +182,11 @@ typedef NS_ENUM(NSInteger, TLSDDriverStatus) {
  */
 @property (nonatomic, copy, nullable) NSArray<TLSBWayPoint *> *wayPoints;
 
+/**
+ * @brief 吸附点的类型。0: 正常吸附；1:隧道惯性推导
+ */
+@property (nonatomic, assign) int mockType;
+
 @end
 
 #pragma mark - 路况信息
@@ -282,6 +287,8 @@ typedef NS_ENUM(NSInteger, TLSDDriverStatus) {
 @property (nonatomic, assign) int leftTrafficCount;
 
 @property (nonatomic, copy, nullable) NSArray<TLSBRouteSegment *> *routeSegments;
+
+@property (nonatomic, copy, nullable) NSString *sessionID;
 
 /**
  * @brief 数据是否有效

@@ -315,7 +315,11 @@ OrderMenuViewDelegate
     TNKSearchNaviPoi *endPOI = [[TNKSearchNaviPoi alloc] init];
     endPOI.coordinate = kSynchroKCPassenger1Start;
     
-    [self searchRouteAndStartNaviWithStart:startPOI end:endPOI wayPoints:@[]];
+    TNKCarRouteSearchOption *option = [[TNKCarRouteSearchOption alloc] init];
+    // 接驾参数
+    option.navScene = 1;
+    
+    [self searchRouteAndStartNaviWithStart:startPOI end:endPOI wayPoints:@[] option:option];
 }
 
 // 进行送驾路径规划
@@ -328,7 +332,11 @@ OrderMenuViewDelegate
     TNKSearchNaviPoi *endPOI = [[TNKSearchNaviPoi alloc] init];
     endPOI.coordinate = kSynchroKCPassenger1End;
     
-    [self searchRouteAndStartNaviWithStart:startPOI end:endPOI wayPoints:@[]];
+    TNKCarRouteSearchOption *option = [[TNKCarRouteSearchOption alloc] init];
+    // 送驾参数
+    option.navScene = 2;
+    
+    [self searchRouteAndStartNaviWithStart:startPOI end:endPOI wayPoints:@[]  option:option];
 }
 
 // 计算路线展示在地图上的视野
@@ -371,15 +379,17 @@ OrderMenuViewDelegate
 // 路径规划
 - (void)searchRouteAndStartNaviWithStart:(TNKSearchNaviPoi *)startPOI
                                      end:(TNKSearchNaviPoi *)endPOI
-                               wayPoints:(NSArray<TLSDWayPointInfo *> * _Nullable)wayPoints {
+                               wayPoints:(NSArray<TLSDWayPointInfo *> * _Nullable)wayPoints
+                                  option:(TNKCarRouteSearchOption * _Nullable)option {
     
     __weak typeof(self) weakself = self;
     
     // 移除当前路线
     [self.carNaviView.naviMapView removeOverlay:self.trafficLine];
 
+
     // 司乘同显路径规划接口，内部调用了导航SDK的路径规划服务
-    [self.driverManager searchCarRoutesWithStart:startPOI end:endPOI wayPoints:wayPoints option:nil completion:^(TNKCarRouteSearchResult * _Nonnull result, NSError * _Nullable error) {
+    [self.driverManager searchCarRoutesWithStart:startPOI end:endPOI wayPoints:wayPoints option:option completion:^(TNKCarRouteSearchResult * _Nonnull result, NSError * _Nullable error) {
        
         __strong KCDriverSynchroViewController *strongself = weakself;
         if (!strongself) {
@@ -703,7 +713,10 @@ OrderMenuViewDelegate
         startPOI.coordinate = self.carNaviView.naviMapView.userLocation.location.coordinate;
         // 导航终点，乘客下车位置
         
-        [self searchRouteAndStartNaviWithStart:startPOI end:naviPOI wayPoints:@[]];
+        TNKCarRouteSearchOption *option = [[TNKCarRouteSearchOption alloc] init];
+        // 送驾参数
+        option.navScene = 2;
+        [self searchRouteAndStartNaviWithStart:startPOI end:naviPOI wayPoints:@[] option:option];
         
     }
 }

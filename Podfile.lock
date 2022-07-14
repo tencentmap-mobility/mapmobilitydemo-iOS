@@ -1,10 +1,18 @@
 PODS:
   - SVProgressHUD (2.2.5)
-  - Tencent-MapSDK (4.4.1.1)
+  - Tencent-MapSDK (4.5.6.1):
+    - Tencent-MapSDK/QMapFoundation (= 4.5.6.1)
+    - Tencent-MapSDK/QMapKit (= 4.5.6.1)
+    - Tencent-MapSDK/QMapSDKUtils (= 4.5.6.1)
+    - Tencent-MapSDK/QMapVisualPlugin (= 4.5.6.1)
+  - Tencent-MapSDK/QMapFoundation (4.5.6.1)
+  - Tencent-MapSDK/QMapKit (4.5.6.1)
+  - Tencent-MapSDK/QMapSDKUtils (4.5.6.1)
+  - Tencent-MapSDK/QMapVisualPlugin (4.5.6.1)
 
 DEPENDENCIES:
   - SVProgressHUD
-  - Tencent-MapSDK
+  - Tencent-MapSDK (= 4.5.6.1)
 
 SPEC REPOS:
   trunk:
@@ -13,8 +21,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  Tencent-MapSDK: e76f04153880f0a9cab410c4e5083dbf9452781e
+  Tencent-MapSDK: 422396363187d83cd7c4e551087649440fa24e61
 
-PODFILE CHECKSUM: 41b51623e819f46c5e73ee11e7f66f9f073a0370
+PODFILE CHECKSUM: 524125c85d4e1e2cf356ee8f3b808e875d45b4de
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.11.3

@@ -23,8 +23,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    // 设置地图Key
     [QMapServices sharedServices].APIKey = kMapKey;
+    // 用户同意隐私接口，不设置为YES则不能正常使用地图。 隐私政策官网: https://lbs.qq.com/userAgreements/agreements/privacy
+    [[QMapServices sharedServices] setPrivacyAgreement:YES];
+    
+    // 设置导航Key
     [TNKNaviServices sharedServices].APIKey = kMapKey;
+    // 用户同意隐私接口，不设置为YES则不能正常使用地图。 隐私政策官网: https://lbs.qq.com/userAgreements/agreements/privacy
+    [[TNKNaviServices sharedServices] setPrivacyAgreement:YES];
+    
     [TMMServices sharedServices].apiKey = kMobilityKey;
     // 如果配置了secretKey需要设置secretKey
     [TMMServices sharedServices].secretKey = kMobilitySecretKey;
